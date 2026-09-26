@@ -60,6 +60,9 @@ h3{font-size:17px;font-weight:600}
 .pubs .t{font:500 17px/1.4 var(--serif)}
 .pubs .a,.pubs .v{font-size:14px;color:var(--muted)}
 .more{margin-top:8px;font-weight:500}
+.pubhead{margin:26px 0 12px;font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.confs{padding-left:22px;color:var(--ink)}
+.confs li{margin-bottom:8px;font-size:15px}
 
 .timeline .item{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:16px 0;border-bottom:1px dashed var(--line)}
 .when{color:var(--accent);font-weight:600;font-size:14px}
