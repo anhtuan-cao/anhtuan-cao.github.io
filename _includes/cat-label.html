@@ -1,0 +1,1 @@
+{% case include.cat %}{% when "practice" %}<span class="l-en">Practice</span><span class="l-vi">Thực tiễn thi công</span>{% when "research" %}<span class="l-en">Research notes</span><span class="l-vi">Ghi chép nghiên cứu</span>{% when "resources" %}<span class="l-en">Resources</span><span class="l-vi">Tài liệu</span>{% when "cafe" %}Café{% else %}{{ include.cat }}{% endcase %}

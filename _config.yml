@@ -1,0 +1,37 @@
+# ==========================================================
+#  anhtuancao.com — cấu hình Jekyll (GitHub Pages tự build)
+#  Thường KHÔNG cần sửa file này.
+# ==========================================================
+title: "Anh Tuan Cao"
+tagline: "From Site to Sensor"
+description: "Civil & structural engineer — structural dynamics, SHM, digital twins, and real-world construction engineering."
+url: "https://anhtuancao.com"
+baseurl: ""
+lang: vi
+timezone: Asia/Ho_Chi_Minh
+
+author:
+  name: "Anh Tuan Cao"
+  email: "anhtuan.hcmut@gmail.com"
+  linkedin: "https://www.linkedin.com/in/tuan-cao-anh-35a300174/"
+  scholar: "https://scholar.google.com/citations?user=TODDZTkAAAAJ"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Đường dẫn bài viết: /practice/ten-bai-viet/
+permalink: /:categories/:title/
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+
+exclude:
+  - HUONG-DAN.md
+  - HUONG-DAN-VIET-BAI.md
+  - "Thong tin bo sung"
+  - .tmp
+  - README.md
+  - _templates

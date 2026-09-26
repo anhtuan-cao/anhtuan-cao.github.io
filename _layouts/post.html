@@ -1,0 +1,46 @@
+---
+layout: default
+---
+{% assign c = page.categories | first %}
+<article class="post">
+  <header class="post-head wrap narrow">
+    <a class="crumb" href="/{{ c }}/">← {% include cat-label.html cat=c %}</a>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+    <p class="post-meta">
+      {{ page.date | date: "%d/%m/%Y" }}{% if page.read_time %} · {{ page.read_time }} <span class="l-en">min read</span><span class="l-vi">phút đọc</span>{% endif %}
+      {% assign _n = page.tags | size %}{% if _n > 0 %}<span class="tags">{% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}</span>{% endif %}
+    </p>
+  </header>
+
+  {% if page.cover %}<figure class="post-cover wrap narrow"><img src="{{ page.cover }}" alt="{{ page.title | escape }}"></figure>{% endif %}
+
+  <div class="post-body wrap narrow">
+    {{ content }}
+
+    {% if c == "practice" %}
+    <p class="disclaimer">
+      <span class="l-vi">Nội dung thể hiện kinh nghiệm và quan điểm cá nhân, được khái quát hóa và không đại diện cho bất kỳ công ty, chủ đầu tư hay dự án cụ thể nào.</span>
+      <span class="l-en">This article reflects personal experience and opinion, generalised for sharing; it does not represent any specific company, client or project.</span>
+    </p>
+    {% endif %}
+  </div>
+
+  <footer class="post-foot wrap narrow">
+    <div class="author-box">
+      <img src="/assets/avatar.jpg" alt="Anh Tuan Cao">
+      <div>
+        <b>Anh Tuan Cao</b>
+        <p><span class="l-en">Construction method design engineer and structural dynamics researcher. Writing about the bridge between construction sites and structural health monitoring.</span><span class="l-vi">Kỹ sư thiết kế biện pháp thi công và nghiên cứu động lực học kết cấu. Viết về cây cầu nối giữa công trường và quan trắc sức khỏe công trình.</span></p>
+      </div>
+    </div>
+
+    {% assign related = site.categories[c] %}
+    {% assign _n = related | size %}{% if _n > 1 %}
+    <h3 class="sub"><span class="l-en">More in this section</span><span class="l-vi">Bài viết cùng chuyên mục</span></h3>
+    <div class="pgrid">
+      {% for p in related limit: 4 %}{% if p.url != page.url %}{% include post-card.html post=p %}{% endif %}{% endfor %}
+    </div>
+    {% endif %}
+  </footer>
+</article>

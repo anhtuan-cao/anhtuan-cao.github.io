@@ -1,0 +1,39 @@
+---
+layout: page
+title: "Resources"
+title_en: "Resources for engineers"
+title_vi: "Tài liệu cho kỹ sư"
+kicker_en: "Resources"
+kicker_vi: "Tài liệu"
+lead_en: "Formulas, checklists, calculation templates and a trilingual glossary — the things I wish I had on my first day on site."
+lead_vi: "Công thức, checklist, bảng tính mẫu và thuật ngữ ba thứ tiếng — những thứ tôi ước mình có từ ngày đầu ra công trường."
+subnav:
+  - { id: formula, en: "Formulas", vi: "Công thức" }
+  - { id: templates, en: "Checklists & templates", vi: "Checklist & bảng tính" }
+  - { id: glossary, en: "Glossary", vi: "Thuật ngữ" }
+---
+{% assign all = site.categories.resources %}
+
+<section id="formula" class="wrap topic">
+  <h3 class="t"><span class="l-en">Formulas</span><span class="l-vi">Công thức hay dùng</span></h3>
+  <p><span class="l-en">Earth pressure, formwork pressure, strut and waler checks — with worked examples.</span><span class="l-vi">Áp lực đất, áp lực bê tông lên cốp pha, kiểm tra thanh chống và dầm biên — kèm ví dụ tính.</span></p>
+  {% assign items = all | where: "topic", "formula" %}
+  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Bộ công thức áp lực đất và áp lực cốp pha kèm ví dụ." text_en="Earth-pressure and formwork-pressure formulas with examples." %}{% endif %}
+</section>
+
+<section id="templates" class="wrap topic">
+  <h3 class="t"><span class="l-en">Checklists &amp; templates</span><span class="l-vi">Checklist &amp; bảng tính mẫu</span></h3>
+  <p><span class="l-en">Pre-excavation checklist, monitoring plan template, method statement outline.</span><span class="l-vi">Checklist trước khi đào, mẫu đề cương quan trắc, khung thuyết minh biện pháp thi công.</span></p>
+  {% assign items = all | where: "topic", "templates" %}
+  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Checklist và bảng tính mẫu có thể tải về." text_en="Downloadable checklists and templates." %}{% endif %}
+</section>
+
+<section id="glossary" class="wrap topic">
+  <h3 class="t"><span class="l-en">VI–EN–KO glossary</span><span class="l-vi">Thuật ngữ Việt–Anh–Hàn</span></h3>
+  <p><span class="l-en">Construction terms in three languages, for engineers working with international teams.</span><span class="l-vi">Thuật ngữ xây dựng ba thứ tiếng, cho kỹ sư làm việc với đối tác quốc tế.</span></p>
+  {% assign items = all | where: "topic", "glossary" %}
+  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Đang biên soạn." text_en="In preparation." %}{% endif %}
+</section>

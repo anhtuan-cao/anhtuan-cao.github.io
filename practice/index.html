@@ -1,0 +1,57 @@
+---
+layout: page
+title: "Practice"
+title_en: "Practice — lessons from construction sites"
+title_vi: "Thực tiễn thi công"
+kicker_en: "From the site"
+kicker_vi: "Từ công trường"
+lead_en: "Basements, deep excavations and temporary works — what the drawings don't tell you, and where research could help."
+lead_vi: "Tầng hầm, hố đào sâu và kết cấu tạm — những điều bản vẽ không nói hết, và nơi nghiên cứu có thể giúp ích."
+subnav:
+  - { id: basement, en: "Basements & excavation", vi: "Tầng hầm & hố đào" }
+  - { id: temporary, en: "Temporary works", vi: "Kết cấu tạm" }
+  - { id: lessons, en: "Lessons from site", vi: "Bài học công trường" }
+  - { id: all, en: "All articles", vi: "Tất cả bài viết" }
+---
+<section class="wrap section">
+  <div class="sec-head"><div><h2><span class="l-en">How each case study is written</span><span class="l-vi">Mỗi bài chia sẻ được viết theo khung</span></h2>
+  <p><span class="l-en">Same structure every time, so you can jump to what you need.</span><span class="l-vi">Cùng một cấu trúc để bạn đọc nhanh đúng phần mình cần.</span></p></div></div>
+  <div class="cards">
+    <article class="card"><p class="meta">1 · 2</p><h3><span class="l-en">Context &amp; challenge</span><span class="l-vi">Bối cảnh &amp; thách thức</span></h3><p><span class="l-en">Project type, ground conditions, constraints (anonymised).</span><span class="l-vi">Loại công trình, địa chất, ràng buộc mặt bằng (đã ẩn danh).</span></p></article>
+    <article class="card"><p class="meta">3 · 4</p><h3><span class="l-en">Solution &amp; checks</span><span class="l-vi">Giải pháp &amp; kiểm tra</span></h3><p><span class="l-en">The method chosen, key calculations and the tools used.</span><span class="l-vi">Biện pháp lựa chọn, tính toán chính và công cụ sử dụng.</span></p></article>
+    <article class="card"><p class="meta">5 · 6</p><h3><span class="l-en">Monitoring &amp; lessons</span><span class="l-vi">Quan trắc &amp; bài học</span></h3><p><span class="l-en">What was measured, how it compared with predictions, what we learned.</span><span class="l-vi">Đo gì, so với dự báo ra sao, rút ra điều gì.</span></p></article>
+    <article class="card" style="border-top-color:var(--gold)"><p class="meta">7</p><h3><span class="l-en">Research angle</span><span class="l-vi">Góc nghiên cứu</span></h3><p><span class="l-en">How SHM, digital twins or AI could solve the same problem better.</span><span class="l-vi">SHM, bản sao số hay AI có thể giải bài toán đó tốt hơn thế nào.</span></p></article>
+  </div>
+</section>
+
+{% assign all = site.categories.practice %}
+
+<section id="basement" class="wrap topic">
+  <h3 class="t"><span class="l-en">Basements &amp; deep excavation</span><span class="l-vi">Tầng hầm &amp; hố đào sâu</span></h3>
+  <p><span class="l-en">Top-down vs bottom-up, diaphragm walls, king posts, strutting, dewatering and monitoring.</span><span class="l-vi">Top-down và Bottom-up, tường vây, kingpost, hệ chống, hạ mực nước ngầm và quan trắc.</span></p>
+  {% assign items = all | where: "topic", "basement" %}
+  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Các bài về biện pháp thi công tầng hầm đang được biên soạn." text_en="Articles on basement construction are being prepared." %}{% endif %}
+</section>
+
+<section id="temporary" class="wrap topic">
+  <h3 class="t"><span class="l-en">Temporary works</span><span class="l-vi">Kết cấu tạm</span></h3>
+  <p><span class="l-en">Formwork, falsework, shoring and propping — designed to be removed, but never to fail.</span><span class="l-vi">Cốp pha, giàn giáo, hệ chống tạm — làm ra để tháo đi, nhưng không bao giờ được phép sập.</span></p>
+  {% assign items = all | where: "topic", "temporary" %}
+  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Thiết kế hệ chống tạm hố đào, cốp pha sàn chuyển, giàn giáo bao che…" text_en="Excavation propping, transfer-slab formwork, scaffolding…" %}{% endif %}
+</section>
+
+<section id="lessons" class="wrap topic">
+  <h3 class="t"><span class="l-en">Lessons from site</span><span class="l-vi">Bài học công trường</span></h3>
+  <p><span class="l-en">Short notes on problems we met and how they were solved.</span><span class="l-vi">Ghi chép ngắn về sự cố gặp phải và cách xử lý.</span></p>
+  {% assign items = all | where: "topic", "lessons" %}
+  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Thấm nước tường vây, lún nền nhà lân cận, sai lệch kingpost…" text_en="Diaphragm-wall leakage, neighbour settlement, king-post deviation…" %}{% endif %}
+</section>
+
+<section id="all" class="wrap section">
+  <div class="sec-head"><h2><span class="l-en">All site articles</span><span class="l-vi">Tất cả bài viết thi công</span></h2></div>
+  {% assign _n = all | size %}{% if _n > 0 %}<div class="pgrid">{% for p in all %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Chưa có bài viết." text_en="No articles yet." %}{% endif %}
+</section>

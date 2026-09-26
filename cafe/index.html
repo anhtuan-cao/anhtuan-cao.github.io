@@ -1,0 +1,39 @@
+---
+layout: page
+title: "Café"
+title_en: "Café"
+title_vi: "Café"
+kicker_en: "Life beyond the drawings"
+kicker_vi: "Ngoài bản vẽ"
+lead_en: "Events, books, life in Korea and Vietnam, and notes from the road to a PhD."
+lead_vi: "Sự kiện, sách hay, cuộc sống ở Hàn Quốc và Việt Nam, và ghi chép trên hành trình đến với bậc Tiến sĩ."
+subnav:
+  - { id: events, en: "Events", vi: "Sự kiện" }
+  - { id: reading, en: "Reading notes", vi: "Góc đọc" }
+  - { id: journey, en: "PhD journey", vi: "Hành trình PhD" }
+---
+{% assign all = site.categories.cafe %}
+
+<section id="events" class="wrap topic">
+  <h3 class="t"><span class="l-en">Events</span><span class="l-vi">Sự kiện</span></h3>
+  <p><span class="l-en">Conferences, seminars, site visits and gatherings.</span><span class="l-vi">Hội nghị, hội thảo, tham quan công trình và gặp gỡ.</span></p>
+  {% assign items = all | where: "topic", "events" %}
+  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Ảnh và ghi chép từ các sự kiện." text_en="Photos and notes from events." %}{% endif %}
+</section>
+
+<section id="reading" class="wrap topic">
+  <h3 class="t"><span class="l-en">Reading notes</span><span class="l-vi">Góc đọc</span></h3>
+  <p><span class="l-en">Books and papers worth your time.</span><span class="l-vi">Sách và bài báo đáng đọc.</span></p>
+  {% assign items = all | where: "topic", "reading" %}
+  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Ghi chép đọc sách sắp ra mắt." text_en="Reading notes coming soon." %}{% endif %}
+</section>
+
+<section id="journey" class="wrap topic">
+  <h3 class="t"><span class="l-en">PhD journey</span><span class="l-vi">Hành trình PhD</span></h3>
+  <p><span class="l-en">From the construction site back to the lab — applications, preparation and lessons.</span><span class="l-vi">Từ công trường trở lại phòng nghiên cứu — hồ sơ, chuẩn bị và những bài học.</span></p>
+  {% assign items = all | where: "topic", "journey" %}
+  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% else %}{% include coming-soon.html text_vi="Nhật ký hành trình sắp ra mắt." text_en="Journey notes coming soon." %}{% endif %}
+</section>

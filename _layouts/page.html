@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<section class="page-head">
+  <div class="wrap">
+    {% if page.kicker_en %}<p class="eyebrow"><span class="l-en">{{ page.kicker_en }}</span><span class="l-vi">{{ page.kicker_vi }}</span></p>{% endif %}
+    <h1><span class="l-en">{{ page.title_en }}</span><span class="l-vi">{{ page.title_vi }}</span></h1>
+    {% if page.lead_en %}<p class="lead"><span class="l-en">{{ page.lead_en }}</span><span class="l-vi">{{ page.lead_vi }}</span></p>{% endif %}
+    {% if page.subnav %}
+    <nav class="subnav">
+      {% for s in page.subnav %}<a href="#{{ s.id }}"><span class="l-en">{{ s.en }}</span><span class="l-vi">{{ s.vi }}</span></a>{% endfor %}
+    </nav>
+    {% endif %}
+  </div>
+</section>
+{{ content }}
