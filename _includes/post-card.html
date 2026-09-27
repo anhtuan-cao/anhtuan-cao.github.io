@@ -1,7 +1,7 @@
 {% assign p = include.post %}{% assign c = p.categories | first %}
 <a class="pcard" href="{{ p.url }}">
   <span class="pcard-cat cat-{{ c }}">{% include cat-label.html cat=c %}</span>
-  <h3>{{ p.title }}</h3>
-  {% if p.description %}<p>{{ p.description }}</p>{% endif %}
+  <h3><span class="l-vi">{{ p.title }}</span><span class="l-en">{{ p.title_en | default: p.title }}</span></h3>
+  {% if p.description %}<p><span class="l-vi">{{ p.description }}</span><span class="l-en">{{ p.description_en | default: p.description }}</span></p>{% endif %}
   <span class="pcard-meta">{{ p.date | date: "%d/%m/%Y" }}{% if p.read_time %} · {{ p.read_time }} <span class="l-en">min read</span><span class="l-vi">phút đọc</span>{% endif %}</span>
 </a>

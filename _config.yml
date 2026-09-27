@@ -32,6 +32,8 @@ exclude:
   - HUONG-DAN.md
   - HUONG-DAN-VIET-BAI.md
   - "Thong tin bo sung"
+  - "00 Noi dung gui Claude"
+  - "UPLOAD LEN GITHUB"
   - .tmp
   - README.md
   - _templates

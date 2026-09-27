@@ -110,9 +110,10 @@ layout: default
     {% if featured %}
     <a class="feature" href="{{ featured.url }}">
       <div>
+        {% if featured.cover %}<img class="fimg" src="{{ featured.cover }}" alt="">{% endif %}
         <span class="k"><span class="l-en">Featured case study</span><span class="l-vi">Bài nổi bật</span></span>
-        <h3>{{ featured.title }}</h3>
-        <p>{{ featured.description }}</p>
+        <h3><span class="l-vi">{{ featured.title }}</span><span class="l-en">{{ featured.title_en | default: featured.title }}</span></h3>
+        <p><span class="l-vi">{{ featured.description }}</span><span class="l-en">{{ featured.description_en | default: featured.description }}</span></p>
       </div>
       <span class="go"><span class="l-en">Read the article →</span><span class="l-vi">Đọc bài viết →</span></span>
     </a>
@@ -121,7 +122,7 @@ layout: default
       {% for p in site.posts limit: 6 %}{% assign c = p.categories | first %}
       <a href="{{ p.url }}">
         <span class="d"><b>{{ p.date | date: "%d" }}</b>{{ p.date | date: "%m/%Y" }}</span>
-        <h4>{{ p.title }}</h4>
+        <h4><span class="l-vi">{{ p.title }}</span><span class="l-en">{{ p.title_en | default: p.title }}</span></h4>
         <small>{% include cat-label.html cat=c %}</small>
       </a>
       {% endfor %}

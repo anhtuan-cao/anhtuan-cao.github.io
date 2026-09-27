@@ -5,15 +5,15 @@ layout: default
 <article class="post">
   <header class="post-head wrap narrow">
     <a class="crumb" href="/{{ c }}/">← {% include cat-label.html cat=c %}</a>
-    <h1>{{ page.title }}</h1>
-    {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+    <h1><span class="l-vi">{{ page.title }}</span><span class="l-en">{{ page.title_en | default: page.title }}</span></h1>
+    {% if page.description %}<p class="lead"><span class="l-vi">{{ page.description }}</span><span class="l-en">{{ page.description_en | default: page.description }}</span></p>{% endif %}
     <p class="post-meta">
       {{ page.date | date: "%d/%m/%Y" }}{% if page.read_time %} · {{ page.read_time }} <span class="l-en">min read</span><span class="l-vi">phút đọc</span>{% endif %}
       {% assign _n = page.tags | size %}{% if _n > 0 %}<span class="tags">{% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}</span>{% endif %}
     </p>
   </header>
 
-  {% if page.cover %}<figure class="post-cover wrap narrow"><img src="{{ page.cover }}" alt="{{ page.title | escape }}"></figure>{% endif %}
+  {% if page.cover %}<figure class="post-cover wrap narrow"><img src="{{ page.cover }}" alt=""></figure>{% endif %}
 
   <div class="post-body wrap narrow">
     {{ content }}

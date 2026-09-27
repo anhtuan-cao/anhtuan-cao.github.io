@@ -13,9 +13,8 @@
   }
   apply(lang === 'vi' ? 'vi' : 'en');
 
-  var btn = document.getElementById('langBtn');
-  if (btn) btn.addEventListener('click', function () {
-    apply(root.getAttribute('data-lang') === 'en' ? 'vi' : 'en');
+  document.querySelectorAll('.lang-opt').forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-l')); });
   });
 
   // Mobile menu
