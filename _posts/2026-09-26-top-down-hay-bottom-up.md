@@ -5,7 +5,7 @@ categories: practice
 topic: basement
 tags: [tầng hầm, top-down, bottom-up, tường vây, quan trắc]
 read_time: 8
-featured: true
+featured: false
 ---
 
 Với các công trình nhà cao tầng trong đô thị, phần ngầm thường là giai đoạn **rủi ro nhất** của cả dự án: đào sâu trong nền đất yếu, sát nhà dân, dưới mực nước ngầm. Câu hỏi đầu tiên mà kỹ sư biện pháp phải trả lời là: *thi công từ dưới lên (Bottom-up) hay từ trên xuống (Top-down)?*
