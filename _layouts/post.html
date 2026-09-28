@@ -4,7 +4,9 @@ layout: default
 {% assign c = page.categories | first %}
 <article class="post">
   <header class="post-head wrap narrow">
-    <a class="crumb" href="/{{ c }}/">← {% include cat-label.html cat=c %}</a>
+    {% if page.series == "van-hoa" %}<a class="crumb" href="/cafe/#culture">← <span class="l-vi">Câu chuyện văn hóa</span><span class="l-en">Culture stories</span></a>
+    <p class="series-chip"><span class="l-vi">Câu chuyện văn hóa</span><span class="l-en">Culture stories</span> · <b>#{{ page.series_no | prepend: "0" | slice: -2, 2 }}</b> / 26</p>
+    {% else %}<a class="crumb" href="/{{ c }}/">← {% include cat-label.html cat=c %}</a>{% endif %}
     <h1><span class="l-vi">{{ page.title }}</span><span class="l-en">{{ page.title_en | default: page.title }}</span></h1>
     {% if page.description %}<p class="lead"><span class="l-vi">{{ page.description }}</span><span class="l-en">{{ page.description_en | default: page.description }}</span></p>{% endif %}
     <p class="post-meta">
@@ -35,12 +37,22 @@ layout: default
       </div>
     </div>
 
+    {% if page.series == "van-hoa" %}
+    {% assign ser = site.posts | where: "series", "van-hoa" | sort: "series_no" %}
+    {% assign prev_no = page.series_no | minus: 1 %}{% assign next_no = page.series_no | plus: 1 %}
+    <nav class="series-nav">
+      {% for p in ser %}{% if p.series_no == prev_no %}<a class="sn prev" href="{{ p.url }}"><small><span class="l-vi">← Kỳ trước</span><span class="l-en">← Previous</span></small><b><span class="l-vi">{{ p.title }}</span><span class="l-en">{{ p.title_en }}</span></b></a>{% endif %}{% endfor %}
+      <a class="sn all" href="/cafe/#culture"><small><span class="l-vi">Cả loạt</span><span class="l-en">Full series</span></small><b><span class="l-vi">26 câu chuyện văn hóa</span><span class="l-en">26 culture stories</span></b></a>
+      {% for p in ser %}{% if p.series_no == next_no %}<a class="sn next" href="{{ p.url }}"><small><span class="l-vi">Kỳ tiếp →</span><span class="l-en">Next →</span></small><b><span class="l-vi">{{ p.title }}</span><span class="l-en">{{ p.title_en }}</span></b></a>{% endif %}{% endfor %}
+    </nav>
+    {% else %}
     {% assign related = site.categories[c] %}
     {% assign _n = related | size %}{% if _n > 1 %}
     <h3 class="sub"><span class="l-en">More in this section</span><span class="l-vi">Bài viết cùng chuyên mục</span></h3>
     <div class="pgrid">
       {% for p in related limit: 4 %}{% if p.url != page.url %}{% include post-card.html post=p %}{% endif %}{% endfor %}
     </div>
+    {% endif %}
     {% endif %}
   </footer>
 </article>

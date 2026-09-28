@@ -1,0 +1,9 @@
+{% assign p = include.post %}
+<a class="story-card" href="{{ p.url }}">
+  <img src="{{ p.cover }}" alt="" loading="lazy">
+  <div class="sc-body">
+    <span class="sc-no">#{{ p.series_no | prepend: "0" | slice: -2, 2 }}</span>
+    <h3><span class="l-vi">{{ p.title }}</span><span class="l-en">{{ p.title_en | default: p.title }}</span></h3>
+    <p><span class="l-vi">{{ p.description }}</span><span class="l-en">{{ p.description_en | default: p.description }}</span></p>
+  </div>
+</a>
