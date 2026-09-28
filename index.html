@@ -1,7 +1,9 @@
 ---
 layout: default
+body_class: home
 ---
 <!-- ============ HERO ============ -->
+<div class="hero-band">
 <section class="hero wrap">
   <div>
     <p class="eyebrow"><span class="l-en">Structural engineer · Researcher · Construction practitioner</span><span class="l-vi">Kỹ sư kết cấu · Nghiên cứu viên · Người làm thi công</span></p>
@@ -19,6 +21,7 @@ layout: default
   </div>
   <div class="hero-photo"><img src="/assets/avatar.jpg" alt="Anh Tuan Cao"></div>
 </section>
+</div>
 
 <div class="wrap stats-wrap">
   <section class="stats">
@@ -30,6 +33,7 @@ layout: default
 </div>
 
 <!-- ============ BRIDGE ============ -->
+<div class="band band-sky">
 <section class="wrap section">
   <div class="sec-head">
     <div>
@@ -60,6 +64,7 @@ layout: default
   </div>
   <p class="bridge-note"><span class="l-en">Every site article ends with a <b>Research angle</b> — how monitoring, data and AI could solve the same problem better.</span><span class="l-vi">Mỗi bài chia sẻ thi công đều kết thúc bằng mục <b>Góc nghiên cứu</b> — quan trắc, dữ liệu và AI có thể giải bài toán đó tốt hơn như thế nào.</span></p>
 </section>
+</div>
 
 <!-- ============ SECTIONS ============ -->
 <section class="wrap section">
@@ -94,12 +99,13 @@ layout: default
     <a class="scard" href="/cafe/">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 11h2a2 2 0 0 1 0 4h-2M8 3v3M12 3v3"/></svg></div>
       <h3>Café</h3>
-      <p><span class="l-en">Events, reading notes and the PhD journey.</span><span class="l-vi">Sự kiện, góc đọc và hành trình PhD.</span></p>
+      <p><span class="l-en">26 culture stories, events, reading notes and the PhD journey.</span><span class="l-vi">26 câu chuyện văn hóa, sự kiện, góc đọc và hành trình PhD.</span></p>
     </a>
   </div>
 </section>
 
 <!-- ============ BOARD ============ -->
+<div class="band band-cream">
 <section class="wrap section">
   <div class="sec-head">
     <div><h2><span class="l-en">Latest</span><span class="l-vi">Bài viết mới</span></h2></div>
@@ -119,7 +125,7 @@ layout: default
     </a>
     {% endif %}
     <div class="latest">
-      {% for p in site.posts limit: 6 %}{% assign c = p.categories | first %}
+      {% assign _k = 0 %}{% for p in site.posts %}{% if p.series == "van-hoa" %}{% continue %}{% endif %}{% if _k >= 6 %}{% break %}{% endif %}{% assign _k = _k | plus: 1 %}{% assign c = p.categories | first %}
       <a href="{{ p.url }}">
         <span class="d"><b>{{ p.date | date: "%d" }}</b>{{ p.date | date: "%m/%Y" }}</span>
         <h4><span class="l-vi">{{ p.title }}</span><span class="l-en">{{ p.title_en | default: p.title }}</span></h4>
@@ -129,3 +135,4 @@ layout: default
     </div>
   </div>
 </section>
+</div>

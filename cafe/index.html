@@ -5,14 +5,27 @@ title_en: "Café"
 title_vi: "Café"
 kicker_en: "Life beyond the drawings"
 kicker_vi: "Ngoài bản vẽ"
-lead_en: "Events, books, life in Korea and Vietnam, and notes from the road to a PhD."
-lead_vi: "Sự kiện, sách hay, cuộc sống ở Hàn Quốc và Việt Nam, và ghi chép trên hành trình đến với bậc Tiến sĩ."
+lead_en: "Culture stories, events, books, life in Korea and Vietnam, and notes from the road to a PhD."
+lead_vi: "Câu chuyện văn hóa, sự kiện, sách hay, cuộc sống ở Hàn Quốc và Việt Nam, và ghi chép trên hành trình đến với bậc Tiến sĩ."
 subnav:
+  - { id: culture, en: "Culture stories", vi: "Câu chuyện văn hóa" }
   - { id: events, en: "Events", vi: "Sự kiện" }
   - { id: reading, en: "Reading notes", vi: "Góc đọc" }
   - { id: journey, en: "PhD journey", vi: "Hành trình PhD" }
 ---
 {% assign all = site.categories.cafe %}
+
+<section id="culture" class="wrap topic">
+  <div class="series-intro">
+    <div>
+      <p class="eyebrow"><span class="l-vi">Loạt bài · 26 kỳ</span><span class="l-en">Series · 26 parts</span></p>
+      <h3 class="t"><span class="l-vi">Câu chuyện văn hóa</span><span class="l-en">Culture stories</span></h3>
+      <p><span class="l-vi">Những ghi chép ngắn về văn hóa làm việc và cách sống: đúng giờ, lắng nghe, chủ động, học hỏi, sống có trách nhiệm. Mỗi kỳ đọc trong khoảng hai phút, kết thúc bằng một việc nhỏ để thử ngay trong tuần.</span><span class="l-en">Short notes on work culture and how we live: punctuality, listening, initiative, learning, responsibility. Each part takes about two minutes to read and ends with one small thing to try this week.</span></p>
+    </div>
+  </div>
+  {% assign ser = all | where: "series", "van-hoa" | sort: "series_no" %}
+  <div class="story-grid">{% for p in ser %}{% include story-card.html post=p %}{% endfor %}</div>
+</section>
 
 <section id="events" class="wrap topic">
   <h3 class="t"><span class="l-en">Events</span><span class="l-vi">Sự kiện</span></h3>
