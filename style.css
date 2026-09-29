@@ -484,3 +484,12 @@ body.home .foot{margin-top:0}
 .tool-back{margin-top:8px;font-weight:600}
 @media (max-width:960px){.tool-cards{grid-template-columns:1fr 1fr}.tool-intro,.tool-grid{grid-template-columns:1fr}.tool-res{position:static}}
 @media (max-width:760px){.tool-cards{grid-template-columns:1fr}.roadmap ul{grid-template-columns:1fr}.fld{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.calc-tbl .sym{width:auto}}
+.bigres{background:var(--navy);color:#fff;border-radius:12px;padding:14px 16px;margin-bottom:10px;display:flex;flex-direction:column;border-left:5px solid var(--orange)}
+.bigres small{font-size:12.5px;opacity:.8}.bigres b{font:700 42px/1.1 var(--serif)}.bigres span{font-size:14px;opacity:.9}
+.fld .in input + em + input{border-left:1px solid var(--line)}
+.elong{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+.elong th{background:var(--navy);color:#fff;padding:6px 8px;font-weight:600;text-align:right}.elong th:first-child{text-align:left}
+.elong td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}.elong td:first-child{text-align:left;font-weight:600}
+.tool-intro > *,.tool-grid > *{min-width:0}
+.tool-detail{overflow-x:auto}
+@media (max-width:760px){.calc-tbl{font-size:13px}.calc-tbl td{padding:6px 5px}.formula{font-size:16px;white-space:normal}}

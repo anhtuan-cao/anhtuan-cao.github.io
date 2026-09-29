@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><pattern id="soil" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#f3ead9"/><circle cx="3" cy="4" r="1.1" fill="#c9b48a"/><circle cx="10" cy="10" r="1.1" fill="#c9b48a"/></pattern>
+<marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ee5a24"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<rect x="150" y="50" width="610" height="360" fill="url(#soil)"/>
+<rect x="0" y="50" width="150" height="360" fill="#fff"/>
+<rect x="140" y="30" width="16" height="380" fill="#1d2a5b"/>
+<!-- neo -->
+<g transform="rotate(25 156 110)">
+<path d="M156 110H420" stroke="#3b56a8" stroke-width="4"/>
+<rect x="420" y="98" width="260" height="24" rx="12" fill="#9aa7c4" stroke="#1d2a5b" stroke-width="1.5"/>
+<path d="M420 110H680" stroke="#1d2a5b" stroke-width="3"/>
+<path d="M156 90V130" stroke="#1d2a5b" stroke-width="3"/>
+<text x="290" y="96" text-anchor="middle" font-size="15" font-weight="700" fill="#3b56a8">L<tspan baseline-shift="sub" font-size="70%">a</tspan></text>
+<text x="550" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2a5b">L<tspan baseline-shift="sub" font-size="70%">s</tspan></text>
+</g>
+<rect x="118" y="96" width="22" height="28" fill="#ee5a24"/>
+<path d="M112 110H40" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/><text x="50" y="100" font-size="15" font-weight="700" fill="#ee5a24">P</text>
+<text x="20" y="140" font-size="12" fill="#5a6482">đầu neo</text><text x="20" y="155" font-size="12" fill="#5a6482">anchor head</text>
+<text x="200" y="210" font-size="15" font-weight="700" fill="#1d2a5b">θ</text>
+<path d="M156 110 H250" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="560" y="380" font-size="13" fill="#5a6482">q<tspan baseline-shift="sub" font-size="70%">s</tspan> · D<tspan baseline-shift="sub" font-size="70%">s</tspan> = α·D</text>
+</svg>

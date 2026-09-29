@@ -1,0 +1,110 @@
+---
+layout: page
+title: "Tính toán neo trong đất (ground anchor)"
+title_vi: "Neo trong đất"
+title_en: "Ground anchors"
+kicker_vi: "Công cụ tính online · Hố đào sâu"
+kicker_en: "Online calculator · Deep excavation"
+lead_vi: "Kiểm tra neo cáp dự ứng lực cho tường chắn: khả năng chịu kéo của cáp, sức kháng bầu neo theo SPT (Bustamante &amp; Doix, TA-95) và bảng độ giãn dài khi căng kéo theo BS 8081."
+lead_en: "Checks for prestressed strand anchors in retaining walls: tendon capacity, grout–ground bond from SPT (Bustamante &amp; Doix, TA-95) and the stressing elongation table to BS 8081."
+description: "Công cụ tính online neo trong đất: cường độ cáp, sức kháng bầu neo theo SPT và độ giãn dài khi căng kéo."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/neo-dat.svg" alt="Sơ đồ neo trong đất"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Neo gồm đoạn tự do L<sub>a</sub> (cáp trượt tự do trong ống) và bầu neo L<sub>s</sub> (vữa bám vào đất). Lực neo phải đồng thời nhỏ hơn sức chịu kéo cho phép của cáp và sức kháng ma sát của bầu neo chia hệ số an toàn. Khi căng kéo, độ giãn dài đo được phải nằm trong khoảng lý thuyết — đây là cách kiểm soát chất lượng ngay tại hiện trường.</span><span class="l-en">An anchor has a free length L<sub>a</sub> (strands debonded in a sheath) and a fixed length L<sub>s</sub> (grout bonded to the ground). The anchor force must stay below both the allowable tendon capacity and the grout–ground bond divided by a safety factor. During stressing, measured elongation must fall within the theoretical range — a direct quality check on site.</span></p>
+      <div class="formula">T<sub>u</sub> = π·D<sub>s</sub>·L<sub>s</sub>·q<sub>s</sub> &nbsp;·&nbsp; T<sub>w</sub> = 0,65·f<sub>pu</sub>·A<sub>p</sub>·n</div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Cáp neo</span><span class="l-en">Tendon</span></legend>
+        <label class="fld"><span class="lb"><i>Φ</i><span class="l-vi">Tao cáp (ASTM A416 Grade 270)</span><span class="l-en">Strand (ASTM A416 Grade 270)</span></span><span class="in"><select id="dia"><option value="98.71" selected>12,7 mm · 98,7 mm²</option><option value="140">15,2 mm · 140 mm²</option></select></span></label>
+        <label class="fld"><span class="lb"><i>n</i><span class="l-vi">Số tao cáp</span><span class="l-en">Number of strands</span></span><span class="in"><input id="n" type="number" step="1" value="4"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>f<sub>pu</sub></i><span class="l-vi">Cường độ chịu kéo danh định</span><span class="l-en">Nominal tensile strength</span></span><span class="in"><input id="fpu" type="number" step="any" value="1860"><em>MPa</em></span></label>
+        <label class="fld"><span class="lb"><i>E<sub>p</sub></i><span class="l-vi">Mô đun đàn hồi của cáp</span><span class="l-en">Tendon elastic modulus</span></span><span class="in"><input id="Ep" type="number" step="any" value="192160"><em>MPa</em></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Loại neo</span><span class="l-en">Anchor type</span></span><span class="in"><select id="typ"><option value="temp" selected>Tạm thời · Temporary</option><option value="perm">Vĩnh cửu · Permanent</option></select></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Hình học neo</span><span class="l-en">Anchor geometry</span></legend>
+        <label class="fld"><span class="lb"><i>D</i><span class="l-vi">Đường kính lỗ khoan</span><span class="l-en">Borehole diameter</span></span><span class="in"><input id="D" type="number" step="any" value="0.16"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>α</i><span class="l-vi">Hệ số mở rộng bầu neo</span><span class="l-en">Bulb expansion factor</span></span><span class="in"><input id="a" type="number" step="any" value="1.125"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>a</sub></i><span class="l-vi">Chiều dài tự do</span><span class="l-en">Free length</span></span><span class="in"><input id="La" type="number" step="any" value="10"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>s</sub></i><span class="l-vi">Chiều dài bầu neo</span><span class="l-en">Fixed (bond) length</span></span><span class="in"><input id="Ls" type="number" step="any" value="12"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>e</sub></i><span class="l-vi">Chiều dài dự phòng căng kéo</span><span class="l-en">Jacking length</span></span><span class="in"><input id="Le" type="number" step="any" value="1.5"><em>m</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Đất nền &amp; tải trọng</span><span class="l-en">Ground &amp; loads</span></legend>
+        <label class="fld"><span class="lb"><i>q<sub>s</sub></i><span class="l-vi">Cách xác định ma sát bầu neo</span><span class="l-en">Bond stress method</span></span><span class="in"><select id="meth"><option value="sIGU" selected>Cát · Sand — IGU</option><option value="cIGU">Sét · Clay — IGU</option><option value="cIRS">Sét · Clay — IRS</option><option value="man">Nhập trực tiếp · Manual</option></select></span></label>
+        <label class="fld nspt"><span class="lb"><i>N<sub>SPT</sub></i><span class="l-vi">SPT trung bình dọc bầu neo</span><span class="l-en">Average SPT along the bond</span></span><span class="in"><input id="N" type="number" step="any" value="12"><em>–</em></span></label>
+        <label class="fld qman"><span class="lb"><i>q<sub>s</sub></i><span class="l-vi">Ma sát giới hạn bầu neo – đất</span><span class="l-en">Ultimate grout–ground bond</span></span><span class="in"><input id="qs" type="number" step="any" value="100"><em>kPa</em></span></label>
+        <label class="fld"><span class="lb"><i>FS</i><span class="l-vi">Hệ số an toàn sức kháng bầu neo</span><span class="l-en">Factor of safety on bond</span></span><span class="in"><input id="FS" type="number" step="any" value="2"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>P<sub>tk</sub></i><span class="l-vi">Lực làm việc thiết kế (vd. từ Plaxis)</span><span class="l-en">Design working load (e.g. from Plaxis)</span></span><span class="in"><input id="P" type="number" step="any" value="300"><em>kN</em></span></label>
+        <label class="fld"><span class="lb"><i>P<sub>0</sub></i><span class="l-vi">Lực căng khóa neo</span><span class="l-en">Lock-off load</span></span><span class="in"><input id="P0" type="number" step="any" value="300"><em>kN</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>Bustamante, M. &amp; Doix, B. (1985). Une méthode pour le calcul des tirants et des micropieux injectés. <i>Bull. Liaison Labo. P. et Ch.</i>, 140.</li>
+    <li>TA 95 — <i>Tirants d'ancrage</i>. Recommandations. Eyrolles.</li>
+    <li>BS 8081:2015 — <i>Code of practice for grouted anchors</i>.</li>
+    <li>ASTM A416 — <i>Standard specification for low-relaxation, seven-wire steel strand for prestressed concrete</i>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script>
+(function(){
+  var T=TOOL;
+  function qsOf(m,N){
+    if(m==='sIGU') return (0.005*N+0.05)*1000;
+    if(m==='cIGU') return (-2e-8*Math.pow(N,4)+4e-6*Math.pow(N,3)-1e-4*N*N+0.0087*N+0.0076)*1000;
+    if(m==='cIRS') return (-4e-7*Math.pow(N,4)+4e-5*Math.pow(N,3)-0.0013*N*N+0.0245*N+0.0008)*1000;
+    return T.val('qs');
+  }
+  function run(){
+    var m=document.getElementById('meth').value;
+    document.querySelector('.nspt').style.display=m==='man'?'none':''; document.querySelector('.qman').style.display=m==='man'?'':'none';
+    var Ap=+document.getElementById('dia').value, n=T.val('n'), fpu=T.val('fpu'), Ep=T.val('Ep'), typ=document.getElementById('typ').value;
+    var D=T.val('D'),a=T.val('a'),La=T.val('La'),Ls=T.val('Ls'),Le=T.val('Le'),N=T.val('N'),FS=T.val('FS'),P=T.val('P'),P0=T.val('P0');
+    var Tult=0.8*fpu*Ap*n/1000, Tw=0.65*fpu*Ap*n/1000;
+    var Ds=a*D, qs=qsOf(m,N), Tu=Math.PI*Ds*Ls*qs, Tsoil=Tu/FS;
+    var warn='';
+    if(m!=='man'&&(N<0||N>50)) warn+='<p class="info">'+T.bi('Đường tương quan Bustamante &amp; Doix được số hóa trong khoảng N<sub>SPT</sub> ≈ 0–50.','The Bustamante &amp; Doix curves are digitised for N<sub>SPT</sub> ≈ 0–50.')+'</p>';
+    if(Ls<3||Ls>10) warn+='<p class="info">'+T.bi('Tham khảo: chiều dài bầu neo thường trong khoảng 3–10 m; bầu neo dài hơn không làm tăng sức kháng tương ứng do phân bố ma sát không đều.','For reference: fixed lengths are usually 3–10 m; longer bonds do not add capacity proportionally because bond stress is not uniform.')+'</p>';
+    var r1=P/Tw, r2=P/Tsoil, r3=P0/Tw, ok=r1<=1&&r2<=1&&r3<=1;
+    // độ giãn dài
+    var EA=Ep*Ap*n/1000; // kN
+    var rows='';
+    [0.25,0.5,0.75,1,1.2].forEach(function(c){
+      var Pc=c*P0, mx, mn;
+      if(typ==='temp'){ mx=Pc*(La+Le+Ls)*1000*1.1/EA; mn=Pc*(La+Le+Ls)*1000*0.9/EA; }
+      else { mx=Pc*(La+Le+Ls/2)*1000/EA; mn=Pc*(La+Le)*1000*0.9/EA; }
+      rows+='<tr><td>'+Math.round(c*100)+'% P<sub>0</sub></td><td>'+T.fmt(Pc,1)+'</td><td>'+T.fmt(mn,1)+'</td><td>'+T.fmt(mx,1)+'</td></tr>';
+    });
+    document.getElementById('res').innerHTML=T.verdict(ok,'Tỷ số lớn nhất: '+T.fmt(Math.max(r1,r2,r3),3),'Maximum ratio: '+T.fmt(Math.max(r1,r2,r3),3))+
+      '<div class="kpis"><div><small>T<sub>w</sub> (kN)</small><b>'+T.fmt(Tw,1)+'</b></div><div><small>T<sub>u</sub>/FS (kN)</small><b>'+T.fmt(Tsoil,1)+'</b></div><div><small>q<sub>s</sub> (kPa)</small><b>'+T.fmt(qs,1)+'</b></div><div><small>D<sub>s</sub> (m)</small><b>'+T.fmt(Ds,3)+'</b></div></div>'+
+      T.check('Lực làm việc / sức chịu kéo cho phép của cáp','Working load / allowable tendon capacity',r1)+
+      T.check('Lực làm việc / sức kháng bầu neo','Working load / bond resistance',r2)+
+      T.check('Lực căng khóa / sức chịu kéo cho phép của cáp','Lock-off load / allowable tendon capacity',r3)+warn+
+      '<h4 class="small" style="margin-top:12px;color:var(--site);font-weight:700">'+T.bi('Độ giãn dài lý thuyết khi căng kéo (mm)','Theoretical stressing elongation (mm)')+'</h4>'+
+      '<table class="elong"><thead><tr><th>'+T.bi('Cấp lực','Stage')+'</th><th>P (kN)</th><th>ΔL<sub>min</sub></th><th>ΔL<sub>max</sub></th></tr></thead><tbody>'+rows+'</tbody></table>';
+    document.getElementById('detail').innerHTML=T.table([
+      T.row('T<sub>ult</sub>','Lực kéo giới hạn = 0,8·f<sub>pu</sub>·A<sub>p</sub>·n','Ultimate tendon load = 0.8·f<sub>pu</sub>·A<sub>p</sub>·n',Tult,'kN',1),
+      T.row('T<sub>w</sub>','Lực làm việc cho phép = 0,65·f<sub>pu</sub>·A<sub>p</sub>·n','Allowable working load = 0.65·f<sub>pu</sub>·A<sub>p</sub>·n',Tw,'kN',1),
+      T.row('D<sub>s</sub>','Đường kính bầu neo = α·D','Bulb diameter = α·D',Ds,'m',3),
+      T.row('q<sub>s</sub>',m==='man'?'Nhập trực tiếp':'Tra theo N<sub>SPT</sub> (đường cong Bustamante &amp; Doix, số hóa)',m==='man'?'Manual input':'From N<sub>SPT</sub> (Bustamante &amp; Doix curves, digitised)',qs,'kPa',1),
+      T.row('T<sub>u</sub>','= π·D<sub>s</sub>·L<sub>s</sub>·q<sub>s</sub>','= π·D<sub>s</sub>·L<sub>s</sub>·q<sub>s</sub>',Tu,'kN',1),
+      T.row('T<sub>u</sub>/FS','Sức kháng làm việc của bầu neo','Working bond resistance',Tsoil,'kN',1),
+      T.row('EA','= E<sub>p</sub>·A<sub>p</sub>·n','= E<sub>p</sub>·A<sub>p</sub>·n',EA,'kN',0)])+
+      '<p class="small">'+(typ==='temp'?T.bi('Neo tạm thời: ΔL = P(L<sub>a</sub> + L<sub>e</sub> + L<sub>s</sub>)/(EA) × (0,9 ÷ 1,1).','Temporary anchor: ΔL = P(L<sub>a</sub> + L<sub>e</sub> + L<sub>s</sub>)/(EA) × (0.9 ÷ 1.1).'):T.bi('Neo vĩnh cửu (BS 8081): ΔL<sub>min</sub> = 0,9·P(L<sub>a</sub> + L<sub>e</sub>)/(EA); ΔL<sub>max</sub> = P(L<sub>a</sub> + L<sub>e</sub> + L<sub>s</sub>/2)/(EA).','Permanent anchor (BS 8081): ΔL<sub>min</sub> = 0.9·P(L<sub>a</sub> + L<sub>e</sub>)/(EA); ΔL<sub>max</sub> = P(L<sub>a</sub> + L<sub>e</sub> + L<sub>s</sub>/2)/(EA).'))+' '+T.bi('IGU: bơm vữa một lần, áp lực thấp; IRS: bơm vữa nhiều lần có chọn lọc, áp lực cao.','IGU: single global grouting at low pressure; IRS: repeated selective grouting at high pressure.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

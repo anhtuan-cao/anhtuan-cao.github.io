@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><pattern id="aq" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#eaf3fb"/><circle cx="4" cy="4" r="1.2" fill="#9cc2e6"/></pattern>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<rect x="20" y="60" width="720" height="300" fill="url(#aq)"/>
+<rect x="20" y="360" width="720" height="40" fill="#c9b48a"/><text x="380" y="386" text-anchor="middle" font-size="12" fill="#5a4a2a">lớp không thấm · impermeable</text>
+<!-- hố đào -->
+<rect x="300" y="60" width="160" height="110" fill="#fff" stroke="#1d2a5b" stroke-width="2"/>
+<!-- mực nước trước & sau -->
+<path d="M20 90H740" stroke="#2a78c8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<path d="M20 100C180 104 240 130 270 190 C290 230 300 232 310 232 H450 C460 232 470 230 490 190 C520 130 580 104 740 100" fill="none" stroke="#2a78c8" stroke-width="2.5"/>
+<!-- giếng -->
+<g fill="#1d2a5b"><rect x="296" y="60" width="8" height="260"/><rect x="456" y="60" width="8" height="260"/></g>
+<g fill="#ee5a24"><rect x="294" y="250" width="12" height="70"/><rect x="454" y="250" width="12" height="70"/></g>
+<text x="232" y="300" font-size="12" fill="#9a3a12" font-weight="600">ống lọc · screen</text>
+<g stroke="#1d2a5b" stroke-width="1.5" fill="none">
+<path d="M620 90V360" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<path d="M380 90V230" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<path d="M300 40H460" marker-start="url(#ar)" marker-end="url(#ar)"/></g>
+<text x="628" y="230" font-size="16" font-weight="700" fill="#1d2a5b">H</text>
+<text x="388" y="200" font-size="16" font-weight="700" fill="#1d2a5b">S</text>
+<text x="380" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#1d2a5b">2r₀ = 2√(F/π)</text>
+<text x="700" y="84" font-size="12" fill="#2a78c8" text-anchor="end">MNN ban đầu · initial GWL</text>
+<text x="60" y="130" font-size="14" fill="#2a78c8" font-weight="600">R</text>
+<path d="M20 125H270" stroke="#2a78c8" stroke-width="1.2" marker-start="url(#ar)" marker-end="url(#ar)"/>
+</svg>

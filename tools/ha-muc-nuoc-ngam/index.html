@@ -1,0 +1,98 @@
+---
+layout: page
+title: "Tính toán giếng hạ mực nước ngầm"
+title_vi: "Giếng hạ mực nước ngầm"
+title_en: "Dewatering wells"
+kicker_vi: "Công cụ tính online · Hố đào sâu"
+kicker_en: "Online calculator · Deep excavation"
+lead_vi: "Ước tính lưu lượng nước chảy vào hố đào và số giếng khoan cần bố trí, cho tầng chứa nước không áp và có áp — phương pháp giếng lớn tương đương (Dupuit – Thiem)."
+lead_en: "Estimate inflow to the excavation and the number of deep wells, for unconfined and confined aquifers — equivalent large-well method (Dupuit – Thiem)."
+description: "Công cụ tính online lưu lượng và số giếng hạ mực nước ngầm cho hố đào."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/ha-mnn.svg" alt="Sơ đồ hạ mực nước ngầm"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Cả hố đào được xem như một “giếng lớn” có bán kính tương đương r<sub>0</sub> = √(F/π). Lưu lượng cần bơm để hạ mực nước xuống dưới đáy đào một khoảng an toàn được tính theo công thức Dupuit – Thiem với bán kính ảnh hưởng R theo Sichart. Số giếng = lưu lượng tổng × hệ số dự phòng / năng lực một giếng.</span><span class="l-en">The whole excavation is treated as one “large well” with equivalent radius r<sub>0</sub> = √(F/π). The pumping rate needed to lower the water below formation is found with the Dupuit – Thiem equation, using Sichart's radius of influence R. Number of wells = total inflow × safety factor / capacity of one well.</span></p>
+      <div class="formula">Q = πk(H² − h<sub>w</sub>²)/ln(R/r<sub>0</sub>) &nbsp;·&nbsp; Q = 2πkD·S/ln(R/r<sub>0</sub>)</div>
+      <p class="small"><span class="l-vi">Trái: tầng không áp · Phải: tầng có áp. R = 10·S·√k (k: m/ngày) ≈ 3000·S·√k (k: m/s).</span><span class="l-en">Left: unconfined · Right: confined. R = 10·S·√k (k in m/day) ≈ 3000·S·√k (k in m/s).</span></p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Tầng chứa nước</span><span class="l-en">Aquifer</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Loại tầng chứa nước</span><span class="l-en">Aquifer type</span></span><span class="in"><select id="typ"><option value="free" selected>Không áp · Unconfined</option><option value="conf">Có áp · Confined</option></select></span></label>
+        <label class="fld"><span class="lb"><i>H</i><span class="l-vi">Cột nước ban đầu tính từ đáy tầng chứa nước (không áp) / cột áp tính từ đáy tầng có áp</span><span class="l-en">Initial head above aquifer base</span></span><span class="in"><input id="H" type="number" step="any" value="30"><em>m</em></span></label>
+        <label class="fld conf"><span class="lb"><i>D</i><span class="l-vi">Bề dày tầng chứa nước có áp</span><span class="l-en">Confined aquifer thickness</span></span><span class="in"><input id="D" type="number" step="any" value="10"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>k</i><span class="l-vi">Hệ số thấm tương đương</span><span class="l-en">Equivalent permeability</span></span><span class="in"><input id="k" type="number" step="any" value="10"><em>m/ngày</em></span></label>
+        <label class="fld"><span class="lb"><i>GWL</i><span class="l-vi">Độ sâu mực nước ngầm ban đầu</span><span class="l-en">Initial groundwater depth</span></span><span class="in"><input id="gwl" type="number" step="any" value="2"><em>m</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Hố đào &amp; giếng</span><span class="l-en">Excavation &amp; wells</span></legend>
+        <label class="fld"><span class="lb"><i>F</i><span class="l-vi">Diện tích hố đào</span><span class="l-en">Excavation area</span></span><span class="in"><input id="F" type="number" step="any" value="9600"><em>m²</em></span></label>
+        <label class="fld"><span class="lb"><i>H<sub>e</sub></i><span class="l-vi">Độ sâu hố đào</span><span class="l-en">Excavation depth</span></span><span class="in"><input id="He" type="number" step="any" value="15"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>Δ</i><span class="l-vi">Hạ thấp dưới đáy đào</span><span class="l-en">Drawdown below formation</span></span><span class="in"><input id="dd" type="number" step="any" value="1"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>r<sub>w</sub></i><span class="l-vi">Bán kính ống lọc</span><span class="l-en">Screen radius</span></span><span class="in"><input id="rw" type="number" step="any" value="0.1"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>f</sub></i><span class="l-vi">Chiều dài ống lọc</span><span class="l-en">Screen length</span></span><span class="in"><input id="Lf" type="number" step="any" value="10"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>Q<sub>p</sub></i><span class="l-vi">Công suất bơm của 1 giếng</span><span class="l-en">Pump capacity per well</span></span><span class="in"><input id="Qp" type="number" step="any" value="20"><em>m³/h</em></span></label>
+        <label class="fld"><span class="lb"><i>FS</i><span class="l-vi">Hệ số dự phòng</span><span class="l-en">Safety factor</span></span><span class="in"><input id="FS" type="number" step="any" value="1.1"><em>–</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 9903:2014 — <span class="l-vi">Công trình thủy lợi – Yêu cầu thiết kế, thi công và nghiệm thu hạ mực nước ngầm</span><span class="l-en">Hydraulic works – Design, construction and acceptance of groundwater lowering</span>.</li>
+    <li>Powers, J.P. et al. (2007). <i>Construction Dewatering and Groundwater Control</i>, 3rd ed. Wiley.</li>
+    <li>Sichart, W. &amp; Kyrieleis, W. (1930). <i>Grundwasserabsenkungen bei Fundierungsarbeiten</i>. Springer.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script>
+(function(){
+  var T=TOOL;
+  function run(){
+    var typ=document.getElementById('typ').value; document.querySelectorAll('.conf').forEach(function(e){e.style.display=typ==='conf'?'':'none';});
+    var H=T.val('H'),D=T.val('D'),k=T.val('k'),gwl=T.val('gwl'),F=T.val('F'),He=T.val('He'),dd=T.val('dd'),rw=T.val('rw'),Lf=T.val('Lf'),Qp=T.val('Qp'),FS=T.val('FS');
+    var S=He+dd-gwl, hw=H-S, r0=Math.sqrt(F/Math.PI), R=10*S*Math.sqrt(k), kms=k/86400, lnR=Math.log(R/r0);
+    var Q, alpha=1, full, Hw, rows=[], warn='';
+    if(typ==='free'){
+      Hw=Lf+S+gwl+1; // độ sâu giếng (thêm 1 m lắng cặn)
+      full=(Hw-gwl)>=H;
+      if(!full) alpha=Math.sqrt((H-Lf)/H)*Math.pow((H+Lf)/H,0.25);
+      Q=Math.PI*k*(H*H-hw*hw)*alpha/lnR;
+    } else {
+      Hw=H-D+Lf+gwl; // đầu ống lọc tại nóc tầng có áp
+      var l=Math.min(Lf,D); full=l>=D;
+      if(!full) alpha=(l/D)*(1+7*Math.sqrt(rw/(2*l))*Math.cos(Math.PI*l/(2*D)));
+      Q=2*Math.PI*k*D*S*alpha/lnR;
+      if(He>=H-D) warn+='<p class="warn">'+T.bi('Đáy hố đào đã chạm/vượt nóc tầng có áp — kiểm tra lại số liệu hoặc dùng sơ đồ không áp.','Formation reaches the top of the confined aquifer — check inputs or use the unconfined case.')+'</p>';
+    }
+    var Lwet=typ==='free'?Math.min(Lf,hw):Math.min(Lf,D);
+    var qw=2*Math.PI*rw*Lwet*Math.sqrt(kms)/15*3600; // m3/h, Sichart
+    var qUse=Math.min(Qp,qw), n=Math.ceil(Q*FS/(qUse*24));
+    if(hw<=0) warn+='<p class="warn">'+T.bi('Mực nước cần hạ vượt quá chiều dày tầng chứa nước.','Required drawdown exceeds the aquifer thickness.')+'</p>';
+    if(qw<Qp) warn+='<p class="info">'+T.bi('Khả năng thu nước của ống lọc ('+T.fmt(qw,1)+' m³/h) nhỏ hơn công suất bơm — số giếng tính theo khả năng ống lọc.','Screen entry capacity ('+T.fmt(qw,1)+' m³/h) is below the pump capacity — well count governed by the screen.')+'</p>';
+    document.getElementById('res').innerHTML=
+      '<div class="bigres"><small>'+T.bi('Số giếng cần bố trí','Number of wells')+'</small><b>'+(isFinite(n)?n:'—')+'</b><span>'+T.bi('giếng, sâu ≈ '+T.fmt(Hw,1)+' m','wells, ≈ '+T.fmt(Hw,1)+' m deep')+'</span></div>'+
+      '<div class="kpis"><div><small>Q (m³/'+T.bi('ngày','day')+')</small><b>'+T.fmt(Q,0)+'</b></div><div><small>Q (m³/h)</small><b>'+T.fmt(Q/24,1)+'</b></div><div><small>S (m)</small><b>'+T.fmt(S,2)+'</b></div><div><small>R (m)</small><b>'+T.fmt(R,1)+'</b></div></div>'+
+      '<p class="info">'+(full?T.bi('Giếng hoàn chỉnh (ống lọc xuyên hết tầng chứa nước).','Fully penetrating well.'):T.bi('Giếng không hoàn chỉnh — lưu lượng nhân hệ số α = '+T.fmt(alpha,3)+'.','Partially penetrating well — inflow multiplied by α = '+T.fmt(alpha,3)+'.'))+'</p>'+warn;
+    rows.push(T.row('S','Độ hạ thấp yêu cầu = H<sub>e</sub> + Δ − GWL','Required drawdown = H<sub>e</sub> + Δ − GWL',S,'m',2));
+    rows.push(T.row('h<sub>w</sub>','Cột nước còn lại = H − S','Remaining head = H − S',hw,'m',2));
+    rows.push(T.row('r<sub>0</sub>','Bán kính giếng lớn tương đương = √(F/π)','Equivalent large-well radius = √(F/π)',r0,'m',2));
+    rows.push(T.row('R','Bán kính ảnh hưởng (Sichart) = 10·S·√k (k: m/ngày)','Radius of influence (Sichart) = 10·S·√k (k: m/day)',R,'m',1));
+    rows.push(T.row('α',typ==='free'?'Hệ số giếng không hoàn chỉnh = √((H−L<sub>f</sub>)/H)·((H+L<sub>f</sub>)/H)<sup>1/4</sup>':'Hệ số Kozeny = (l/D)[1 + 7√(r<sub>w</sub>/2l)·cos(πl/2D)]',typ==='free'?'Partial penetration factor = √((H−L<sub>f</sub>)/H)·((H+L<sub>f</sub>)/H)<sup>1/4</sup>':'Kozeny factor = (l/D)[1 + 7√(r<sub>w</sub>/2l)·cos(πl/2D)]',alpha,'',4));
+    rows.push(T.row('Q',typ==='free'?'= α·πk(H² − h<sub>w</sub>²)/ln(R/r<sub>0</sub>)':'= α·2πkD·S/ln(R/r<sub>0</sub>)',typ==='free'?'= α·πk(H² − h<sub>w</sub>²)/ln(R/r<sub>0</sub>)':'= α·2πkD·S/ln(R/r<sub>0</sub>)',Q,'m³/'+T.bi('ngày','day'),0));
+    rows.push(T.row('q<sub>w</sub>','Khả năng thu nước ống lọc (Sichart) = 2πr<sub>w</sub>L<sub>ướt</sub>√k/15','Screen entry capacity (Sichart) = 2πr<sub>w</sub>L<sub>wet</sub>√k/15',qw,'m³/h',1));
+    rows.push(T.row('n','= Q·FS/(24·min(Q<sub>p</sub>; q<sub>w</sub>))','= Q·FS/(24·min(Q<sub>p</sub>; q<sub>w</sub>))',n,'',0));
+    rows.push(T.row('H<sub>w</sub>','Độ sâu giếng',"Well depth",Hw,'m',1));
+    document.getElementById('detail').innerHTML=T.table(rows)+'<p class="small">'+T.bi('Kết quả là ước tính sơ bộ để lập biện pháp. Hệ số thấm nên lấy từ thí nghiệm bơm hút nước hiện trường; số giếng và vị trí cần kiểm chứng bằng bơm thử và quan trắc mực nước.','Results are preliminary estimates for method planning. Permeability should come from field pumping tests; well numbers and layout should be verified by trial pumping and water-level monitoring.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

@@ -68,7 +68,7 @@ Kingpost là cột thép hình (thường là H) cắm vào cọc khoan nhồi, 
 - **Mô men do sai số lắp dựng.** Ngoài mô men từ mô hình, nên kể thêm mô men do độ nghiêng thi công (ví dụ N·H/150) nếu thiết kế yêu cầu.
 - **Liên kết kingpost – cọc khoan nhồi.** Hai phương án phổ biến là không có hoặc có đinh chống cắt (shear stud). Với cọc đường kính nhỏ (dưới khoảng 1 m), phương án không đinh chống cắt thường dễ thi công hơn; lựa chọn cuối cùng phụ thuộc quy mô công trình, thiết bị và cách lắp dựng.
 
-Để kiểm tra nhanh tiết diện, tôi đã dựng lại bảng tính thành **[công cụ online kiểm tra kingpost theo TCVN 5575:2012](/tools/kingpost/)** — nhập nội lực từ ETABS và chiều dài tính toán, kết quả hiện ngay kèm diễn giải từng bước.
+Để kiểm tra nhanh tiết diện, tôi đã dựng lại bảng tính thành **[công cụ online kiểm tra kingpost theo TCVN 5575:2012](/tools/kingpost/)** — nhập nội lực từ ETABS và chiều dài tính toán, kết quả hiện ngay kèm diễn giải từng bước. Sàn tựa trực tiếp lên kingpost cũng cần kiểm tra **[chọc thủng quanh đầu kingpost](/tools/choc-thung-san/)**.
 
 <div class="angle" markdown="1">
 Góc nghiên cứu
@@ -139,7 +139,7 @@ Kingposts are steel sections (usually H) plunged into bored piles, carrying the 
 - **Moments from erection tolerance.** Besides the modelled moments, add the moment from construction out-of-plumbness (for example N·H/150) where the design requires it.
 - **Kingpost-to-pile connection.** The two common options are with or without shear studs. For small piles (below about 1 m diameter), the no-stud option is usually easier to build; the final choice depends on the project scale, equipment and erection method.
 
-For quick section checks I rebuilt the spreadsheet as an **[online kingpost calculator to TCVN 5575:2012](/tools/kingpost/)** — enter the ETABS forces and effective lengths, and the results appear instantly with every step explained.
+For quick section checks I rebuilt the spreadsheet as an **[online kingpost calculator to TCVN 5575:2012](/tools/kingpost/)** — enter the ETABS forces and effective lengths, and the results appear instantly with every step explained. Slabs bearing directly on kingposts also need a **[punching shear check at the kingpost head](/tools/choc-thung-san/)**.
 
 <div class="angle" markdown="1">
 Research angle
