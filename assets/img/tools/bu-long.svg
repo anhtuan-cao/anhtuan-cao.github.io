@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker>
+<marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ee5a24"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<!-- mặt đứng: nối waler bằng bản táp -->
+<rect x="30" y="110" width="330" height="200" fill="#9aa7c4"/><rect x="370" y="110" width="330" height="200" fill="#9aa7c4"/>
+<rect x="30" y="110" width="670" height="18" fill="#2a3c7e"/><rect x="30" y="292" width="670" height="18" fill="#2a3c7e"/>
+<rect x="250" y="140" width="230" height="140" fill="#c9d2e6" stroke="#1d2a5b" stroke-width="2" opacity=".95"/>
+<g fill="#1d2a5b">
+<circle cx="280" cy="165" r="9"/><circle cx="320" cy="165" r="9"/><circle cx="410" cy="165" r="9"/><circle cx="450" cy="165" r="9"/>
+<circle cx="280" cy="210" r="9"/><circle cx="320" cy="210" r="9"/><circle cx="410" cy="210" r="9"/><circle cx="450" cy="210" r="9"/>
+<circle cx="280" cy="255" r="9"/><circle cx="320" cy="255" r="9"/><circle cx="410" cy="255" r="9"/><circle cx="450" cy="255" r="9"/></g>
+<path d="M365 100V320" stroke="#ee5a24" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M110 60 q-50 150 0 300" fill="none" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/><text x="60" y="210" font-size="17" font-weight="700" fill="#ee5a24">M</text>
+<path d="M620 210H560" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/><text x="630" y="216" font-size="17" font-weight="700" fill="#ee5a24">V</text>
+<g stroke="#1d2a5b" stroke-width="1.5" fill="none"><path d="M720 119V301" marker-start="url(#ar)" marker-end="url(#ar)"/><path d="M280 345H450" marker-start="url(#ar)" marker-end="url(#ar)"/></g>
+<text x="728" y="215" font-size="16" font-weight="700" fill="#1d2a5b">h</text>
+<text x="365" y="368" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2a5b">L<tspan baseline-shift="sub" font-size="70%">max</tspan></text>
+<text x="365" y="400" text-anchor="middle" font-size="12" fill="#5a6482">bản táp nối · splice plate</text>
+</svg>

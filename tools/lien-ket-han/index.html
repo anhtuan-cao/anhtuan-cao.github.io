@@ -1,0 +1,121 @@
+---
+layout: page
+title: "Kiểm tra liên kết hàn theo TCVN 5575:2012"
+title_vi: "Liên kết hàn"
+title_en: "Welded connections"
+kicker_vi: "Công cụ tính online · Kết cấu thép tạm"
+kicker_en: "Online calculator · Temporary steelwork"
+lead_vi: "Đường hàn góc và đường hàn đối đầu chịu lực dọc, lực cắt và mô men — kiểm tra theo hai tiết diện phá hoại, kèm giới hạn chiều cao đường hàn h<sub>f,min</sub> / h<sub>f,max</sub>."
+lead_en: "Fillet and butt welds under axial force, shear and moment — checked on both failure sections, with the h<sub>f,min</sub> / h<sub>f,max</sub> weld size limits."
+description: "Công cụ tính online kiểm tra đường hàn góc và đường hàn đối đầu theo TCVN 5575:2012."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/lien-ket-han.svg" alt="Đường hàn góc và đường hàn đối đầu"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi"><b>Đường hàn góc</b> có thể bị phá hoại theo hai tiết diện: qua <b>kim loại đường hàn</b> (chiều cao β<sub>f</sub>h<sub>f</sub>, cường độ f<sub>wf</sub> theo que hàn) và qua <b>biên nóng chảy</b> (β<sub>s</sub>h<sub>f</sub>, cường độ f<sub>ws</sub> = 0,45f<sub>u</sub>). Ứng suất do lực dọc và mô men cộng đại số, rồi tổ hợp véc-tơ với ứng suất cắt. <b>Đường hàn đối đầu</b> làm việc như tiết diện thép cơ bản với cường độ f<sub>wt</sub>, f<sub>wc</sub>, f<sub>wv</sub>.</span><span class="l-en">A <b>fillet weld</b> may fail on two sections: through the <b>weld metal</b> (throat β<sub>f</sub>h<sub>f</sub>, strength f<sub>wf</sub> from the electrode) and along the <b>fusion boundary</b> (β<sub>s</sub>h<sub>f</sub>, strength f<sub>ws</sub> = 0.45f<sub>u</sub>). Axial and bending stresses add algebraically, then combine vectorially with shear. A <b>butt weld</b> behaves like the parent section with strengths f<sub>wt</sub>, f<sub>wc</sub>, f<sub>wv</sub>.</span></p>
+      <div class="formula">τ = √[(N/A<sub>w</sub> + M/W<sub>w</sub>)² + (V/A<sub>w</sub>)²] ≤ f<sub>w</sub>γ<sub>c</sub></div>
+      <p class="small"><span class="l-vi">Chiều dài tính toán mỗi đường hàn góc lấy bằng chiều dài thực trừ 10 mm; đường hàn đối đầu trừ 2t cho hai đầu khi không dùng bản lót dẫn.</span><span class="l-en">The effective length of each fillet weld is its actual length minus 10 mm; butt welds lose 2t at the ends when no run-off tabs are used.</span></p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Loại đường hàn</span><span class="l-en">Weld type</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Loại</span><span class="l-en">Type</span></span><span class="in"><select id="mode"><option value="fillet" selected>Hàn góc · Fillet</option><option value="butt">Hàn đối đầu · Butt</option></select></span></label>
+        <label class="fld"><span class="lb"><i>f<sub>u</sub></i><span class="l-vi">Mác thép cơ bản</span><span class="l-en">Parent steel grade</span></span><span class="in"><select id="grade"><option>CCT34</option><option>CCT38</option><option selected>CCT42</option><option>SS400</option><option>SS490</option><option>Q235</option><option>Q345</option><option>S235</option><option>S275</option><option>S355</option></select></span></label>
+        <label class="fld"><span class="lb"><i>γ<sub>c</sub></i><span class="l-vi">Hệ số điều kiện làm việc</span><span class="l-en">Working condition factor</span></span><span class="in"><input id="gc" type="number" step="any" value="0.9"><em>–</em></span></label>
+      </fieldset>
+      <fieldset class="m-fillet"><legend><span class="l-vi">Đường hàn góc</span><span class="l-en">Fillet weld</span></legend>
+        <label class="fld"><span class="lb"><i>f<sub>wf</sub></i><span class="l-vi">Loại que hàn</span><span class="l-en">Electrode</span></span><span class="in"><select id="elec"><option value="N42" selected>N42 · 180 MPa</option><option value="N46">N46 · 200 MPa</option><option value="N50">N50 · 215 MPa</option><option value="E43">E43xx · 330 MPa</option><option value="E43b">E43 (AWS) · 350 MPa</option><option value="E51">E51xx · 410 MPa</option></select></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Phương pháp hàn</span><span class="l-en">Welding method</span></span><span class="in"><select id="method"><option value="manual" selected>Hàn tay · Manual</option><option value="semi">Bán tự động · Semi-auto</option><option value="auto">Tự động · Automatic</option></select></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Vị trí hàn</span><span class="l-en">Position</span></span><span class="in"><select id="pos"><option value="flat" selected>Thường · Normal</option><option value="trough">Lòng thuyền · Trough</option></select></span></label>
+        <label class="fld"><span class="lb"><i>d</i><span class="l-vi">Đường kính dây hàn (hàn tự động)</span><span class="l-en">Wire diameter (automatic)</span></span><span class="in"><input id="dw" type="number" step="any" value="1.2"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Số phía hàn</span><span class="l-en">Sides welded</span></span><span class="in"><select id="sides"><option value="2" selected>2 phía · Double</option><option value="1">1 phía · Single</option></select></span></label>
+        <label class="fld"><span class="lb"><i>t<sub>min</sub></i><span class="l-vi">Chiều dày bản mỏng hơn</span><span class="l-en">Thinner plate</span></span><span class="in"><input id="tmin" type="number" step="any" value="8"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>t<sub>max</sub></i><span class="l-vi">Chiều dày bản dày hơn</span><span class="l-en">Thicker plate</span></span><span class="in"><input id="tmax" type="number" step="any" value="8"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>h<sub>f</sub></i><span class="l-vi">Chiều cao đường hàn</span><span class="l-en">Weld leg size</span></span><span class="in"><input id="hf" type="number" step="any" value="6"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>ΣL</i><span class="l-vi">Tổng chiều dài thực các đường hàn</span><span class="l-en">Total actual weld length</span></span><span class="in"><input id="sumL" type="number" step="any" value="140"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>m</i><span class="l-vi">Số đường hàn</span><span class="l-en">Number of weld runs</span></span><span class="in"><input id="mw" type="number" step="1" value="2"><em>–</em></span></label>
+      </fieldset>
+      <fieldset class="m-butt"><legend><span class="l-vi">Đường hàn đối đầu</span><span class="l-en">Butt weld</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Kiểm tra chất lượng</span><span class="l-en">Quality control</span></span><span class="in"><select id="qc"><option value="visual" selected>Thông thường · Visual (fwt = 0,85f)</option><option value="phys">Siêu âm, chụp phim · UT/RT (fwt = f)</option></select></span></label>
+        <label class="fld"><span class="lb"><i>t</i><span class="l-vi">Chiều dày bản mỏng hơn</span><span class="l-en">Thinner plate</span></span><span class="in"><input id="tb" type="number" step="any" value="10"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>l</i><span class="l-vi">Chiều dài thực đường hàn</span><span class="l-en">Actual weld length</span></span><span class="in"><input id="lb" type="number" step="any" value="250"><em>mm</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Nội lực tác dụng lên liên kết</span><span class="l-en">Forces on the joint</span></legend>
+        <label class="fld"><span class="lb"><i>N</i><span class="l-vi">Lực dọc (+ kéo, − nén)</span><span class="l-en">Axial force (+ tension, − compression)</span></span><span class="in"><input id="N" type="number" step="any" value="2.3"><em>kN</em></span></label>
+        <label class="fld"><span class="lb"><i>V</i><span class="l-vi">Lực cắt dọc đường hàn</span><span class="l-en">Shear along the weld</span></span><span class="in"><input id="V" type="number" step="any" value="0.67"><em>kN</em></span></label>
+        <label class="fld"><span class="lb"><i>M</i><span class="l-vi">Mô men trong mặt phẳng đường hàn</span><span class="l-en">Moment in the weld plane</span></span><span class="in"><input id="M" type="number" step="any" value="0.7"><em>kN·m</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép. Tiêu chuẩn thiết kế</span><span class="l-en">Steel structures. Design standard</span> (<span class="l-vi">mục</span><span class="l-en">clauses</span> 7.1, 8.2; <span class="l-vi">Bảng</span><span class="l-en">Tables</span> 3, 4, 37, 43).</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/steel-conn-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, g=function(id){return document.getElementById(id).value;};
+  function mpa(x){ return x*10; }
+  function run(){
+    var mode=g('mode');
+    document.querySelector('.m-fillet').style.display=mode==='fillet'?'':'none';
+    document.querySelector('.m-butt').style.display=mode==='butt'?'':'none';
+    var N=T.val('N')||0, V=T.val('V')||0, M=T.val('M')||0, gc=T.val('gc'), html='', ok=true, rows, kp;
+    if(mode==='fillet'){
+      var hf=T.val('hf');
+      var o=CONN.fillet({grade:g('grade'),elec:g('elec'),method:g('method'),pos:g('pos'),d:T.val('dw'),sides:+g('sides'),tmin:T.val('tmin'),tmax:T.val('tmax'),hf:hf,sumL:T.val('sumL'),m:T.val('mw'),N:N,V:V,M:M,gc:gc});
+      html+=T.check('Tiết diện qua kim loại đường hàn','Section through weld metal',o.rf); if(!(o.rf<=1)) ok=false;
+      html+=T.check('Tiết diện qua biên nóng chảy','Section along fusion boundary',o.rs); if(!(o.rs<=1)) ok=false;
+      var rMin=o.hmin/hf, rMax=hf/o.hmax; if(!(rMin<=1&&rMax<=1)) ok=false;
+      html+=T.check('h<sub>f</sub> ≥ h<sub>f,min</sub>','h<sub>f</sub> ≥ h<sub>f,min</sub>',rMin,T.fmt(hf,0)+' ≥ '+T.fmt(o.hmin,0)+' mm');
+      html+=T.check('h<sub>f</sub> ≤ 1,2t<sub>min</sub>','h<sub>f</sub> ≤ 1.2t<sub>min</sub>',rMax,T.fmt(hf,0)+' ≤ '+T.fmt(o.hmax,1)+' mm');
+      kp=[['τ<sub>f</sub> (MPa)',mpa(o.tf)],['[f<sub>wf</sub>γ<sub>c</sub>] (MPa)',mpa(o.fwf*gc)],['τ<sub>s</sub> (MPa)',mpa(o.ts)],['[f<sub>ws</sub>γ<sub>c</sub>] (MPa)',mpa(o.fws*gc)]];
+      rows=[
+        T.row('β<sub>f</sub>, β<sub>s</sub>','Hệ số chiều sâu nóng chảy (Bảng 37)','Penetration factors (Table 37)',T.fmt(o.bf,2)+', '+T.fmt(o.bs,2),'–'),
+        T.row('f<sub>wf</sub>','Cường độ kim loại hàn (Bảng 4)','Weld metal strength (Table 4)',mpa(o.fwf),'MPa',0),
+        T.row('f<sub>ws</sub>','= 0,45f<sub>u</sub> (f<sub>u</sub> = '+o.fu+' MPa)','= 0.45f<sub>u</sub> (f<sub>u</sub> = '+o.fu+' MPa)',mpa(o.fws),'MPa',1),
+        T.row('l<sub>w</sub>','= ΣL − 10·m','= ΣL − 10·m',o.lw,'mm',0),
+        T.row('A<sub>wf</sub>','= β<sub>f</sub>h<sub>f</sub>l<sub>w</sub>','= β<sub>f</sub>h<sub>f</sub>l<sub>w</sub>',o.Awf,'mm²',1),
+        T.row('A<sub>ws</sub>','= β<sub>s</sub>h<sub>f</sub>l<sub>w</sub>','= β<sub>s</sub>h<sub>f</sub>l<sub>w</sub>',o.Aws,'mm²',1),
+        T.row('W<sub>wf</sub>','= β<sub>f</sub>h<sub>f</sub>l<sub>w</sub>²/(6m)','= β<sub>f</sub>h<sub>f</sub>l<sub>w</sub>²/(6m)',o.Wwf,'mm³',0),
+        T.row('W<sub>ws</sub>','= β<sub>s</sub>h<sub>f</sub>l<sub>w</sub>²/(6m)','= β<sub>s</sub>h<sub>f</sub>l<sub>w</sub>²/(6m)',o.Wws,'mm³',0),
+        T.row('τ<sub>f</sub>','= √[(N/A<sub>wf</sub> + M/W<sub>wf</sub>)² + (V/A<sub>wf</sub>)²]','= √[(N/A<sub>wf</sub> + M/W<sub>wf</sub>)² + (V/A<sub>wf</sub>)²]',mpa(o.tf),'MPa',2),
+        T.row('τ<sub>s</sub>','= √[(N/A<sub>ws</sub> + M/W<sub>ws</sub>)² + (V/A<sub>ws</sub>)²]','= √[(N/A<sub>ws</sub> + M/W<sub>ws</sub>)² + (V/A<sub>ws</sub>)²]',mpa(o.ts),'MPa',2),
+        T.row('h<sub>f,min</sub>','Theo t<sub>max</sub>, phương pháp hàn, f<sub>y</sub> = '+o.fy+' MPa','From t<sub>max</sub>, method, f<sub>y</sub> = '+o.fy+' MPa',o.hmin,'mm',0),
+        T.row('h<sub>f,max</sub>','= 1,2t<sub>min</sub>','= 1.2t<sub>min</sub>',o.hmax,'mm',1)];
+    } else {
+      var b=CONN.butt({grade:g('grade'),qc:g('qc'),t:T.val('tb'),l:T.val('lb'),N:N,V:V,M:M,gc:gc});
+      if(N!==0){ html+=T.check(N>0?'Chịu kéo':'Chịu nén',N>0?'Tension':'Compression',b.rN); if(!(b.rN<=1)) ok=false; }
+      if(M!==0){ html+=T.check('Chịu uốn','Bending',b.rM); if(!(b.rM<=1)) ok=false; }
+      if(V!==0){ html+=T.check('Chịu cắt','Shear',b.rV); if(!(b.rV<=1)) ok=false; }
+      html+=T.check('Ứng suất tương đương','Equivalent stress',b.rEq); if(!(b.rEq<=1)) ok=false;
+      kp=[['σ<sub>N</sub> (MPa)',mpa(b.sN)],['σ<sub>M</sub> (MPa)',mpa(b.sM)],['τ (MPa)',mpa(b.tau)],['σ<sub>td</sub> (MPa)',mpa(b.eq)]];
+      rows=[
+        T.row('f','Cường độ tính toán thép cơ bản','Parent steel design strength',b.f,'MPa',0),
+        T.row('f<sub>wc</sub>, f<sub>wt</sub>, f<sub>wv</sub>','= f; '+(g('qc')==='phys'?'f':'0,85f')+'; 0,58f','= f; '+(g('qc')==='phys'?'f':'0.85f')+'; 0.58f',T.fmt(mpa(b.fwc),0)+', '+T.fmt(mpa(b.fwt),1)+', '+T.fmt(mpa(b.fwv),1),'MPa'),
+        T.row('l<sub>w</sub>','= l − 2t','= l − 2t',b.lw,'mm',0),
+        T.row('A<sub>w</sub>','= t·l<sub>w</sub>','= t·l<sub>w</sub>',b.Aw,'cm²',2),
+        T.row('W<sub>w</sub>','= t·l<sub>w</sub>²/6','= t·l<sub>w</sub>²/6',b.Ww,'cm³',2),
+        T.row('σ<sub>N</sub>','= |N|/A<sub>w</sub>','= |N|/A<sub>w</sub>',mpa(b.sN),'MPa',2),
+        T.row('σ<sub>M</sub>','= M/W<sub>w</sub>','= M/W<sub>w</sub>',mpa(b.sM),'MPa',2),
+        T.row('τ','= V/A<sub>w</sub>','= V/A<sub>w</sub>',mpa(b.tau),'MPa',2),
+        T.row('σ<sub>td</sub>','= √[(σ<sub>N</sub> + σ<sub>M</sub>)² + 3τ²] ≤ 1,15f<sub>wt</sub>γ<sub>c</sub>','= √[(σ<sub>N</sub> + σ<sub>M</sub>)² + 3τ²] ≤ 1.15f<sub>wt</sub>γ<sub>c</sub>',mpa(b.eq),'MPa',2)];
+    }
+    document.getElementById('res').innerHTML=T.verdict(ok,mode==='fillet'?'Đường hàn góc':'Đường hàn đối đầu',mode==='fillet'?'Fillet weld':'Butt weld')+
+      '<div class="kpis">'+kp.map(function(k){return '<div><small>'+k[0]+'</small><b>'+T.fmt(k[1],1)+'</b></div>';}).join('')+'</div>'+html;
+    document.getElementById('detail').innerHTML=T.table(rows)+'<p class="small">'+T.bi('Ứng suất do lực dọc và mô men được cộng đại số theo trường hợp bất lợi nhất; nên đặt lực nén với dấu âm để công cụ dùng f<sub>wc</sub>.','Axial and bending stresses are added for the most unfavourable fibre; enter compression as negative so f<sub>wc</sub> is used.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

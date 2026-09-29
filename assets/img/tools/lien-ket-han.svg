@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker>
+<marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ee5a24"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<text x="190" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2a5b">Hàn góc · Fillet weld</text>
+<rect x="40" y="150" width="200" height="30" fill="#9aa7c4" stroke="#1d2a5b"/>
+<rect x="150" y="180" width="200" height="30" fill="#c9d2e6" stroke="#1d2a5b"/>
+<path d="M240 150 L240 180 L270 180 Z" fill="#ee5a24"/><path d="M150 210 L150 180 L120 180 Z" fill="#ee5a24" transform="translate(0,0)"/>
+<path d="M270 190 l30 -40" stroke="#1d2a5b" stroke-width="1.2"/><text x="302" y="146" font-size="14" font-weight="700" fill="#1d2a5b">h<tspan baseline-shift="sub" font-size="70%">f</tspan></text>
+<path d="M30 165H0" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/><path d="M360 195H390" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/>
+<text x="10" y="150" font-size="15" font-weight="700" fill="#ee5a24">N</text>
+<!-- tiết diện tính toán -->
+<g transform="translate(60,250)">
+<path d="M0 100 L0 0 L100 100 Z" fill="#fde6df" stroke="#ee5a24" stroke-width="2"/>
+<path d="M0 100 L50 50" stroke="#1d2a5b" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="56" y="58" font-size="13" font-weight="700" fill="#1d2a5b">β<tspan baseline-shift="sub" font-size="70%">f</tspan>h<tspan baseline-shift="sub" font-size="70%">f</tspan></text>
+<text x="110" y="100" font-size="12" fill="#5a6482">tiết diện 1: kim loại hàn (f)</text>
+<text x="110" y="80" font-size="12" fill="#5a6482">tiết diện 2: biên nóng chảy (s)</text>
+</g>
+<path d="M380 30V400" stroke="#dfe5f0" stroke-width="2"/>
+<text x="570" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2a5b">Hàn đối đầu · Butt weld</text>
+<rect x="420" y="160" width="140" height="34" fill="#9aa7c4" stroke="#1d2a5b"/><rect x="580" y="160" width="140" height="34" fill="#9aa7c4" stroke="#1d2a5b"/>
+<path d="M560 160 L580 160 L574 194 L566 194 Z" fill="#ee5a24"/>
+<path d="M410 177H385" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/><path d="M730 177H755" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/>
+<g stroke="#1d2a5b" stroke-width="1.5" fill="none"><path d="M740 160V194" marker-start="url(#ar)" marker-end="url(#ar)"/></g>
+<text x="720" y="220" font-size="14" font-weight="700" fill="#1d2a5b">t</text>
+<rect x="470" y="260" width="200" height="40" fill="#fde6df" stroke="#ee5a24" stroke-width="2"/>
+<text x="570" y="286" text-anchor="middle" font-size="13" fill="#9a3a12" font-weight="600">l<tspan baseline-shift="sub" font-size="70%">w</tspan> = l − 2t</text>
+<path d="M470 320H670" stroke="#1d2a5b" stroke-width="1.5" marker-start="url(#ar)" marker-end="url(#ar)"/>
+</svg>

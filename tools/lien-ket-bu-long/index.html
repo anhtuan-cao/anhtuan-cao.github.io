@@ -1,0 +1,103 @@
+---
+layout: page
+title: "Kiểm tra liên kết bu lông theo TCVN 5575:2012"
+title_vi: "Liên kết bu lông"
+title_en: "Bolted connections"
+kicker_vi: "Công cụ tính online · Kết cấu thép tạm"
+kicker_en: "Online calculator · Temporary steelwork"
+lead_vi: "Bu lông chịu cắt, ép mặt, kéo và mô men trong / ngoài mặt phẳng liên kết — kèm hai trường hợp hay gặp trong hệ shoring: nối waler bằng bản táp và liên kết đầu thanh chống xiên."
+lead_en: "Bolts in shear, bearing, tension and in-plane / out-of-plane moment — with two common shoring cases: waler splices and raking-strut end connections."
+description: "Công cụ tính online kiểm tra liên kết bu lông theo TCVN 5575:2012, gồm nối waler và đầu thanh chống hệ shoring."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/bu-long.svg" alt="Liên kết bu lông nối waler"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Mỗi bu lông chịu cắt bị giới hạn bởi giá trị nhỏ hơn giữa <b>khả năng chịu cắt của thân</b> và <b>khả năng ép mặt của bản thép</b>. Mô men trong mặt phẳng liên kết gây thêm lực cắt lớn nhất ở bu lông xa tâm nhất; mô men ngoài mặt phẳng gây kéo cho bu lông. Bu lông chịu kéo được kiểm tra theo diện tích thực phần ren A<sub>bn</sub>.</span><span class="l-en">Each bolt in shear is limited by the smaller of its <b>shank shear capacity</b> and the <b>bearing capacity of the plate</b>. In-plane moment adds shear to the bolt furthest from the centroid; out-of-plane moment puts bolts in tension. Tension is checked on the net threaded area A<sub>bn</sub>.</span></p>
+      <div class="formula">[N]<sub>vb</sub> = f<sub>vb</sub>γ<sub>b</sub>A·n<sub>v</sub> · [N]<sub>cb</sub> = f<sub>cb</sub>γ<sub>b</sub>d·Σt · [N]<sub>tb</sub> = f<sub>tb</sub>A<sub>bn</sub></div>
+      <p class="small"><span class="l-vi">Mô men phân phối theo công thức N<sub>max</sub> = M·l<sub>max</sub>/(m·Σl<sub>i</sub>²), với m là số bu lông trên một hàng, l<sub>i</sub> là khoảng cách giữa hai dãy bu lông đối xứng qua trục liên kết.</span><span class="l-en">Moment is distributed with N<sub>max</sub> = M·l<sub>max</sub>/(m·Σl<sub>i</sub>²), where m is the number of bolts in a row and l<sub>i</sub> the distance between symmetric bolt rows.</span></p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Vật liệu &amp; bu lông</span><span class="l-en">Material &amp; bolts</span></legend>
+        <label class="fld"><span class="lb"><i>f<sub>u</sub></i><span class="l-vi">Mác thép bản liên kết</span><span class="l-en">Plate steel grade</span></span><span class="in"><select id="grade"><option>CCT34</option><option>CCT38</option><option>CCT42</option><option>SS400</option><option>SS490</option><option selected>Q235</option><option>Q345</option><option>S235</option><option>S275</option><option>S355</option></select></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Cấp độ bền bu lông</span><span class="l-en">Bolt property class</span></span><span class="in"><select id="cls"><option>4.6</option><option>4.8</option><option>5.6</option><option>5.8</option><option>6.6</option><option selected>8.8</option><option>10.9</option></select></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Loại bu lông</span><span class="l-en">Bolt type</span></span><span class="in"><select id="fine"><option value="0" selected>Thường · Normal</option><option value="1">Tinh · Precision</option></select></span></label>
+        <label class="fld"><span class="lb"><i>d</i><span class="l-vi">Đường kính bu lông</span><span class="l-en">Bolt diameter</span></span><span class="in"><select id="d"><option>12</option><option>14</option><option>16</option><option>18</option><option>20</option><option selected>22</option><option>24</option><option>27</option><option>30</option><option>36</option><option>42</option><option>48</option></select><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>Σt</i><span class="l-vi">Tổng chiều dày nhỏ nhất các bản trượt về một phía</span><span class="l-en">Min. total thickness bearing in one direction</span></span><span class="in"><input id="t" type="number" step="any" value="12"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>n<sub>v</sub></i><span class="l-vi">Số mặt cắt tính toán của 1 bu lông</span><span class="l-en">Shear planes per bolt</span></span><span class="in"><input id="nv" type="number" step="1" value="1"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>n</i><span class="l-vi">Số bu lông ở một phía mối nối</span><span class="l-en">Bolts on one side of the joint</span></span><span class="in"><input id="n" type="number" step="1" value="12"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>γ<sub>b</sub></i><span class="l-vi">Hệ số điều kiện làm việc của bu lông (Bảng 38)</span><span class="l-en">Bolt working factor (Table 38)</span></span><span class="in"><input id="gb" type="number" step="any" value="0.9"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>γ<sub>c</sub></i><span class="l-vi">Hệ số điều kiện làm việc của kết cấu</span><span class="l-en">Structural working factor</span></span><span class="in"><input id="gc" type="number" step="any" value="1"><em>–</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Tải trọng</span><span class="l-en">Loading</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Trường hợp</span><span class="l-en">Case</span></span><span class="in"><select id="mode"><option value="waler" selected>Nối waler · Waler splice</option><option value="strut">Chống xiên · Raking strut</option><option value="gen">Tổng quát · General</option></select></span></label>
+        <div class="m-waler">
+          <label class="fld"><span class="lb"><i>M</i><span class="l-vi">Mô men lớn nhất trong waler</span><span class="l-en">Max. waler moment</span></span><span class="in"><input id="Mw" type="number" step="any" value="341"><em>kN·m</em></span></label>
+          <label class="fld"><span class="lb"><i>h</i><span class="l-vi">Chiều cao một thanh waler (cánh tay đòn)</span><span class="l-en">Height of one waler (lever arm)</span></span><span class="in"><input id="hw" type="number" step="any" value="350"><em>mm</em></span></label>
+          <label class="fld"><span class="lb"><i>n<sub>w</sub></i><span class="l-vi">Số thanh waler ghép</span><span class="l-en">Number of waler members</span></span><span class="in"><input id="nw" type="number" step="1" value="1"><em>–</em></span></label>
+        </div>
+        <div class="m-strut">
+          <label class="fld"><span class="lb"><i>N<sub>s</sub></i><span class="l-vi">Lực dọc lớn nhất của thanh chống</span><span class="l-en">Max. strut axial force</span></span><span class="in"><input id="Ns" type="number" step="any" value="2297"><em>kN</em></span></label>
+          <label class="fld"><span class="lb"><i>α</i><span class="l-vi">Góc giữa thanh chống và waler</span><span class="l-en">Angle between strut and waler</span></span><span class="in"><input id="al" type="number" step="any" value="45"><em>°</em></span></label>
+        </div>
+        <div class="m-gen">
+          <label class="fld"><span class="lb"><i>V</i><span class="l-vi">Lực cắt trong mặt phẳng liên kết</span><span class="l-en">Shear in the joint plane</span></span><span class="in"><input id="V" type="number" step="any" value="200"><em>kN</em></span></label>
+          <label class="fld"><span class="lb"><i>N</i><span class="l-vi">Lực kéo dọc thân bu lông</span><span class="l-en">Tension along the bolts</span></span><span class="in"><input id="N" type="number" step="any" value="0"><em>kN</em></span></label>
+          <label class="fld"><span class="lb"><i>M<sub>1</sub></i><span class="l-vi">Mô men trong mặt phẳng liên kết</span><span class="l-en">In-plane moment</span></span><span class="in"><input id="M1" type="number" step="any" value="20"><em>kN·m</em></span></label>
+          <label class="fld"><span class="lb"><i>M<sub>2</sub></i><span class="l-vi">Mô men ngoài mặt phẳng (gây kéo)</span><span class="l-en">Out-of-plane moment (tension)</span></span><span class="in"><input id="M2" type="number" step="any" value="0"><em>kN·m</em></span></label>
+          <label class="fld"><span class="lb"><i>m</i><span class="l-vi">Số bu lông trên một hàng</span><span class="l-en">Bolts per row</span></span><span class="in"><input id="m" type="number" step="1" value="2"><em>–</em></span></label>
+          <label class="fld"><span class="lb"><i>l<sub>i</sub></i><span class="l-vi">Khoảng cách các cặp dãy đối xứng, cách nhau bởi dấu phẩy</span><span class="l-en">Distances between symmetric rows, comma-separated</span></span><span class="in"><input id="L" type="text" value="100, 300, 500" style="text-align:right"><em>mm</em></span></label>
+        </div>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép. Tiêu chuẩn thiết kế</span><span class="l-en">Steel structures. Design standard</span> (<span class="l-vi">mục</span><span class="l-en">clause</span> 7.2.2; <span class="l-vi">Bảng</span><span class="l-en">Tables</span> 5, 6, 10, 11, 38, B.4).</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/steel-conn-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL;
+  function run(){
+    var mode=document.getElementById('mode').value;
+    ['waler','strut','gen'].forEach(function(k){ document.querySelector('.m-'+k).style.display=mode===k?'':'none'; });
+    var V=0,N=0,M1=0,M2=0,m=1,L=[],src;
+    if(mode==='waler'){ V=T.val('Mw')/(T.val('nw')*T.val('hw')/1000); src=T.bi('V = M/(n<sub>w</sub>·h)','V = M/(n<sub>w</sub>·h)'); }
+    else if(mode==='strut'){ V=Math.abs(T.val('Ns')*Math.cos(T.val('al')*Math.PI/180)); src='V = N<sub>s</sub>·cosα'; }
+    else { V=T.val('V')||0; N=T.val('N')||0; M1=T.val('M1')||0; M2=T.val('M2')||0; m=T.val('m')||1; L=document.getElementById('L').value.split(/[,;\s]+/).map(parseFloat).filter(function(x){return x>0;}); }
+    var o=CONN.bolt({grade:document.getElementById('grade').value,cls:document.getElementById('cls').value,fine:document.getElementById('fine').value==='1',d:+document.getElementById('d').value,t:T.val('t'),nv:T.val('nv'),n:T.val('n'),m:m,L:L,gb:T.val('gb'),gc:T.val('gc'),N:N,V:V,M1:M1,M2:M2});
+    var html='', ok=true, n=T.val('n');
+    html+=T.check('Bu lông chịu cắt'+(M1>0?' + mô men trong mặt phẳng':''),'Bolt shear'+(M1>0?' + in-plane moment':''),o.rShear); if(!(o.rShear<=1)) ok=false;
+    if(N>0||M2>0){ html+=T.check('Bu lông chịu kéo'+(M2>0?' + mô men ngoài mặt phẳng':''),'Bolt tension'+(M2>0?' + out-of-plane moment':''),o.rTension); if(!(o.rTension<=1)) ok=false; }
+    document.getElementById('res').innerHTML=T.verdict(ok,'V = '+T.fmt(V,1)+' kN','V = '+T.fmt(V,1)+' kN')+
+      '<div class="kpis"><div><small>[N]<sub>vb</sub> (kN)</small><b>'+T.fmt(o.Nvb,1)+'</b></div><div><small>[N]<sub>cb</sub> (kN)</small><b>'+T.fmt(o.Ncb,1)+'</b></div><div><small>[N]<sub>tb</sub> (kN)</small><b>'+T.fmt(o.Ntb,1)+'</b></div><div><small>'+T.bi('n tối thiểu','n required')+'</small><b>'+(o.nMin?o.nMin+' M'+document.getElementById('d').value:'—')+'</b></div></div>'+html+
+      '<p class="small">'+T.bi('Số bu lông tối thiểu làm tròn lên số chẵn để bố trí đối xứng (chỉ xét lực cắt V).','Minimum bolt count rounded up to an even number for a symmetric layout (shear V only).')+'</p>';
+    var rows=[
+      T.row('f<sub>u</sub>','Cường độ kéo đứt của thép liên kết','Ultimate strength of connected steel',o.fu,'MPa',0),
+      T.row('f<sub>vb</sub>, f<sub>tb</sub>','Cường độ tính toán chịu cắt, chịu kéo của bu lông (Bảng 10)','Bolt design shear and tension strength (Table 10)',T.fmt(o.fvb*10,0)+', '+T.fmt(o.ftb*10,0),'MPa'),
+      T.row('f<sub>cb</sub>','Cường độ ép mặt (Bảng 11, theo f<sub>u</sub>)','Bearing strength (Table 11, from f<sub>u</sub>)',o.fcb*10,'MPa',0),
+      T.row('A, A<sub>bn</sub>','Diện tích thân / phần ren (Bảng B.4)','Shank / threaded area (Table B.4)',T.fmt(o.A,2)+', '+T.fmt(o.Abn,2),'cm²'),
+      T.row('[N]<sub>vb</sub>','= f<sub>vb</sub>γ<sub>b</sub>A·n<sub>v</sub>','= f<sub>vb</sub>γ<sub>b</sub>A·n<sub>v</sub>',o.Nvb,'kN',2),
+      T.row('[N]<sub>cb</sub>','= f<sub>cb</sub>γ<sub>b</sub>d·Σt','= f<sub>cb</sub>γ<sub>b</sub>d·Σt',o.Ncb,'kN',2),
+      T.row('[N]<sub>min</sub>','= min([N]<sub>vb</sub>; [N]<sub>cb</sub>)','= min([N]<sub>vb</sub>; [N]<sub>cb</sub>)',o.Nmin,'kN',2)];
+    if(mode!=='gen') rows.push(T.row('V',src,src,V,'kN',2));
+    rows.push(T.row('N<sub>V</sub>','= V/(n·γ<sub>c</sub>)','= V/(n·γ<sub>c</sub>)',o.NV,'kN',2));
+    if(M1>0) rows.push(T.row('N<sub>M</sub>','= M<sub>1</sub>l<sub>max</sub>/(mγ<sub>c</sub>Σl<sub>i</sub>²)','= M<sub>1</sub>l<sub>max</sub>/(mγ<sub>c</sub>Σl<sub>i</sub>²)',o.NM1,'kN',2), T.row('N','= √(N<sub>V</sub>² + N<sub>M</sub>²) ≤ [N]<sub>min</sub>','= √(N<sub>V</sub>² + N<sub>M</sub>²) ≤ [N]<sub>min</sub>',o.Nsh,'kN',2));
+    if(N>0||M2>0){ rows.push(T.row('[N]<sub>tb</sub>','= f<sub>tb</sub>A<sub>bn</sub>','= f<sub>tb</sub>A<sub>bn</sub>',o.Ntb,'kN',2)); rows.push(T.row('N<sub>t</sub>','= N/(nγ<sub>c</sub>) + M<sub>2</sub>l<sub>max</sub>/(mγ<sub>c</sub>Σl<sub>i</sub>²)','= N/(nγ<sub>c</sub>) + M<sub>2</sub>l<sub>max</sub>/(mγ<sub>c</sub>Σl<sub>i</sub>²)',o.Nt,'kN',2)); }
+    document.getElementById('detail').innerHTML=T.table(rows)+'<p class="small">'+T.bi('Bu lông vừa chịu cắt vừa chịu kéo được kiểm tra riêng rẽ cho từng trạng thái theo TCVN 5575:2012.','Bolts carrying both shear and tension are checked separately for each action, as in TCVN 5575:2012.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>
