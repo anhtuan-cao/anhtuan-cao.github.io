@@ -493,3 +493,36 @@ body.home .foot{margin-top:0}
 .tool-intro > *,.tool-grid > *{min-width:0}
 .tool-detail{overflow-x:auto}
 @media (max-width:760px){.calc-tbl{font-size:13px}.calc-tbl td{padding:6px 5px}.formula{font-size:16px;white-space:normal}}
+.tbl-fs{overflow:hidden}
+.soil-wrap{overflow-x:auto;margin:4px 0 8px}
+.soil-tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+.soil-tbl th{font-weight:600;color:var(--muted);text-align:left;padding:4px 4px;font-size:12px}
+.soil-tbl td{padding:3px 3px}
+.soil-tbl input,.soil-tbl select{width:100%;border:1px solid var(--line);border-radius:6px;padding:6px 6px;background:var(--bg);color:var(--ink);font:600 13px var(--sans)}
+.soil-tbl input{text-align:right}
+.soil-tbl .del{border:0;background:var(--soft);color:#b3261e;width:26px;height:26px;border-radius:6px;cursor:pointer;font-size:16px}
+.btn.sm{padding:6px 12px;font-size:13px}
+.tool-form textarea{width:100%;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:500 13.5px/1.5 ui-monospace,Consolas,monospace;padding:8px 10px;margin:6px 0 4px;resize:vertical}
+.tool-chart{margin-top:22px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow);padding:16px 18px}
+.tool-chart h3{font:600 18px var(--serif);color:var(--navy);margin-bottom:6px}
+@media (prefers-color-scheme:dark){.tool-chart h3{color:#fff}}
+.cap-chart{width:100%;height:auto;display:block}
+.cap-chart .grid{stroke:var(--line);stroke-width:1}
+.cap-chart .ax{font:12px var(--sans);fill:var(--muted)}
+.cap-chart .ax.b{font-weight:700;fill:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);margin-top:6px}
+.legend i{display:inline-block;width:18px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.res-tbl{margin-top:4px}
+.soil-wrap,.tool-form textarea,.tbl-fs .btn,.tbl-fs .small{clear:both}
+.tool-form fieldset > p.small{clear:both}
+.tool-form fieldset{min-width:0}
+.tool-grid.wide-form{grid-template-columns:1.45fr .8fr}
+.soil-tbl select:disabled{opacity:.35}
+.soil-tbl td:first-child input{min-width:62px}
+@media (max-width:960px){.tool-grid.wide-form{grid-template-columns:1fr}}
+.soil-tbl td:nth-child(4),.soil-tbl td:nth-child(5),.soil-tbl td:nth-child(6){width:72px}
+.soil-tbl td:nth-child(2) select{min-width:92px}.soil-tbl td:nth-child(3) select{min-width:120px}
+.soil-tbl td:first-child{width:74px}
+.soil-tbl input{padding:6px 4px}
+.soil-tbl td:nth-child(4),.soil-tbl td:nth-child(5){width:82px}
+.soil-tbl td:nth-child(3) select{min-width:0}

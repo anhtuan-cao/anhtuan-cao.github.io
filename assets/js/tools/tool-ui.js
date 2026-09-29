@@ -41,7 +41,7 @@
     var rs = f.querySelector('[data-reset]');
     if (rs) rs.addEventListener('click', function (e) {
       e.preventDefault();
-      f.querySelectorAll('input,select').forEach(function (el) {
+      f.querySelectorAll('input,select,textarea').forEach(function (el) {
         if (el.type === 'checkbox') el.checked = el.defaultChecked; else if (el.tagName === 'SELECT') { el.value = el.querySelector('option[selected]') ? el.querySelector('option[selected]').value : el.options[0].value; } else el.value = el.defaultValue;
       });
       run();
