@@ -1,0 +1,134 @@
+---
+layout: page
+title: "Vận thăng — móng độc lập và chống phụ sàn đỡ vận thăng"
+title_vi: "Vận thăng: móng &amp; chống phụ sàn"
+title_en: "Hoist: foundation &amp; slab reshoring"
+kicker_vi: "Công cụ tính online · Biện pháp thi công"
+kicker_en: "Online calculator · Temporary works"
+lead_vi: "Tổng hợp tải trọng vận thăng lồng (tải nâng, khung đế, đốt thân, giằng, hệ số động), rồi kiểm tra một trong hai phương án: móng độc lập trên nền (sức chịu tải, chọc thủng, cốt thép, độ lún) hoặc đặt trên sàn tầng hầm có chống phụ các tầng dưới."
+lead_en: "Builds up rack-and-pinion hoist loads (payload, base frame, mast, ties, dynamic factor), then checks either a pad foundation on soil (bearing, punching, reinforcement, settlement) or a slab-mounted base with reshoring of the floors below."
+description: "Công cụ tính online vận thăng: tải trọng, móng độc lập (sức chịu tải nền, chọc thủng, cốt thép, lún) và chống phụ sàn đỡ vận thăng."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/van-thang.svg" alt="Vận thăng lồng trên móng độc lập"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Tải tiêu chuẩn G gồm tải nâng, khung đế, các đốt thân 1,5 m, giằng và dẫn cáp (10%), cộng thêm tải động bổ sung; tải tính toán N = k·G. <b>Móng trên nền</b>: áp lực đáy móng so với sức chịu tải R theo TCVN 9362, chọc thủng quanh chân đế, cốt thép chịu uốn phần console và độ lún bằng phương pháp cộng lớp. <b>Đặt trên sàn</b>: phần tải vượt khả năng ô sàn được chống phụ truyền xuống tầng dưới.</span><span class="l-en">The service load G comprises payload, base frame, 1.5 m mast sections, ties and cable guides (10%), plus an additional dynamic term; the design load is N = k·G. <b>On soil</b>: base pressure against the bearing resistance R of TCVN 9362, punching around the base frame, cantilever bending steel and layer-summation settlement. <b>On a slab</b>: load beyond the panel capacity is carried down by reshores.</span></p>
+      <div class="formula">R = m<sub>1</sub>m<sub>2</sub>/k<sub>tc</sub>·(A·b·γ + B·D<sub>f</sub>·γ' + D·c) · σ = N<sup>tc</sup>/F + γ<sub>tb</sub>D<sub>f</sub> ≤ R<br>S = β·Σσ<sub>gl,i</sub>h<sub>i</sub>/E<sub>i</sub> ≤ [S]</div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Vận thăng</span><span class="l-en">Hoist</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Phương án đặt</span><span class="l-en">Base arrangement</span></span><span class="in"><select id="mode"><option value="fd" selected>Móng độc lập trên nền · Pad on soil</option><option value="sl">Đặt trên sàn, chống phụ · On slab, reshored</option></select></span></label>
+        <label class="fld"><span class="lb"><i>n<sub>l</sub></i><span class="l-vi">Số lồng; tải nâng mỗi lồng (kg)</span><span class="l-en">Cages; payload per cage (kg)</span></span><span class="in"><input id="nl" type="number" step="1" value="2"><input id="PLc" type="number" step="any" value="2000"></span></label>
+        <label class="fld"><span class="lb"><i>BU</i><span class="l-vi">Khối lượng khung đế</span><span class="l-en">Base unit weight</span></span><span class="in"><input id="BU" type="number" step="any" value="3500"><em>kg</em></span></label>
+        <label class="fld"><span class="lb"><i>m<sub>k</sub></i><span class="l-vi">Khối lượng 1 đốt thân 1,5 m</span><span class="l-en">Weight of one 1.5 m mast section</span></span><span class="in"><input id="mm" type="number" step="any" value="87.6"><em>kg</em></span></label>
+        <label class="fld"><span class="lb"><i>H, k</i><span class="l-vi">Chiều cao nâng (m); hệ số động</span><span class="l-en">Lifting height (m); dynamic factor</span></span><span class="in"><input id="Hh" type="number" step="any" value="150"><input id="kd" type="number" step="any" value="1.6"></span></label>
+      </fieldset>
+      <fieldset class="m-fd"><legend><span class="l-vi">Móng</span><span class="l-en">Footing</span></legend>
+        <label class="fld"><span class="lb"><i>b × l</i><span class="l-vi">Kích thước móng</span><span class="l-en">Footing size</span></span><span class="in"><input id="b" type="number" step="any" value="3.5"><input id="l" type="number" step="any" value="4"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>h, a</i><span class="l-vi">Chiều dày móng; lớp bảo vệ (m)</span><span class="l-en">Thickness; cover (m)</span></span><span class="in"><input id="h" type="number" step="any" value="0.3"><input id="a" type="number" step="any" value="0.05"></span></label>
+        <label class="fld"><span class="lb"><i>a<sub>m</sub></i><span class="l-vi">Cạnh chân đế thân vận thăng</span><span class="l-en">Mast base size</span></span><span class="in"><input id="am" type="number" step="any" value="0.45"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>D<sub>f</sub></i><span class="l-vi">Độ sâu đặt móng</span><span class="l-en">Foundation depth</span></span><span class="in"><input id="Df" type="number" step="any" value="1"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>b</sub>, R<sub>bt</sub></i><span class="l-vi">Bê tông móng</span><span class="l-en">Footing concrete</span></span><span class="in"><select id="conc"><option value="11.5,0.9">B20</option><option value="14.5,1.05">B25</option><option value="17,1.15" selected>B30</option><option value="19.5,1.3">B35</option></select></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>s</sub></i><span class="l-vi">Mác thép</span><span class="l-en">Rebar grade</span></span><span class="in"><select id="Rs"><option value="280">CB300-V · 280 MPa</option><option value="350" selected>CB400-V · 350 MPa</option><option value="435">CB500-V · 435 MPa</option></select></span></label>
+        <label class="fld"><span class="lb"><i>Ø, s</i><span class="l-vi">Đường kính; bước thép mỗi phương (mm)</span><span class="l-en">Bar size; spacing each way (mm)</span></span><span class="in"><input id="ds" type="number" step="any" value="10"><input id="sp" type="number" step="any" value="150"></span></label>
+      </fieldset>
+      <fieldset class="m-fd"><legend><span class="l-vi">Nền đất</span><span class="l-en">Soil</span></legend>
+        <label class="fld"><span class="lb"><i>φ, c</i><span class="l-vi">Góc ma sát trong (°); lực dính (kPa)</span><span class="l-en">Friction angle (°); cohesion (kPa)</span></span><span class="in"><input id="phi" type="number" step="any" value="22"><input id="c" type="number" step="any" value="1"></span></label>
+        <label class="fld"><span class="lb"><i>γ, γ'</i><span class="l-vi">Trọng lượng riêng dưới / trên đáy móng</span><span class="l-en">Unit weight below / above base</span></span><span class="in"><input id="g2" type="number" step="any" value="20"><input id="g1" type="number" step="any" value="20"><em>kN/m³</em></span></label>
+        <label class="fld"><span class="lb"><i>m<sub>1</sub>, m<sub>2</sub>, k<sub>tc</sub></i><span class="l-vi">Hệ số điều kiện làm việc, độ tin cậy</span><span class="l-en">Working and reliability factors</span></span><span class="in"><input id="m1" type="number" step="any" value="1.1"><input id="m2" type="number" step="any" value="1"><input id="ktc" type="number" step="any" value="1.1"></span></label>
+        <label class="fld"><span class="lb"><i>z<sub>w</sub>, [S]</i><span class="l-vi">Mực nước ngầm (m); lún cho phép (cm)</span><span class="l-en">Groundwater (m); allowable settlement (cm)</span></span><span class="in"><input id="zw" type="number" step="any" value="3"><input id="Sl" type="number" step="any" value="10"></span></label>
+        <div class="soil-wrap"><table class="soil-tbl"><thead><tr><th><span class="l-vi">Đáy lớp (m, từ mặt đất)</span><span class="l-en">Layer bottom (m below ground)</span></th><th>E (kPa)</th><th></th></tr></thead><tbody id="lay"></tbody></table></div>
+        <button class="btn sm" id="addL" type="button">+ <span class="l-vi">Thêm lớp</span><span class="l-en">Add layer</span></button>
+      </fieldset>
+      <fieldset class="m-sl"><legend><span class="l-vi">Sàn đặt vận thăng</span><span class="l-en">Supporting slab</span></legend>
+        <label class="fld"><span class="lb"><i>h<sub>s</sub>, a</i><span class="l-vi">Chiều dày sàn; lớp bảo vệ</span><span class="l-en">Slab thickness; cover</span></span><span class="in"><input id="hs" type="number" step="any" value="200"><input id="as" type="number" step="any" value="20"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>a<sub>m</sub></i><span class="l-vi">Cạnh thân vận thăng tỳ lên sàn</span><span class="l-en">Mast footprint side</span></span><span class="in"><input id="ams" type="number" step="any" value="650"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>bt</sub>, [P]</i><span class="l-vi">Bê tông sàn; tải cho phép 1 cây chống (kN)</span><span class="l-en">Slab concrete; allowable prop load (kN)</span></span><span class="in"><select id="rbts" style="max-width:90px"><option value="0.9">B20</option><option value="1.05">B25</option><option value="1.15" selected>B30</option><option value="1.3">B35</option></select><input id="Pp" type="number" step="any" value="30"></span></label>
+        <div class="soil-wrap"><table class="soil-tbl"><thead><tr><th><span class="l-vi">Tầng</span><span class="l-en">Floor</span></th><th><span class="l-vi">Ô sàn a×b (m)</span><span class="l-en">Panel a×b (m)</span></th><th></th><th>SDL</th><th>LL (kN/m²)</th><th>l<sub>1</sub>×b<sub>1</sub> (m)</th><th></th><th></th></tr></thead><tbody id="fls"></tbody></table></div>
+        <button class="btn sm" id="addF" type="button">+ <span class="l-vi">Thêm tầng</span><span class="l-en">Add floor</span></button>
+        <p class="small"><span class="l-vi">Ô sàn lấy mở rộng từ hàng rào vận thăng khoảng 0,5–1 m mỗi bên. Tải thiết kế sàn q<sub>tk</sub> = 1,1·SDL + 1,2·LL.</span><span class="l-en">Panels extend 0.5–1 m beyond the hoist enclosure on each side. Slab capacity q<sub>tk</sub> = 1.1·SDL + 1.2·LL.</span></p>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 9362:2012 — <span class="l-vi">Tiêu chuẩn thiết kế nền nhà và công trình</span><span class="l-en">Design of foundations for buildings and structures</span>.</li>
+    <li>TCVN 5574:2018 — <span class="l-vi">Kết cấu bê tông và bê tông cốt thép</span><span class="l-en">Concrete and reinforced concrete structures</span>.</li>
+    <li><span class="l-vi">Catalogue của nhà sản xuất vận thăng (khối lượng khung đế, đốt thân, tải nâng)</span><span class="l-en">Hoist manufacturer catalogue (base unit, mast section and payload data)</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/hoist-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  var DL=[[2,2987],[8,7417.8]], DF=[['n',5.45,5.03,1,5,1.2,1.2],['n-1',6.5,6,1,5,1.2,1.2],['n-2',6.5,6,1,5,1.2,1.2]];
+  function inp(v,t){ return '<td><input type="'+(t||'number')+'" step="any" value="'+v+'"'+(t?' style="text-align:center"':'')+'></td>'; }
+  function fillL(){ $('lay').innerHTML=DL.map(function(r){return '<tr>'+inp(r[0])+inp(r[1])+'<td><button type="button" class="del">×</button></td></tr>';}).join(''); }
+  function fillF(){ $('fls').innerHTML=DF.map(function(r){return '<tr>'+inp(r[0],'text')+inp(r[1])+inp(r[2])+inp(r[3])+inp(r[4])+inp(r[5])+inp(r[6])+'<td><button type="button" class="del">×</button></td></tr>';}).join(''); }
+  fillL(); fillF();
+  $('addL').addEventListener('click',function(){ $('lay').insertAdjacentHTML('beforeend','<tr>'+inp('')+inp(10000)+'<td><button type="button" class="del">×</button></td></tr>'); run(); });
+  $('addF').addEventListener('click',function(){ $('fls').insertAdjacentHTML('beforeend','<tr>'+inp('','text')+inp(6.5)+inp(6)+inp(1)+inp(5)+inp(1.2)+inp(1.2)+'<td><button type="button" class="del">×</button></td></tr>'); run(); });
+  ['lay','fls'].forEach(function(id){ $(id).addEventListener('click',function(e){ if(e.target.classList.contains('del')){ e.target.closest('tr').remove(); run(); } }); });
+  document.querySelector('[data-reset]').addEventListener('click',function(){ fillL(); fillF(); });
+  function run(){
+    var fd=$('mode').value==='fd';
+    document.querySelectorAll('.m-fd').forEach(function(e){e.style.display=fd?'':'none';});
+    document.querySelectorAll('.m-sl').forEach(function(e){e.style.display=fd?'none':'';});
+    var L=HOIST.load({nl:T.val('nl'),PLc:T.val('PLc'),BU:T.val('BU'),mm:T.val('mm'),H:T.val('Hh'),kd:T.val('kd')});
+    var ok=true, html='', rows=[];
+    function ck(vi,en,r,note){ if(!(r<=1)) ok=false; html+=T.check(vi,en,r,note); }
+    rows.push(T.row('PL','Tải nâng n<sub>l</sub>·PL<sub>lồng</sub>','Payload n<sub>c</sub>·PL<sub>cage</sub>',L.PL,'kg',0));
+    rows.push(T.row('HM','Đốt thân (H/1,5 − 2)·m<sub>k</sub>','Mast (H/1.5 − 2)·m<sub>k</sub>',L.HM,'kg',0));
+    rows.push(T.row('DL','Tải động bổ sung = PL + 2/3·BU','Additional dynamic = PL + 2/3·BU',L.DL,'kg',0));
+    rows.push(T.row('MTCG','Giằng &amp; dẫn cáp = 10%(PL + BU + DL + HM)','Ties &amp; cable guides = 10%(PL + BU + DL + HM)',L.MT,'kg',0));
+    rows.push(T.row('G; N','Tổng tiêu chuẩn; tính toán N = k·G (1 kg ≈ 10 N)','Service total; design N = k·G (1 kg ≈ 10 N)',T.fmt(L.G,0)+' kg; '+T.fmt(L.N,1)+' kN',''));
+    var kp;
+    if(fd){
+      var c=$('conc').value.split(',').map(parseFloat), lay=[];
+      $('lay').querySelectorAll('tr').forEach(function(tr){ var i=tr.querySelectorAll('input'); var z=parseFloat(i[0].value), E=parseFloat(i[1].value); if(z>0&&E>0) lay.push({z:z,E:E}); });
+      lay.sort(function(a,b){return a.z-b.z;});
+      var o=HOIST.footing({Ntc:L.Ntc,N:L.N,b:T.val('b'),l:T.val('l'),h:T.val('h'),a:T.val('a'),am:T.val('am'),Df:T.val('Df'),g1:T.val('g1'),g2:T.val('g2'),c:T.val('c'),phi:T.val('phi'),m1:T.val('m1'),m2:T.val('m2'),ktc:T.val('ktc'),Rb:c[0],Rbt:c[1],Rs:+$('Rs').value,ds:T.val('ds'),s:T.val('sp'),layers:lay,zw:T.val('zw'),Slim:T.val('Sl'),beta:0.8});
+      ck('Sức chịu tải nền','Bearing resistance',o.rB,T.fmt(o.sig,1)+' / '+T.fmt(o.R,1)+' kPa');
+      ck('Chọc thủng quanh chân đế','Punching around base',o.rP,T.fmt(o.Pxt,0)+' / '+T.fmt(o.Pcx,0)+' kN');
+      ck('Cốt thép phương l','Steel, l direction',o.rAl,T.fmt(o.Asl.As,0)+' / '+T.fmt(o.Asp,0)+' mm²/m');
+      ck('Cốt thép phương b','Steel, b direction',o.rAb,T.fmt(o.Asb.As,0)+' / '+T.fmt(o.Asp,0)+' mm²/m');
+      ck('Độ lún','Settlement',o.rS,T.fmt(o.S,2)+' / '+T.fmt(T.val('Sl'),0)+' cm');
+      kp=[['N (kN)',L.N,1],['σ (kPa)',o.sig,1],['R (kPa)',o.R,1],['S (cm)',o.S,2]];
+      rows.push(T.row('A, B, D','Hệ số sức chịu tải theo φ','Bearing factors from φ',T.fmt(o.cA,3)+', '+T.fmt(o.cB,3)+', '+T.fmt(o.cD,3),''));
+      rows.push(T.row('γ<sub>tb</sub>, σ','= (25h + γ\'(D<sub>f</sub>−h))/D<sub>f</sub>; N<sup>tc</sup>/F + γ<sub>tb</sub>D<sub>f</sub>','= (25h + γ\'(D<sub>f</sub>−h))/D<sub>f</sub>; N<sup>tc</sup>/F + γ<sub>tb</sub>D<sub>f</sub>',T.fmt(o.gtb,2)+'; '+T.fmt(o.sig,2),'kN/m³; kPa'));
+      rows.push(T.row('P<sub>xt</sub>, P<sub>cx</sub>','= p(F − (a<sub>m</sub>+2h<sub>0</sub>)²); R<sub>bt</sub>·4(a<sub>m</sub>+h<sub>0</sub>)·h<sub>0</sub>','= p(F − (a<sub>m</sub>+2h<sub>0</sub>)²); R<sub>bt</sub>·4(a<sub>m</sub>+h<sub>0</sub>)·h<sub>0</sub>',T.fmt(o.Pxt,1)+'; '+T.fmt(o.Pcx,1),'kN'));
+      rows.push(T.row('M<sub>l</sub>, M<sub>b</sub>','= p(l − a<sub>m</sub>)²/8; p(b − a<sub>m</sub>)²/8','= p(l − a<sub>m</sub>)²/8; p(b − a<sub>m</sub>)²/8',T.fmt(o.Ml,2)+'; '+T.fmt(o.Mb,2),'kN·m/m'));
+      rows.push(T.row('σ<sub>gl</sub>','Áp lực gây lún (tải tiêu chuẩn)','Net settlement pressure (service load)',o.pgl,'kPa',2));
+      var st='<table class="calc-tbl"><thead><tr><th>z (m)</th><th>K<sub>0</sub></th><th>σ<sub>gl</sub> (kPa)</th><th>σ<sub>bt</sub> (kPa)</th><th>E (kPa)</th><th>ΔS (cm)</th></tr></thead><tbody>'+o.sett.map(function(r){return '<tr><td class="num">'+T.fmt(r.z,2)+'</td><td class="num">'+T.fmt(r.K,3)+'</td><td class="num">'+T.fmt(r.sgl,2)+'</td><td class="num">'+T.fmt(r.sbt,1)+'</td><td class="num">'+T.fmt(r.E,0)+'</td><td class="num">'+T.fmt(r.dS,3)+'</td></tr>';}).join('')+'</tbody></table>';
+      $('detail').innerHTML=T.table(rows)+'<h4 class="ck-group">'+T.bi('Tính lún theo lớp phân tố (h<sub>i</sub> = 0,2b, dừng khi σ<sub>gl</sub> ≤ 0,2σ<sub>bt</sub>)','Layer-summation settlement (h<sub>i</sub> = 0.2b, stop at σ<sub>gl</sub> ≤ 0.2σ<sub>bt</sub>)')+'</h4><div class="calc-scroll">'+st+'</div>';
+    } else {
+      var F=[]; $('fls').querySelectorAll('tr').forEach(function(tr){ var i=tr.querySelectorAll('input'), v=function(k){return parseFloat(i[k].value);}; if(v(1)>0&&v(2)>0) F.push({name:i[0].value,a:v(1),b:v(2),SDL:v(3)||0,LL:v(4)||0,nS:1.1,nL:1.2,l1:v(5)||0,b1:v(6)||0}); });
+      if(!F.length){ $('res').innerHTML=''; return; }
+      var s=HOIST.onslab({N:L.N,hs:T.val('hs'),a:T.val('as'),am:T.val('ams'),Rbt:+$('rbts').value,P:T.val('Pp'),floors:F});
+      ck('Chọc thủng sàn dưới thân vận thăng','Punching under the mast',s.rPun,T.fmt(L.N,0)+' / '+T.fmt(s.Pcx,0)+' kN');
+      s.rows.forEach(function(r){ html+='<h4 class="ck-group">'+T.bi('Sàn '+r.name,'Slab '+r.name)+'</h4>';
+        if(r.need) ck('Cần chống phụ bên dưới — lực 1 cây','Reshores needed below — load per prop',r.rP,T.fmt(r.Pp,2)+' / '+T.fmt(T.val('Pp'),0)+' kN');
+        else html+='<p class="small">'+T.bi('q = '+T.fmt(r.q,2)+' ≤ q<sub>tk</sub> = '+T.fmt(r.qtk,2)+' kN/m² — sàn đủ khả năng, không cần chống phụ tiếp.','q = '+T.fmt(r.q,2)+' ≤ q<sub>tk</sub> = '+T.fmt(r.qtk,2)+' kN/m² — slab adequate, no further reshoring.')+'</p>';
+        if(r.left) html+='<p class="small">'+T.bi('Hết số tầng khai báo, còn '+T.fmt(r.left,2)+' kN/m² chưa được đỡ — thêm tầng.','Out of listed floors with '+T.fmt(r.left,2)+' kN/m² unsupported — add floors.')+'</p>';
+        if(r.left) ok=false; });
+      kp=[['N (kN)',L.N,1],['q<sub>0</sub> (kN/m²)',s.q0,2],[T.bi('Tầng chống','Floors reshored'),s.rows.filter(function(r){return r.need;}).length,0]];
+      var tb='<table class="calc-tbl"><thead><tr><th>'+T.bi('Sàn','Slab')+'</th><th>q (kN/m²)</th><th>q<sub>tk</sub> (kN/m²)</th><th>P (kN)</th></tr></thead><tbody>'+s.rows.map(function(r){return '<tr><td class="sym">'+r.name+'</td><td class="num">'+T.fmt(r.q,2)+'</td><td class="num">'+T.fmt(r.qtk,2)+'</td><td class="num">'+(r.need?T.fmt(r.Pp,2):'—')+'</td></tr>';}).join('')+'</tbody></table>';
+      rows.push(T.row('P<sub>cx</sub>','= R<sub>bt</sub>·4(a<sub>m</sub> + h<sub>0</sub>)·h<sub>0</sub>','= R<sub>bt</sub>·4(a<sub>m</sub> + h<sub>0</sub>)·h<sub>0</sub>',s.Pcx,'kN',1));
+      $('detail').innerHTML=T.table(rows)+'<div class="calc-scroll">'+tb+'</div><p class="small">'+T.bi('P = (q − q<sub>tk</sub>)·l<sub>1</sub>b<sub>1</sub>; tải xuống tầng dưới q<sub>i+1</sub> = (q<sub>i</sub> − q<sub>tk,i</sub>)·A<sub>i</sub>/A<sub>i+1</sub>.','P = (q − q<sub>tk</sub>)·l<sub>1</sub>b<sub>1</sub>; load passed down q<sub>i+1</sub> = (q<sub>i</sub> − q<sub>tk,i</sub>)·A<sub>i</sub>/A<sub>i+1</sub>.')+'</p>';
+    }
+    $('res').innerHTML=T.verdict(ok,fd?'Móng độc lập trên nền':'Đặt trên sàn có chống phụ',fd?'Pad foundation on soil':'On slab with reshoring')+'<div class="kpis">'+kp.map(function(k){return '<div><small>'+k[0]+'</small><b>'+T.fmt(k[1],k[2])+'</b></div>';}).join('')+'</div>'+html;
+  }
+  T.bind('f',run);
+})();
+</script>

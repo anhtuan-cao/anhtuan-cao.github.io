@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker></defs>
+<rect width="760" height="440" fill="#fff"/>
+<rect x="40" y="60" width="30" height="360" fill="#9aa7c4"/>
+<rect x="40" y="110" width="270" height="22" fill="#9aa7c4"/>
+<rect x="40" y="320" width="270" height="22" fill="#9aa7c4"/>
+<rect x="250" y="342" width="60" height="40" fill="#9aa7c4"/>
+<rect x="230" y="302" width="300" height="16" fill="#1d2a5b"/><rect x="298" y="296" width="8" height="28" fill="#ee5a24"/>
+<rect x="337" y="40" width="6" height="262" fill="#3b56a8"/>
+<rect x="467" y="40" width="6" height="262" fill="#3b56a8"/>
+<path d="M340 60H470M340 60L470 110" stroke="#3b56a8" stroke-width="2" fill="none"/>
+<path d="M340 110H470M340 110L470 160" stroke="#3b56a8" stroke-width="2" fill="none"/>
+<path d="M340 160H470M340 160L470 210" stroke="#3b56a8" stroke-width="2" fill="none"/>
+<path d="M340 210H470M340 210L470 260" stroke="#3b56a8" stroke-width="2" fill="none"/>
+<path d="M340 260H470M340 260L470 310" stroke="#3b56a8" stroke-width="2" fill="none"/>
+<path d="M430 302L300 132" stroke="#ee5a24" stroke-width="3"/><circle cx="430" cy="302" r="5" fill="#ee5a24"/>
+<path d="M302 395H340" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="321.0" y="390" font-size="12" text-anchor="middle" fill="#1d2a5b">L1</text>
+<path d="M302 412H470" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="386.0" y="407" font-size="12" text-anchor="middle" fill="#1d2a5b">L2</text>
+<path d="M302 429H430" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="366.0" y="424" font-size="12" text-anchor="middle" fill="#1d2a5b">Lt</text>
+<path d="M560 132V302" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="570" y="222" font-size="12" fill="#1d2a5b">H</text>
+<text x="490" y="90" font-size="13" fill="#1d2a5b" text-anchor="start" font-weight="600">Giàn giáo bao che</text><text x="490" y="105" font-size="11" fill="#6b7596" text-anchor="start">Facade scaffold</text>
+<text x="540" y="300" font-size="13" fill="#1d2a5b" text-anchor="start" font-weight="600">Dầm I console</text><text x="540" y="315" font-size="11" fill="#6b7596" text-anchor="start">Cantilever I-beam</text>
+<text x="250" y="200" font-size="13" fill="#ee5a24" text-anchor="end" font-weight="600">Cáp neo</text><text x="250" y="215" font-size="11" fill="#6b7596" text-anchor="end">Tie-back cable</text>
+<text x="100" y="285" font-size="13" fill="#1d2a5b" text-anchor="start" font-weight="600">Coupler / bu lông U</text><text x="100" y="300" font-size="11" fill="#6b7596" text-anchor="start">Coupler / U-bolt</text>
+</svg>

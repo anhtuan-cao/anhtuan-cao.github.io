@@ -76,6 +76,6 @@
     return { f: st.f, lw: lw, Aw: Aw, Ww: Ww, fwc: fwc, fwt: fwt, fwv: fwv, sN: sN, sM: sM, tau: tau,
       rN: sN / (fN * p.gc), rV: tau / (fwv * p.gc), rM: sM / (fwt * p.gc), rEq: eq / (1.15 * fwt * p.gc), eq: eq };
   }
-  var api = { bolt: bolt, fillet: fillet, butt: butt, BOLT: BOLT, CLS: CLS, STEEL: STEEL };
+  var api = { fcbOf: fcbOf, bolt: bolt, fillet: fillet, butt: butt, BOLT: BOLT, CLS: CLS, STEEL: STEEL };
   if (typeof module !== 'undefined') module.exports = api; else root.CONN = api;
 })(this);

@@ -1,0 +1,128 @@
+---
+layout: page
+title: "Giàn giáo bao che trên dầm I console — dầm, cáp, bu lông, neo"
+title_vi: "Giàn giáo bao che"
+title_en: "Facade scaffold on outriggers"
+kicker_vi: "Công cụ tính online · Biện pháp thi công"
+kicker_en: "Online calculator · Temporary works"
+lead_vi: "Giàn giáo bao che đặt trên dầm thép I console, có cáp neo lên tầng trên: tải trọng khoang giáo, lực cáp theo điều kiện tương thích biến dạng, kiểm tra dầm (uốn, cắt, ổn định tổng thể), bu lông, đường hàn và neo trong bê tông."
+lead_en: "Facade scaffolding on cantilevered steel I-beams with a tie-back cable: bay loads, cable force from deformation compatibility, beam checks (bending, shear, lateral–torsional buckling), bolts, welds and anchorage in concrete."
+description: "Công cụ tính online giàn giáo bao che trên dầm I console: lực cáp, dầm, bu lông coupler / bu lông U, đường hàn, chống tuột neo."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/gian-giao.svg" alt="Giàn giáo bao che trên dầm I console có cáp neo"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Mỗi chân giáo truyền lực P xuống dầm I. Dầm là hệ siêu tĩnh bậc một: lực cáp T tìm từ điều kiện <b>chuyển vị đứng tại điểm móc cáp bằng độ giãn của cáp</b> quy về phương đứng. Hai cách liên kết: dầm ngàm vào dầm biên bằng <b>bản mã + coupler chờ</b>, hoặc dầm đặt trên sàn, giữ bằng <b>bu lông U</b> lùi vào trong một đoạn L<sub>3</sub>.</span><span class="l-en">Each scaffold leg applies P to the I-beam. The beam is once statically indeterminate: the cable force T follows from <b>vertical deflection at the cable point equalling the cable elongation</b> resolved vertically. Two fixings: an end plate bolted to <b>cast-in couplers</b> in the edge beam, or the beam laid on the slab and held down by a <b>U-bolt</b> set back L<sub>3</sub>.</span></p>
+      <div class="formula">T = Σ P·δ<sub>i</sub>/EJ ÷ [L<sub>d</sub>/(E<sub>c</sub>A<sub>c</sub>cosα) + cosα·δ<sub>T</sub>/EJ]<br>M = P(L<sub>1</sub> + L<sub>2</sub>) − T·cosα·L<sub>t</sub></div>
+      <p class="small"><span class="l-vi">Ổn định tổng thể dùng hệ số ψ cho dầm console chịu tải tập trung ở cánh trên (TCVN 5575:2012, Phụ lục E). Neo trong bê tông kiểm tra theo mặt phá hoại hình nón 45°.</span><span class="l-en">Lateral–torsional buckling uses ψ for a cantilever with a point load on the top flange (TCVN 5575:2012, Annex E). Anchorage uses a 45° concrete cone.</span></p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Sơ đồ &amp; tải trọng</span><span class="l-en">Scheme &amp; loads</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Liên kết dầm</span><span class="l-en">Beam fixing</span></span><span class="in"><select id="type"><option value="coupler" selected>Coupler chờ trong dầm · Cast-in couplers</option><option value="ubolt">Bu lông U trong sàn · U-bolt in slab</option></select></span></label>
+        <label class="fld"><span class="lb"><i>n</i><span class="l-vi">Số tầng giáo trên một dầm</span><span class="l-en">Scaffold lifts per beam</span></span><span class="in"><input id="nt" type="number" step="1" value="8"><em>–</em></span></label>
+        <label class="fld chk"><input id="stair" type="checkbox" checked><span><span class="l-vi">Khoang có cầu thang lên xuống</span><span class="l-en">Bay with access stair</span></span></label>
+        <label class="fld"><span class="lb"><i>P</i><span class="l-vi">Hoặc nhập trực tiếp lực 1 chân (để trống = tự tính)</span><span class="l-en">Or enter load per leg (blank = computed)</span></span><span class="in"><input id="Pm" type="number" step="any" placeholder="auto"><em>kN</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Dầm I &amp; hình học</span><span class="l-en">I-beam &amp; geometry</span></legend>
+        <label class="fld"><span class="lb"><i>I</i><span class="l-vi">Tiết diện h×b×t<sub>w</sub>×t<sub>f</sub></span><span class="l-en">Section h×b×t<sub>w</sub>×t<sub>f</sub></span></span><span class="in"><select id="sec"><option>100x50x5x7</option><option selected>150x75x5x7</option><option>200x100x5.5x8</option><option>250x125x6x9</option><option>100x100x6x8</option><option>150x150x7x10</option><option>200x200x8x12</option></select><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>f</i><span class="l-vi">Mác thép dầm</span><span class="l-en">Steel grade</span></span><span class="in"><select id="grade"><option value="21,34" selected>CCT34</option><option value="23,38">CCT38</option><option value="24.5,42">CCT42</option><option value="21.36,37">Q235</option><option value="31.36,51">Q345</option></select></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>d</sub>, L<sub>c</sub></i><span class="l-vi">Chiều dài dầm; chiều dài tính ổn định</span><span class="l-en">Beam length; LTB length</span></span><span class="in"><input id="Lb" type="number" step="any" value="170"><input id="Lc" type="number" step="any" value="170"><em>cm</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>1</sub>, L<sub>2</sub></i><span class="l-vi">Chân giáo trong, ngoài tới mép sàn</span><span class="l-en">Inner, outer leg to slab edge</span></span><span class="in"><input id="L1" type="number" step="any" value="30"><input id="L2" type="number" step="any" value="155"><em>cm</em></span></label>
+        <label class="fld m-u"><span class="lb"><i>L<sub>3</sub></i><span class="l-vi">Bu lông U lùi vào trong sàn</span><span class="l-en">U-bolt set-back from edge</span></span><span class="in"><input id="L3" type="number" step="any" value="30"><em>cm</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>t</sub>, H</i><span class="l-vi">Móc cáp tới mép sàn; chiều cao tầng</span><span class="l-en">Cable point to edge; storey height</span></span><span class="in"><input id="Lt" type="number" step="any" value="125"><input id="H" type="number" step="any" value="330"><em>cm</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Cáp neo</span><span class="l-en">Tie-back cable</span></legend>
+        <label class="fld"><span class="lb"><i>d<sub>c</sub></i><span class="l-vi">Đường kính cáp</span><span class="l-en">Cable diameter</span></span><span class="in"><input id="dc" type="number" step="any" value="10"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>f<sub>c</sub>, E<sub>c</sub></i><span class="l-vi">Cường độ kéo (MPa), mô đun (GPa) theo tiết diện danh nghĩa</span><span class="l-en">Tensile strength (MPa), modulus (GPa) on nominal area</span></span><span class="in"><input id="fc" type="number" step="any" value="1470"><input id="Ec" type="number" step="any" value="210"></span></label>
+        <label class="fld"><span class="lb"><i>k</i><span class="l-vi">Hệ số an toàn cáp</span><span class="l-en">Cable safety factor</span></span><span class="in"><input id="kc" type="number" step="any" value="3"><em>–</em></span></label>
+      </fieldset>
+      <fieldset class="m-c"><legend><span class="l-vi">Liên kết coupler (bản mã)</span><span class="l-en">Coupler connection (end plate)</span></legend>
+        <label class="fld"><span class="lb"><i>d</i><span class="l-vi">Bu lông: đường kính · cấp bền</span><span class="l-en">Bolt: diameter · class</span></span><span class="in"><select id="bd"><option>16</option><option selected>20</option><option>22</option><option>24</option></select><select id="bc"><option>4.6</option><option>5.6</option><option selected>6.6</option><option>8.8</option></select></span></label>
+        <label class="fld"><span class="lb"><i>n<sub>1</sub>, n<sub>2</sub></i><span class="l-vi">Số cột, số hàng bu lông</span><span class="l-en">Bolt columns, rows</span></span><span class="in"><input id="n1" type="number" step="1" value="2"><input id="n2" type="number" step="1" value="2"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>p, t</i><span class="l-vi">Khoảng cách hàng; chiều dày bản mã</span><span class="l-en">Row pitch; plate thickness</span></span><span class="in"><input id="pr" type="number" step="any" value="150"><input id="tp" type="number" step="any" value="7"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>h<sub>f</sub></i><span class="l-vi">Chiều cao đường hàn dầm – bản mã (que N42)</span><span class="l-en">Beam-to-plate weld size (E42 electrode)</span></span><span class="in"><input id="hw" type="number" step="any" value="6"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>neo</sub></i><span class="l-vi">Chiều sâu neo coupler trong dầm biên</span><span class="l-en">Coupler embedment in edge beam</span></span><span class="in"><input id="La" type="number" step="any" value="85"><em>mm</em></span></label>
+      </fieldset>
+      <fieldset class="m-u"><legend><span class="l-vi">Bu lông U</span><span class="l-en">U-bolt</span></legend>
+        <label class="fld"><span class="lb"><i>d</i><span class="l-vi">Đường kính · cấp bền</span><span class="l-en">Diameter · class</span></span><span class="in"><select id="ud"><option>16</option><option selected>20</option><option>22</option></select><select id="uc"><option>4.6</option><option>5.6</option><option selected>6.6</option><option>8.8</option></select></span></label>
+        <label class="fld"><span class="lb"><i>n, L<sub>neo</sub></i><span class="l-vi">Số nhánh; chiều sâu neo trong sàn</span><span class="l-en">Legs; embedment in slab</span></span><span class="in"><input id="un" type="number" step="1" value="2"><input id="ua" type="number" step="any" value="50"><em>–, mm</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Bê tông &amp; hệ số</span><span class="l-en">Concrete &amp; factors</span></legend>
+        <label class="fld"><span class="lb"><i>R<sub>bt</sub></i><span class="l-vi">Cấp bền bê tông (R<sub>bt</sub> tính toán)</span><span class="l-en">Concrete class (design R<sub>bt</sub>)</span></span><span class="in"><select id="rbt"><option value="0.9">B20 · 0,90 MPa</option><option value="1.05">B25 · 1,05 MPa</option><option value="1.15" selected>B30 · 1,15 MPa</option><option value="1.3">B35 · 1,30 MPa</option></select></span></label>
+        <label class="fld"><span class="lb"><i>γ<sub>c</sub>, γ<sub>b</sub></i><span class="l-vi">Hệ số điều kiện làm việc dầm; bu lông</span><span class="l-en">Working factors: beam; bolts</span></span><span class="in"><input id="gc" type="number" step="any" value="0.9"><input id="gb" type="number" step="any" value="0.9"><em>–</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép. Tiêu chuẩn thiết kế (Phụ lục E: hệ số φ<sub>b</sub>)</span><span class="l-en">Steel structures. Design standard (Annex E: φ<sub>b</sub>)</span>.</li>
+    <li>TCXDVN 296:2004 — <span class="l-vi">Dàn giáo. Các yêu cầu về an toàn</span><span class="l-en">Scaffolding. Safety requirements</span>.</li>
+    <li>TCVN 5574:2018 — <span class="l-vi">Kết cấu bê tông và bê tông cốt thép</span><span class="l-en">Concrete and reinforced concrete structures</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/steel-conn-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/assets/js/tools/scaffold-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  $('type').addEventListener('change',function(){ if(this.value==='ubolt'){ $('Lt').value=130; $('Lb').value=300; $('Lc').value=170; } else { $('Lt').value=125; $('Lb').value=170; $('Lc').value=170; } });
+  function run(){
+    var type=$('type').value, isC=type==='coupler';
+    document.querySelectorAll('.m-c').forEach(function(e){e.style.display=isC?'':'none';});
+    document.querySelectorAll('.m-u').forEach(function(e){e.style.display=isC?'none':'';});
+    var s=SCAF.parseI($('sec').value), g=$('grade').value.split(',').map(parseFloat);
+    var Ld=SCAF.loads(Math.max(1,T.val('nt')||1),$('stair').checked), Gs=T.val('Lb')*s.A*7.85e-3;
+    var Gd=Ld.dead.reduce(function(t,r){return t+r[2]*r[3]*1.1;},0)+Gs*1.1, Gl=Ld.live.reduce(function(t,r){return t+r[2]*r[3]*1.2;},0);
+    var Pauto=(Gd+Gl)/2/100, P=isFinite(T.val('Pm'))&&T.val('Pm')>0?T.val('Pm'):Pauto;
+    var gb=T.val('gb'), bd=+$('bd').value, bc=CONN.CLS[$('bc').value], bB=CONN.BOLT[bd];
+    var ud=+$('ud').value, uc=CONN.CLS[$('uc').value], uB=CONN.BOLT[ud];
+    var n2=Math.max(1,Math.round(T.val('n2'))), rows=[]; for(var i=1;i<n2;i++) rows.push(i*T.val('pr')/10);
+    var p={type:type,s:s,f:g[0],fu:g[1],E:21000,gc:T.val('gc'),P:P,L1:T.val('L1'),L2:T.val('L2'),L3:T.val('L3'),Lt:T.val('Lt'),H:T.val('H'),
+      dc:T.val('dc')/10,Ec:T.val('Ec')*100,fc:T.val('fc')/10,kc:T.val('kc'),Lc:T.val('Lc'),Rbt:+$('rbt').value/10,
+      bolt:{d:bd,A:bB[0],Abn:bB[1],fvb:bc[0]/10,ftb:bc[1]/10,fcb:CONN.fcbOf(g[1]*10,false)/10,gb:gb,nv:1,tp:T.val('tp')/10},n1:Math.max(1,T.val('n1')),rows:rows.length?rows:[0.0001],hw:T.val('hw')/10,fwf:18,Lanc:(isC?T.val('La'):T.val('ua'))/10,
+      nb:Math.max(1,T.val('un')),ubolt:{d:ud,Abn:uB[1],ftb:uc[1]/10,gb:gb}};
+    var o=SCAF.outrigger(p), ok=true, html='';
+    function ck(vi,en,r,note){ if(!(r<=1)) ok=false; html+=T.check(vi,en,r,note); }
+    html+='<h4 class="ck-group">'+T.bi('Dầm I','I-beam')+'</h4>';
+    ck('Uốn','Bending',o.rM,T.fmt(o.M/100,2)+' kN·m'); ck('Cắt','Shear',o.rV,T.fmt(o.V,2)+' kN'); ck('Ổn định tổng thể','Lateral–torsional buckling',o.rLTB,'φ<sub>b</sub> = '+T.fmt(o.phib,3));
+    html+='<h4 class="ck-group">'+T.bi('Cáp neo','Tie-back cable')+'</h4>';
+    ck('Lực kéo cáp','Cable tension',o.rT,T.fmt(o.T,2)+' / '+T.fmt(o.Tall,1)+' kN');
+    html+='<h4 class="ck-group">'+T.bi(isC?'Liên kết coupler':'Bu lông U',isC?'Coupler connection':'U-bolt')+'</h4>';
+    if(isC){ ck('Bu lông chịu cắt / ép mặt','Bolt shear / bearing',o.rBv,T.fmt(o.Nv,2)+' / '+T.fmt(Math.min(o.Nvb,o.Ncb),1)+' kN');
+      ck('Bu lông chịu kéo','Bolt tension',o.rBt,T.fmt(o.Nt,2)+' / '+T.fmt(o.Ntb,1)+' kN');
+      ck('Đường hàn dầm – bản mã','Beam-to-plate weld',o.rW,T.fmt(o.tw*10,1)+' / '+T.fmt(o.fw*10,1)+' MPa');
+      ck('Chống tuột coupler (nón bê tông)','Coupler pull-out (concrete cone)',o.rPc,T.fmt(o.Nt,2)+' / '+T.fmt(o.Pc,1)+' kN'); }
+    else { ck('Kéo 1 nhánh bu lông U','Tension per U-bolt leg',o.rBt,T.fmt(o.Nb,2)+' / '+T.fmt(o.Ntb,1)+' kN');
+      ck('Chống tuột (nón bê tông)','Pull-out (concrete cone)',o.rPc,T.fmt(o.Nb,2)+' / '+T.fmt(o.Pc,1)+' kN'); }
+    $('res').innerHTML=T.verdict(ok,isC?'Dầm console ngàm coupler':'Dầm console giữ bằng bu lông U',isC?'Outrigger on cast-in couplers':'Outrigger held by U-bolt')+
+      '<div class="kpis"><div><small>P (kN)</small><b>'+T.fmt(P,2)+'</b></div><div><small>T (kN)</small><b>'+T.fmt(o.T,2)+'</b></div><div><small>M (kN·m)</small><b>'+T.fmt(o.M/100,2)+'</b></div></div>'+html;
+    var rows2=[], tb='<table class="calc-tbl"><thead><tr><th>'+T.bi('Hạng mục','Item')+'</th><th>kG</th><th>SL · Qty</th><th>n</th><th>kG</th></tr></thead><tbody>';
+    Ld.dead.forEach(function(r){ tb+='<tr><td>'+T.bi(r[0],r[1])+'</td><td class="num">'+r[2]+'</td><td class="num">'+T.fmt(r[3],1)+'</td><td class="num">1,1</td><td class="num">'+T.fmt(r[2]*r[3]*1.1,1)+'</td></tr>'; });
+    tb+='<tr><td>'+T.bi('Dầm I tự trọng','I-beam self-weight')+'</td><td class="num">'+T.fmt(Gs,1)+'</td><td class="num">1</td><td class="num">1,1</td><td class="num">'+T.fmt(Gs*1.1,1)+'</td></tr>';
+    Ld.live.forEach(function(r){ tb+='<tr><td>'+T.bi(r[0],r[1])+'</td><td class="num">'+r[2]+'</td><td class="num">'+r[3]+'</td><td class="num">1,2</td><td class="num">'+T.fmt(r[2]*r[3]*1.2,1)+'</td></tr>'; });
+    tb+='<tr><td><b>'+T.bi('Tổng G; P = G/2 (1 kG ≈ 10 N)','Total G; P = G/2 (1 kG ≈ 10 N)')+'</b></td><td></td><td></td><td></td><td class="num"><b>'+T.fmt(Gd+Gl,1)+'</b></td></tr></tbody></table>';
+    rows2.push(T.row('J<sub>x</sub>, W<sub>x</sub>, S<sub>x</sub>','Đặc trưng tiết diện','Section properties',T.fmt(s.Jx,1)+', '+T.fmt(s.Wx,2)+', '+T.fmt(s.Sx,2),'cm⁴, cm³'));
+    rows2.push(T.row('α, L<sub>d</sub>','Góc cáp so với phương đứng; chiều dài cáp','Cable angle from vertical; cable length',T.fmt(o.a*180/Math.PI,1)+'°; '+T.fmt(o.Ld,1)+' cm',''));
+    rows2.push(T.row('T','Lực cáp từ điều kiện tương thích','Cable force from compatibility',o.T,'kN',3));
+    rows2.push(T.row('M, V','Tại mép sàn: P(L<sub>1</sub>+L<sub>2</sub>) − T·cosα·L<sub>t</sub>; 2P − T·cosα','At slab edge: P(L<sub>1</sub>+L<sub>2</sub>) − T·cosα·L<sub>t</sub>; 2P − T·cosα',T.fmt(o.M0/100,3)+' kN·m; '+T.fmt(2*P-o.Tv,3)+' kN',''));
+    rows2.push(T.row('α<sub>b</sub>, ψ, φ<sub>1</sub>','= 1,54(I<sub>t</sub>/J<sub>y</sub>)(l/h)²; ψ console; φ<sub>1</sub> = ψ(J<sub>y</sub>/J<sub>x</sub>)(h/l)²E/f','= 1.54(I<sub>t</sub>/J<sub>y</sub>)(l/h)²; cantilever ψ; φ<sub>1</sub> = ψ(J<sub>y</sub>/J<sub>x</sub>)(h/l)²E/f',T.fmt(o.alpha,2)+'; '+T.fmt(o.psi,3)+'; '+T.fmt(o.phi1,3),''));
+    if(isC){ rows2.push(T.row('N<sub>v</sub>, N<sub>t</sub>','= V/n; M·l<sub>max</sub>/(n<sub>1</sub>Σl<sub>i</sub>²)','= V/n; M·l<sub>max</sub>/(n<sub>1</sub>Σl<sub>i</sub>²)',T.fmt(o.Nv,2)+'; '+T.fmt(o.Nt,2),'kN'));
+      rows2.push(T.row('τ<sub>w</sub>','= √[(M/W<sub>h</sub>)² + (V/A<sub>bụng</sub>)²] ≤ min(0,7f<sub>wf</sub>; 0,45f<sub>u</sub>)γ<sub>c</sub>','= √[(M/W<sub>h</sub>)² + (V/A<sub>web</sub>)²] ≤ min(0.7f<sub>wf</sub>; 0.45f<sub>u</sub>)γ<sub>c</sub>',o.tw*10,'MPa',1)); }
+    else rows2.push(T.row('R, N<sub>b</sub>','Lực giữ bu lông U = M/L<sub>3</sub>; mỗi nhánh','U-bolt hold-down = M/L<sub>3</sub>; per leg',T.fmt(o.R,2)+'; '+T.fmt(o.Nb,2),'kN'));
+    rows2.push(T.row('[P]<sub>neo</sub>','= R<sub>bt</sub>·π(r<sub>1</sub>+r<sub>2</sub>)·h<sub>0</sub>√2 (nón 45°)','= R<sub>bt</sub>·π(r<sub>1</sub>+r<sub>2</sub>)·h<sub>0</sub>√2 (45° cone)',o.Pc,'kN',2));
+    $('detail').innerHTML='<div class="calc-scroll">'+tb+'</div>'+T.table(rows2);
+  }
+  T.bind('f',run);
+})();
+</script>
