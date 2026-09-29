@@ -1,0 +1,124 @@
+---
+layout: page
+title: "Tính cốp pha móng, cột, vách — áp lực ngang bê tông tươi"
+title_vi: "Cốp pha móng, cột, vách"
+title_en: "Footing, column & wall formwork"
+kicker_vi: "Công cụ tính online · Biện pháp thi công"
+kicker_en: "Online calculator · Temporary works"
+lead_vi: "Áp lực ngang của bê tông tươi theo TCVN 4453:1995 (tốc độ đổ, độ sụt, nhiệt độ), kiểm tra ván, xà gồ phụ, xà gồ chính và ty giằng; kèm trường hợp tôn sóng chắn đất làm cốp pha móng."
+lead_en: "Fresh-concrete lateral pressure to TCVN 4453:1995 (rate of rise, slump, temperature), with checks on sheathing, studs, walers and ties — plus corrugated-sheet formwork retaining soil at footings."
+description: "Công cụ tính online cốp pha móng, cột, vách: áp lực ngang bê tông tươi, ván, xà gồ, ty giằng; cốp pha tôn sóng chắn đất."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/cop-pha-dung.svg" alt="Cốp pha đứng: ván, xà gồ, ty giằng và biểu đồ áp lực ngang"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Bê tông tươi tác dụng lên cốp pha đứng một áp lực ngang tăng theo chiều sâu, đến một giá trị lớn nhất phụ thuộc <b>tốc độ đổ</b>, <b>độ sụt</b> và <b>nhiệt độ</b> hỗn hợp. Cộng thêm tải động khi đổ, áp lực truyền qua ván → xà gồ phụ → xà gồ chính → ty giằng. Mặt bê tông lộ (cột, vách) thường khống chế độ võng L/400, bê tông khuất (móng) L/250.</span><span class="l-en">Fresh concrete exerts a lateral pressure that grows with depth up to a maximum governed by the <b>rate of rise</b>, <b>slump</b> and <b>temperature</b>. With the dynamic load from placing, it flows sheathing → studs → walers → ties. Exposed faces (columns, walls) are usually limited to L/400 deflection, hidden faces (footings) to L/250.</span></p>
+      <div class="formula">P = γH (H ≤ R) · P = γ(0,27V + 0,78)k<sub>1</sub>k<sub>2</sub> (H &gt; R)<br>q = 1,3P + 1,3q<sub>đ</sub> · M = qL²/10 · N<sub>ty</sub> = q·(L<sub>2</sub>+L'<sub>2</sub>)/2·L<sub>3</sub></div>
+      <p class="small"><span class="l-vi">Tôn sóng chắn đất: áp lực đất chủ động p = K<sub>a</sub>(γz + q<sub>0</sub>), K<sub>a</sub> = tan²(45° − φ/2), lấy giá trị lớn nhất ở chân.</span><span class="l-en">Corrugated sheet retaining soil: active pressure p = K<sub>a</sub>(γz + q<sub>0</sub>), K<sub>a</sub> = tan²(45° − φ/2), taken at its maximum at the base.</span></p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Trường hợp</span><span class="l-en">Case</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Loại cốp pha</span><span class="l-en">Formwork type</span></span><span class="in"><select id="mode"><option value="mong" selected>Móng — ván · Footing, plywood</option><option value="cot">Cột, vách · Column, wall</option><option value="tole">Móng — tôn sóng · Footing, sheet</option></select></span></label>
+      </fieldset>
+      <fieldset class="m-v"><legend><span class="l-vi">Bê tông tươi</span><span class="l-en">Fresh concrete</span></legend>
+        <label class="fld"><span class="lb"><i>H</i><span class="l-vi">Chiều cao mỗi đợt đổ</span><span class="l-en">Lift height</span></span><span class="in"><input id="H" type="number" step="any" value="1.5"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>V</i><span class="l-vi">Tốc độ đổ (chiều cao/giờ)</span><span class="l-en">Rate of rise</span></span><span class="in"><input id="V" type="number" step="any" value="5"><em>m/h</em></span></label>
+        <label class="fld"><span class="lb"><i>γ</i><span class="l-vi">Trọng lượng riêng bê tông</span><span class="l-en">Concrete unit weight</span></span><span class="in"><input id="gam" type="number" step="any" value="25"><em>kN/m³</em></span></label>
+        <label class="fld"><span class="lb"><i>R</i><span class="l-vi">Bán kính tác dụng đầm dùi</span><span class="l-en">Vibrator radius of action</span></span><span class="in"><input id="R" type="number" step="any" value="0.7"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>k<sub>1</sub></i><span class="l-vi">Độ sụt</span><span class="l-en">Slump</span></span><span class="in"><select id="k1"><option value="0.8">0–2 cm · 0,8</option><option value="1">4–6 cm · 1,0</option><option value="1.2" selected>8–12 cm · 1,2</option></select></span></label>
+        <label class="fld"><span class="lb"><i>k<sub>2</sub></i><span class="l-vi">Nhiệt độ hỗn hợp</span><span class="l-en">Concrete temperature</span></span><span class="in"><select id="k2"><option value="1.15">≤ 8 °C · 1,15</option><option value="1.1">8–11 °C · 1,10</option><option value="1">12–17 °C · 1,00</option><option value="0.95">18–27 °C · 0,95</option><option value="0.9">28–32 °C · 0,90</option><option value="0.85" selected>≥ 33 °C · 0,85</option></select></span></label>
+        <label class="fld"><span class="lb"><i>q<sub>đ</sub></i><span class="l-vi">Tải động khi đổ</span><span class="l-en">Placing load</span></span><span class="in"><select id="qd"><option value="4" selected>Bơm, máng, ống · Pump, chute · 4</option><option value="2">Thùng ≤ 0,2 m³ · Skip ≤ 0.2 m³ · 2</option><option value="4">Thùng 0,2–0,8 m³ · Skip 0.2–0.8 m³ · 4</option><option value="6">Thùng &gt; 0,8 m³ · Skip &gt; 0.8 m³ · 6</option></select><em>kN/m²</em></span></label>
+        <label class="fld chk"><input id="cap" type="checkbox" checked><span><span class="l-vi">Giới hạn P ≤ γH (áp lực thủy tĩnh)</span><span class="l-en">Cap P at γH (hydrostatic)</span></span></label>
+      </fieldset>
+      <fieldset class="m-v"><legend><span class="l-vi">Ván, xà gồ, ty giằng</span><span class="l-en">Sheathing, studs, walers, ties</span></legend>
+        <label class="fld"><span class="lb"><i>t<sub>v</sub></i><span class="l-vi">Chiều dày ván</span><span class="l-en">Sheathing thickness</span></span><span class="in"><input id="tp" type="number" step="any" value="15"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Xà gồ phụ (b×h×t, số thanh)</span><span class="l-en">Stud (b×h×t, members)</span></span><span class="in"><select id="s2" class="sec" data-def="50x50x1.8"></select><input id="n2" type="number" step="1" value="1" class="nn"></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>1</sub></i><span class="l-vi">Bước xà gồ phụ</span><span class="l-en">Stud spacing</span></span><span class="in"><input id="L1" type="number" step="any" value="0.25"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Xà gồ chính (b×h×t, số thanh)</span><span class="l-en">Waler (b×h×t, members)</span></span><span class="in"><select id="s3" class="sec" data-def="50x100x1.8"></select><input id="n3" type="number" step="1" value="2" class="nn"></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>2</sub></i><span class="l-vi">Bước xà gồ chính (hai bên)</span><span class="l-en">Waler spacing (either side)</span></span><span class="in"><input id="L2" type="number" step="any" value="0.6"><input id="L2p" type="number" step="any" value="0.6"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>3</sub></i><span class="l-vi">Khoảng cách ty giằng theo phương ngang</span><span class="l-en">Horizontal tie spacing</span></span><span class="in"><input id="L3" type="number" step="any" value="0.6"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>d</i><span class="l-vi">Đường kính ty · loại thép</span><span class="l-en">Tie diameter · steel</span></span><span class="in"><input id="dt" type="number" step="any" value="16"><select id="ft" style="max-width:120px"><option value="270000">SD295</option><option value="355000" selected>SD390</option></select></span></label>
+        <label class="fld"><span class="lb"><i>[δ]</i><span class="l-vi">Giới hạn độ võng</span><span class="l-en">Deflection limit</span></span><span class="in"><select id="lim"><option value="250" selected>L/250 · khuất · hidden</option><option value="400">L/400 · lộ mặt · exposed</option></select></span></label>
+        <label class="fld"><span class="lb"><i>f<sub>v</sub></i><span class="l-vi">Cường độ (MPa), mô đun (GPa) của ván</span><span class="l-en">Sheathing strength (MPa), modulus (GPa)</span></span><span class="in"><input id="fp" type="number" step="any" value="18"><input id="Ep" type="number" step="any" value="5"></span></label>
+        <label class="fld"><span class="lb"><i>f</i><span class="l-vi">Cường độ (MPa), mô đun (GPa) thép hộp</span><span class="l-en">Box steel strength (MPa), modulus (GPa)</span></span><span class="in"><input id="fs" type="number" step="any" value="200"><input id="Es" type="number" step="any" value="200"></span></label>
+      </fieldset>
+      <fieldset class="m-t"><legend><span class="l-vi">Tôn sóng chắn đất</span><span class="l-en">Corrugated sheet retaining soil</span></legend>
+        <label class="fld"><span class="lb"><i>H</i><span class="l-vi">Chiều cao móng (đất giữ)</span><span class="l-en">Footing depth (retained soil)</span></span><span class="in"><input id="Ht" type="number" step="any" value="1"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>φ, γ</i><span class="l-vi">Góc ma sát trong, trọng lượng riêng đất</span><span class="l-en">Friction angle, soil unit weight</span></span><span class="in"><input id="phi" type="number" step="any" value="30"><input id="gs" type="number" step="any" value="18"><em>°, kN/m³</em></span></label>
+        <label class="fld"><span class="lb"><i>q<sub>0</sub></i><span class="l-vi">Phụ tải trên mặt đất</span><span class="l-en">Surface surcharge</span></span><span class="in"><input id="q0" type="number" step="any" value="0"><em>kN/m²</em></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Chiều dày tôn (J, W trên 1 m dài, đã giảm 20%)</span><span class="l-en">Sheet gauge (J, W per metre, reduced 20%)</span></span><span class="in"><select id="sheet"><option value="1.6936,1.2984">0,3 mm</option><option value="2.3536,1.8064" selected>0,4 mm</option><option value="3.0032,2.3072">0,5 mm</option></select></span></label>
+        <label class="fld"><span class="lb"><i>Ø, L<sub>1</sub></i><span class="l-vi">Sườn phụ: đường kính, bước</span><span class="l-en">Secondary rib: diameter, spacing</span></span><span class="in"><input id="d2" type="number" step="any" value="18"><input id="tL1" type="number" step="any" value="0.6"><em>mm, m</em></span></label>
+        <label class="fld"><span class="lb"><i>Ø, L<sub>2</sub></i><span class="l-vi">Sườn chính: đường kính, bước</span><span class="l-en">Main rib: diameter, spacing</span></span><span class="in"><input id="d3" type="number" step="any" value="20"><input id="tL2" type="number" step="any" value="0.3"><em>mm, m</em></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>s</sub></i><span class="l-vi">Thép sườn</span><span class="l-en">Rib steel</span></span><span class="in"><select id="fr"><option value="260000">CB300V · 260 MPa</option><option value="350000" selected>CB400V · 350 MPa</option><option value="435000">CB500V · 435 MPa</option></select></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>3</sub>, α</i><span class="l-vi">Bước cây chống theo phương đứng, góc nghiêng</span><span class="l-en">Vertical prop spacing, inclination</span></span><span class="in"><input id="tL3" type="number" step="any" value="0.6"><input id="al" type="number" step="any" value="30"><em>m, °</em></span></label>
+        <label class="fld"><span class="lb"><i>[N]</i><span class="l-vi">Tải cho phép 1 cây chống</span><span class="l-en">Allowable prop load</span></span><span class="in"><input id="Na" type="number" step="any" value="5"><em>kN</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 4453:1995 — <span class="l-vi">Kết cấu bê tông và bê tông cốt thép toàn khối. Quy phạm thi công và nghiệm thu (Phụ lục A)</span><span class="l-en">Monolithic concrete and reinforced concrete structures. Code of practice (Appendix A)</span>.</li>
+    <li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép. Tiêu chuẩn thiết kế</span><span class="l-en">Steel structures. Design standard</span>.</li>
+    <li>ACI 347R — <span class="l-vi">Hướng dẫn thiết kế cốp pha bê tông</span><span class="l-en">Guide to Formwork for Concrete</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/formwork-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  var SIZES=['40x40','50x50','40x80','50x100','60x120'], TH=['1.0','1.2','1.4','1.5','1.6','1.8','2.0','2.5','3.0'];
+  document.querySelectorAll('select.sec').forEach(function(sel){ var def=sel.getAttribute('data-def');
+    SIZES.forEach(function(s){ TH.forEach(function(t){ var o=document.createElement('option'); o.value=s+'x'+t; o.textContent='□'+s+'×'+t; if(o.value===def){o.selected=true;o.defaultSelected=true;} sel.appendChild(o); }); }); });
+  var EX={ mong:{H:1.5,V:5,L1:0.25,L2:0.6,L2p:0.6,L3:0.6,lim:'250'}, cot:{H:3.95,V:3.95,L1:0.25,L2:0.6,L2p:1,L3:1,lim:'400'} };
+  $('mode').addEventListener('change',function(){ var e=EX[this.value]; if(e) for(var k in e) $(k).value=e[k]; });
+  function sec(i){ return FORM.parseBox($('s'+i).value, Math.max(1,T.val('n'+i)||1)); }
+  function run(){
+    var mode=$('mode').value, isT=mode==='tole', o, rows=[], kp;
+    document.querySelectorAll('.m-v').forEach(function(el){ el.style.display=isT?'none':''; });
+    document.querySelectorAll('.m-t').forEach(function(el){ el.style.display=isT?'':'none'; });
+    if(!isT){
+      var p={H:T.val('H'),V:T.val('V'),R:T.val('R'),k1:+$('k1').value,k2:+$('k2').value,gam:T.val('gam'),cap:$('cap').checked,qd:+$('qd').value,
+        tp:T.val('tp')/1000,fp:T.val('fp')*1000,Ep:T.val('Ep')*1e6,s2:sec(2),L1:T.val('L1'),s3:sec(3),L2:T.val('L2'),L2p:T.val('L2p'),L3:T.val('L3'),
+        f:T.val('fs')*1000,E:T.val('Es')*1e6,dt:T.val('dt'),ft:+$('ft').value,lim:+$('lim').value};
+      o=FORM.vert(p);
+      kp=[['P (kN/m²)',o.P,2],['q<sub>tt</sub> (kN/m²)',o.tt,2],[T.bi('Lực ty','Tie force')+' (kN)',o.Nt,2]];
+      rows.push(T.row('P','Áp lực ngang lớn nhất'+(p.H<=p.R?' = γH':' = γ(0,27V + 0,78)k<sub>1</sub>k<sub>2</sub>')+(o.P<o.Praw?' → giới hạn γH':''),'Maximum lateral pressure'+(p.H<=p.R?' = γH':' = γ(0.27V + 0.78)k<sub>1</sub>k<sub>2</sub>')+(o.P<o.Praw?' → capped at γH':''),o.P,'kN/m²',2));
+      if(o.P<o.Praw) rows.push(T.row('P<sub>ct</sub>','Theo công thức (chưa giới hạn)','From formula (uncapped)',o.Praw,'kN/m²',2));
+      rows.push(T.row('q<sup>tc</sup>, q<sup>tt</sup>','= P + q<sub>đ</sub>; 1,3P + 1,3q<sub>đ</sub>','= P + q<sub>d</sub>; 1.3P + 1.3q<sub>d</sub>',T.fmt(o.tc,2)+' / '+T.fmt(o.tt,2),'kN/m²'));
+      rows.push(T.row('M<sub>v</sub>','Ván: qL<sub>1</sub>²/10 (dải 1 m)','Sheathing: qL<sub>1</sub>²/10 (1 m strip)',o.ply.M,'kN·m',4));
+      rows.push(T.row('p<sub>2</sub>, M<sub>2</sub>','Xà gồ phụ: q·L<sub>1</sub>; pL²/10 với L = max(L<sub>2</sub>, L\'<sub>2</sub>) = '+T.fmt(o.Ls,2)+' m','Stud: q·L<sub>1</sub>; pL²/10 with L = max(L<sub>2</sub>, L\'<sub>2</sub>) = '+T.fmt(o.Ls,2)+' m',T.fmt(o.sec.p,3)+'; '+T.fmt(o.sec.M,4),'kN/m; kN·m'));
+      rows.push(T.row('p<sub>3</sub>, M<sub>3</sub>','Xà gồ chính: q(L<sub>2</sub>+L\'<sub>2</sub>)/2; pL<sub>3</sub>²/10','Waler: q(L<sub>2</sub>+L\'<sub>2</sub>)/2; pL<sub>3</sub>²/10',T.fmt(o.main.p,3)+'; '+T.fmt(o.main.M,4),'kN/m; kN·m'));
+      rows.push(T.row('N<sub>ty</sub>, [N]','= p<sub>3</sub>·L<sub>3</sub>; A·f','= p<sub>3</sub>·L<sub>3</sub>; A·f',T.fmt(o.Nt,2)+' / '+T.fmt(o.Nu,2),'kN'));
+    } else {
+      var w=$('sheet').value.split(',').map(parseFloat);
+      var q={H:T.val('Ht'),phi:T.val('phi'),gs:T.val('gs'),q0:T.val('q0')||0,n:1.2,J1:w[0],W1:w[1],fs:200000,Es:2e8,d2:T.val('d2'),L1:T.val('tL1'),d3:T.val('d3'),L2:T.val('tL2'),fr:+$('fr').value,Er:2e8,L3:T.val('tL3'),alpha:T.val('al'),N:T.val('Na')};
+      o=FORM.tole(q);
+      kp=[['K<sub>a</sub>',o.Ka,3],['p<sub>tt</sub> (kN/m²)',o.pt,2],[T.bi('Lực chống','Prop force')+' (kN)',o.Np,2]];
+      rows.push(T.row('K<sub>a</sub>','= tan²(45° − φ/2)','= tan²(45° − φ/2)',o.Ka,'–',3));
+      rows.push(T.row('p<sup>tc</sup>, p<sup>tt</sup>','= K<sub>a</sub>(γH + q<sub>0</sub>); ×1,2','= K<sub>a</sub>(γH + q<sub>0</sub>); ×1.2',T.fmt(o.ptc,2)+' / '+T.fmt(o.pt,2),'kN/m²'));
+      rows.push(T.row('M<sub>1</sub>','Tôn: pL<sub>1</sub>²/10 (dải 1 m)','Sheet: pL<sub>1</sub>²/10 (1 m strip)',o.M1,'kN·m',4));
+      rows.push(T.row('q<sub>2</sub>, M<sub>2</sub>','Sườn phụ: p·L<sub>1</sub>; qL<sub>2</sub>²/8','Secondary rib: p·L<sub>1</sub>; qL<sub>2</sub>²/8',T.fmt(o.q2,3)+'; '+T.fmt(o.M2,4),'kN/m; kN·m'));
+      rows.push(T.row('q<sub>3</sub>, M<sub>3</sub>','Sườn chính: p·L<sub>2</sub>; qL<sub>3</sub>²/8','Main rib: p·L<sub>2</sub>; qL<sub>3</sub>²/8',T.fmt(o.q3,3)+'; '+T.fmt(o.M3,4),'kN/m; kN·m'));
+      rows.push(T.row('N','= q<sub>3</sub>L<sub>3</sub>/cosα','= q<sub>3</sub>L<sub>3</sub>/cosα',o.Np,'kN',3));
+    }
+    var ok=true,worst=0,html='';
+    o.groups.forEach(function(gp){ html+='<h4 class="ck-group">'+T.bi(gp.vi,gp.en)+'</h4>';
+      gp.checks.forEach(function(c){ if(!(c.r<=1)) ok=false; worst=Math.max(worst,c.r); html+=T.check(c.vi,c.en,c.r,T.fmt(c.val,c.d)+' / '+T.fmt(c.lim,c.d)+' '+c.unit); }); });
+    $('res').innerHTML=T.verdict(ok,{mong:'Cốp pha móng — ván',cot:'Cốp pha cột, vách',tole:'Móng — tôn sóng'}[mode],{mong:'Footing formwork — plywood',cot:'Column / wall formwork',tole:'Footing — corrugated sheet'}[mode])+
+      '<div class="kpis">'+kp.map(function(k){return '<div><small>'+k[0]+'</small><b>'+T.fmt(k[1],k[2])+'</b></div>';}).join('')+'<div><small>'+T.bi('Tỷ số lớn nhất','Max. ratio')+'</small><b>'+T.fmt(worst,2)+'</b></div></div>'+html;
+    $('detail').innerHTML=T.table(rows)+'<p class="small">'+(isT?T.bi('Sườn bằng thép tròn: W = πd³/32, J = πd⁴/64; sườn và tôn kiểm tra độ võng L/250. Nên dùng sườn chính bằng thép hình khi chiều cao đất lớn.','Round-bar ribs: W = πd³/32, J = πd⁴/64; ribs and sheet limited to L/250. Use rolled sections for main ribs where the retained height is large.'):T.bi('Thép hộp: τ = V·S/(J·2t·n) ≤ 0,58f. Xà gồ phụ lấy nhịp lớn hơn trong hai bước xà gồ chính.','Box sections: τ = V·S/(J·2t·n) ≤ 0.58f. Studs use the larger of the two waler spacings as span.'))+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

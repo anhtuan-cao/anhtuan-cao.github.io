@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ee5a24"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker></defs>
+<rect width="760" height="430" fill="#fff"/>
+<rect x="250" y="40" width="110" height="340" fill="#9aa7c4" opacity=".55"/>
+<path d="M246 40V380M364 40V380" stroke="#ee5a24" stroke-width="4"/>
+<rect x="232" y="40" width="12" height="340" fill="#1d2a5b"/><rect x="366" y="40" width="12" height="340" fill="#1d2a5b"/>
+<rect x="212" y="70" width="20" height="20" fill="#3b56a8"/><rect x="378" y="70" width="20" height="20" fill="#3b56a8"/>
+<path d="M200 80H410" stroke="#ee5a24" stroke-width="2.5" stroke-dasharray="7 4"/><circle cx="204" cy="80" r="4" fill="#ee5a24"/><circle cx="406" cy="80" r="4" fill="#ee5a24"/>
+<rect x="212" y="160" width="20" height="20" fill="#3b56a8"/><rect x="378" y="160" width="20" height="20" fill="#3b56a8"/>
+<path d="M200 170H410" stroke="#ee5a24" stroke-width="2.5" stroke-dasharray="7 4"/><circle cx="204" cy="170" r="4" fill="#ee5a24"/><circle cx="406" cy="170" r="4" fill="#ee5a24"/>
+<rect x="212" y="250" width="20" height="20" fill="#3b56a8"/><rect x="378" y="250" width="20" height="20" fill="#3b56a8"/>
+<path d="M200 260H410" stroke="#ee5a24" stroke-width="2.5" stroke-dasharray="7 4"/><circle cx="204" cy="260" r="4" fill="#ee5a24"/><circle cx="406" cy="260" r="4" fill="#ee5a24"/>
+<rect x="212" y="340" width="20" height="20" fill="#3b56a8"/><rect x="378" y="340" width="20" height="20" fill="#3b56a8"/>
+<path d="M200 350H410" stroke="#ee5a24" stroke-width="2.5" stroke-dasharray="7 4"/><circle cx="204" cy="350" r="4" fill="#ee5a24"/><circle cx="406" cy="350" r="4" fill="#ee5a24"/>
+<path d="M150 384H460" stroke="#1d2a5b" stroke-width="2"/>
+<path d="M520 40L670 160L670 380L520 380Z" fill="#ee5a24" opacity=".18" stroke="#ee5a24" stroke-width="2"/>
+<path d="M620 120H526" stroke="#ee5a24" stroke-width="2" marker-end="url(#ao)"/>
+<path d="M670 200H526" stroke="#ee5a24" stroke-width="2" marker-end="url(#ao)"/>
+<path d="M670 280H526" stroke="#ee5a24" stroke-width="2" marker-end="url(#ao)"/>
+<path d="M670 350H526" stroke="#ee5a24" stroke-width="2" marker-end="url(#ao)"/>
+<text x="678" y="270" font-size="15" fill="#ee5a24" font-weight="700">P</text>
+<path d="M502 40V380" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="494" y="215" font-size="13" fill="#1d2a5b" text-anchor="end">H</text>
+<text x="305" y="24" font-size="13" fill="#1d2a5b" text-anchor="middle" font-weight="600">Cột / vách / móng</text><text x="305" y="39" font-size="11" fill="#6b7596" text-anchor="middle">Column / wall / footing</text>
+<text x="190" y="120" font-size="13" fill="#1d2a5b" text-anchor="end" font-weight="600">Xà gồ chính</text><text x="190" y="135" font-size="11" fill="#6b7596" text-anchor="end">Waler</text>
+<text x="190" y="215" font-size="13" fill="#1d2a5b" text-anchor="end" font-weight="600">Xà gồ phụ + ván</text><text x="190" y="230" font-size="11" fill="#6b7596" text-anchor="end">Stud + sheathing</text>
+<text x="190" y="300" font-size="13" fill="#ee5a24" text-anchor="end" font-weight="600">Ty giằng</text><text x="190" y="315" font-size="11" fill="#6b7596" text-anchor="end">Form tie</text>
+<text x="595" y="410" font-size="13" fill="#1d2a5b" text-anchor="middle" font-weight="600">Áp lực ngang</text><text x="595" y="425" font-size="11" fill="#6b7596" text-anchor="middle">Lateral pressure</text>
+</svg>

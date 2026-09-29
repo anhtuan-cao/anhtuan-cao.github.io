@@ -132,6 +132,46 @@
     return { qtop: qtop, rows: out };
   }
 
-  var api = { box: box, parseBox: parseBox, vload: vload, lateral: lateral, slab: slab, beam: beam, reshore: reshore };
+
+  /* CỐP PHA ĐỨNG (móng ván, cột, vách): áp lực ngang → ván → xà gồ phụ → xà gồ chính → ty
+     p = {H, V, R, k1, k2, gam, cap, qd, tp, fp, Ep, s2, L1, s3, L2, L2p, L3, f, E, dt, ft, lim (250|400)} */
+  function vert(p) {
+    var Praw = p.H <= p.R ? p.gam * p.H : p.gam * (0.27 * p.V + 0.78) * p.k1 * p.k2;
+    var P = p.cap ? Math.min(Praw, p.gam * p.H) : Praw;
+    var tc = P + p.qd, tt = 1.3 * P + 1.3 * p.qd, f = p.f, E = p.E;
+    var v = ply(tt, tc, p.L1, p.tp, 1, p.fp, p.Ep); v.checks[1].lim = p.L1 / p.lim * 1000; v.checks[1].r = v.checks[1].val / v.checks[1].lim;
+    var Ls = Math.max(p.L2, p.L2p);
+    var sp = cont(tt * p.L1, tc * p.L1, Ls, p.s2, f, E); sp.lim = Ls / p.lim * 1000;
+    var w = (p.L2 + p.L2p) / 2, mp = cont(tt * w, tc * w, p.L3, p.s3, f, E); mp.lim = p.L3 / p.lim * 1000;
+    var Nt = tt * w * p.L3, Nu = Math.PI * p.dt * p.dt / 4 / 1e6 * p.ft;
+    return { Praw: Praw, P: P, tc: tc, tt: tt, ply: v, sec: sp, main: mp, Ls: Ls, Nt: Nt, Nu: Nu,
+      groups: [
+        { vi: 'Ván', en: 'Sheathing', checks: v.checks },
+        { vi: 'Xà gồ phụ', en: 'Studs', checks: steelChecks(sp, f, 'xà gồ phụ', 'stud') },
+        { vi: 'Xà gồ chính', en: 'Walers', checks: steelChecks(mp, f, 'xà gồ chính', 'waler') },
+        { vi: 'Ty giằng', en: 'Form ties', checks: [chk('Lực kéo ty giằng', 'Tie tension', Nt, Nu, 'kN', 2)] }] };
+  }
+
+  /* CỐP PHA MÓNG TÔN SÓNG chắn đất: áp lực đất chủ động → tôn → sườn phụ → sườn chính → cây chống xiên
+     p = {H, phi, gs, q0, n, J1, W1, fs, Es, d2, L1, d3, L2, fr, Er, L3, alpha, N} */
+  function tole(p) {
+    var Ka = Math.pow(Math.tan((45 - p.phi / 2) * Math.PI / 180), 2);
+    var ptc = Ka * (p.gs * p.H + p.q0), pt = p.n * ptc;
+    var W1 = p.W1 * 1e-6, J1 = p.J1 * 1e-8;
+    var M1 = pt * p.L1 * p.L1 / 10, s1 = M1 / W1, d1 = ptc * Math.pow(p.L1, 4) / (145 * p.Es * J1) * 1000;
+    function bar(d) { d /= 10; return { J: Math.PI * Math.pow(d, 4) / 64 * 1e-8, W: Math.PI * Math.pow(d, 3) / 32 * 1e-6 }; }
+    var b2 = bar(p.d2), b3 = bar(p.d3);
+    var q2 = pt * p.L1, q2tc = ptc * p.L1, M2 = q2 * p.L2 * p.L2 / 8, s2 = M2 / b2.W, d2 = 5 * q2tc * Math.pow(p.L2, 4) / (384 * p.Er * b2.J) * 1000;
+    var q3 = pt * p.L2, q3tc = ptc * p.L2, M3 = q3 * p.L3 * p.L3 / 8, s3 = M3 / b3.W, d3 = 5 * q3tc * Math.pow(p.L3, 4) / (384 * p.Er * b3.J) * 1000;
+    var Np = q3 * p.L3 / Math.cos(p.alpha * Math.PI / 180);
+    return { Ka: Ka, ptc: ptc, pt: pt, M1: M1, s1: s1, d1: d1, q2: q2, M2: M2, s2: s2, d2: d2, q3: q3, M3: M3, s3: s3, d3: d3, Np: Np,
+      groups: [
+        { vi: 'Tôn sóng', en: 'Corrugated sheet', checks: [chk('Ứng suất tôn', 'Sheet stress', s1 / 1000, p.fs / 1000, 'MPa', 1), chk('Độ võng tôn', 'Sheet deflection', d1, p.L1 / 250 * 1000, 'mm', 2)] },
+        { vi: 'Sườn phụ (thép tròn)', en: 'Secondary ribs (bars)', checks: [chk('Ứng suất sườn phụ', 'Rib stress', s2 / 1000, p.fr / 1000, 'MPa', 1), chk('Độ võng sườn phụ', 'Rib deflection', d2, p.L2 / 250 * 1000, 'mm', 2)] },
+        { vi: 'Sườn chính (thép tròn)', en: 'Main ribs (bars)', checks: [chk('Ứng suất sườn chính', 'Rib stress', s3 / 1000, p.fr / 1000, 'MPa', 1), chk('Độ võng sườn chính', 'Rib deflection', d3, p.L3 / 250 * 1000, 'mm', 2)] },
+        { vi: 'Cây chống xiên', en: 'Raking props', checks: [chk('Lực vào 1 cây chống', 'Load per prop', Np, p.N, 'kN', 2)] }] };
+  }
+
+  var api = { vert: vert, tole: tole, box: box, parseBox: parseBox, vload: vload, lateral: lateral, slab: slab, beam: beam, reshore: reshore };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.FORM = api;
 })(this);
