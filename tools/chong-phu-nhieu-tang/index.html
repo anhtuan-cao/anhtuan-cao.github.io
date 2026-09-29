@@ -1,0 +1,100 @@
+---
+layout: page
+title: "Chống phụ nhiều tầng dưới sàn / dầm chuyển"
+title_vi: "Chống phụ nhiều tầng"
+title_en: "Multi-storey reshoring"
+kicker_vi: "Công cụ tính online · Biện pháp thi công"
+kicker_en: "Online calculator · Temporary works"
+lead_vi: "Khi đổ sàn chuyển hoặc dầm chuyển dày, sàn ngay bên dưới không đủ khả năng đỡ. Công cụ phân phối phần tải vượt xuống các tầng dưới qua hệ chống phụ, kiểm tra lực vào cây chống và chọc thủng sàn dưới chân chống."
+lead_en: "Pouring a thick transfer slab or beam overloads the floor directly below. The tool cascades the excess load through reshores to the floors beneath, checking prop loads and punching of each slab under the base plates."
+description: "Công cụ tính online chống phụ nhiều tầng dưới sàn chuyển, dầm chuyển: phân phối tải, lực cây chống, chọc thủng sàn dưới chân chống."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/chong-phu.svg" alt="Sơ đồ chống phụ nhiều tầng dưới sàn chuyển"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Mỗi sàn đã thi công được xem là tự mang trọng lượng bản thân và còn chịu thêm được tải thiết kế của nó q<sub>tk</sub> = n<sub>SDL</sub>·SDL + n<sub>LL</sub>·LL. Phần tải vượt (q − q<sub>tk</sub>) được hệ chống phụ truyền xuống tầng dưới; quá trình lặp lại cho đến khi một tầng đủ khả năng, hoặc tải xuống tới móng. Với dầm chuyển, tải dưới dầm được trải trên dải rộng B của từng tầng.</span><span class="l-en">Each completed floor is assumed to carry its own weight plus its design superimposed load q<sub>tk</sub> = n<sub>SDL</sub>·SDL + n<sub>LL</sub>·LL. The excess (q − q<sub>tk</sub>) is passed down by reshores; the process repeats until a floor has enough capacity or the load reaches the foundation. For transfer beams, the load is spread over a band of width B on each floor.</span></p>
+      <div class="formula">P<sub>i</sub> = (q<sub>i</sub> − q<sub>tk,i</sub>)·l<sub>1</sub>b<sub>1</sub> ≤ [P] · q<sub>i+1</sub> = (q<sub>i</sub> − q<sub>tk,i</sub>)·B<sub>i</sub>/B<sub>i+1</sub><br>P<sub>xt</sub> = R<sub>bt</sub>·(4c + 4h<sub>0</sub>)·h<sub>0</sub></div>
+      <p class="small"><span class="l-vi">Chọc thủng kiểm tra cho sàn nhận lực từ chân chống tầng trên, với bản đế cạnh c và chiều cao làm việc h<sub>0</sub> = h<sub>s</sub> − a.</span><span class="l-en">Punching is checked for the slab receiving the props from the level above, with base plate side c and effective depth h<sub>0</sub> = h<sub>s</sub> − a.</span></p>
+    </div>
+  </div>
+
+  <div class="tool-grid wide-form">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Cấu kiện đổ bê tông</span><span class="l-en">Element being cast</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Loại</span><span class="l-en">Type</span></span><span class="in"><select id="top"><option value="slab" selected>Sàn chuyển · Transfer slab</option><option value="beam">Dầm chuyển · Transfer beam</option></select></span></label>
+        <label class="fld m-beam"><span class="lb"><i>b</i><span class="l-vi">Bề rộng dầm</span><span class="l-en">Beam width</span></span><span class="in"><input id="b" type="number" step="any" value="1"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>h</i><span class="l-vi">Chiều dày sàn / chiều cao dầm</span><span class="l-en">Slab thickness / beam depth</span></span><span class="in"><input id="h" type="number" step="any" value="1.8"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>γ</i><span class="l-vi">Trọng lượng riêng bê tông cốt thép</span><span class="l-en">Unit weight of RC</span></span><span class="in"><input id="gam" type="number" step="any" value="26"><em>kN/m³</em></span></label>
+        <label class="fld"><span class="lb"><i>l<sub>o</sub>×b<sub>o</sub></i><span class="l-vi">Lưới cây chống ngay dưới cấu kiện</span><span class="l-en">Prop grid directly below</span></span><span class="in"><input id="lo" type="number" step="any" value="600"><input id="bo" type="number" step="any" value="600"><em>mm</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Cây chống &amp; sàn</span><span class="l-en">Props &amp; floors</span></legend>
+        <label class="fld"><span class="lb"><i>[P]</i><span class="l-vi">Tải cho phép 1 cây chống phụ</span><span class="l-en">Allowable reshore load</span></span><span class="in"><input id="P" type="number" step="any" value="36"><em>kN</em></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>bt</sub></i><span class="l-vi">Cấp bền bê tông các sàn</span><span class="l-en">Concrete class of floors</span></span><span class="in"><select id="rbt"><option value="0.75">B15</option><option value="0.9">B20</option><option value="1.05">B25</option><option value="1.15" selected>B30</option><option value="1.3">B35</option><option value="1.4">B40</option></select></span></label>
+        <label class="fld"><span class="lb"><i>c</i><span class="l-vi">Cạnh bản đế chân chống</span><span class="l-en">Base plate side</span></span><span class="in"><input id="c" type="number" step="any" value="150"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>n</i><span class="l-vi">Hệ số tải SDL, LL</span><span class="l-en">Load factors SDL, LL</span></span><span class="in"><input id="nS" type="number" step="any" value="1.1"><input id="nL" type="number" step="any" value="1.2"><em>–</em></span></label>
+      </fieldset>
+      <fieldset class="tbl-fs"><legend><span class="l-vi">Các tầng bên dưới (từ trên xuống)</span><span class="l-en">Floors below (top down)</span></legend>
+        <div class="soil-wrap"><table class="soil-tbl reshore-tbl"><thead><tr><th><span class="l-vi">Tầng</span><span class="l-en">Floor</span></th><th>h<sub>s</sub> (mm)</th><th>a (mm)</th><th>SDL (kN/m²)</th><th>LL (kN/m²)</th><th>l<sub>1</sub> (mm)</th><th>b<sub>1</sub> (mm)</th><th class="m-beam">B (mm)</th><th></th></tr></thead><tbody id="fl"></tbody></table></div>
+        <button class="btn sm" id="addF" type="button">+ <span class="l-vi">Thêm tầng</span><span class="l-en">Add floor</span></button>
+        <p class="small"><span class="l-vi">l<sub>1</sub>×b<sub>1</sub>: lưới chống phụ bên dưới sàn đó. B: bề rộng dải phân phối tải dưới dầm chuyển. Tầng cuối được xem là sàn trên nền / móng.</span><span class="l-en">l<sub>1</sub>×b<sub>1</sub>: reshore grid below that floor. B: load-spreading band under a transfer beam. The last floor is taken as the ground slab / foundation.</span></p>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Bảng phân phối tải theo tầng</span><span class="l-en">Load cascade by floor</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 4453:1995 — <span class="l-vi">Quy phạm thi công và nghiệm thu kết cấu bê tông toàn khối (Phụ lục A)</span><span class="l-en">Code of practice for monolithic concrete works (Appendix A)</span>.</li>
+    <li>TCVN 5574:2018 — <span class="l-vi">Kết cấu bê tông và bê tông cốt thép (tính toán chọc thủng)</span><span class="l-en">Concrete and reinforced concrete structures (punching)</span>.</li>
+    <li>ACI 347.2R — <span class="l-vi">Hướng dẫn chống và chống lại cho nhà nhiều tầng</span><span class="l-en">Guide for Shoring/Reshoring of Concrete Multistory Buildings</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/formwork-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  var DEF=[['2',220,25,5,4,600,600,1000],['1',220,25,5,4,900,900,1200],['B1',220,25,2.5,5,900,900,1200],['B2',600,25,2.5,5,900,900,1200]];
+  var tb=$('fl');
+  function rowHtml(r){ return '<tr><td><input type="text" value="'+r[0]+'" style="text-align:center"></td>'+r.slice(1).map(function(v,i){return '<td'+(i===6?' class="m-beam"':'')+'><input type="number" step="any" value="'+v+'"></td>';}).join('')+'<td><button type="button" class="del" title="Xóa">×</button></td></tr>'; }
+  function fill(rows){ tb.innerHTML=rows.map(rowHtml).join(''); }
+  fill(DEF);
+  $('addF').addEventListener('click',function(){ var tr=tb.querySelectorAll('tr'), last=tr.length?Array.prototype.map.call(tr[tr.length-1].querySelectorAll('input'),function(i){return i.value;}):['',220,25,2.5,5,900,900,1200]; last[0]=''; tb.insertAdjacentHTML('beforeend',rowHtml(last)); run(); });
+  tb.addEventListener('click',function(e){ if(e.target.classList.contains('del')){ e.target.closest('tr').remove(); run(); } });
+  document.querySelector('[data-reset]').addEventListener('click',function(){ fill(DEF); });
+  $('top').addEventListener('change',function(){ if(this.value==='beam'){ $('h').value=2.2; } else { $('h').value=1.8; } });
+  function floors(){ var nS=T.val('nS'), nL=T.val('nL'), L=[];
+    tb.querySelectorAll('tr').forEach(function(tr){ var i=tr.querySelectorAll('input'), v=function(k){return parseFloat(i[k].value);};
+      if(!(v(1)>0)) return; L.push({name:i[0].value||'?',hs:v(1),a:v(2)||0,SDL:v(3)||0,LL:v(4)||0,nSDL:nS,nLL:nL,l1:v(5)||0,b1:v(6)||0,B:v(7)||1000}); });
+    return L; }
+  function run(){
+    var beam=$('top').value==='beam';
+    document.querySelectorAll('.m-beam').forEach(function(el){ el.style.display=beam?'':'none'; });
+    var F=floors(); if(!F.length){ $('res').innerHTML=''; $('detail').innerHTML=''; return; }
+    var o=FORM.reshore({top:beam?'beam':'slab',h:T.val('h'),b:T.val('b'),gam:T.val('gam'),lo:T.val('lo'),bo:T.val('bo'),P:T.val('P'),Rbt:+$('rbt').value,c:T.val('c')/1000,floors:F});
+    var ok=true, html='', topP=o.qtop*T.val('lo')*T.val('bo')/1e6, rTop=topP/T.val('P');
+    html+=T.check('Cây chống ngay dưới cấu kiện','Props directly below the element',rTop,T.fmt(topP,1)+' / '+T.fmt(T.val('P'),0)+' kN'); if(!(rTop<=1)) ok=false;
+    var above='';
+    o.rows.forEach(function(r,i){
+      html+='<h4 class="ck-group">'+T.bi('Tầng '+r.name,'Floor '+r.name)+'</h4>';
+      html+=T.check('Chọc thủng sàn dưới chân chống','Punching under base plates',r.rPun,T.fmt(r.Pin,1)+' / '+T.fmt(r.Pxt,0)+' kN'); if(!(r.rPun<=1)) ok=false;
+      if(r.need){ html+=T.check('Cần chống phụ bên dưới — lực 1 cây','Reshores needed below — load per prop',r.rP,T.fmt(r.Pr,1)+' / '+T.fmt(T.val('P'),0)+' kN'); if(!(r.rP<=1)) ok=false; }
+      else if(r.last) html+='<p class="small">'+T.bi('Tải còn lại truyền xuống nền / móng: ','Remaining load to ground / foundation: ')+'<b>'+T.fmt(r.qdown,1)+' kN/m²</b></p>';
+      else html+='<p class="small">'+T.bi('Sàn đủ khả năng (q ≤ q<sub>tk</sub>) — không cần chống phụ bên dưới.','Floor has enough capacity (q ≤ q<sub>tk</sub>) — no reshores needed below.')+'</p>';
+    });
+    var nNeed=o.rows.filter(function(r){return r.need;}).length;
+    $('res').innerHTML=T.verdict(ok,'Cần chống phụ '+nNeed+' tầng','Reshores needed on '+nNeed+' floor(s)')+
+      '<div class="kpis"><div><small>q<sub>tt</sub> (kN/m²)</small><b>'+T.fmt(o.qtop,1)+'</b></div><div><small>'+'P<sub>0</sub> (kN)</small><b>'+T.fmt(topP,1)+'</b></div><div><small>'+T.bi('Số tầng chống phụ','Floors reshored')+'</small><b>'+nNeed+'</b></div></div>'+html;
+    var th='<table class="calc-tbl"><thead><tr><th>'+T.bi('Tầng','Floor')+'</th><th>q (kN/m²)</th><th>q<sub>tk</sub> (kN/m²)</th><th>P (kN)</th><th>P<sub>xt</sub> (kN)</th><th></th></tr></thead><tbody>';
+    o.rows.forEach(function(r){ th+='<tr><td class="sym">'+r.name+'</td><td class="num">'+T.fmt(r.q,2)+'</td><td class="num">'+T.fmt(r.qtk,2)+'</td><td class="num">'+(r.need?T.fmt(r.Pr,2):'—')+'</td><td class="num">'+T.fmt(r.Pxt,1)+'</td><td>'+(r.need?T.bi('Chống phụ','Reshore'):(r.last?T.bi('Xuống móng','To foundation'):T.bi('Đủ','OK')))+'</td></tr>'; });
+    th+='</tbody></table>';
+    $('detail').innerHTML='<div class="calc-scroll">'+th+'</div><p class="small">'+T.bi('q của tầng đầu = 1,2γh + 1,1·1 + 1,3·2 + 1,3·2,5 (sàn), hoặc nhân thêm b/B với dầm chuyển. Mô hình đơn giản hóa, bỏ qua độ cứng tương đối giữa sàn và cây chống; với công trình thực nên kiểm tra thêm theo tuổi bê tông khi tháo chống.','Top-floor q = 1.2γh + 1.1·1 + 1.3·2 + 1.3·2.5 (slab), multiplied by b/B for a transfer beam. Simplified model ignoring relative slab/prop stiffness; for real projects also check concrete age at striking.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

@@ -1,0 +1,146 @@
+---
+layout: page
+title: "Tính cốp pha dầm sàn — ván, xà gồ, cây chống, thành dầm"
+title_vi: "Cốp pha dầm sàn"
+title_en: "Slab & beam formwork"
+kicker_vi: "Công cụ tính online · Biện pháp thi công"
+kicker_en: "Online calculator · Temporary works"
+lead_vi: "Kiểm tra ván, xà gồ phụ, xà gồ chính, cây chống và thành dầm (áp lực ngang, ty giằng) cho sàn và bốn trường hợp dầm hay gặp: dầm hẹp, dầm rộng, có console, kết hợp U-console đỡ sàn."
+lead_en: "Checks sheathing, joists, bearers, props and beam side forms (lateral pressure, ties) for slabs and four common beam cases: narrow beam, wide beam, cantilevered bearer, and U-head supporting the adjacent slab."
+description: "Công cụ tính online cốp pha dầm sàn theo TCVN 4453:1995: ván, xà gồ thép hộp, cây chống, áp lực ngang và ty giằng thành dầm."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/cop-pha.svg" alt="Hệ cốp pha dầm sàn: ván, xà gồ, cây chống, ty giằng"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Tải trọng đi theo đường <b>ván → xà gồ phụ → xà gồ chính → cây chống</b>. Ván và xà gồ phụ tính như dầm liên tục nhiều nhịp; xà gồ chính đáy dầm tính theo sơ đồ phù hợp với bề rộng dầm (tải phân bố một đoạn b, phân bố đều toàn nhịp, console, hoặc thêm lực tập trung từ U-console đỡ sàn). Thành dầm chịu áp lực ngang của bê tông tươi, truyền qua xà gồ vào ty giằng.</span><span class="l-en">Load flows <b>sheathing → joists → bearers → props</b>. Sheathing and joists are treated as multi-span continuous beams; the soffit bearer uses the scheme matching the beam width (partial UDL over b, full-span UDL, cantilever, or extra point loads from U-heads carrying the slab). Side forms resist fresh-concrete lateral pressure through studs and walers into the ties.</span></p>
+      <div class="formula">q = 1,2γh + 1,1q<sub>2</sub> + 1,3q<sub>3</sub> + 1,3q<sub>4</sub><br>M = qL²/10 · δ = q<sup>tc</sup>L⁴/(145EJ) ≤ L/250</div>
+      <p class="small"><span class="l-vi">Áp lực ngang (đầm dùi): P = γH khi H ≤ R; P = γ(0,27V + 0,78)k<sub>1</sub>k<sub>2</sub> khi H &gt; R, không lấy lớn hơn γH. Thép hộp tính J, W, S trực tiếp từ kích thước.</span><span class="l-en">Lateral pressure (internal vibrator): P = γH for H ≤ R; P = γ(0.27V + 0.78)k<sub>1</sub>k<sub>2</sub> for H &gt; R, capped at γH. Box-section J, W, S are computed from the dimensions.</span></p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Cấu kiện</span><span class="l-en">Element</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Trường hợp</span><span class="l-en">Case</span></span><span class="in"><select id="mode"><option value="s" selected>Sàn · Slab</option><option value="1">Dầm b &lt; L3 · Narrow beam</option><option value="2">Dầm b ≥ L3 · Wide beam</option><option value="3">Dầm + U-console · Beam + U-head</option></select></span></label>
+        <label class="fld m-s m-3"><span class="lb"><i>h<sub>s</sub></i><span class="l-vi">Chiều dày sàn</span><span class="l-en">Slab thickness</span></span><span class="in"><input id="hs" type="number" step="any" value="0.15"><em>m</em></span></label>
+        <label class="fld m-b"><span class="lb"><i>b</i><span class="l-vi">Bề rộng dầm</span><span class="l-en">Beam width</span></span><span class="in"><input id="b" type="number" step="any" value="0.8"><em>m</em></span></label>
+        <label class="fld m-b"><span class="lb"><i>h</i><span class="l-vi">Chiều cao dầm</span><span class="l-en">Beam depth</span></span><span class="in"><input id="h" type="number" step="any" value="0.6"><em>m</em></span></label>
+        <label class="fld m-2 m-3"><span class="lb"><i>–</i><span class="l-vi">Xà gồ chính có đoạn console</span><span class="l-en">Bearer with cantilever</span></span><span class="in"><select id="cons"><option value="0" selected>Không · No</option><option value="1">Có · Yes</option></select></span></label>
+        <label class="fld m-2 m-3 m-c"><span class="lb"><i>L'<sub>3</sub></i><span class="l-vi">Chiều dài đoạn console</span><span class="l-en">Cantilever length</span></span><span class="in"><input id="L3c" type="number" step="any" value="0.2"><em>m</em></span></label>
+      </fieldset>
+      <fieldset class="m-3"><legend><span class="l-vi">Sàn đỡ bằng U-console</span><span class="l-en">Slab on U-heads</span></legend>
+        <label class="fld"><span class="lb"><i>A<sub>1</sub></i><span class="l-vi">Nhịp xà gồ chính sàn lớn nhất</span><span class="l-en">Max. slab bearer span</span></span><span class="in"><input id="A1" type="number" step="any" value="1.2"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>A'<sub>1</sub></i><span class="l-vi">Khoảng từ U-console tới mép dầm</span><span class="l-en">U-head to beam edge</span></span><span class="in"><input id="A1p" type="number" step="any" value="0.2"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>A<sub>2</sub></i><span class="l-vi">Bước xà gồ chính sàn hai bên</span><span class="l-en">Slab bearer spacings, both sides</span></span><span class="in"><input id="A2" type="number" step="any" value="1.2"><input id="A2p" type="number" step="any" value="1.2"><em>m</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Hệ đỡ đáy</span><span class="l-en">Soffit support system</span></legend>
+        <label class="fld"><span class="lb"><i>t<sub>v</sub></i><span class="l-vi">Chiều dày ván</span><span class="l-en">Sheathing thickness</span></span><span class="in"><input id="tp" type="number" step="any" value="15"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Xà gồ phụ (b×h×t, số thanh)</span><span class="l-en">Joist (b×h×t, members)</span></span><span class="in"><select id="s2" class="sec" data-def="50x50x1.8"></select><input id="n2" type="number" step="1" value="1" class="nn"></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>1</sub></i><span class="l-vi">Bước xà gồ phụ</span><span class="l-en">Joist spacing</span></span><span class="in"><input id="L1" type="number" step="any" value="0.2"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Xà gồ chính (b×h×t, số thanh)</span><span class="l-en">Bearer (b×h×t, members)</span></span><span class="in"><select id="s3" class="sec" data-def="50x100x1.8"></select><input id="n3" type="number" step="1" value="1" class="nn"></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>2</sub></i><span class="l-vi">Bước xà gồ chính lớn nhất / nhỏ nhất</span><span class="l-en">Bearer spacing max / min</span></span><span class="in"><input id="L2" type="number" step="any" value="0.9"><input id="L2p" type="number" step="any" value="0.9"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>3</sub></i><span class="l-vi">Nhịp xà gồ chính (khoảng cách cây chống)</span><span class="l-en">Bearer span (prop spacing)</span></span><span class="in"><input id="L3" type="number" step="any" value="0.9"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>[P]</i><span class="l-vi">Tải cho phép 1 cây chống (sổ tay / thử tải)</span><span class="l-en">Allowable prop load (catalogue / test)</span></span><span class="in"><input id="P" type="number" step="any" value="20"><em>kN</em></span></label>
+      </fieldset>
+      <fieldset class="m-b"><legend><span class="l-vi">Thành dầm</span><span class="l-en">Beam side forms</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Xà gồ phụ thành (b×h×t, số thanh)</span><span class="l-en">Side stud (b×h×t, members)</span></span><span class="in"><select id="s4" class="sec" data-def="50x50x1.8"></select><input id="n4" type="number" step="1" value="1" class="nn"></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>4</sub></i><span class="l-vi">Bước xà gồ phụ thành</span><span class="l-en">Stud spacing</span></span><span class="in"><input id="L4" type="number" step="any" value="0.2"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Xà gồ chính thành (b×h×t, số thanh)</span><span class="l-en">Side waler (b×h×t, members)</span></span><span class="in"><select id="s5" class="sec" data-def="50x100x1.8"></select><input id="n5" type="number" step="1" value="1" class="nn"></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>5</sub></i><span class="l-vi">Bước xà gồ chính thành</span><span class="l-en">Waler spacing</span></span><span class="in"><input id="L5" type="number" step="any" value="0.8"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>6</sub></i><span class="l-vi">Bước ty giằng</span><span class="l-en">Tie spacing</span></span><span class="in"><input id="L6" type="number" step="any" value="0.8"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>d</i><span class="l-vi">Đường kính ty · loại thép</span><span class="l-en">Tie diameter · steel</span></span><span class="in"><input id="dt" type="number" step="any" value="16"><select id="ft" style="max-width:120px"><option value="270000" selected>SD295</option><option value="355000">SD390</option></select></span></label>
+        <label class="fld"><span class="lb"><i>V</i><span class="l-vi">Tốc độ đổ bê tông (chiều cao/giờ)</span><span class="l-en">Rate of rise</span></span><span class="in"><input id="V" type="number" step="any" value="1.2"><em>m/h</em></span></label>
+        <label class="fld"><span class="lb"><i>R</i><span class="l-vi">Bán kính tác dụng đầm dùi</span><span class="l-en">Vibrator radius of action</span></span><span class="in"><input id="R" type="number" step="any" value="0.7"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>k<sub>1,2</sub></i><span class="l-vi">Hệ số độ sụt, nhiệt độ</span><span class="l-en">Slump, temperature factors</span></span><span class="in"><input id="k1" type="number" step="any" value="1.2"><input id="k2" type="number" step="any" value="0.9"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>q<sub>đ</sub></i><span class="l-vi">Tải động khi đổ bê tông (thành)</span><span class="l-en">Dynamic load when pouring (sides)</span></span><span class="in"><input id="q3s" type="number" step="any" value="4"><em>kN/m²</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Tải trọng &amp; vật liệu</span><span class="l-en">Loads &amp; materials</span></legend>
+        <label class="fld"><span class="lb"><i>γ</i><span class="l-vi">Trọng lượng riêng bê tông cốt thép</span><span class="l-en">Unit weight of RC</span></span><span class="in"><input id="gam" type="number" step="any" value="25"><em>kN/m³</em></span></label>
+        <label class="fld"><span class="lb"><i>q<sub>2</sub></i><span class="l-vi">Tĩnh tải ván khuôn, xà gồ</span><span class="l-en">Formwork self-weight</span></span><span class="in"><input id="q2" type="number" step="any" value="1"><em>kN/m²</em></span></label>
+        <label class="fld"><span class="lb"><i>q<sub>3</sub>, q<sub>4</sub></i><span class="l-vi">Hoạt tải đầm; người &amp; dụng cụ</span><span class="l-en">Vibration; workers &amp; tools</span></span><span class="in"><input id="q3" type="number" step="any" value="2"><input id="q4" type="number" step="any" value="2.5"><em>kN/m²</em></span></label>
+        <label class="fld"><span class="lb"><i>f<sub>v</sub></i><span class="l-vi">Cường độ (MPa), mô đun (GPa) của ván</span><span class="l-en">Sheathing strength (MPa), modulus (GPa)</span></span><span class="in"><input id="fp" type="number" step="any" value="18"><input id="Ep" type="number" step="any" value="5"><em>MPa/GPa</em></span></label>
+        <label class="fld"><span class="lb"><i>f</i><span class="l-vi">Cường độ (MPa), mô đun (GPa) thép hộp</span><span class="l-en">Box steel strength (MPa), modulus (GPa)</span></span><span class="in"><input id="fs" type="number" step="any" value="210"><input id="Es" type="number" step="any" value="210"><em>MPa/GPa</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 4453:1995 — <span class="l-vi">Kết cấu bê tông và bê tông cốt thép toàn khối. Quy phạm thi công và nghiệm thu (Phụ lục A: tải trọng lên cốp pha)</span><span class="l-en">Monolithic concrete and reinforced concrete structures. Code of practice for execution and acceptance (Appendix A: loads on formwork)</span>.</li>
+    <li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép. Tiêu chuẩn thiết kế</span><span class="l-en">Steel structures. Design standard</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/formwork-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  // Danh mục thép hộp
+  var SIZES=['40x40','50x50','40x80','50x100','60x120'], TH=['1.0','1.2','1.4','1.5','1.6','1.8','2.0','2.5','3.0'];
+  document.querySelectorAll('select.sec').forEach(function(sel){
+    var def=sel.getAttribute('data-def');
+    SIZES.forEach(function(s){ TH.forEach(function(t){ var o=document.createElement('option'); o.value=s+'x'+t; o.textContent='□'+s+'×'+t; if(o.value===def){o.selected=true;o.defaultSelected=true;} sel.appendChild(o); }); });
+  });
+  // Ví dụ theo từng trường hợp
+  var EX={
+    s:{hs:0.15,s2:'50x50x1.8',n2:1,L1:0.2,s3:'50x100x1.8',n3:1,L2:0.9,L2p:0.9,L3:0.9},
+    '1':{b:0.8,h:0.6,s2:'50x50x1.8',n2:1,L1:0.25,s3:'50x100x1.8',n3:1,L2:1.2,L2p:1.2,L3:1.2,s4:'50x50x1.8',n4:1,s5:'50x100x1.8',n5:1},
+    '2':{b:0.9,h:1.1,s2:'50x100x1.8',n2:1,L1:0.2,s3:'50x100x1.8',n3:2,L2:0.6,L2p:0.6,L3:1.2,s4:'50x50x1.8',n4:1,s5:'50x100x1.8',n5:2},
+    '3':{hs:0.2,b:0.6,h:2.5,s2:'50x100x1.8',n2:1,L1:0.2,s3:'50x100x1.8',n3:2,L2:0.6,L2p:0.6,L3:1.2,s4:'50x50x1.8',n4:1,s5:'50x100x1.8',n5:2}
+  };
+  $('mode').addEventListener('change',function(){ var e=EX[this.value]; for(var k in e) if($(k)) $(k).value=e[k]; });
+  function sec(i){ return FORM.parseBox($('s'+i).value, Math.max(1,T.val('n'+i)||1)); }
+  function g(t){ return T.fmt(t,3); }
+  function run(){
+    var mode=$('mode').value, isB=mode!=='s', cons=$('cons').value==='1';
+    document.querySelectorAll('.m-s,.m-b,.m-1,.m-2,.m-3,.m-c').forEach(function(el){ el.style.display='none'; });
+    document.querySelectorAll(isB?'.m-b':'.m-s').forEach(function(el){ el.style.display=''; });
+    if(isB) document.querySelectorAll('.m-'+mode).forEach(function(el){ el.style.display=''; });
+    if(!cons||mode==='1'||mode==='s') document.querySelectorAll('.m-c').forEach(function(el){ el.style.display='none'; });
+    var base={gam:T.val('gam'),q2:T.val('q2'),q3:T.val('q3'),q4:T.val('q4'),tp:T.val('tp')/1000,fp:T.val('fp')*1000,Ep:T.val('Ep')*1e6,f:T.val('fs')*1000,E:T.val('Es')*1e6,
+      s2:sec(2),L1:T.val('L1'),s3:sec(3),L2:T.val('L2'),L2p:T.val('L2p'),L3:T.val('L3'),P:T.val('P')};
+    var o,rows=[],kp;
+    if(!isB){ base.hs=T.val('hs'); o=FORM.slab(base); }
+    else { Object.assign(base,{type:+mode,b:T.val('b'),h:T.val('h'),cons:cons,L3c:T.val('L3c'),hs:T.val('hs'),A1:T.val('A1'),A1p:T.val('A1p'),A2:T.val('A2'),A2p:T.val('A2p'),
+      s4:sec(4),L4:T.val('L4'),s5:sec(5),L5:T.val('L5'),L6:T.val('L6'),dt:T.val('dt'),ft:+$('ft').value,V:T.val('V'),R:T.val('R'),k1:T.val('k1'),k2:T.val('k2'),q3s:T.val('q3s')});
+      o=FORM.beam(base); }
+    var ok=true,worst=0,html='';
+    o.groups.forEach(function(gp){
+      html+='<h4 class="ck-group">'+T.bi(gp.vi,gp.en)+'</h4>';
+      gp.checks.forEach(function(c){ if(!(c.r<=1)) ok=false; worst=Math.max(worst,c.r);
+        html+=T.check(c.vi,c.en,c.r,T.fmt(c.val,c.d)+' / '+T.fmt(c.lim,c.d)+' '+c.unit); });
+    });
+    kp='<div class="kpis"><div><small>q<sub>tt</sub> (kN/m²)</small><b>'+T.fmt(o.ld.tt,2)+'</b></div><div><small>'+T.bi('Lực 1 cây chống','Prop load')+' (kN)</small><b>'+T.fmt(o.N,2)+'</b></div>'+
+      (isB?'<div><small>'+T.bi('Áp lực ngang P','Lateral P')+' (kN/m²)</small><b>'+T.fmt(o.P,2)+'</b></div>':'')+'<div><small>'+T.bi('Tỷ số lớn nhất','Max. ratio')+'</small><b>'+T.fmt(worst,2)+'</b></div></div>';
+    $('res').innerHTML=T.verdict(ok,isB?'Hệ cốp pha dầm':'Hệ cốp pha sàn',isB?'Beam formwork':'Slab formwork')+kp+html;
+    // Diễn giải
+    var s2=base.s2,s3=base.s3;
+    rows.push(T.row('q<sup>tc</sup>, q<sup>tt</sup>','Tải đứng tiêu chuẩn / tính toán (γh = '+T.fmt(o.ld.q1,2)+')','Service / design vertical load (γh = '+T.fmt(o.ld.q1,2)+')',T.fmt(o.ld.tc,2)+' / '+T.fmt(o.ld.tt,2),'kN/m²'));
+    rows.push(T.row('J, W, S','Xà gồ phụ '+$('s2').value+' × '+s2.n,'Joist '+$('s2').value+' × '+s2.n,T.fmt(s2.J,2)+', '+T.fmt(s2.W,2)+', '+T.fmt(s2.S,2),'cm⁴, cm³'));
+    rows.push(T.row('J, W, S','Xà gồ chính '+$('s3').value+' × '+s3.n,'Bearer '+$('s3').value+' × '+s3.n,T.fmt(s3.J,2)+', '+T.fmt(s3.W,2)+', '+T.fmt(s3.S,2),'cm⁴, cm³'));
+    rows.push(T.row('M<sub>v</sub>','Ván: qL<sub>1</sub>²/10 (dải 1 m)','Sheathing: qL<sub>1</sub>²/10 (1 m strip)',o.ply.M,'kN·m',4));
+    rows.push(T.row('p<sub>2</sub>, M<sub>2</sub>','Xà gồ phụ: q·L<sub>1</sub>; pL²/10, L = max(L<sub>2</sub>, L\'<sub>2</sub>)','Joist: q·L<sub>1</sub>; pL²/10, L = max(L<sub>2</sub>, L\'<sub>2</sub>)',T.fmt(o.sec.p,3)+'; '+T.fmt(o.sec.M,4),'kN/m; kN·m'));
+    var sch={s:'pL<sub>3</sub>²/10 (liên tục)','1':'pbL/4 − pb²/8 (tải một đoạn b)','2':'pL²/8 (tải toàn nhịp)','3':'pbL/4 − pb²/8 + P<sub>u</sub>·a'}[mode];
+    var schE={s:'pL<sub>3</sub>²/10 (continuous)','1':'pbL/4 − pb²/8 (partial load over b)','2':'pL²/8 (full-span load)','3':'pbL/4 − pb²/8 + P<sub>u</sub>·a'}[mode];
+    rows.push(T.row('p<sub>3</sub>, M<sub>3</sub>','Xà gồ chính: q(L<sub>2</sub>+L\'<sub>2</sub>)/2; '+sch,'Bearer: q(L<sub>2</sub>+L\'<sub>2</sub>)/2; '+schE,T.fmt(o.main.p,3)+'; '+T.fmt(o.main.M,4),'kN/m; kN·m'));
+    if(mode==='3'){ rows.push(T.row('P<sub>u</sub>','Tải sàn qua U-console = q<sub>s</sub>(A<sub>2</sub>+A\'<sub>2</sub>)(A<sub>1</sub>+A\'<sub>1</sub>)/4','Slab load via U-head = q<sub>s</sub>(A<sub>2</sub>+A\'<sub>2</sub>)(A<sub>1</sub>+A\'<sub>1</sub>)/4',o.Pu,'kN',3));
+      if(!cons) rows.push(T.row('a','= (L<sub>3</sub> − b)/2 − A\'<sub>1</sub>','= (L<sub>3</sub> − b)/2 − A\'<sub>1</sub>',o.a,'m',3)); }
+    if(o.con) rows.push(T.row('M<sub>c</sub>','Console: '+(mode==='2'?'pL\'<sub>3</sub>²/2':'P<sub>u</sub>L\'<sub>3</sub>')+'; δ ≤ L\'/125','Cantilever: '+(mode==='2'?'pL\'<sub>3</sub>²/2':'P<sub>u</sub>L\'<sub>3</sub>')+'; δ ≤ L\'/125',o.con.M,'kN·m',4));
+    rows.push(T.row('N','Lực vào 1 cây chống','Load per prop',o.N,'kN',3));
+    if(isB){
+      rows.push(T.row('P','Áp lực ngang bê tông tươi (H = h = '+T.fmt(base.h,2)+' m)','Fresh-concrete lateral pressure (H = h = '+T.fmt(base.h,2)+' m)',o.P,'kN/m²',2));
+      rows.push(T.row('q<sub>th</sub>','= 1,3P + 1,3q<sub>đ</sub>','= 1.3P + 1.3q<sub>d</sub>',o.qs,'kN/m²',2));
+      rows.push(T.row('M<sub>6</sub>','Xà gồ chính thành: qL<sub>5</sub>·L<sub>6</sub>²/8 (tựa đơn giữa hai ty)','Side waler: qL<sub>5</sub>·L<sub>6</sub>²/8 (simply supported between ties)',o.mainS.M,'kN·m',4));
+      rows.push(T.row('N<sub>ty</sub>','= q<sub>th</sub>L<sub>5</sub>L<sub>6</sub>; σ = N/(πd²/4)','= q<sub>th</sub>L<sub>5</sub>L<sub>6</sub>; σ = N/(πd²/4)',T.fmt(o.Nt,2)+' kN; '+T.fmt(o.st/1000,1)+' MPa',''));
+    }
+    $('detail').innerHTML=T.table(rows)+'<p class="small">'+T.bi('Ứng suất cắt τ = V·S/(J·2t·n) cho thép hộp; giới hạn f<sub>v</sub> = 0,58f. Độ võng cho phép L/250 (console L/125).','Shear stress τ = V·S/(J·2t·n) for box sections; limit f<sub>v</sub> = 0.58f. Deflection limit L/250 (cantilever L/125).')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

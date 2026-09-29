@@ -526,3 +526,10 @@ body.home .foot{margin-top:0}
 .soil-tbl input{padding:6px 4px}
 .soil-tbl td:nth-child(4),.soil-tbl td:nth-child(5){width:82px}
 .soil-tbl td:nth-child(3) select{min-width:0}
+/* cốp pha: hai ô trong một dòng, số thanh ghép, nhóm kiểm tra */
+.fld .in input + input,.fld .in input + select,.fld .in select + input{border-left:1px solid var(--line)}
+.fld .in .nn{flex:0 0 46px;text-align:center}
+.fld .in select.sec{font-size:14px}
+.tool-res .ck-group{font:600 13px var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--orange);margin:14px 0 2px}
+.reshore-tbl input{min-width:52px}
+.calc-scroll{overflow-x:auto}
