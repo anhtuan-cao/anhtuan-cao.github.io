@@ -1,0 +1,116 @@
+---
+layout: page
+title: "Kiểm tra Kingpost thép hình H trong thi công Top-down / Semi top-down"
+title_vi: "Kiểm tra Kingpost thép hình H"
+title_en: "Steel H-section kingpost check"
+kicker_vi: "Công cụ tính online · Top-down / Semi top-down"
+kicker_en: "Online calculator · Top-down / Semi top-down"
+lead_vi: "Cột thép chữ I/H chịu nén lệch tâm theo TCVN 5575:2012: độ mảnh, độ bền, chịu cắt, ổn định tổng thể trong và ngoài mặt phẳng, ổn định cục bộ bản bụng và bản cánh."
+lead_en: "I/H steel columns under eccentric compression to TCVN 5575:2012: slenderness, strength, shear, in-plane and out-of-plane stability, and local buckling of web and flanges."
+description: "Công cụ tính online kiểm tra kingpost thép hình H chịu nén lệch tâm theo TCVN 5575:2012."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/kingpost.svg" alt="Tiết diện H và sơ đồ kingpost"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Kingpost làm việc thế nào?</span><span class="l-en">How does a kingpost work?</span></h3>
+      <p><span class="l-vi">Trong thi công Top-down và Semi top-down, sàn hầm được đổ trước khi đào đất bên dưới. Toàn bộ tải trọng của các sàn đã thi công (và phần tháp thi công song song, nếu có) truyền qua <b>kingpost</b> — cột thép hình cắm vào cọc khoan nhồi. Kingpost chịu lực dọc lớn kèm mô men do lệch tâm liên kết, sai số lắp dựng và tải thi công không đều, với chiều dài tự do tăng dần theo từng bước đào.</span><span class="l-en">In top-down and semi top-down construction, basement slabs are cast before the soil beneath is excavated. The load of the completed slabs (and of any tower built in parallel) is carried by <b>kingposts</b> — steel sections plunged into bored piles. They carry high axial force plus bending from connection eccentricity, erection tolerance and uneven construction loads, with an unbraced length that grows at each excavation stage.</span></p>
+      <p class="small"><span class="l-vi">Nội lực N, M<sub>x</sub>, M<sub>y</sub> thường lấy từ mô hình tổng thể (ví dụ ETABS) theo từng giai đoạn đào; mô men do sai số lắp dựng có thể lấy N·e với e ≈ L/150 hoặc theo yêu cầu thiết kế.</span><span class="l-en">N, M<sub>x</sub> and M<sub>y</sub> usually come from a global model (e.g. ETABS) for each excavation stage; erection-tolerance moments can be taken as N·e with e ≈ L/150 or as specified by the designer.</span></p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Tiết diện &amp; vật liệu</span><span class="l-en">Section &amp; material</span></legend>
+        <label class="fld"><span class="lb"><i>H</i><span class="l-vi">Chọn nhanh tiết diện (h×b×t<sub>w</sub>×t<sub>f</sub>)</span><span class="l-en">Quick section pick (h×b×t<sub>w</sub>×t<sub>f</sub>)</span></span><span class="in"><select id="pre">
+          <option value="">— tùy chỉnh / custom —</option>
+          <option>200x200x8x12</option><option>250x250x9x14</option><option>300x300x10x15</option><option>350x350x12x19</option><option>400x400x13x21</option><option>400x400x20x30</option><option>400x400x30x40</option><option selected>500x500x20x30</option><option>400x200x8x13</option><option>700x300x13x24</option>
+        </select></span></label>
+        <label class="fld"><span class="lb"><i>h</i><span class="l-vi">Chiều cao tiết diện</span><span class="l-en">Section depth</span></span><span class="in"><input id="h" type="number" step="any" value="500"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>b</i><span class="l-vi">Bề rộng bản cánh</span><span class="l-en">Flange width</span></span><span class="in"><input id="b" type="number" step="any" value="500"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>t<sub>w</sub></i><span class="l-vi">Chiều dày bản bụng</span><span class="l-en">Web thickness</span></span><span class="in"><input id="tw" type="number" step="any" value="20"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>t<sub>f</sub></i><span class="l-vi">Chiều dày bản cánh</span><span class="l-en">Flange thickness</span></span><span class="in"><input id="tf" type="number" step="any" value="30"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>f</i><span class="l-vi">Mác thép</span><span class="l-en">Steel grade</span></span><span class="in"><select id="grade">
+          <option value="CCT34">CCT34</option><option value="CCT38">CCT38</option><option value="CCT42">CCT42</option><option value="SS400">SS400</option><option value="SS490">SS490</option><option value="Q235">Q235</option><option value="Q345B" selected>Q345B</option><option value="Q390">Q390</option>
+        </select></span></label>
+        <label class="fld"><span class="lb"><i>γ<sub>c</sub></i><span class="l-vi">Hệ số điều kiện làm việc</span><span class="l-en">Working condition factor</span></span><span class="in"><input id="gc" type="number" step="any" value="0.95"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>E</i><span class="l-vi">Mô đun đàn hồi</span><span class="l-en">Elastic modulus</span></span><span class="in"><input id="E" type="number" step="any" value="210000"><em>MPa</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Nội lực tính toán</span><span class="l-en">Design forces</span></legend>
+        <label class="fld"><span class="lb"><i>N</i><span class="l-vi">Lực nén</span><span class="l-en">Axial compression</span></span><span class="in"><input id="N" type="number" step="any" value="2575"><em>kN</em></span></label>
+        <label class="fld"><span class="lb"><i>M<sub>x</sub></i><span class="l-vi">Mô men quanh trục x (trục khỏe)</span><span class="l-en">Moment about x (major axis)</span></span><span class="in"><input id="Mx" type="number" step="any" value="728.3"><em>kN·m</em></span></label>
+        <label class="fld"><span class="lb"><i>M<sub>y</sub></i><span class="l-vi">Mô men quanh trục y (trục yếu)</span><span class="l-en">Moment about y (minor axis)</span></span><span class="in"><input id="My" type="number" step="any" value="261.3"><em>kN·m</em></span></label>
+        <label class="fld"><span class="lb"><i>V<sub>2</sub></i><span class="l-vi">Lực cắt song song bản bụng</span><span class="l-en">Shear parallel to web</span></span><span class="in"><input id="V2" type="number" step="any" value="197"><em>kN</em></span></label>
+        <label class="fld"><span class="lb"><i>V<sub>3</sub></i><span class="l-vi">Lực cắt song song bản cánh</span><span class="l-en">Shear parallel to flanges</span></span><span class="in"><input id="V3" type="number" step="any" value="17"><em>kN</em></span></label>
+        <label class="fld chk"><input id="dyn" type="checkbox"><span class="l-vi">Tải trọng động (chỉ dùng công thức đàn hồi)</span><span class="l-en">Dynamic load (elastic formula only)</span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Chiều dài tính toán</span><span class="l-en">Effective lengths</span></legend>
+        <label class="fld"><span class="lb"><i>L<sub>x</sub></i><span class="l-vi">Chiều dài hình học — uốn quanh x</span><span class="l-en">Unbraced length — buckling about x</span></span><span class="in"><input id="Lx" type="number" step="any" value="1"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>L<sub>y</sub></i><span class="l-vi">Chiều dài hình học — uốn quanh y</span><span class="l-en">Unbraced length — buckling about y</span></span><span class="in"><input id="Ly" type="number" step="any" value="2"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>μ<sub>x</sub></i><span class="l-vi">Hệ số chiều dài tính toán (Bảng D.1)</span><span class="l-en">Effective length factor (Table D.1)</span></span><span class="in"><input id="mux" type="number" step="any" value="1"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>μ<sub>y</sub></i><span class="l-vi">Hệ số chiều dài tính toán (Bảng D.1)</span><span class="l-en">Effective length factor (Table D.1)</span></span><span class="in"><input id="muy" type="number" step="any" value="1"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>[λ]</i><span class="l-vi">Độ mảnh giới hạn</span><span class="l-en">Limiting slenderness</span></span><span class="in"><input id="lim" type="number" step="any" value="120"><em>–</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail"><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép. Tiêu chuẩn thiết kế</span><span class="l-en">Steel structures. Design standard</span> (7.2.1.2, 7.3.2.1, 7.4.1.2, 7.4.2, 7.6.2.1, 7.6.3.3; <span class="l-vi">Phụ lục C, D</span><span class="l-en">Annexes C, D</span>).</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/kingpost-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL;
+  var G={CCT34:[21,20,19],CCT38:[23,22,21],CCT42:[24.5,24,23],SS400:[22.27,22.27,22.27],SS490:[25,25,25],Q235:[21.36,21.36,21.36],Q345B:[31.36,31.36,31.36],Q390:[35.45,35.45,35.45]};
+  var pre=document.getElementById('pre');
+  pre.addEventListener('change',function(){ if(!pre.value) return; var a=pre.value.split('x'); ['h','b','tw','tf'].forEach(function(k,i){document.getElementById(k).value=a[i];}); });
+  ['h','b','tw','tf'].forEach(function(k){ document.getElementById(k).addEventListener('input',function(){ pre.value=''; }); });
+  function run(){
+    var h=T.val('h')/10,b=T.val('b')/10,tw=T.val('tw')/10,tf=T.val('tf')/10;
+    var t=Math.max(tw,tf)*10, g=G[document.getElementById('grade').value], f=t<=20?g[0]:(t<=40?g[1]:g[2]);
+    var p={h:h,b:b,tw:tw,tf:tf,f:f,E:T.val('E')/10,gc:T.val('gc'),N:T.val('N'),Mx:T.val('Mx'),My:T.val('My'),V2:T.val('V2'),V3:T.val('V3'),Lx:T.val('Lx'),Ly:T.val('Ly'),mux:T.val('mux'),muy:T.val('muy'),lamLim:T.val('lim'),dynamic:T.val('dyn')};
+    var o=KP.check(p), r=o.r, s=o.st, S=s.sec;
+    var list=[['slender','Độ mảnh','Slenderness'],['strength','Độ bền (7.4.1.2)','Strength (7.4.1.2)'],['shear2','Chịu cắt V<sub>2</sub>','Shear V<sub>2</sub>'],['shear3','Chịu cắt V<sub>3</sub>','Shear V<sub>3</sub>'],['inX','Ổn định trong mặt phẳng x–x','In-plane stability x–x'],['outY','Ổn định ngoài mặt phẳng (do M<sub>x</sub>)','Out-of-plane stability (M<sub>x</sub>)'],['inY','Ổn định trong mặt phẳng y–y','In-plane stability y–y'],['outX','Ổn định ngoài mặt phẳng (do M<sub>y</sub>)','Out-of-plane stability (M<sub>y</sub>)'],['biax','Ổn định khi uốn hai phương (7.4.2.8)','Biaxial bending stability (7.4.2.8)'],['web','Ổn định cục bộ bản bụng','Local buckling — web'],['flange','Ổn định cục bộ bản cánh','Local buckling — flange']];
+    var ok=true, html='', worst=0, wn='';
+    list.forEach(function(k){ var v=r[k[0]]; if(!(v<=1)) ok=false; if(v>worst){worst=v;wn=T.bi(k[1],k[2]);} html+=T.check(k[1],k[2],v); });
+    document.getElementById('res').innerHTML=T.verdict(ok,'Tỷ số sử dụng lớn nhất: '+T.fmt(worst,3),'Maximum utilisation: '+T.fmt(worst,3))+
+      '<div class="kpis"><div><small>A (cm²)</small><b>'+T.fmt(S.A,1)+'</b></div><div><small>f (MPa)</small><b>'+T.fmt(f*10,1)+'</b></div><div><small>λ<sub>x</sub> / λ<sub>y</sub></small><b>'+T.fmt(s.lx,1)+' / '+T.fmt(s.ly,1)+'</b></div><div><small>m<sub>x</sub> / m<sub>y</sub></small><b>'+T.fmt(s.mx,2)+' / '+T.fmt(s.my,2)+'</b></div></div>'+html+
+      '<p class="small">'+T.bi('Tỷ số ≤ 1,0 là đạt. Thanh màu thể hiện mức sử dụng (vạch đứng = 1,0).','Ratio ≤ 1.0 passes. Bars show utilisation (vertical mark = 1.0).')+'</p>';
+    document.getElementById('detail').innerHTML=
+      '<h4>'+T.bi('1. Đặc trưng hình học (tiết diện hàn/cán, bỏ qua góc lượn)','1. Section properties (welded/rolled, fillets ignored)')+'</h4>'+T.table([
+        T.row('A','Diện tích','Area',S.A,'cm²',2),T.row('A<sub>f</sub>/A<sub>w</sub>','Tỷ số diện tích cánh/bụng','Flange/web area ratio',S.Af/S.Aw,'',3),
+        T.row('I<sub>x</sub> / I<sub>y</sub>','Mô men quán tính','Second moment of area',T.fmt(S.Ix,0)+' / '+T.fmt(S.Iy,0),'cm⁴'),
+        T.row('W<sub>x</sub> / W<sub>y</sub>','Mô đun chống uốn','Section modulus',T.fmt(S.Wx,1)+' / '+T.fmt(S.Wy,1),'cm³'),
+        T.row('i<sub>x</sub> / i<sub>y</sub>','Bán kính quán tính','Radius of gyration',T.fmt(S.ix,2)+' / '+T.fmt(S.iy,2),'cm'),
+        T.row('f / f<sub>v</sub>','Cường độ tính toán kéo-nén / cắt','Design strength / shear strength',T.fmt(f*10,1)+' / '+T.fmt(0.58*f*10,1),'MPa')])+
+      '<h4>'+T.bi('2. Độ mảnh và độ bền','2. Slenderness and strength')+'</h4>'+T.table([
+        T.row('λ<sub>x</sub>, λ<sub>y</sub>','= μL / i','= μL / i',T.fmt(s.lx,2)+', '+T.fmt(s.ly,2),''),
+        T.row('λ̄<sub>x</sub>, λ̄<sub>y</sub>','Độ mảnh quy ước = λ√(f/E), ≥ 0,5','Conventional slenderness = λ√(f/E), ≥ 0.5',T.fmt(s.lbx,3)+', '+T.fmt(s.lby,3),''),
+        T.row('c<sub>x</sub>, c<sub>y</sub>','Hệ số phát triển biến dạng dẻo (Phụ lục C)','Plasticity factors (Annex C)',T.fmt(s.cx,3)+', 1.47',''),
+        T.row('(37)','(N/A f γ<sub>c</sub>)<sup>1,5</sup> + M<sub>x</sub>/(c<sub>x</sub>W<sub>x</sub>fγ<sub>c</sub>) + M<sub>y</sub>/(c<sub>y</sub>W<sub>y</sub>fγ<sub>c</sub>)','(N/A f γ<sub>c</sub>)<sup>1.5</sup> + M<sub>x</sub>/(c<sub>x</sub>W<sub>x</sub>fγ<sub>c</sub>) + M<sub>y</sub>/(c<sub>y</sub>W<sub>y</sub>fγ<sub>c</sub>)',s.plast,'',4),
+        T.row('(38)','(N/A + M<sub>x</sub>/W<sub>x</sub> + M<sub>y</sub>/W<sub>y</sub>)/(fγ<sub>c</sub>)','(N/A + M<sub>x</sub>/W<sub>x</sub> + M<sub>y</sub>/W<sub>y</sub>)/(fγ<sub>c</sub>)',s.elast,'',4),
+        T.row('→',s.usePlastic?'Áp dụng công thức (37) — cho phép biến dạng dẻo':'Áp dụng công thức (38) — đàn hồi',s.usePlastic?'Formula (37) governs — plastic reserve allowed':'Formula (38) governs — elastic',r.strength,'',4)])+
+      '<h4>'+T.bi('3. Ổn định tổng thể','3. Overall stability')+'</h4>'+T.table([
+        T.row('m<sub>x</sub>, m<sub>y</sub>','Độ lệch tâm tương đối = eA/W','Relative eccentricity = eA/W',T.fmt(s.mx,3)+', '+T.fmt(s.my,3),''),
+        T.row('η<sub>x</sub> → m<sub>ex</sub>','Hệ số ảnh hưởng hình dạng (Bảng D.9)','Shape factor (Table D.9)',T.fmt(s.eta5,3)+' → '+T.fmt(s.mex,3),''),
+        T.row('φ<sub>ex</sub>','Bảng D.10 theo λ̄<sub>x</sub>, m<sub>ex</sub>','Table D.10 from λ̄<sub>x</sub>, m<sub>ex</sub>',s.phex,'',4),
+        T.row('φ<sub>y</sub>','Hệ số uốn dọc (7.3.2.1)','Buckling coefficient (7.3.2.1)',s.phy,'',4),
+        T.row('α, β','Hệ số tính c (7.4.2.5)','Factors for c (7.4.2.5)',T.fmt(s.alpha,3)+', '+T.fmt(s.beta,3),''),
+        T.row('c (c<sub>max</sub>)','Hệ số kể đến ảnh hưởng của M<sub>x</sub>','Coefficient for M<sub>x</sub> effect',T.fmt(s.cUse,4)+' ('+T.fmt(s.cmax,4)+')',''),
+        T.row('η<sub>y</sub> → m<sub>ey</sub>','Bảng D.9 (uốn trong mặt phẳng cánh)','Table D.9 (bending in flange plane)',T.fmt(s.eta8,3)+' → '+T.fmt(s.mey,3),''),
+        T.row('φ<sub>ey</sub>, φ<sub>x</sub>','','',T.fmt(s.phey,4)+', '+T.fmt(s.phx,4),''),
+        T.row('φ<sub>exy</sub>','= φ<sub>ey</sub>(0,6c<sup>1/3</sup> + 0,4c<sup>1/4</sup>)','= φ<sub>ey</sub>(0.6c<sup>1/3</sup> + 0.4c<sup>1/4</sup>)',s.phexy,'',4)])+
+      '<h4>'+T.bi('4. Ổn định cục bộ','4. Local stability')+'</h4>'+T.table([
+        T.row('h<sub>w</sub>/t<sub>w</sub>','Giới hạn (Bảng 33)','Limit (Table 33)',T.fmt(S.hw/tw,2)+' / '+T.fmt(s.wLim,2),''),
+        T.row('b<sub>0</sub>/t<sub>f</sub>','Giới hạn (Bảng 35)','Limit (Table 35)',T.fmt(s.b0/tf,2)+' / '+T.fmt(s.flLim,2),'')]);
+  }
+  T.bind('f',run);
+})();
+</script>

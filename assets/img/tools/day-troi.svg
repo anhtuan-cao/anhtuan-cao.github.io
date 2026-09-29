@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><pattern id="soil" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#f3ead9"/><circle cx="3" cy="4" r="1.1" fill="#c9b48a"/><circle cx="10" cy="10" r="1.1" fill="#c9b48a"/></pattern>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker>
+<marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ee5a24"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<!-- đất -->
+<path d="M20 80H250V260H510V80H740V410H20Z" fill="url(#soil)"/>
+<path d="M20 80H250M510 80H740" stroke="#7a6a4a" stroke-width="2"/>
+<!-- tường chắn -->
+<rect x="244" y="60" width="12" height="290" fill="#1d2a5b"/><rect x="504" y="60" width="12" height="290" fill="#1d2a5b"/>
+<!-- thanh chống -->
+<path d="M256 110H504M256 175H504" stroke="#3b56a8" stroke-width="7"/>
+<!-- tải q -->
+<g stroke="#ee5a24" stroke-width="2.5">
+<path d="M60 40v34M95 40v34M130 40v34M165 40v34M200 40v34" marker-end="url(#ao)"/><path d="M50 40H212"/></g>
+<text x="120" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#ee5a24">q</text>
+<!-- cung trượt -->
+<path d="M110 80 C 110 250, 200 330, 380 330 C 460 330, 505 300, 510 260" fill="none" stroke="#ee5a24" stroke-width="3" stroke-dasharray="9 6"/>
+<path d="M300 255 q20 -40 40 -60" fill="none" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/>
+<path d="M150 150 q10 40 20 70" fill="none" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/>
+<text x="120" y="140" font-size="15" fill="#1d2a5b" font-weight="600">γ, W</text>
+<!-- kích thước -->
+<g stroke="#1d2a5b" stroke-width="1.6" fill="none">
+<path d="M540 80V258" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<path d="M600 80V348" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<path d="M258 232H502" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<path d="M516 80H610M516 350H610M510 260H550" stroke-dasharray="4 4"/></g>
+<text x="548" y="175" font-size="17" font-weight="700" fill="#1d2a5b">He</text>
+<text x="608" y="215" font-size="17" font-weight="700" fill="#1d2a5b">D</text>
+<text x="380" y="224" text-anchor="middle" font-size="17" font-weight="700" fill="#1d2a5b">B</text>
+<circle cx="380" cy="262" r="5" fill="#ee5a24"/><text x="392" y="283" font-size="14" font-weight="600" fill="#9a3a12">Su1</text>
+<circle cx="510" cy="350" r="5" fill="#ee5a24"/><text x="470" y="376" font-size="14" font-weight="600" fill="#9a3a12">Su2</text>
+<text x="380" y="400" text-anchor="middle" font-size="13" fill="#5a6482">Bjerrum &amp; Eide (1956)</text>
+</svg>

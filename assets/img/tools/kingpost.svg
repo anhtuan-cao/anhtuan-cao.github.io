@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker>
+<marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ee5a24"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<!-- tiết diện H -->
+<g transform="translate(70,70)">
+<rect x="0" y="0" width="240" height="30" fill="#1d2a5b"/><rect x="0" y="250" width="240" height="30" fill="#1d2a5b"/><rect x="108" y="30" width="24" height="220" fill="#2a3c7e"/>
+<path d="M-30 140H270" stroke="#ee5a24" stroke-width="1.5" stroke-dasharray="8 5"/><path d="M120 -30V310" stroke="#ee5a24" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="276" y="146" font-size="16" font-weight="700" fill="#ee5a24">x</text><text x="126" y="-34" font-size="16" font-weight="700" fill="#ee5a24">y</text>
+<g stroke="#1d2a5b" stroke-width="1.5" fill="none"><path d="M0 300H240" marker-start="url(#ar)" marker-end="url(#ar)"/><path d="M-20 0V280" marker-start="url(#ar)" marker-end="url(#ar)"/></g>
+<text x="120" y="322" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2a5b">b</text>
+<text x="-40" y="146" font-size="15" font-weight="700" fill="#1d2a5b">h</text>
+<text x="140" y="95" font-size="14" fill="#fff" font-weight="600" transform="rotate(90 140 95)">tw</text>
+<text x="200" y="20" font-size="13" fill="#fff" font-weight="600">tf</text>
+</g>
+<!-- sơ đồ cột -->
+<g transform="translate(470,40)">
+<path d="M-40 20H140M-40 150H140" stroke="#7a8bb8" stroke-width="10"/>
+<text x="150" y="26" font-size="12" fill="#5a6482">B1</text><text x="150" y="156" font-size="12" fill="#5a6482">B2</text>
+<rect x="42" y="0" width="16" height="330" fill="#1d2a5b"/>
+<path d="M-10 330h120" stroke="#8c7a55" stroke-width="3"/><rect x="20" y="330" width="60" height="30" fill="#c9b48a"/>
+<text x="50" y="385" text-anchor="middle" font-size="12" fill="#5a6482">KCN / bored pile</text>
+<path d="M50 -30V-4" stroke="#ee5a24" stroke-width="3" marker-end="url(#ao)"/><text x="60" y="-18" font-size="15" font-weight="700" fill="#ee5a24">N</text>
+<path d="M80 60a26 26 0 1 1 -8 -20" fill="none" stroke="#ee5a24" stroke-width="2.5" marker-end="url(#ao)"/><text x="104" y="70" font-size="14" font-weight="700" fill="#ee5a24">Mx, My</text>
+<g stroke="#1d2a5b" stroke-width="1.5" fill="none"><path d="M-25 20V150" marker-start="url(#ar)" marker-end="url(#ar)"/></g>
+<text x="-60" y="92" font-size="14" font-weight="700" fill="#1d2a5b">L</text>
+</g>
+</svg>

@@ -1,0 +1,81 @@
+---
+layout: page
+title: "Kiểm tra cát sôi (xói ngầm) đáy hố đào"
+title_vi: "Kiểm tra cát sôi (xói ngầm) đáy hố đào"
+title_en: "Sand boiling check at the excavation base"
+kicker_vi: "Công cụ tính online · Hố đào sâu"
+kicker_en: "Online calculator · Deep excavation"
+lead_vi: "Hai cách kiểm tra nhanh khi đào trong tầng cát có mực nước ngầm cao: lăng trụ Terzaghi và độ dốc thủy lực trung bình."
+lead_en: "Two quick checks for excavations in sand with a high water table: Terzaghi's prism method and the average hydraulic gradient method."
+description: "Công cụ tính online kiểm tra cát sôi đáy hố đào theo Terzaghi và độ dốc thủy lực trung bình."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/cat-soi.svg" alt="Sơ đồ dòng thấm dưới tường chắn"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Khi hạ mực nước trong hố đào, chênh lệch cột nước tạo ra dòng thấm vòng qua chân tường và đi lên ở đáy hố. Nếu áp lực thấm hướng lên vượt trọng lượng đẩy nổi của đất, ứng suất hữu hiệu tiến về 0 và các hạt cát bị cuốn lên — hiện tượng <b>cát sôi</b>. Đất dễ xảy ra: cát mịn, cát bụi, hệ số rỗng lớn, ít hạt sét.</span><span class="l-en">Lowering the water inside the excavation creates a head difference that drives seepage under the wall and upwards through the base. If the upward seepage force exceeds the submerged weight of the soil, effective stress drops to zero and sand grains are carried up — <b>sand boiling</b>. Fine and silty sands with high void ratio and little clay are most susceptible.</span></p>
+      <div class="formula">F<sub>s,1</sub> = 2γ′·L<sub>d</sub> / (γ<sub>w</sub>·ΔH<sub>w</sub>) &nbsp;·&nbsp; F<sub>s,2</sub> = i<sub>cr</sub> / i<sub>tb</sub></div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Hình học &amp; mực nước</span><span class="l-en">Geometry &amp; water levels</span></legend>
+        <label class="fld"><span class="lb"><i>H<sub>e</sub></i><span class="l-vi">Chiều sâu hố đào</span><span class="l-en">Excavation depth</span></span><span class="in"><input id="He" type="number" step="any" value="10.6"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>D<sub>w</sub></i><span class="l-vi">Chiều sâu tường chắn</span><span class="l-en">Wall depth</span></span><span class="in"><input id="Dw" type="number" step="any" value="18.5"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>GL</i><span class="l-vi">Độ sâu mực nước ngầm ban đầu</span><span class="l-en">Initial groundwater depth</span></span><span class="in"><input id="GL" type="number" step="any" value="3"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>d<sub>i</sub></i><span class="l-vi">Mực nước trong hố thấp hơn đáy đào</span><span class="l-en">Water level inside below formation</span></span><span class="in"><input id="di" type="number" step="any" value="1"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>d<sub>j</sub></i><span class="l-vi">Độ sâu mực nước ngoài hố khi hạ</span><span class="l-en">Outside water depth during pumping</span></span><span class="in"><input id="dj" type="number" step="any" value="3"><em>m</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Đất &amp; hệ số an toàn</span><span class="l-en">Soil &amp; safety factors</span></legend>
+        <label class="fld"><span class="lb"><i>γ′</i><span class="l-vi">Dung trọng đẩy nổi của đất đáy hố</span><span class="l-en">Submerged unit weight below base</span></span><span class="in"><input id="gs" type="number" step="any" value="9.5"><em>kN/m³</em></span></label>
+        <label class="fld"><span class="lb"><i>γ<sub>w</sub></i><span class="l-vi">Trọng lượng riêng của nước</span><span class="l-en">Unit weight of water</span></span><span class="in"><input id="gw" type="number" step="any" value="9.8"><em>kN/m³</em></span></label>
+        <label class="fld"><span class="lb"><i>[F<sub>s,1</sub>]</i><span class="l-vi">FS yêu cầu — Terzaghi</span><span class="l-en">Required FS — Terzaghi</span></span><span class="in"><input id="F1" type="number" step="any" value="1.5"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>[F<sub>s,2</sub>]</i><span class="l-vi">FS yêu cầu — độ dốc thủy lực</span><span class="l-en">Required FS — gradient method</span></span><span class="in"><input id="F2" type="number" step="any" value="2"><em>–</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>Terzaghi, K. (1943). <i>Theoretical Soil Mechanics</i>. Wiley — heave of sheet-pile cofferdams.</li>
+    <li>Ou, C.-Y. (2006). <i>Deep Excavation: Theory and Practice</i>. Taylor &amp; Francis — Chapter 5, sand boiling.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script>
+(function(){
+  var T=TOOL;
+  function run(){
+    var He=T.val('He'),Dw=T.val('Dw'),GL=T.val('GL'),di=T.val('di'),dj=T.val('dj'),gs=T.val('gs'),gw=T.val('gw'),F1=T.val('F1'),F2=T.val('F2');
+    var Ld=Dw-He, dH=He+di-GL;
+    var Fs1=2*gs*Ld/(gw*dH);
+    var Lp=He+2*Ld-di-dj, icr=gs/gw, iav=dH/Lp, Fs2=icr/iav;
+    var warn='';
+    if(Ld<=0) warn+='<p class="warn">'+T.bi('Tường chắn phải sâu hơn đáy hố đào (D<sub>w</sub> &gt; H<sub>e</sub>).','The wall must extend below formation (D<sub>w</sub> &gt; H<sub>e</sub>).')+'</p>';
+    if(dH<=0) warn+='<p class="info">'+T.bi('Không có chênh lệch cột nước hướng vào hố — không xảy ra cát sôi.','No inward head difference — sand boiling does not occur.')+'</p>';
+    var ok=Fs1>=F1&&Fs2>=F2;
+    document.getElementById('res').innerHTML=T.verdict(ok,'Hai phương pháp kiểm tra độc lập','Two independent checks')+
+      T.fs('Lăng trụ Terzaghi','Terzaghi prism',Fs1,F1)+T.fs('Độ dốc thủy lực trung bình','Average hydraulic gradient',Fs2,F2)+
+      '<div class="kpis"><div><small>L<sub>d</sub> (m)</small><b>'+T.fmt(Ld,2)+'</b></div><div><small>ΔH<sub>w</sub> (m)</small><b>'+T.fmt(dH,2)+'</b></div><div><small>i<sub>cr</sub></small><b>'+T.fmt(icr,3)+'</b></div><div><small>i<sub>tb</sub></small><b>'+T.fmt(iav,3)+'</b></div></div>'+warn;
+    document.getElementById('detail').innerHTML=
+      '<h4>'+T.bi('1. Phương pháp lăng trụ Terzaghi','1. Terzaghi prism method')+'</h4>'+T.table([
+      T.row('L<sub>d</sub>','= D<sub>w</sub> − H<sub>e</sub> (đoạn ngàm)','= D<sub>w</sub> − H<sub>e</sub> (embedment)',Ld,'m',2),
+      T.row('ΔH<sub>w</sub>','= H<sub>e</sub> + d<sub>i</sub> − GL (thiên về an toàn)','= H<sub>e</sub> + d<sub>i</sub> − GL (conservative)',dH,'m',2),
+      T.row('F<sub>s,1</sub>','= 2γ′L<sub>d</sub> / (γ<sub>w</sub>ΔH<sub>w</sub>)','= 2γ′L<sub>d</sub> / (γ<sub>w</sub>ΔH<sub>w</sub>)',Fs1,'',3)])+
+      '<p class="small">'+T.bi('Xét lăng trụ đất rộng L<sub>d</sub>/2, cao L<sub>d</sub> sát chân tường phía trong hố. Trọng lượng đẩy nổi W′ = γ′·L<sub>d</sub>²/2 chống lại áp lực nước dư U = γ<sub>w</sub>·h<sub>a</sub>·L<sub>d</sub>/2, với cột nước dư trung bình tại đáy lăng trụ h<sub>a</sub> ≈ ΔH<sub>w</sub>/2. Từ đó F<sub>s</sub> = W′/U = 2γ′L<sub>d</sub>/(γ<sub>w</sub>ΔH<sub>w</sub>).','Consider a soil prism L<sub>d</sub>/2 wide and L<sub>d</sub> deep next to the wall inside the excavation. Its submerged weight W′ = γ′·L<sub>d</sub>²/2 resists the excess water pressure U = γ<sub>w</sub>·h<sub>a</sub>·L<sub>d</sub>/2, where the average excess head at the prism base h<sub>a</sub> ≈ ΔH<sub>w</sub>/2. Hence F<sub>s</sub> = W′/U = 2γ′L<sub>d</sub>/(γ<sub>w</sub>ΔH<sub>w</sub>).')+'</p>'+
+      '<h4>'+T.bi('2. Phương pháp độ dốc thủy lực trung bình','2. Average hydraulic gradient method')+'</h4>'+T.table([
+      T.row('L<sub>p</sub>','Đường thấm ngắn nhất = H<sub>e</sub> + 2L<sub>d</sub> − d<sub>i</sub> − d<sub>j</sub>','Shortest seepage path = H<sub>e</sub> + 2L<sub>d</sub> − d<sub>i</sub> − d<sub>j</sub>',Lp,'m',2),
+      T.row('i<sub>cr</sub>','= γ′/γ<sub>w</sub> (độ dốc tới hạn)','= γ′/γ<sub>w</sub> (critical gradient)',icr,'',3),
+      T.row('i<sub>tb</sub>','= ΔH<sub>w</sub>/L<sub>p</sub>','= ΔH<sub>w</sub>/L<sub>p</sub>',iav,'',3),
+      T.row('F<sub>s,2</sub>','= i<sub>cr</sub>/i<sub>tb</sub>','= i<sub>cr</sub>/i<sub>tb</sub>',Fs2,'',3)])+
+      '<p class="small">'+T.bi('Độ dốc thủy lực thực tế tại đáy hố thường lớn hơn giá trị trung bình, vì vậy phương pháp này yêu cầu hệ số an toàn cao hơn.','The actual exit gradient is usually higher than the average value, which is why this method requires a higher safety factor.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

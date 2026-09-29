@@ -1,0 +1,83 @@
+---
+layout: page
+title: "Kiểm tra đẩy trồi đáy hố đào"
+title_vi: "Kiểm tra đẩy trồi đáy hố đào"
+title_en: "Basal heave check for deep excavations"
+kicker_vi: "Công cụ tính online · Hố đào sâu"
+kicker_en: "Online calculator · Deep excavation"
+lead_vi: "Phương pháp sức chịu tải âm của Bjerrum & Eide (1956) cho hố đào trong đất dính. Nhập số liệu, kết quả cập nhật ngay."
+lead_en: "Bjerrum & Eide (1956) negative bearing-capacity method for excavations in clay. Enter your data and results update instantly."
+description: "Công cụ tính online kiểm tra ổn định đẩy trồi đáy hố đào theo Bjerrum & Eide."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/day-troi.svg" alt="Sơ đồ đẩy trồi đáy hố đào"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Khi đào sâu trong đất sét yếu, trọng lượng khối đất phía ngoài tường (cộng tải trọng mặt đất) có xu hướng ép đất dưới đáy hố trồi lên. Bjerrum &amp; Eide xem đáy hố như một móng “ngược” và so sánh sức chịu tải của đất nền với áp lực do đất ngoài hố gây ra.</span><span class="l-en">When excavating deep in soft clay, the weight of soil outside the wall (plus surcharge) tends to push the base of the excavation upwards. Bjerrum &amp; Eide treat the base as an inverted footing and compare the bearing capacity of the ground with the pressure from the retained soil.</span></p>
+      <div class="formula">F<sub>b</sub> = N<sub>c</sub>·S<sub>u</sub> / (γ·H<sub>e</sub> + q) ≥ [F<sub>b</sub>]</div>
+      <p class="small"><span class="l-vi">N<sub>c</sub> tra theo biểu đồ Bjerrum &amp; Eide theo tỷ số H<sub>e</sub>/B và L/B; S<sub>u</sub> là sức kháng cắt không thoát nước trung bình trong phạm vi mặt trượt, lấy trung bình tại cao độ đáy đào và chân tường.</span><span class="l-en">N<sub>c</sub> is read from the Bjerrum &amp; Eide chart using H<sub>e</sub>/B and L/B; S<sub>u</sub> is the average undrained shear strength along the failure surface, taken as the mean of the values at excavation level and at the wall toe.</span></p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Hình học hố đào</span><span class="l-en">Excavation geometry</span></legend>
+        <label class="fld"><span class="lb"><i>H<sub>e</sub></i><span class="l-vi">Chiều sâu đào lớn nhất</span><span class="l-en">Maximum excavation depth</span></span><span class="in"><input id="He" type="number" step="any" value="28"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>D</i><span class="l-vi">Chiều sâu tường chắn</span><span class="l-en">Wall depth</span></span><span class="in"><input id="D" type="number" step="any" value="43"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>B</i><span class="l-vi">Chiều rộng hố đào</span><span class="l-en">Excavation width</span></span><span class="in"><input id="B" type="number" step="any" value="20"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>L</i><span class="l-vi">Chiều dài hố đào</span><span class="l-en">Excavation length</span></span><span class="in"><input id="L" type="number" step="any" value="100"><em>m</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Đất nền &amp; tải trọng</span><span class="l-en">Soil &amp; loading</span></legend>
+        <label class="fld"><span class="lb"><i>γ</i><span class="l-vi">Dung trọng trung bình đất ngoài hố</span><span class="l-en">Average unit weight outside</span></span><span class="in"><input id="g" type="number" step="any" value="19"><em>kN/m³</em></span></label>
+        <label class="fld"><span class="lb"><i>q</i><span class="l-vi">Tải trọng mặt đất sát tường</span><span class="l-en">Surcharge next to wall</span></span><span class="in"><input id="q" type="number" step="any" value="20"><em>kPa</em></span></label>
+        <label class="fld"><span class="lb"><i>S<sub>u1</sub></i><span class="l-vi">Sức kháng cắt tại đáy đào</span><span class="l-en">Su at excavation level</span></span><span class="in"><input id="Su1" type="number" step="any" value="290.6"><em>kPa</em></span></label>
+        <label class="fld"><span class="lb"><i>S<sub>u2</sub></i><span class="l-vi">Sức kháng cắt tại chân tường</span><span class="l-en">Su at wall toe</span></span><span class="in"><input id="Su2" type="number" step="any" value="471.5"><em>kPa</em></span></label>
+        <label class="fld"><span class="lb"><i>[F<sub>b</sub>]</i><span class="l-vi">Hệ số an toàn yêu cầu</span><span class="l-en">Required factor of safety</span></span><span class="in"><input id="FSr" type="number" step="any" value="1.5"><em>–</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>Bjerrum, L. &amp; Eide, O. (1956). Stability of strutted excavations in clay. <i>Géotechnique</i>, 6(1), 32–47.</li>
+    <li>Ou, C.-Y. (2006). <i>Deep Excavation: Theory and Practice</i>. Taylor &amp; Francis — Chapter 5, basal heave.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script>
+(function(){
+  var T=TOOL;
+  // Nc(He/B) cho L/B = 1, 2, 3, ∞ — đường hồi quy từ biểu đồ Bjerrum & Eide
+  var C={1:[-0.0062,0.1109,-0.7277,2.2427,6.1686],2:[-0.0109,0.1585,-0.8831,2.336,5.7095],3:[-0.0095,0.1458,-0.8473,2.3169,5.4907],inf:[-0.001,0.0364,-0.3796,1.6207,5.1606]};
+  function nc(k,x){var a=C[k];return a[0]*x*x*x*x+a[1]*x*x*x+a[2]*x*x+a[3]*x+a[4];}
+  function run(){
+    var He=T.val('He'),D=T.val('D'),B=T.val('B'),L=T.val('L'),g=T.val('g'),q=T.val('q'),S1=T.val('Su1'),S2=T.val('Su2'),FSr=T.val('FSr');
+    var hb=He/B, hbC=Math.min(Math.max(hb,0),4), lb=L/B, Nc;
+    var n1=nc(1,hbC),n2=nc(2,hbC),n3=nc(3,hbC),ni=nc('inf',hbC);
+    if(lb<=1) Nc=n1; else if(lb<=2) Nc=n1+(lb-1)*(n2-n1); else if(lb<=3) Nc=n2+(lb-2)*(n3-n2); else Nc=ni;
+    var Su=(S1+S2)/2, Fb=Nc*Su/(g*He+q);
+    var warn='';
+    if(D<He) warn+='<p class="warn">'+T.bi('Chiều sâu tường D phải lớn hơn chiều sâu đào He.','Wall depth D must exceed excavation depth He.')+'</p>';
+    if(hb>4) warn+='<p class="warn">'+T.bi('He/B &gt; 4: Nc lấy tại He/B = 4 (ngoài phạm vi biểu đồ).','He/B &gt; 4: Nc taken at He/B = 4 (outside chart range).')+'</p>';
+    if((D-He)<0.8*He) warn+='<p class="info">'+T.bi('Tham khảo: với nền đất yếu, đoạn tường ngàm dưới đáy đào thường không nhỏ hơn khoảng 0,8·He.','For soft ground, wall embedment below formation is commonly not less than about 0.8·He.')+'</p>';
+    var ok=Fb>=FSr;
+    document.getElementById('res').innerHTML=T.verdict(ok,'Phương pháp Bjerrum & Eide','Bjerrum & Eide method')+
+      T.fs('Ổn định đẩy trồi','Basal heave stability',Fb,FSr)+
+      '<div class="kpis"><div><small>N<sub>c</sub></small><b>'+T.fmt(Nc,3)+'</b></div><div><small>S<sub>u</sub> (kPa)</small><b>'+T.fmt(Su,1)+'</b></div><div><small>H<sub>e</sub>/B</small><b>'+T.fmt(hb,2)+'</b></div><div><small>L/B</small><b>'+T.fmt(lb,2)+'</b></div></div>'+warn;
+    document.getElementById('detail').innerHTML=T.table([
+      T.row('H<sub>e</sub>/B','Tỷ số chiều sâu / bề rộng','Depth-to-width ratio',hb,'',3),
+      T.row('L/B','Tỷ số chiều dài / bề rộng','Length-to-width ratio',lb,'',3),
+      T.row('N<sub>c</sub>','Hệ số sức chịu tải (nội suy theo L/B)','Bearing capacity factor (interpolated on L/B)',Nc,'',4),
+      T.row('S<sub>u</sub>','= (S<sub>u1</sub> + S<sub>u2</sub>) / 2','= (S<sub>u1</sub> + S<sub>u2</sub>) / 2',Su,'kPa',2),
+      T.row('γH<sub>e</sub>+q','Áp lực do đất ngoài hố và tải mặt','Pressure from retained soil and surcharge',g*He+q,'kPa',2),
+      T.row('F<sub>b</sub>','= N<sub>c</sub>·S<sub>u</sub> / (γH<sub>e</sub> + q)','= N<sub>c</sub>·S<sub>u</sub> / (γH<sub>e</sub> + q)',Fb,'',3)
+    ])+'<p class="small">'+T.bi('N<sub>c</sub> được tính từ đường hồi quy bậc 4 của biểu đồ Bjerrum &amp; Eide cho L/B = 1, 2, 3 và ∞; nội suy tuyến tính theo L/B, với L/B &gt; 3 lấy đường L/B = ∞ (thiên về an toàn).','N<sub>c</sub> uses quartic fits to the Bjerrum &amp; Eide chart for L/B = 1, 2, 3 and ∞, interpolated linearly on L/B; for L/B &gt; 3 the L/B = ∞ curve is used (conservative).')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

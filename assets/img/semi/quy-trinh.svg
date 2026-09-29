@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif"><defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ee5a24"/></marker></defs><rect width="1200" height="430" fill="#fff"/>
+<rect x="30" y="60" width="178" height="250" rx="14" fill="#1d2a5b"/>
+<circle cx="64" cy="100" r="22" fill="#ee5a24"/><text x="64" y="108" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">1</text>
+<text x="44" y="160" font-size="19" font-weight="700" fill="#fff">Định hướng</text>
+<text x="44" y="184" font-size="13" fill="#ffb08c">Planning</text>
+<text x="44" y="222" font-size="13.5" fill="#dfe6f7">Khảo sát hiện trạng,</text>
+<text x="44" y="242" font-size="13.5" fill="#dfe6f7">bước đào, lỗ mở, PA</text>
+<text x="44" y="262" font-size="13.5" fill="#dfe6f7">cốp pha</text>
+<path d="M210 185h13" stroke="#ee5a24" stroke-width="3" marker-end="url(#a)"/>
+<rect x="225" y="60" width="178" height="250" rx="14" fill="#2a3c7e"/>
+<circle cx="259" cy="100" r="22" fill="#ee5a24"/><text x="259" y="108" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">2</text>
+<text x="239" y="160" font-size="19" font-weight="700" fill="#fff">Hố đào sâu</text>
+<text x="239" y="184" font-size="13" fill="#ffb08c">Deep excavation</text>
+<text x="239" y="222" font-size="13.5" fill="#dfe6f7">Plaxis: chuyển vị, nội</text>
+<text x="239" y="242" font-size="13.5" fill="#dfe6f7">lực tường vây, ổn định</text>
+<path d="M405 185h13" stroke="#ee5a24" stroke-width="3" marker-end="url(#a)"/>
+<rect x="420" y="60" width="178" height="250" rx="14" fill="#2a3c7e"/>
+<circle cx="454" cy="100" r="22" fill="#ee5a24"/><text x="454" y="108" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">3</text>
+<text x="434" y="160" font-size="19" font-weight="700" fill="#fff">Kingpost &amp; dầm</text>
+<text x="434" y="184" font-size="13" fill="#ffb08c">Kingposts &amp; beams</text>
+<text x="434" y="222" font-size="13.5" fill="#dfe6f7">ETABS: tải thi công,</text>
+<text x="434" y="242" font-size="13.5" fill="#dfe6f7">tổ hợp, gia cường dầm</text>
+<path d="M600 185h13" stroke="#ee5a24" stroke-width="3" marker-end="url(#a)"/>
+<rect x="615" y="60" width="178" height="250" rx="14" fill="#2a3c7e"/>
+<circle cx="649" cy="100" r="22" fill="#ee5a24"/><text x="649" y="108" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">4</text>
+<text x="629" y="160" font-size="19" font-weight="700" fill="#fff">Gia cường sàn</text>
+<text x="629" y="184" font-size="13" fill="#ffb08c">Slab strengthening</text>
+<text x="629" y="222" font-size="13.5" fill="#dfe6f7">SAFE: dải strip, thép</text>
+<text x="629" y="242" font-size="13.5" fill="#dfe6f7">bổ sung quanh lỗ mở</text>
+<path d="M795 185h13" stroke="#ee5a24" stroke-width="3" marker-end="url(#a)"/>
+<rect x="810" y="60" width="178" height="250" rx="14" fill="#1d2a5b"/>
+<circle cx="844" cy="100" r="22" fill="#ee5a24"/><text x="844" y="108" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">5</text>
+<text x="824" y="160" font-size="19" font-weight="700" fill="#fff">Hồ sơ &amp; thẩm tra</text>
+<text x="824" y="184" font-size="13" fill="#ffb08c">Drawings &amp; review</text>
+<text x="824" y="222" font-size="13.5" fill="#dfe6f7">Thuyết minh, bản vẽ,</text>
+<text x="824" y="242" font-size="13.5" fill="#dfe6f7">kiểm tra 2 cấp</text>
+<path d="M990 185h13" stroke="#ee5a24" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1005" y="60" width="178" height="250" rx="14" fill="#1d2a5b"/>
+<circle cx="1039" cy="100" r="22" fill="#ee5a24"/><text x="1039" y="108" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">6</text>
+<text x="1019" y="160" font-size="19" font-weight="700" fill="#fff">Thi công</text>
+<text x="1019" y="184" font-size="13" fill="#ffb08c">Construction &amp; monitoring</text>
+<text x="1019" y="222" font-size="13.5" fill="#dfe6f7">Kiểm soát đúng BP, đo</text>
+<text x="1019" y="242" font-size="13.5" fill="#dfe6f7">đạc, đúc kết</text>
+<path d="M704.0 312 V360 H314.0 V318" fill="none" stroke="#ee5a24" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#a)"/>
+<text x="509.0" y="385" text-anchor="middle" font-size="14" fill="#9a3a12" font-weight="600">Không đạt → điều chỉnh bước đào / hệ chống · Not OK → revise stages / supports</text>
+<text x="30" y="36" font-size="15" font-weight="700" fill="#1d2a5b" letter-spacing="2">QUY TRÌNH THIẾT KẾ BIỆN PHÁP SEMI TOP-DOWN · DESIGN WORKFLOW</text>
+</svg>
