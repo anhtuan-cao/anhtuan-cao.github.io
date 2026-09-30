@@ -24,7 +24,7 @@
     function As(M) { var am = M * 1e6 / (p.Rb * 1000 * Math.pow(h0 * 1000, 2)); var x = 1 - Math.sqrt(Math.max(0, 1 - 2 * am)); return { am: am, As: x * p.Rb * 1000 * h0 * 1000 / p.Rs, ok: am < 0.5 }; }
     var Asl = As(Ml), Asb = As(Mb), Asp = Math.PI * p.ds * p.ds / 4 * 1000 / p.s;
     // Lún: cộng lớp phân tố hi = 0,2b, dừng khi σgl ≤ 0,2σbt
-    var pgl = p.Ntc / A + (gtb - p.g2) * p.Df, hi = 0.2 * p.b, S = 0, z = 0, rows = [], zmax = p.layers.length ? p.layers[p.layers.length - 1].z - p.Df : 0;
+    var pgl = p.Ntc / A + (gtb - p.g1) * p.Df, hi = 0.2 * p.b, S = 0, z = 0, rows = [], zmax = p.layers.length ? p.layers[p.layers.length - 1].z - p.Df : 0;
     function Eat(zg) { for (var i = 0; i < p.layers.length; i++) if (zg <= p.layers[i].z + 1e-9) return p.layers[i].E; return p.layers.length ? p.layers[p.layers.length - 1].E : 1e9; }
     function sbt(zg) { var s0 = 0, step = 0.05; for (var t = 0; t < zg - 1e-9; t += step) { var zz = Math.min(zg, t + step); s0 += (zz - t) * (((t + zz) / 2) > p.zw ? p.g2 - 10 : p.g2); } return s0; }
     for (var k = 0; k < 200 && z < zmax - 1e-9; k++) {

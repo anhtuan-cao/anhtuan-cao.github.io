@@ -1,0 +1,103 @@
+---
+layout: page
+title: "Gông cẩu tháp — thanh gông, bu lông, đường hàn, ắc và neo vào kết cấu"
+title_vi: "Gông cẩu tháp"
+title_en: "Tower crane tie"
+kicker_vi: "Công cụ tính online · Biện pháp thi công"
+kicker_en: "Online calculator · Temporary works"
+lead_vi: "Kiểm tra thanh gông liên kết thân cẩu tháp vào công trình: độ bền, độ mảnh, ổn định chịu nén, nhóm bu lông, đường hàn bản mã, ắc (chốt) và phá hoại bê tông ở mép kết cấu tại vị trí neo."
+lead_en: "Checks a tie strut connecting the crane mast to the building: strength, slenderness, compression buckling, bolt group, gusset weld, pin, and concrete edge breakout at the anchorage."
+description: "Công cụ tính online gông cẩu tháp: thanh gông chịu nén, bu lông, đường hàn, ắc gông và phá hoại bê tông mép kết cấu (ACI 318)."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/gong-cau-thap.svg" alt="Mặt bằng gông cẩu tháp vào vách"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Lực ngang và mô men xoắn tại cao độ gông (theo catalogue) được phân về các thanh gông; lực dọc lớn nhất N<sub>max</sub> lấy từ mô hình (ETABS, SAP…). Thanh gông là thanh hai đầu khớp chịu kéo – nén, kiểm tra theo TCVN 5575:2012. Lực truyền qua ắc và bản mã vào nhóm bu lông neo; bê tông quanh neo được kiểm tra phá hoại hình nón ở mép theo ACI 318.</span><span class="l-en">Horizontal forces and torsion at the tie level (from the catalogue) are shared among the struts; the maximum axial force N<sub>max</sub> comes from a model (ETABS, SAP…). Each strut is pin-ended in tension–compression, checked to TCVN 5575:2012. The force passes through the pin and gusset into the anchor group; concrete around the anchors is checked for edge breakout to ACI 318.</span></p>
+      <div class="formula">N ≤ φ·A·f·γ<sub>c</sub> · λ ≤ [λ] · V<sub>cbg</sub> = (A<sub>Vc</sub>/A<sub>Vco</sub>)ψ<sub>ed</sub>ψ<sub>c</sub>ψ<sub>h</sub>·V<sub>b</sub><br>V<sub>b</sub> = 0,6(l<sub>e</sub>/d<sub>a</sub>)<sup>0,2</sup>√d<sub>a</sub>·√f'<sub>c</sub>·c<sub>a1</sub><sup>1,5</sup></div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Thanh gông</span><span class="l-en">Tie strut</span></legend>
+        <label class="fld w3"><span class="lb"><i>I/H</i><span class="l-vi">Tiết diện h×b×t<sub>w</sub>×t<sub>f</sub></span><span class="l-en">Section h×b×t<sub>w</sub>×t<sub>f</sub></span></span><span class="in"><select id="sec"><option>150x150x7x10</option><option>200x200x8x12</option><option selected>250x250x9x14</option><option>300x300x10x15</option><option>350x350x12x19</option><option>400x400x13x21</option></select><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>f</i><span class="l-vi">Mác thép thanh gông</span><span class="l-en">Strut steel grade</span></span><span class="in"><select id="grade"><option value="21,34">CCT34</option><option value="23,38">CCT38</option><option value="24.5,42" selected>CCT42</option><option value="31.36,51">Q345</option></select></span></label>
+        <label class="fld"><span class="lb"><i>N<sub>max</sub></i><span class="l-vi">Lực dọc lớn nhất trong thanh (từ mô hình)</span><span class="l-en">Max axial force (from model)</span></span><span class="in"><input id="N" type="number" step="any" value="652"><em>kN</em></span></label>
+        <label class="fld w3"><span class="lb"><i>L, μ</i><span class="l-vi">Chiều dài thanh (m); hệ số chiều dài</span><span class="l-en">Length (m); effective length factor</span></span><span class="in"><input id="L" type="number" step="any" value="7"><select id="mu"><option value="1" selected>1 · khớp–khớp</option><option value="0.7">0,7</option><option value="0.5">0,5</option><option value="2">2 · console</option></select></span></label>
+        <label class="fld"><span class="lb"><i>[λ], γ<sub>c</sub></i><span class="l-vi">Độ mảnh giới hạn; hệ số điều kiện làm việc</span><span class="l-en">Slenderness limit; working factor</span></span><span class="in"><input id="lim" type="number" step="any" value="180"><input id="gc" type="number" step="any" value="0.95"></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Bu lông &amp; đường hàn bản mã</span><span class="l-en">Bolts &amp; gusset weld</span></legend>
+        <label class="fld w3"><span class="lb"><i>n, d</i><span class="l-vi">Số bu lông; đường kính · cấp bền</span><span class="l-en">Bolts; diameter · class</span></span><span class="in"><input id="nb" type="number" step="1" value="6" style="max-width:60px"><select id="bd"><option>20</option><option>22</option><option>24</option><option selected>27</option><option>30</option></select><select id="bcl"><option>5.6</option><option selected>6.6</option><option>8.8</option></select></span></label>
+        <label class="fld"><span class="lb"><i>n<sub>v</sub>, Σt</i><span class="l-vi">Số mặt cắt; tổng chiều dày trượt một phía (mm)</span><span class="l-en">Shear planes; min. bearing thickness (mm)</span></span><span class="in"><input id="nv" type="number" step="1" value="1"><input id="bt" type="number" step="any" value="20"></span></label>
+        <label class="fld"><span class="lb"><i>f<sub>u</sub></i><span class="l-vi">Mác thép bản mã (ép mặt, hàn)</span><span class="l-en">Gusset steel (bearing, weld)</span></span><span class="in"><select id="pg"><option value="34" selected>CCT34</option><option value="38">CCT38</option><option value="42">CCT42</option></select></span></label>
+        <label class="fld w3"><span class="lb"><i>h<sub>f</sub>, l<sub>w</sub>, n</i><span class="l-vi">Đường hàn: chiều cao, chiều dài (mm), số đường</span><span class="l-en">Weld: size, length (mm), runs</span></span><span class="in"><input id="hf" type="number" step="any" value="10"><input id="lf" type="number" step="any" value="900"><input id="nw" type="number" step="1" value="1"></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Ắc gông (chốt)</span><span class="l-en">Pin</span></legend>
+        <label class="fld w3"><span class="lb"><i>d<sub>p</sub></i><span class="l-vi">Đường kính (mm) · cấp bền · số mặt cắt</span><span class="l-en">Diameter (mm) · class · shear planes</span></span><span class="in"><input id="pd" type="number" step="any" value="60"><select id="pcl"><option>6.6</option><option selected>8.8</option><option>10.9</option></select><input id="pnv" type="number" step="1" value="2"></span></label>
+        <label class="fld"><span class="lb"><i>Σt</i><span class="l-vi">Tổng chiều dày bản mã trượt một phía</span><span class="l-en">Min. plate thickness bearing one way</span></span><span class="in"><input id="pt" type="number" step="any" value="40"><em>mm</em></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Neo vào kết cấu — phá hoại bê tông mép (ACI 318)</span><span class="l-en">Anchorage — concrete edge breakout (ACI 318)</span></legend>
+        <label class="fld"><span class="lb"><i>A<sub>Vc</sub></i><span class="l-vi">Diện tích hình chiếu mặt phá hoại của nhóm neo</span><span class="l-en">Projected failure area of the group</span></span><span class="in"><input id="AVc" type="number" step="any" value="213934"><em>mm²</em></span></label>
+        <label class="fld"><span class="lb"><i>c<sub>a1</sub>, c<sub>a2</sub></i><span class="l-vi">Khoảng cách tới mép theo phương lực / vuông góc (mm)</span><span class="l-en">Edge distance in / across load direction (mm)</span></span><span class="in"><input id="ca1" type="number" step="any" value="276"><input id="ca2" type="number" step="any" value="394"></span></label>
+        <label class="fld"><span class="lb"><i>h<sub>a</sub>, l<sub>e</sub></i><span class="l-vi">Bề dày cấu kiện; chiều dài chịu tải của neo (mm)</span><span class="l-en">Member thickness; anchor load-bearing length (mm)</span></span><span class="in"><input id="ha" type="number" step="any" value="600"><input id="le" type="number" step="any" value="300"></span></label>
+        <label class="fld w3"><span class="lb"><i>f'<sub>c</sub></i><span class="l-vi">Cường độ trụ (MPa); ψ<sub>c,V</sub>; φ</span><span class="l-en">Cylinder strength (MPa); ψ<sub>c,V</sub>; φ</span></span><span class="in"><input id="fc" type="number" step="any" value="32.1"><input id="psic" type="number" step="any" value="1.2"><input id="phi" type="number" step="any" value="0.75"></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép. Tiêu chuẩn thiết kế</span><span class="l-en">Steel structures. Design standard</span>.</li>
+    <li>ACI 318-19 — <span class="l-vi">Mục 17.7.2: phá hoại bê tông do lực cắt ở mép</span><span class="l-en">Section 17.7.2: concrete breakout strength in shear</span>.</li>
+    <li><span class="l-vi">Catalogue cẩu tháp (phản lực tại vị trí gông)</span><span class="l-en">Crane catalogue (reactions at tie level)</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/steel-conn-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/assets/js/tools/scaffold-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/assets/js/tools/crane-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  function run(){
+    var s=SCAF.parseI($('sec').value), g=$('grade').value.split(',').map(parseFloat), fu=+$('pg').value;
+    var bB=CONN.BOLT[+$('bd').value], bC=CONN.CLS[$('bcl').value], pC=CONN.CLS[$('pcl').value], fcb=CONN.fcbOf(fu*10,false);
+    var o=CRANE.tie({s:s,N:T.val('N'),L:T.val('L'),mu:+$('mu').value,lim:T.val('lim'),f:g[0],fu:fu,E:21000,gc:T.val('gc'),
+      bolt:{nb:Math.max(1,T.val('nb')),d:+$('bd').value,A:bB[0],fvb:bC[0],fcb:fcb,gb:0.9,nv:Math.max(1,T.val('nv')),t:T.val('bt')},
+      weld:{hf:T.val('hf'),lf:T.val('lf'),n:Math.max(1,T.val('nw')),fwf:18},
+      pin:{d:T.val('pd'),nv:Math.max(1,T.val('pnv')),t:T.val('pt'),fvb:pC[0],fcb:fcb,gb:0.9},
+      anc:{AVc:T.val('AVc'),ca1:T.val('ca1'),ca2:T.val('ca2'),ha:T.val('ha'),le:T.val('le'),da:+$('bd').value,fc:T.val('fc'),psic:T.val('psic'),phi:T.val('phi')}});
+    var ok=true, html='';
+    function ck(vi,en,r,note){ if(!(r<=1)) ok=false; html+=T.check(vi,en,r,note); }
+    html+='<h4 class="ck-group">'+T.bi('Thanh gông','Tie strut')+'</h4>';
+    ck('Độ bền','Strength',o.rS,T.fmt(o.sig*10,1)+' / '+T.fmt(g[0]*10*T.val('gc'),1)+' MPa');
+    ck('Độ mảnh','Slenderness',o.rL,'λ = '+T.fmt(o.lmax,1)+' / '+T.fmt(T.val('lim'),0));
+    ck('Ổn định chịu nén','Compression buckling',o.rB,'φ = '+T.fmt(o.ph,3));
+    html+='<h4 class="ck-group">'+T.bi('Liên kết','Connections')+'</h4>';
+    ck('Nhóm bu lông (cắt / ép mặt)','Bolt group (shear / bearing)',o.rBo,T.fmt(T.val('N'),0)+' / '+T.fmt(Math.min(o.Nvb,o.Ncb),1)+' kN');
+    ck('Đường hàn bản mã','Gusset weld',o.rW,T.fmt(o.tw*10,1)+' / '+T.fmt(o.fw*10,1)+' MPa');
+    ck('Ắc gông','Pin',o.rP,T.fmt(T.val('N'),0)+' / '+T.fmt(Math.min(o.Nvp,o.Ncp),1)+' kN');
+    html+='<h4 class="ck-group">'+T.bi('Bê tông tại neo','Concrete at anchorage')+'</h4>';
+    ck('Phá hoại bê tông mép (φV<sub>cbg</sub>)','Edge breakout (φV<sub>cbg</sub>)',o.rA,T.fmt(T.val('N'),0)+' / '+T.fmt(o.Vd,1)+' kN');
+    $('res').innerHTML=T.verdict(ok,'Thanh gông '+$('sec').value,'Tie strut '+$('sec').value)+'<div class="kpis"><div><small>λ<sub>max</sub></small><b>'+T.fmt(o.lmax,1)+'</b></div><div><small>φ</small><b>'+T.fmt(o.ph,3)+'</b></div><div><small>φV<sub>cbg</sub> (kN)</small><b>'+T.fmt(o.Vd,1)+'</b></div></div>'+html;
+    var rows=[
+      T.row('A, i<sub>x</sub>, i<sub>y</sub>','Diện tích, bán kính quán tính','Area, radii of gyration',T.fmt(s.A,2)+' cm²; '+T.fmt(o.ix,2)+', '+T.fmt(o.iy,2)+' cm',''),
+      T.row('λ<sub>x</sub>, λ<sub>y</sub>','= μL/i','= μL/i',T.fmt(o.lx,1)+', '+T.fmt(o.ly,1),''),
+      T.row('λ̄, φ','= λ√(f/E); φ theo TCVN 5575:2012 (8)','= λ√(f/E); φ from TCVN 5575:2012 (8)',T.fmt(o.lb,3)+'; '+T.fmt(o.ph,4),''),
+      T.row('[N]<sub>vb</sub>, [N]<sub>cb</sub>','= n·f<sub>vb</sub>γ<sub>b</sub>A·n<sub>v</sub>; n·f<sub>cb</sub>γ<sub>b</sub>d·Σt','= n·f<sub>vb</sub>γ<sub>b</sub>A·n<sub>v</sub>; n·f<sub>cb</sub>γ<sub>b</sub>d·Σt',T.fmt(o.Nvb,1)+'; '+T.fmt(o.Ncb,1),'kN'),
+      T.row('τ<sub>w</sub>','= N/(h<sub>f</sub>·l<sub>w</sub>·n) ≤ min(0,7f<sub>wf</sub>; 0,45f<sub>u</sub>)γ<sub>c</sub>','= N/(h<sub>f</sub>·l<sub>w</sub>·n) ≤ min(0.7f<sub>wf</sub>; 0.45f<sub>u</sub>)γ<sub>c</sub>',o.tw*10,'MPa',1),
+      T.row('[N]<sub>ắc</sub>','= min(f<sub>vb</sub>γ<sub>b</sub>A·n<sub>v</sub>; f<sub>cb</sub>γ<sub>b</sub>d·Σt)','= min(f<sub>vb</sub>γ<sub>b</sub>A·n<sub>v</sub>; f<sub>cb</sub>γ<sub>b</sub>d·Σt)',T.fmt(o.Nvp,1)+'; '+T.fmt(o.Ncp,1),'kN'),
+      T.row('A<sub>Vco</sub>','= 4,5c<sub>a1</sub>²','= 4.5c<sub>a1</sub>²',o.AVco,'mm²',0),
+      T.row('ψ<sub>ed,V</sub>, ψ<sub>h,V</sub>','= 0,7 + 0,3c<sub>a2</sub>/(1,5c<sub>a1</sub>) ≤ 1; √(1,5c<sub>a1</sub>/h<sub>a</sub>) ≥ 1','= 0.7 + 0.3c<sub>a2</sub>/(1.5c<sub>a1</sub>) ≤ 1; √(1.5c<sub>a1</sub>/h<sub>a</sub>) ≥ 1',T.fmt(o.ped,3)+'; '+T.fmt(o.phh,3),''),
+      T.row('V<sub>b</sub>, V<sub>cbg</sub>','Cường độ cơ bản; của nhóm neo (l<sub>e</sub> ≤ 8d<sub>a</sub>)','Basic; group strength (l<sub>e</sub> ≤ 8d<sub>a</sub>)',T.fmt(o.Vb,1)+'; '+T.fmt(o.Vcbg,1),'kN')];
+    $('detail').innerHTML=T.table(rows)+'<p class="small">'+T.bi('Nếu neo xuyên suốt cấu kiện và có bản đệm phía sau, cơ chế phá hoại mép có thể không khống chế; khi đó kiểm tra ép cục bộ và chọc thủng tại bản đệm.','If the anchors pass through the member with a back plate, edge breakout may not govern; check local bearing and punching at the back plate instead.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

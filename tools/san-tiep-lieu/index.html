@@ -1,0 +1,81 @@
+---
+layout: page
+title: "Sàn tiếp liệu console — tôn sàn, xà gồ, dầm, cáp neo, bu lông"
+title_vi: "Sàn tiếp liệu"
+title_en: "Loading platform"
+kicker_vi: "Công cụ tính online · Biện pháp thi công"
+kicker_en: "Online calculator · Temporary works"
+lead_vi: "Sàn tiếp liệu thép console nhô ra ngoài mép sàn để nhận hàng từ cẩu tháp: kiểm tra tôn sàn, xà gồ, dầm phụ, dầm chính có cáp neo (lực cáp theo tương thích biến dạng), cáp và bu lông giữ đuôi dầm."
+lead_en: "A cantilevered steel loading platform receiving loads from the tower crane: checks deck plate, purlins, secondary beams, the cable-stayed main beams (cable force by compatibility), the cable and the hold-down bolts."
+description: "Công cụ tính online sàn tiếp liệu console: tôn sàn, xà gồ, dầm phụ, dầm chính có cáp neo, cáp và bu lông giữ."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/san-tiep-lieu.svg" alt="Sàn tiếp liệu console có cáp neo"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Tải hàng P trải đều trên mặt sàn B × L, cộng trọng lượng bản thân. Tải truyền <b>tôn sàn → xà gồ → dầm phụ → hai dầm chính</b>. Dầm chính tựa lên mép sàn, đuôi dầm giữ bằng bu lông lùi vào trong đoạn a, đầu ngoài treo bằng cáp neo lên tầng trên; lực cáp tìm từ điều kiện chuyển vị tại điểm móc cáp bằng độ giãn của cáp.</span><span class="l-en">The payload P is spread over the B × L deck plus self-weight. Load flows <b>deck → purlins → secondary beams → two main beams</b>. Each main beam bears on the slab edge, is held down by bolts a behind the edge and is stayed by a cable to the floor above; the cable force follows from deflection compatibility at the cable point.</span></p>
+      <div class="formula">q = 1,1·g + 1,2·P/(B·L)<br>M<sub>mép</sub> = wL²/2 − T·cosα·L<sub>t</sub><br>R<sub>bu lông</sub> = M<sub>mép</sub>/a</div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Kích thước &amp; tải</span><span class="l-en">Geometry &amp; load</span></legend>
+        <label class="fld"><span class="lb"><i>B × L</i><span class="l-vi">Bề rộng (khoảng cách 2 dầm chính); chiều dài nhô ra (m)</span><span class="l-en">Width (main beam spacing); outreach (m)</span></span><span class="in"><input id="B" type="number" step="any" value="2.9"><input id="L" type="number" step="any" value="4.5"></span></label>
+        <label class="fld"><span class="lb"><i>P</i><span class="l-vi">Tải hàng lớn nhất trên sàn</span><span class="l-en">Maximum payload</span></span><span class="in"><input id="P" type="number" step="any" value="2500"><em>kg</em></span></label>
+        <label class="fld"><span class="lb"><i>f, γ<sub>c</sub></i><span class="l-vi">Cường độ thép (MPa); hệ số điều kiện làm việc</span><span class="l-en">Steel strength (MPa); working factor</span></span><span class="in"><input id="fs" type="number" step="any" value="364"><input id="gc" type="number" step="any" value="0.95"></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Sàn, xà gồ, dầm</span><span class="l-en">Deck, purlins, beams</span></legend>
+        <label class="fld"><span class="lb"><i>t</i><span class="l-vi">Chiều dày tôn / thép tấm</span><span class="l-en">Deck plate thickness</span></span><span class="in"><input id="t" type="number" step="any" value="3"><em>mm</em></span></label>
+        <label class="fld w3"><span class="lb"><i>–</i><span class="l-vi">Xà gồ (hộp b×h×t); bước L<sub>1</sub> (m)</span><span class="l-en">Purlin (box b×h×t); spacing L<sub>1</sub> (m)</span></span><span class="in"><select id="pur"><option>50x50x1.8</option><option>40x80x1.8</option><option>50x100x1.8</option><option selected>50x100x2.0</option><option>60x120x2.5</option></select><input id="L1" type="number" step="any" value="0.475" style="max-width:80px"></span></label>
+        <label class="fld w3"><span class="lb"><i>–</i><span class="l-vi">Dầm phụ (I); bước L<sub>2</sub> (m)</span><span class="l-en">Secondary beam (I); spacing L<sub>2</sub> (m)</span></span><span class="in"><select id="sec"><option>100x50x5x7</option><option selected>150x75x5x7</option><option>200x100x5.5x8</option></select><input id="L2" type="number" step="any" value="1.5" style="max-width:80px"></span></label>
+        <label class="fld w3"><span class="lb"><i>–</i><span class="l-vi">Dầm chính (I)</span><span class="l-en">Main beam (I)</span></span><span class="in"><select id="main"><option>200x100x5.5x8</option><option selected>250x125x6x9</option><option>300x150x6.5x9</option><option>350x175x7x11</option></select></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Cáp neo &amp; bu lông giữ</span><span class="l-en">Cable &amp; hold-down</span></legend>
+        <label class="fld w3"><span class="lb"><i>a, L<sub>t</sub>, H</i><span class="l-vi">Bu lông lùi vào; móc cáp tới mép; chiều cao tầng (m)</span><span class="l-en">Bolt set-back; cable point to edge; storey height (m)</span></span><span class="in"><input id="a" type="number" step="any" value="1"><input id="Lt" type="number" step="any" value="4.3"><input id="H" type="number" step="any" value="3.3"></span></label>
+        <label class="fld w3"><span class="lb"><i>d<sub>c</sub></i><span class="l-vi">Cáp: đường kính (mm); f<sub>c</sub> (MPa); E<sub>c</sub> (GPa)</span><span class="l-en">Cable: diameter (mm); f<sub>c</sub> (MPa); E<sub>c</sub> (GPa)</span></span><span class="in"><input id="dc" type="number" step="any" value="14"><input id="fc" type="number" step="any" value="1470"><input id="Ec" type="number" step="any" value="100"></span></label>
+        <label class="fld"><span class="lb"><i>k</i><span class="l-vi">Hệ số an toàn cáp</span><span class="l-en">Cable safety factor</span></span><span class="in"><input id="kc" type="number" step="any" value="3"><em>–</em></span></label>
+        <label class="fld w3"><span class="lb"><i>n, d</i><span class="l-vi">Bu lông giữ 1 dầm: số lượng; đường kính · cấp bền</span><span class="l-en">Hold-down per beam: number; diameter · class</span></span><span class="in"><input id="nb" type="number" step="1" value="4" style="max-width:60px"><select id="bd"><option>16</option><option selected>20</option><option>24</option></select><select id="bcl"><option>4.6</option><option>5.6</option><option selected>8.8</option></select></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép. Tiêu chuẩn thiết kế</span><span class="l-en">Steel structures. Design standard</span>.</li>
+    <li>TCVN 2737:2023 — <span class="l-vi">Tải trọng và tác động</span><span class="l-en">Loads and actions</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/steel-conn-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/assets/js/tools/platform-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  function run(){
+    var bB=CONN.BOLT[+$('bd').value], bC=CONN.CLS[$('bcl').value];
+    var o=PLAT.platform({B:T.val('B'),L:T.val('L'),P:T.val('P'),t:T.val('t'),f:T.val('fs'),E:210000,gc:T.val('gc'),lim:250,pur:$('pur').value,L1:T.val('L1'),sec:$('sec').value,L2:T.val('L2'),main:$('main').value,
+      a:T.val('a'),Lt:T.val('Lt'),H:T.val('H'),dc:T.val('dc'),fc:T.val('fc'),kc:T.val('kc'),Ec:T.val('Ec'),nb:Math.max(1,T.val('nb')),Abn:bB[1],ftb:bC[1]});
+    var ok=true, worst=0, html='';
+    o.groups.forEach(function(gp){ html+='<h4 class="ck-group">'+T.bi(gp.vi,gp.en)+'</h4>'; gp.checks.forEach(function(c){ if(!(c.r<=1)) ok=false; worst=Math.max(worst,c.r); html+=T.check(c.vi,c.en,c.r,T.fmt(c.val,c.d)+' / '+T.fmt(c.lim,c.d)+' '+c.unit); }); });
+    $('res').innerHTML=T.verdict(ok,'Sàn tiếp liệu '+T.fmt(T.val('B'),1)+' × '+T.fmt(T.val('L'),1)+' m','Platform '+T.fmt(T.val('B'),1)+' × '+T.fmt(T.val('L'),1)+' m')+
+      '<div class="kpis"><div><small>q (kN/m²)</small><b>'+T.fmt(o.q,2)+'</b></div><div><small>T (kN)</small><b>'+T.fmt(o.T,2)+'</b></div><div><small>M<sub>max</sub> (kN·m)</small><b>'+T.fmt(o.Mmax,2)+'</b></div><div><small>'+T.bi('Tỷ số lớn nhất','Max. ratio')+'</small><b>'+T.fmt(worst,2)+'</b></div></div>'+html;
+    var rows=[
+      T.row('q, q<sup>tc</sup>','= 1,1·78,5t + 1,2·P/(BL); tiêu chuẩn','= 1.1·78.5t + 1.2·P/(BL); service',T.fmt(o.q,3)+' / '+T.fmt(o.qtc,3),'kN/m²'),
+      T.row('M<sub>1</sub>','Tôn sàn: qL<sub>1</sub>²/10 (dải 1 m)','Deck: qL<sub>1</sub>²/10 (1 m strip)',o.M1,'kN·m',4),
+      T.row('w<sub>2</sub>, M<sub>2</sub>','Xà gồ: q·L<sub>1</sub> + g; wL<sub>2</sub>²/8','Purlin: q·L<sub>1</sub> + g; wL<sub>2</sub>²/8',T.fmt(o.w2,3)+'; '+T.fmt(o.o2.M,3),'kN/m; kN·m'),
+      T.row('w<sub>3</sub>, M<sub>3</sub>','Dầm phụ: tải xà gồ quy đều + g; wB²/8','Secondary: purlin loads smeared + g; wB²/8',T.fmt(o.w3,3)+'; '+T.fmt(o.o3.M,3),'kN/m; kN·m'),
+      T.row('w<sub>4</sub>','Dầm chính: w<sub>3</sub>·B/(2L<sub>2</sub>) + g','Main beam: w<sub>3</sub>·B/(2L<sub>2</sub>) + g',o.w4,'kN/m',3),
+      T.row('α, T','Góc cáp so với phương đứng; lực cáp (tính toán)','Cable angle from vertical; design cable force',T.fmt(o.al*180/Math.PI,1)+'°; '+T.fmt(o.T,2)+' kN',''),
+      T.row('M<sub>mép</sub>, V<sub>max</sub>','Tại mép sàn; lực cắt lớn nhất','At slab edge; max shear',T.fmt(o.M0,2)+' kN·m; '+T.fmt(o.Vmax,2)+' kN',''),
+      T.row('R<sub>bu lông</sub>, R<sub>mép</sub>','Lực nhổ tại bu lông; phản lực nén tại mép sàn','Uplift at bolts; bearing at slab edge',T.fmt(o.Rb,2)+'; '+T.fmt(o.Re,2),'kN')];
+    $('detail').innerHTML=T.table(rows)+'<p class="small">'+T.bi('Giới hạn độ võng L/250. Cánh chịu nén của dầm chính (cánh dưới vùng mép sàn) cần được giằng; kiểm tra thêm ép cục bộ bê tông tại mép sàn và lan can, chặn hàng theo quy định an toàn.','Deflection limit L/250. The compression flange of the main beams (bottom flange near the slab edge) should be braced; also check local bearing at the slab edge, and provide guardrails and toe boards as required.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

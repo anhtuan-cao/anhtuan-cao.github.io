@@ -533,3 +533,5 @@ body.home .foot{margin-top:0}
 .tool-res .ck-group{font:600 13px var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--orange);margin:14px 0 2px}
 .reshore-tbl input{min-width:52px}
 .calc-scroll{overflow-x:auto}
+.fld.w3{grid-template-columns:1fr 250px}
+@media (max-width:760px){.fld.w3{grid-template-columns:1fr}}
