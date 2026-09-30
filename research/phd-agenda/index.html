@@ -1,0 +1,105 @@
+---
+layout: page
+title: "PhD research agenda"
+title_en: "AI-enabled structural digital twins for rapid, reliable decisions"
+title_vi: "Bản sao số kết cấu tích hợp AI cho quyết định nhanh và tin cậy"
+kicker_en: "PhD research agenda · Target start Fall 2027"
+kicker_vi: "Định hướng nghiên cứu Tiến sĩ · Dự kiến Fall 2027"
+lead_en: "Infrastructure owners and site engineers already collect sensor data, but decisions are still made with fixed alarm limits and engineering judgement. I want to build digital twins that learn from that data, know how uncertain they are, and return a clear decision — within minutes after an earthquake, or one stage ahead during construction."
+lead_vi: "Chủ đầu tư hạ tầng và kỹ sư công trường đã thu thập dữ liệu cảm biến, nhưng quyết định vẫn dựa vào ngưỡng cảnh báo cố định và kinh nghiệm. Tôi muốn xây dựng những bản sao số học từ dữ liệu đó, biết mình bất định đến đâu, và trả về một quyết định rõ ràng — trong vài phút sau động đất, hoặc trước một giai đoạn khi đang thi công."
+description: "PhD research agenda of Anh Tuan Cao: AI-enabled structural digital twins combining finite element models, machine-learning surrogates, Bayesian updating and field monitoring for post-hazard and construction-stage decisions."
+subnav:
+  - { id: vision, en: "Vision", vi: "Tầm nhìn" }
+  - { id: questions, en: "Research questions", vi: "Câu hỏi nghiên cứu" }
+  - { id: edge, en: "Why me", vi: "Lợi thế" }
+  - { id: plan, en: "Plan", vi: "Kế hoạch" }
+---
+<section id="vision" class="wrap section" style="padding-top:44px">
+  <div class="sec-head"><div><h2><span class="l-en">From sensor data to decisions</span><span class="l-vi">Từ dữ liệu cảm biến đến quyết định</span></h2>
+  <p><span class="l-en">One framework, two settings: structures in service after extreme events, and structures under construction.</span><span class="l-vi">Một khung chung, hai bối cảnh: công trình đang khai thác sau sự cố cực đoan, và công trình đang thi công.</span></p></div></div>
+  <figure class="svgfig">
+    <svg viewBox="0 0 1000 380" role="img" aria-label="Digital twin framework">
+      <defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--orange)"/></marker></defs>
+      <text class="tm" x="20" y="26" style="font-weight:700;letter-spacing:.08em"><tspan class="l-en">DATA</tspan><tspan class="l-vi">DỮ LIỆU</tspan></text>
+      <g class="tx">
+        <rect class="bx" x="20" y="40" width="230" height="58" rx="10"/><text x="38" y="66"><tspan class="l-en">Accelerometers</tspan><tspan class="l-vi">Gia tốc kế</tspan></text><text class="tm" x="38" y="85"><tspan class="l-en">structure + free field</tspan><tspan class="l-vi">công trình + nền tự do</tspan></text>
+        <rect class="bx" x="20" y="110" width="230" height="58" rx="10"/><text x="38" y="136"><tspan class="l-en">Geotechnical monitoring</tspan><tspan class="l-vi">Quan trắc địa kỹ thuật</tspan></text><text class="tm" x="38" y="155"><tspan class="l-en">inclinometers, strut loads</tspan><tspan class="l-vi">nghiêng kế, lực chống, lún</tspan></text>
+        <rect class="bx" x="20" y="180" width="230" height="58" rx="10"/><text x="38" y="206"><tspan class="l-en">Images &amp; video</tspan><tspan class="l-vi">Ảnh &amp; video</tspan></text><text class="tm" x="38" y="225"><tspan class="l-en">cameras, drones</tspan><tspan class="l-vi">camera, drone</tspan></text>
+        <rect class="bx" x="20" y="250" width="230" height="58" rx="10"/><text x="38" y="276"><tspan class="l-en">Hazard &amp; design data</tspan><tspan class="l-vi">Nguy cơ &amp; hồ sơ thiết kế</tspan></text><text class="tm" x="38" y="295"><tspan class="l-en">seismicity maps, drawings, codes</tspan><tspan class="l-vi">bản đồ địa chấn, bản vẽ, tiêu chuẩn</tspan></text>
+      </g>
+      <path d="M256 174 H300" stroke="var(--orange)" stroke-width="2.4" marker-end="url(#a3)"/>
+      <text class="tm" x="320" y="26" style="font-weight:700;letter-spacing:.08em"><tspan class="l-en">DIGITAL TWIN</tspan><tspan class="l-vi">BẢN SAO SỐ</tspan></text>
+      <rect x="306" y="40" width="380" height="268" rx="14" class="sf" stroke="var(--accent)" stroke-width="1.6"/>
+      <g>
+        <rect class="bx" x="326" y="58" width="340" height="62" rx="10"/><text class="tx" x="344" y="84"><tspan class="l-en">Physics model</tspan><tspan class="l-vi">Mô hình vật lý</tspan></text><text class="tm" x="344" y="104"><tspan class="l-en">FE model of structure / excavation stage</tspan><tspan class="l-vi">Mô hình FE công trình / giai đoạn hố đào</tspan></text>
+        <rect class="bx" x="326" y="132" width="340" height="62" rx="10"/><text class="tx" x="344" y="158"><tspan class="l-en">ML surrogate (RQ1)</tspan><tspan class="l-vi">Mô hình thay thế ML (RQ1)</tspan></text><text class="tm" x="344" y="178"><tspan class="l-en">physics-informed, milliseconds per run</tspan><tspan class="l-vi">tích hợp vật lý, vài mili giây mỗi lần chạy</tspan></text>
+        <rect class="bx" x="326" y="206" width="340" height="62" rx="10"/><text class="tx" x="344" y="232"><tspan class="l-en">Bayesian updating (RQ1, RQ3)</tspan><tspan class="l-vi">Cập nhật Bayes (RQ1, RQ3)</tspan></text><text class="tm" x="344" y="252"><tspan class="l-en">parameters with credible intervals</tspan><tspan class="l-vi">tham số kèm khoảng tin cậy</tspan></text>
+      </g>
+      <text class="tm" x="496" y="292" text-anchor="middle"><tspan class="l-en">capacity · fragility · explainable thresholds (RQ2)</tspan><tspan class="l-vi">khả năng · dễ tổn thương · ngưỡng giải thích được (RQ2)</tspan></text>
+      <path d="M692 174 H736" stroke="var(--orange)" stroke-width="2.4" marker-end="url(#a3)"/>
+      <text class="tm" x="746" y="26" style="font-weight:700;letter-spacing:.08em"><tspan class="l-en">DECISION (RQ4)</tspan><tspan class="l-vi">QUYẾT ĐỊNH (RQ4)</tspan></text>
+      <g>
+        <rect x="742" y="40" width="238" height="124" rx="12" class="ac"/>
+        <text class="wt" x="760" y="66"><tspan class="l-en">After an earthquake</tspan><tspan class="l-vi">Sau động đất</tspan></text>
+        <text class="wt" x="760" y="92" font-weight="400">✓ <tspan class="l-en">keep operating</tspan><tspan class="l-vi">tiếp tục vận hành</tspan></text>
+        <text class="wt" x="760" y="114" font-weight="400">! <tspan class="l-en">inspect these first</tspan><tspan class="l-vi">ưu tiên kiểm tra</tspan></text>
+        <text class="wt" x="760" y="136" font-weight="400">✕ <tspan class="l-en">shut down</tspan><tspan class="l-vi">dừng khai thác</tspan></text>
+        <rect x="742" y="184" width="238" height="124" rx="12" class="or"/>
+        <text class="wt" x="760" y="210"><tspan class="l-en">During construction</tspan><tspan class="l-vi">Khi thi công</tspan></text>
+        <text class="wt" x="760" y="236" font-weight="400">✓ <tspan class="l-en">proceed to next stage</tspan><tspan class="l-vi">sang giai đoạn tiếp</tspan></text>
+        <text class="wt" x="760" y="258" font-weight="400">! <tspan class="l-en">add strut / adjust</tspan><tspan class="l-vi">thêm chống / điều chỉnh</tspan></text>
+        <text class="wt" x="760" y="280" font-weight="400">✕ <tspan class="l-en">stop and review</tspan><tspan class="l-vi">dừng và rà soát</tspan></text>
+      </g>
+      <path d="M860 316 V350 H135 V316" fill="none" stroke="var(--orange)" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#a3)"/>
+      <text class="tm" x="500" y="370" text-anchor="middle"><tspan class="l-en">new measurements after each event or construction stage update the twin</tspan><tspan class="l-vi">số đo mới sau mỗi sự kiện hoặc giai đoạn thi công lại cập nhật bản sao số</tspan></text>
+    </svg>
+    <figcaption><span class="l-en">Figure 1. Proposed framework. It generalises the calibrate-then-decide workflow of my <a href="/research/concrete-gravity-dam/">dam</a> and <a href="/research/nuclear-cabinet/">nuclear-cabinet</a> studies.</span><span class="l-vi">Hình 1. Khung đề xuất, tổng quát hóa quy trình "hiệu chỉnh rồi quyết định" trong các nghiên cứu về <a href="/research/concrete-gravity-dam/">đập</a> và <a href="/research/nuclear-cabinet/">tủ điện hạt nhân</a>.</span></figcaption>
+  </figure>
+  <div class="prose">
+    <p class="l-en">My Master's research showed that a sensor-calibrated model can be reduced to a single, defensible decision threshold. It also exposed three bottlenecks: <b>calibration was manual and slow</b>, <b>uncertainty did not reach the decision</b>, and <b>one intensity measure cannot describe every earthquake</b>. Five years of designing temporary works and deep excavations added a fourth observation: construction sites generate rich monitoring data that is almost never fed back into the design model. This agenda addresses all four.</p>
+    <p class="l-vi">Nghiên cứu thạc sĩ của tôi cho thấy một mô hình được hiệu chỉnh theo cảm biến có thể rút gọn thành một ngưỡng quyết định duy nhất và có cơ sở. Nó cũng bộc lộ ba điểm nghẽn: <b>hiệu chỉnh thủ công và chậm</b>, <b>độ bất định chưa được đưa vào quyết định</b>, và <b>một chỉ số cường độ không mô tả được mọi trận động đất</b>. Năm năm thiết kế kết cấu tạm và hố đào sâu cho tôi thêm một nhận xét thứ tư: công trường tạo ra rất nhiều dữ liệu quan trắc nhưng gần như không bao giờ được đưa ngược trở lại mô hình thiết kế. Định hướng này giải quyết cả bốn vấn đề.</p>
+  </div>
+</section>
+
+<section id="questions" class="wrap section">
+  <div class="sec-head"><h2><span class="l-en">Research questions</span><span class="l-vi">Câu hỏi nghiên cứu</span></h2></div>
+  <div class="rq-grid">
+    <div class="rq"><span class="k">RQ1 · <span class="l-en">CALIBRATION</span><span class="l-vi">HIỆU CHỈNH</span></span>
+      <h3><span class="l-en">Can learned surrogates make model updating fast and honest about uncertainty?</span><span class="l-vi">Mô hình thay thế học máy có thể giúp cập nhật mô hình nhanh và định lượng đúng độ bất định?</span></h3>
+      <p><span class="l-en">Replace hand-fitted response surfaces with physics-informed neural networks or Gaussian processes, and couple them with Bayesian inference (MCMC, variational methods) to obtain parameter distributions, not point estimates.</span><span class="l-vi">Thay mặt đáp ứng dựng thủ công bằng mạng nơ-ron tích hợp vật lý hoặc quá trình Gauss, kết hợp suy luận Bayes (MCMC, phương pháp biến phân) để có phân bố tham số thay vì một giá trị điểm.</span></p>
+      <p class="out"><b><span class="l-en">Output:</span><span class="l-vi">Kết quả:</span></b> <span class="l-en">an open calibration module, benchmarked on my dam and cabinet datasets and on public SHM benchmarks.</span><span class="l-vi">module hiệu chỉnh mã nguồn mở, kiểm chứng trên dữ liệu đập, tủ điện và các bộ dữ liệu SHM công khai.</span></p></div>
+    <div class="rq"><span class="k">RQ2 · <span class="l-en">THRESHOLDS</span><span class="l-vi">NGƯỠNG QUYẾT ĐỊNH</span></span>
+      <h3><span class="l-en">Which combination of intensity measures best predicts damage, and can the rule stay explainable?</span><span class="l-vi">Tổ hợp chỉ số cường độ nào dự báo hư hại tốt nhất, và quy tắc có còn giải thích được?</span></h3>
+      <p><span class="l-en">Move from a single CAV threshold to vector-valued fragility (CAV, S<sub>a</sub>(T<sub>1</sub>), duration, frequency content) using probabilistic classifiers, with SHAP-type explanations so operators can see why a structure was flagged.</span><span class="l-vi">Chuyển từ một ngưỡng CAV sang đường cong dễ tổn thương nhiều chỉ số (CAV, S<sub>a</sub>(T<sub>1</sub>), thời gian kéo dài, thành phần tần số) bằng bộ phân loại xác suất, kèm giải thích kiểu SHAP để người vận hành thấy vì sao công trình bị cảnh báo.</span></p>
+      <p class="out"><b><span class="l-en">Output:</span><span class="l-vi">Kết quả:</span></b> <span class="l-en">explainable decision boundaries with quantified false-alarm and missed-damage rates.</span><span class="l-vi">ranh giới quyết định giải thích được, định lượng tỷ lệ báo động giả và bỏ sót hư hại.</span></p></div>
+    <div class="rq"><span class="k">RQ3 · <span class="l-en">CONSTRUCTION</span><span class="l-vi">THI CÔNG</span></span>
+      <h3><span class="l-en">Can a deep excavation twin forecast the next stage from today's monitoring data?</span><span class="l-vi">Bản sao số hố đào sâu có dự báo được giai đoạn tiếp theo từ số liệu quan trắc hôm nay?</span></h3>
+      <p><span class="l-en">Update soil and support parameters stage by stage from inclinometer, strut-load and settlement readings (Bayesian back-analysis, ensemble Kalman filtering), and forecast wall deflection before the next excavation step. Computer vision can add progress and anomaly detection from site cameras.</span><span class="l-vi">Cập nhật tham số đất và hệ chống theo từng giai đoạn từ số liệu nghiêng kế, lực thanh chống và lún (phân tích ngược Bayes, lọc Kalman tập hợp), rồi dự báo chuyển vị tường trước bước đào kế tiếp. Thị giác máy tính có thể bổ sung nhận diện tiến độ và bất thường từ camera công trường.</span></p>
+      <p class="out"><b><span class="l-en">Output:</span><span class="l-vi">Kết quả:</span></b> <span class="l-en">a stage-wise forecasting and early-warning framework validated on real excavation records.</span><span class="l-vi">khung dự báo và cảnh báo sớm theo giai đoạn, kiểm chứng trên số liệu hố đào thực tế.</span></p></div>
+    <div class="rq"><span class="k">RQ4 · <span class="l-en">DECISION SUPPORT</span><span class="l-vi">HỖ TRỢ QUYẾT ĐỊNH</span></span>
+      <h3><span class="l-en">How should a twin communicate with the engineers who must act on it?</span><span class="l-vi">Bản sao số nên giao tiếp thế nào với kỹ sư — người phải hành động theo nó?</span></h3>
+      <p><span class="l-en">Package RQ1–RQ3 into a lightweight web tool that ingests records and returns a ranked, explained recommendation. I will also test whether language-model agents can draft inspection notes and code checks from the twin's outputs, with the engineer in the loop.</span><span class="l-vi">Đóng gói RQ1–RQ3 thành một công cụ web gọn nhẹ: nhận bản ghi và trả về khuyến nghị có xếp hạng, có giải thích. Tôi cũng sẽ thử nghiệm việc dùng tác tử mô hình ngôn ngữ để soạn ghi chú kiểm tra và kiểm tra theo tiêu chuẩn từ kết quả của bản sao số, với kỹ sư luôn là người quyết định cuối cùng.</span></p>
+      <p class="out"><b><span class="l-en">Output:</span><span class="l-vi">Kết quả:</span></b> <span class="l-en">an open-source decision tool, building on the <a href="/resources/">23 engineering calculators</a> I have already published.</span><span class="l-vi">công cụ hỗ trợ quyết định mã nguồn mở, phát triển từ <a href="/resources/">23 công cụ tính kỹ thuật</a> tôi đã xuất bản.</span></p></div>
+  </div>
+</section>
+
+<section id="edge" class="wrap section">
+  <div class="sec-head"><h2><span class="l-en">What I bring</span><span class="l-vi">Những gì tôi mang đến</span></h2></div>
+  <div class="edge">
+    <div><b><span class="l-en">Proven research method</span><span class="l-vi">Phương pháp nghiên cứu đã được kiểm chứng</span></b><p><span class="l-en">Five SCIE papers built on exactly this loop: FE modelling, sensor-based calibration, fragility and HCLPF capacity, CAV decision rules.</span><span class="l-vi">Năm bài báo SCIE dựa trên đúng vòng lặp này: mô hình FE, hiệu chỉnh theo cảm biến, dễ tổn thương và khả năng HCLPF, quy tắc quyết định theo CAV.</span></p></div>
+    <div><b><span class="l-en">Real construction problems and data</span><span class="l-vi">Bài toán và dữ liệu thi công thực tế</span></b><p><span class="l-en">Five years designing construction methods, temporary works and basements for high-rise projects, including semi top-down excavations with monitoring programmes.</span><span class="l-vi">Năm năm thiết kế biện pháp thi công, kết cấu tạm và tầng hầm cho các dự án cao tầng, bao gồm hố đào semi top-down có chương trình quan trắc.</span></p></div>
+    <div><b><span class="l-en">Tools people actually use</span><span class="l-vi">Công cụ người khác thực sự dùng</span></b><p><span class="l-en">VC4OWT and KS_MAP during my Master's; today, <a href="/resources/">23 bilingual online calculators</a> verified against engineering spreadsheets.</span><span class="l-vi">VC4OWT và KS_MAP thời thạc sĩ; hiện nay là <a href="/resources/">23 công cụ tính trực tuyến song ngữ</a> đã kiểm chứng với bảng tính kỹ thuật.</span></p></div>
+  </div>
+</section>
+
+<section id="plan" class="wrap section">
+  <div class="sec-head"><div><h2><span class="l-en">Indicative plan</span><span class="l-vi">Kế hoạch dự kiến</span></h2>
+  <p><span class="l-en">To be refined with my advisor and the group's active projects.</span><span class="l-vi">Sẽ được điều chỉnh theo định hướng của giáo sư hướng dẫn và các dự án đang triển khai của nhóm.</span></p></div></div>
+  <div class="plan">
+    <div><b><span class="l-en">Year 1</span><span class="l-vi">Năm 1</span></b><ul><li><span class="l-en">Coursework in ML, probabilistic methods</span><span class="l-vi">Học phần ML, phương pháp xác suất</span></li><li><span class="l-en">Rebuild dam and cabinet cases as benchmarks</span><span class="l-vi">Dựng lại bài toán đập, tủ điện làm bộ chuẩn</span></li><li><span class="l-en">Review paper on surrogate-based updating</span><span class="l-vi">Bài tổng quan về cập nhật bằng mô hình thay thế</span></li></ul></div>
+    <div><b><span class="l-en">Year 2</span><span class="l-vi">Năm 2</span></b><ul><li><span class="l-en">RQ1: surrogate + Bayesian calibration</span><span class="l-vi">RQ1: mô hình thay thế + hiệu chỉnh Bayes</span></li><li><span class="l-en">RQ2: vector-IM, explainable thresholds</span><span class="l-vi">RQ2: đa chỉ số, ngưỡng giải thích được</span></li><li><span class="l-en">Journal paper 1</span><span class="l-vi">Bài báo tạp chí 1</span></li></ul></div>
+    <div><b><span class="l-en">Year 3</span><span class="l-vi">Năm 3</span></b><ul><li><span class="l-en">RQ3: excavation twin on field records</span><span class="l-vi">RQ3: bản sao số hố đào trên số liệu thực</span></li><li><span class="l-en">Vision-based monitoring add-on</span><span class="l-vi">Mô-đun quan trắc bằng thị giác máy tính</span></li><li><span class="l-en">Journal papers 2–3</span><span class="l-vi">Bài báo tạp chí 2–3</span></li></ul></div>
+    <div><b><span class="l-en">Year 4</span><span class="l-vi">Năm 4</span></b><ul><li><span class="l-en">RQ4: open decision tool, user testing</span><span class="l-vi">RQ4: công cụ quyết định mở, thử nghiệm với người dùng</span></li><li><span class="l-en">Dissertation and defence</span><span class="l-vi">Hoàn thiện và bảo vệ luận án</span></li></ul></div>
+  </div>
+  <div class="callout" style="margin-top:26px"><span class="l-en"><b>Let's talk.</b> I am looking for a PhD position starting Fall 2027 in a group working on AI for civil infrastructure, structural health monitoring or smart construction. I would be glad to discuss how this agenda fits your projects: <a href="mailto:anhtuan.hcmut@gmail.com">anhtuan.hcmut@gmail.com</a>.</span><span class="l-vi"><b>Liên hệ trao đổi.</b> Tôi đang tìm vị trí nghiên cứu sinh bắt đầu từ Fall 2027 tại một nhóm nghiên cứu về AI cho hạ tầng, quan trắc sức khỏe công trình hoặc thi công thông minh. Rất mong được trao đổi về mức độ phù hợp của định hướng này với các dự án của quý thầy cô: <a href="mailto:anhtuan.hcmut@gmail.com">anhtuan.hcmut@gmail.com</a>.</span></div>
+</section>

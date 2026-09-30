@@ -1,0 +1,93 @@
+---
+layout: page
+title: "Vibration control of high-rise buildings"
+title_en: "Stiffness or mass? Outriggers versus pendulum dampers"
+title_vi: "Tăng độ cứng hay thêm khối lượng? Outrigger và giảm chấn con lắc"
+kicker_en: "Case study · Master's thesis · 2019"
+kicker_vi: "Nghiên cứu tiêu biểu · Luận văn thạc sĩ · 2019"
+lead_en: "Two philosophies for taming a tall building under earthquake: stiffen it with outrigger trusses, or add a pendulum mass that swings against it. Thirteen models of a 30-storey building show which one gives more control per tonne."
+lead_vi: "Hai triết lý để kiểm soát nhà cao tầng khi động đất: làm cứng bằng hệ dầm outrigger, hoặc treo một khối lượng con lắc dao động ngược pha. Mười ba mô hình nhà 30 tầng cho thấy phương án nào hiệu quả hơn trên mỗi tấn vật liệu."
+description: "Case study: optimal vibration control of a 30-storey building using outrigger braced frames and pendulum tuned mass dampers (PTMD) under seismic loading."
+---
+<section class="wrap section" style="padding-top:36px">
+  <p class="crumb"><a href="/research/#projects"><span class="l-en">← Research</span><span class="l-vi">← Nghiên cứu</span></a></p>
+  <div class="cs-kpis" style="margin-top:14px">
+    <div><b>30</b><span class="l-en">storeys, 2% damping</span><span class="l-vi">tầng, cản 2%</span></div>
+    <div><b>13</b><span class="l-en">configurations compared</span><span class="l-vi">cấu hình được so sánh</span></div>
+    <div><b>−37.7%</b><span class="l-en">roof displacement with outriggers</span><span class="l-vi">chuyển vị đỉnh với outrigger</span></div>
+    <div><b>3% vs 5%</b><span class="l-en">added mass: outrigger vs PTMD</span><span class="l-vi">khối lượng thêm: outrigger và PTMD</span></div>
+  </div>
+</section>
+
+<section class="wrap section" style="padding-top:34px">
+  <div class="cs-grid">
+    <article class="cs-body">
+      <h2><span class="l-en">The question</span><span class="l-vi">Câu hỏi nghiên cứu</span></h2>
+      <p class="l-en">As buildings grow taller they become more flexible, and roof displacement and inter-storey drift start to govern design. Designers can either <b>add stiffness</b> — outrigger trusses that tie the core to the perimeter columns — or <b>add a tuned mass</b>, such as a pendulum damper near the roof. Each is well studied on its own, but practical guidance comparing them on the same building, and on the material each consumes, is scarce.</p>
+      <p class="l-vi">Nhà càng cao thì càng mềm, và chuyển vị đỉnh cùng chuyển vị lệch tầng bắt đầu quyết định thiết kế. Người thiết kế có thể <b>tăng độ cứng</b> — dùng hệ outrigger nối lõi với cột biên — hoặc <b>thêm khối lượng điều chỉnh</b>, như giảm chấn con lắc gần mái. Mỗi giải pháp đã được nghiên cứu riêng, nhưng còn thiếu những so sánh thực tế trên cùng một công trình và theo lượng vật liệu mỗi giải pháp tiêu tốn.</p>
+
+      <h2><span class="l-en">What I did</span><span class="l-vi">Nội dung thực hiện</span></h2>
+      <ul>
+        <li class="l-en">Modelled a 30-storey frame–core building in SAP2000 with 2% structural damping, under identical gravity and seismic loading.</li>
+        <li class="l-vi">Mô hình nhà khung – lõi 30 tầng bằng SAP2000, cản kết cấu 2%, cùng tải trọng đứng và tải động đất.</li>
+        <li class="l-en">Varied the <b>outrigger</b> number (one or two levels) and location along the height (five cases), with added mass of 1.5–3% of the structure.</li>
+        <li class="l-vi">Thay đổi số tầng <b>outrigger</b> (một hoặc hai tầng) và vị trí theo chiều cao (năm trường hợp), với khối lượng thêm 1,5–3% khối lượng công trình.</li>
+        <li class="l-en">Varied the <b>pendulum TMD</b> mass ratio from 2% to 5%, then combined the best pendulum with an outrigger at level 15.</li>
+        <li class="l-vi">Thay đổi tỷ lệ khối lượng <b>giảm chấn con lắc (PTMD)</b> từ 2% đến 5%, rồi kết hợp con lắc tốt nhất với outrigger tại tầng 15.</li>
+        <li class="l-en">Compared the optimum of each family by roof displacement, velocity, acceleration and maximum storey drift.</li>
+        <li class="l-vi">So sánh phương án tối ưu của từng nhóm theo chuyển vị đỉnh, vận tốc, gia tốc và chuyển vị lệch tầng lớn nhất.</li>
+      </ul>
+
+      <h2><span class="l-en">Results</span><span class="l-vi">Kết quả</span></h2>
+      <figure class="svgfig">
+        <svg viewBox="0 0 760 270" role="img" aria-label="Response reduction">
+          <g transform="translate(170,30)">
+            <path d="M0 0 V200" class="ln"/>
+            <path d="M100 0 V200 M200 0 V200 M300 0 V200 M400 0 V200" class="ln" stroke-dasharray="3 4"/>
+            <g class="ax" text-anchor="middle"><text x="0" y="220">0%</text><text x="100" y="220">10%</text><text x="200" y="220">20%</text><text x="300" y="220">30%</text><text x="400" y="220">40%</text></g>
+            <rect x="0" y="6" width="377" height="16" rx="3" class="or"/><text class="tx" x="384" y="19">37.7%</text>
+            <rect x="0" y="24" width="236" height="16" rx="3" class="ac" opacity=".85"/><text class="tm" x="243" y="37">23.6%</text>
+            <rect x="0" y="42" width="279" height="16" rx="3" class="ac" opacity=".4"/><text class="tm" x="286" y="55">27.9%</text>
+            <rect x="0" y="86" width="220" height="16" rx="3" class="or"/><text class="tx" x="227" y="99">22%</text>
+            <rect x="0" y="104" width="380" height="16" rx="3" class="ac" opacity=".85"/><text class="tm" x="387" y="117">38%</text>
+            <rect x="0" y="162" width="301" height="16" rx="3" class="or"/><text class="tx" x="308" y="175">30.1%</text>
+            <rect x="0" y="180" width="109" height="16" rx="3" class="ac" opacity=".85"/><text class="tm" x="116" y="193">10.9%</text>
+            <rect x="0" y="198" width="84" height="16" rx="3" class="ac" opacity=".4"/><text class="tm" x="91" y="211">8.4%</text>
+          </g>
+          <g class="tx" text-anchor="end">
+            <text x="158" y="58"><tspan class="l-en">Roof displacement</tspan><tspan class="l-vi">Chuyển vị đỉnh</tspan></text>
+            <text x="158" y="140"><tspan class="l-en">Roof velocity</tspan><tspan class="l-vi">Vận tốc đỉnh</tspan></text>
+            <text x="158" y="216"><tspan class="l-en">Max. storey drift</tspan><tspan class="l-vi">Lệch tầng lớn nhất</tspan></text>
+          </g>
+          <g class="tm" transform="translate(600,120)">
+            <rect x="0" y="0" width="14" height="10" rx="2" class="or"/><text x="20" y="9">Outrigger</text>
+            <rect x="0" y="20" width="14" height="10" rx="2" class="ac" opacity=".85"/><text x="20" y="29">PTMD</text>
+            <rect x="0" y="40" width="14" height="10" rx="2" class="ac" opacity=".4"/><text x="20" y="49"><tspan class="l-en">Combined</tspan><tspan class="l-vi">Kết hợp</tspan></text>
+          </g>
+        </svg>
+        <figcaption><span class="l-en">Figure 1. Reduction relative to the uncontrolled frame for the optimum of each system (drift with the combined system: 8.4%). Data from my Master's thesis (Kunsan National University, 2019).</span><span class="l-vi">Hình 1. Mức giảm so với khung không điều khiển cho phương án tối ưu của từng hệ (lệch tầng với hệ kết hợp: 8,4%). Số liệu từ luận văn thạc sĩ (ĐH Quốc gia Kunsan, 2019).</span></figcaption>
+      </figure>
+      <p class="l-en">The outrigger system reduced roof displacement by 37.7% and maximum drift by 30.1%, clearly ahead of the pendulum damper (23.6% and 10.9%) while using 3% added mass instead of 5%. The pendulum was better at suppressing velocity (38% versus 22%), which matters more for occupant comfort than for structural safety. Combining the two did not add their benefits: the combined system performed between the two.</p>
+      <p class="l-vi">Hệ outrigger giảm 37,7% chuyển vị đỉnh và 30,1% chuyển vị lệch tầng, vượt rõ giảm chấn con lắc (23,6% và 10,9%) trong khi chỉ dùng 3% khối lượng thêm thay vì 5%. Con lắc lại giảm vận tốc tốt hơn (38% so với 22%), yếu tố quan trọng với tiện nghi người sử dụng hơn là an toàn kết cấu. Kết hợp hai hệ không cộng dồn hiệu quả: hệ kết hợp cho kết quả nằm giữa hai phương án.</p>
+      <div class="callout"><span class="l-en"><b>Engineering takeaway.</b> For seismic drift control in a building of this height, stiffness placed at the right level buys more than mass. Where to place stiffness is a question I meet again every day in temporary works design.</span><span class="l-vi"><b>Bài học kỹ thuật.</b> Để kiểm soát chuyển vị lệch tầng khi động đất ở nhà có chiều cao này, độ cứng đặt đúng tầng hiệu quả hơn khối lượng. Đặt độ cứng ở đâu cũng là câu hỏi tôi gặp lại hằng ngày khi thiết kế kết cấu tạm.</span></div>
+
+      <h2><span class="l-en">Why it matters now</span><span class="l-vi">Ý nghĩa hôm nay</span></h2>
+      <p class="l-en">This study relied on trial-and-error across thirteen models. The same design question is a natural fit for surrogate-based optimisation and for monitoring-driven retuning of dampers, where measured building frequencies update the model and the damper settings over the building's life.</p>
+      <p class="l-vi">Nghiên cứu này dựa trên thử – sai qua 13 mô hình. Cùng câu hỏi thiết kế đó rất phù hợp với tối ưu hóa bằng mô hình thay thế, và với việc điều chỉnh lại giảm chấn dựa trên quan trắc — tần số đo được của công trình cập nhật mô hình và thông số giảm chấn trong suốt vòng đời công trình.</p>
+
+      <div class="cs-next"><a href="/research/nuclear-cabinet/"><span class="l-en">← Cabinets in nuclear plants</span><span class="l-vi">← Tủ điện nhà máy hạt nhân</span></a><a href="/research/phd-agenda/"><span class="l-en">Next: PhD agenda →</span><span class="l-vi">Tiếp: định hướng PhD →</span></a></div>
+    </article>
+
+    <aside class="cs-side">
+      <h4><span class="l-en">My role</span><span class="l-vi">Vai trò của tôi</span></h4>
+      <p><span class="l-en">Sole author of the thesis; first author of the conference paper.</span><span class="l-vi">Tác giả luận văn; tác giả chính bài báo hội nghị.</span></p>
+      <h4><span class="l-en">Methods</span><span class="l-vi">Phương pháp</span></h4>
+      <ul><li><span class="l-en">Time-history analysis (SAP2000)</span><span class="l-vi">Phân tích lịch sử thời gian (SAP2000)</span></li><li><span class="l-en">Outrigger optimisation</span><span class="l-vi">Tối ưu vị trí outrigger</span></li><li><span class="l-en">Pendulum TMD tuning</span><span class="l-vi">Điều chỉnh giảm chấn con lắc</span></li></ul>
+      <h4><span class="l-en">Outputs</span><span class="l-vi">Kết quả công bố</span></h4>
+      <ul>
+        <li><span class="l-en">M.Sc. thesis: <i>Optimal vibration control of structure using outrigger and pendulum tuned mass damper system</i>, Kunsan National University, 2019.</span><span class="l-vi">Luận văn thạc sĩ: <i>Optimal vibration control of structure using outrigger and pendulum tuned mass damper system</i>, ĐH Quốc gia Kunsan, 2019.</span></li>
+        <li><b>Cao A.T.</b>, Nahar T.T., Kim D. (2019). ICPACE, RUET, Bangladesh.</li>
+      </ul>
+    </aside>
+  </div>
+</section>

@@ -535,3 +535,95 @@ body.home .foot{margin-top:0}
 .calc-scroll{overflow-x:auto}
 .fld.w3{grid-template-columns:1fr 250px}
 @media (max-width:760px){.fld.w3{grid-template-columns:1fr}}
+
+/* ---------- RESEARCH: trang nghiên cứu, case study, định hướng PhD ---------- */
+.rs-stats{grid-template-columns:repeat(5,1fr)}
+.rs-stats b{color:var(--accent)}
+.svgfig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 10px;margin:22px 0}
+.svgfig svg{width:100%;height:auto;display:block}
+.svgfig figcaption{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.svgfig .ln{stroke:var(--line)} .svgfig .ax{fill:var(--muted);font:12px var(--sans)} .svgfig .tx{fill:var(--ink);font:600 13px var(--sans)}
+.svgfig .tm{fill:var(--muted);font:12px var(--sans)} .svgfig .bx{fill:var(--surface);stroke:var(--line);stroke-width:1.2}
+.svgfig .ac{fill:var(--accent)} .svgfig .acs{stroke:var(--accent)} .svgfig .or{fill:var(--orange)} .svgfig .ors{stroke:var(--orange)}
+.svgfig .sf{fill:var(--accent-soft)} .svgfig .of{fill:var(--gold-soft)} .svgfig .wt{fill:#fff;font:600 13px var(--sans)}
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:p}
+.pipe div{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 18px 18px}
+.pipe div::before{counter-increment:p;content:"0" counter(p);font:700 12px var(--sans);letter-spacing:.1em;color:var(--orange)}
+.pipe div:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);font:700 18px var(--sans);color:var(--orange);z-index:1}
+.pipe b{display:block;font:600 18px/1.3 var(--serif);margin:6px 0 6px}
+.pipe p{font-size:14px;color:var(--muted);line-height:1.55}
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.case{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:var(--ink);text-decoration:none!important;transition:border-color .15s,transform .15s}
+.case:hover{border-color:var(--orange);transform:translateY(-2px)}
+.case .cv{background:var(--sky);border-bottom:1px solid var(--line);padding:14px 18px}
+.case .cv svg{width:100%;height:150px;display:block}
+.case .cb{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.case .k{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold)}
+.case h3{font:600 20px/1.3 var(--serif);margin:6px 0 8px}
+.case p{font-size:14.5px;color:var(--muted)}
+.case .num{display:flex;gap:18px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+.case .num b{display:block;font:600 19px var(--serif);color:var(--accent)}
+.case .go{margin-top:auto;padding-top:14px;font-weight:600;font-size:14px;color:var(--site)}
+.agenda-cta{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;border-radius:16px;padding:32px 34px}
+.agenda-cta h3{font:600 26px/1.25 var(--serif);margin:8px 0 10px;color:#fff}
+.agenda-cta p{color:rgba(255,255,255,.82);font-size:15px}
+.agenda-cta .k{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-2)}
+.agenda-cta ol{margin:0;padding-left:20px;color:rgba(255,255,255,.9);font-size:14.5px}
+.agenda-cta ol li{margin:6px 0}
+.agenda-cta .btn{margin-top:18px}
+/* Trang case study */
+.cs-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:6px 0 10px}
+.cs-kpis div{background:var(--surface);padding:16px 18px;font-size:13px;color:var(--muted);line-height:1.45}
+.cs-kpis b{display:block;font:600 26px/1.2 var(--serif);color:var(--accent);margin-bottom:2px}
+.cs-grid{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:start}
+.cs-side{position:sticky;top:150px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;font-size:14px}
+.cs-side h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:14px 0 6px}
+.cs-side h4:first-child{margin-top:0}
+.cs-side ul{padding-left:18px;margin:0} .cs-side li{margin:3px 0}
+.cs-body{min-width:0}
+.cs-body h2{font:600 24px/1.3 var(--serif);margin:34px 0 12px}
+.cs-body h2:first-child{margin-top:0}
+.cs-body p,.cs-body li{max-width:72ch}
+.cs-body p{margin-bottom:14px}
+.cs-body ul,.cs-body ol{margin:0 0 16px;padding-left:22px}
+.cs-body li{margin:5px 0}
+.callout{border-left:4px solid var(--orange);background:var(--cream);border-radius:0 10px 10px 0;padding:14px 18px;margin:18px 0}
+.callout b{color:var(--gold)}
+.cs-next{display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-weight:600;flex-wrap:wrap}
+/* Trang PhD */
+.rq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.rq{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;border-left:4px solid var(--accent)}
+.rq .k{font:700 12px var(--sans);letter-spacing:.08em;color:var(--orange)}
+.rq h3{font:600 18px/1.35 var(--serif);margin:6px 0 8px}
+.rq p{font-size:14.5px;color:var(--muted)}
+.rq .out{margin-top:10px;font-size:13.5px;color:var(--ink)}
+.plan{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.plan div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;border-top:3px solid var(--orange)}
+.plan b{display:block;font:600 16px var(--serif);margin-bottom:6px}
+.plan ul{padding-left:18px;margin:0;font-size:14px;color:var(--muted)}
+.edge{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.edge div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.edge b{display:block;font:600 17px var(--serif);margin-bottom:6px;color:var(--accent)}
+.edge p{font-size:14.5px;color:var(--muted)}
+@media (max-width:960px){
+  .rs-stats{grid-template-columns:repeat(3,1fr)}
+  .pipe,.plan{grid-template-columns:repeat(2,1fr)}
+  .pipe div:nth-child(2)::after{display:none}
+  .cs-grid{grid-template-columns:1fr}
+  .cs-side{position:static}
+  .agenda-cta{grid-template-columns:1fr}
+  .edge{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .rs-stats{grid-template-columns:repeat(2,1fr)}
+  .cases,.rq-grid{grid-template-columns:1fr}
+  .cs-kpis{grid-template-columns:repeat(2,1fr)}
+  .pipe,.plan{grid-template-columns:1fr}
+  .pipe div::after{display:none!important}
+  .agenda-cta{padding:24px 20px}
+}
+@media (max-width:760px){
+  .svgfig{overflow-x:auto;padding:14px 12px 8px}
+  .svgfig svg{min-width:620px}
+  .svgfig figcaption{position:sticky;left:0;max-width:calc(100vw - 58px)}
+}

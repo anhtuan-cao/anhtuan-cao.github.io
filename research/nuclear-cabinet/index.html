@@ -1,0 +1,129 @@
+---
+layout: page
+title: "Seismic risk of electrical cabinets in nuclear power plants"
+title_en: "Location-aware seismic risk of electrical cabinets in nuclear plants"
+title_vi: "Rủi ro địa chấn tủ điện nhà máy điện hạt nhân theo vị trí"
+kicker_en: "Case study · Nuclear facilities · 2018–2021"
+kicker_vi: "Nghiên cứu tiêu biểu · Công trình hạt nhân · 2018–2021"
+lead_en: "A 287 kg steel cabinet can shut down a nuclear power plant. We combined a test-validated model, Bayesian fragility updating and national seismicity maps so that operators can judge, site by site, whether a cabinet is at risk."
+lead_vi: "Một tủ điện thép nặng 287 kg có thể khiến cả nhà máy điện hạt nhân phải dừng. Chúng tôi kết hợp mô hình đã kiểm chứng bằng thí nghiệm, cập nhật Bayes cho đường cong dễ tổn thương và bản đồ địa chấn quốc gia, giúp đơn vị vận hành đánh giá rủi ro của tủ điện theo từng vị trí nhà máy."
+description: "Case study: seismic fragility and cumulative absolute velocity based risk assessment of electrical cabinets in Korean nuclear power plants, with Bayesian updating and probabilistic seismicity maps."
+---
+<section class="wrap section" style="padding-top:36px">
+  <p class="crumb"><a href="/research/#projects"><span class="l-en">← Research</span><span class="l-vi">← Nghiên cứu</span></a></p>
+  <div class="cs-kpis" style="margin-top:14px">
+    <div><b>&lt; 0.2%</b><span class="l-en">frequency error after calibration</span><span class="l-vi">sai số tần số sau hiệu chỉnh</span></div>
+    <div><b>0.158 g</b><span class="l-en">PGA at the HCLPF point</span><span class="l-vi">PGA tại điểm HCLPF</span></div>
+    <div><b>0.27 g·s</b><span class="l-en">CAV<sub>limit</sub> of the cabinet</span><span class="l-vi">CAV<sub>limit</sub> của tủ điện</span></div>
+    <div><b>4 × 4</b><span class="l-en">plant sites × performance levels assessed</span><span class="l-vi">vị trí nhà máy × cấp tính năng được đánh giá</span></div>
+  </div>
+</section>
+
+<section class="wrap section" style="padding-top:34px">
+  <div class="cs-grid">
+    <article class="cs-body">
+      <h2><span class="l-en">The problem</span><span class="l-vi">Bài toán</span></h2>
+      <p class="l-en">Electrical cabinets — switchboards, distribution and control panels — are small nonstructural components, yet their failure can stop a nuclear power plant. They sit inside the building and respond to floor motion that the building has already filtered, a <b>structure-in-structure</b> problem. After the 2011 Fukushima accident, Korean regulators asked for ways to assess such components quickly and consistently across all plant sites.</p>
+      <p class="l-vi">Tủ điện — tủ đóng cắt, tủ phân phối, tủ điều khiển — là cấu kiện phi kết cấu nhỏ, nhưng hư hỏng của chúng có thể làm cả nhà máy điện hạt nhân phải dừng. Tủ đặt bên trong công trình và chịu chuyển động sàn đã được công trình "lọc" trước, tức một bài toán <b>kết cấu trong kết cấu</b>. Sau sự cố Fukushima năm 2011, cơ quan quản lý Hàn Quốc cần những phương pháp đánh giá nhanh và thống nhất cho các cấu kiện này ở mọi nhà máy.</p>
+
+      <h2><span class="l-en">Approach</span><span class="l-vi">Phương pháp</span></h2>
+      <figure class="svgfig">
+        <svg viewBox="0 0 760 230" role="img" aria-label="Structure-in-structure">
+          <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--orange)"/></marker></defs>
+          <path d="M20 200 H300" class="ln" stroke-width="2"/>
+          <path d="M40 212 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6 l10 -6 l10 6" fill="none" class="ors" stroke-width="2"/>
+          <path d="M60 200 V70 Q160 10 260 70 V200" class="sf" stroke="var(--accent)" stroke-width="2"/>
+          <path d="M60 140 H260" stroke="var(--accent)" stroke-width="2"/>
+          <rect x="140" y="84" width="40" height="56" class="bx" stroke="var(--orange)" stroke-width="2"/>
+          <path d="M160 84 V140" stroke="var(--orange)" stroke-width="1.2"/>
+          <text class="tm" x="160" y="170" text-anchor="middle"><tspan class="l-en">floor motion</tspan><tspan class="l-vi">chuyển động sàn</tspan></text>
+          <text class="tm" x="170" y="226" text-anchor="middle"><tspan class="l-en">free-field ground motion</tspan><tspan class="l-vi">chuyển động nền tự do</tspan></text>
+          <path d="M310 120 H350" stroke="var(--orange)" stroke-width="2" marker-end="url(#ar2)"/>
+          <g transform="translate(360,20)">
+            <rect class="bx" x="0" y="0" width="120" height="180" rx="10"/>
+            <rect x="30" y="24" width="60" height="120" class="sf" stroke="var(--accent)" stroke-width="1.8"/>
+            <path d="M60 24 V144 M30 144 H90" stroke="var(--accent)" stroke-width="1.2"/>
+            <text class="tm" x="60" y="166" text-anchor="middle">800×800×2100</text>
+            <text class="tx" x="60" y="-6" text-anchor="middle"><tspan class="l-en">Cabinet model</tspan><tspan class="l-vi">Mô hình tủ</tspan></text>
+          </g>
+          <path d="M490 110 H530" stroke="var(--orange)" stroke-width="2" marker-end="url(#ar2)"/>
+          <g transform="translate(540,20)">
+            <rect class="bx" x="0" y="0" width="210" height="180" rx="10"/>
+            <text class="tx" x="105" y="-6" text-anchor="middle"><tspan class="l-en">Prior → posterior fragility</tspan><tspan class="l-vi">Dễ tổn thương: tiên nghiệm → hậu nghiệm</tspan></text>
+            <path d="M20 156 H196 M20 156 V20" class="ln" stroke-width="1.2" fill="none"/>
+            <path d="M20 154 C80 152 96 60 196 40" fill="none" class="acs" stroke-width="1.6" stroke-dasharray="4 4" opacity=".7"/>
+            <path d="M20 154 C70 152 86 44 196 30" fill="none" class="acs" stroke-width="2.4"/>
+            <path d="M20 155 C90 154 110 90 196 64" fill="none" class="ors" stroke-width="2" stroke-dasharray="5 4"/>
+            <circle cx="56" cy="150" r="4.5" class="or"/><text class="tm" x="64" y="140">HCLPF 0.158 g</text>
+            <text class="ax" x="190" y="172" text-anchor="end">PGA</text>
+          </g>
+        </svg>
+        <figcaption><span class="l-en">Figure 1. The cabinet sees floor motion filtered by the building. A test-validated model feeds fragility curves that are updated from prior to posterior. Schematic drawn for this page.</span><span class="l-vi">Hình 1. Tủ điện chịu chuyển động sàn đã được công trình lọc. Mô hình đã kiểm chứng bằng thí nghiệm cung cấp đường cong dễ tổn thương, được cập nhật từ tiên nghiệm sang hậu nghiệm. Sơ đồ vẽ lại cho trang này.</span></figcaption>
+      </figure>
+      <ol>
+        <li class="l-en"><b>Test-validated model.</b> An 800 × 800 × 2100 mm steel cabinet (287 kg) was modelled in SAP2000 and compared with shaking-table and modal tests. Response surface updating of Young's modulus and density reduced the natural-frequency error to below 0.2%, for both restrained and anchored boundary conditions.</li>
+        <li class="l-vi"><b>Mô hình được kiểm chứng bằng thí nghiệm.</b> Tủ thép 800 × 800 × 2100 mm (287 kg) được mô hình bằng SAP2000 và so sánh với thí nghiệm bàn rung và thí nghiệm dao động. Cập nhật mô đun đàn hồi và khối lượng riêng bằng mặt đáp ứng đưa sai số tần số riêng xuống dưới 0,2%, cho cả hai điều kiện biên: liên kết giữ và liên kết neo.</li>
+        <li class="l-en"><b>Bayesian fragility.</b> Prior fragility parameters (median capacity and log-standard deviation) were updated with 10,000 Monte Carlo samples to posterior curves. The lowest HCLPF capacity, 0.158 g for the anchored cabinet, was kept for a conservative threshold.</li>
+        <li class="l-vi"><b>Đường cong dễ tổn thương theo Bayes.</b> Tham số tiên nghiệm (khả năng trung vị và độ lệch chuẩn logarit) được cập nhật thành đường cong hậu nghiệm với 10.000 mẫu Monte Carlo. Khả năng HCLPF nhỏ nhất, 0,158 g cho tủ liên kết neo, được giữ lại để có ngưỡng thiên về an toàn.</li>
+        <li class="l-en"><b>A CAV threshold.</b> Earthquake records scaled to the HCLPF acceleration gave CAV<sub>limit</sub> = 0.27 g·s.</li>
+        <li class="l-vi"><b>Ngưỡng CAV.</b> Các bản ghi động đất được đưa về gia tốc HCLPF, cho CAV<sub>limit</sub> = 0,27 g·s.</li>
+        <li class="l-en"><b>Site-specific demand.</b> Probabilistic seismicity maps of the Korean peninsula gave the PGA at each plant for return periods of 100, 200, 500 and 1000 years (operational, immediate occupancy, life safety and collapse prevention). A regression between PGA and CAV turned each hazard level into a CAV demand.</li>
+        <li class="l-vi"><b>Tác động theo vị trí.</b> Bản đồ địa chấn xác suất của bán đảo Triều Tiên cho PGA tại từng nhà máy với chu kỳ lặp 100, 200, 500 và 1000 năm (tương ứng các cấp vận hành, sử dụng ngay, an toàn sinh mạng và chống sụp đổ). Quan hệ hồi quy PGA–CAV chuyển mỗi cấp nguy cơ thành một giá trị CAV.</li>
+      </ol>
+
+      <h2><span class="l-en">Result: a risk map operators can read</span><span class="l-vi">Kết quả: bản đồ rủi ro đơn vị vận hành đọc được ngay</span></h2>
+      <figure class="svgfig">
+        <svg viewBox="0 0 760 250" role="img" aria-label="Risk matrix">
+          <g class="tm" text-anchor="middle">
+            <text x="290" y="24"><tspan class="l-en">Operational</tspan><tspan class="l-vi">Vận hành</tspan></text><text x="290" y="40" class="ax">100 yr</text>
+            <text x="430" y="24"><tspan class="l-en">Immediate occ.</tspan><tspan class="l-vi">Sử dụng ngay</tspan></text><text x="430" y="40" class="ax">200 yr</text>
+            <text x="570" y="24"><tspan class="l-en">Life safety</tspan><tspan class="l-vi">An toàn sinh mạng</tspan></text><text x="570" y="40" class="ax">500 yr</text>
+            <text x="710" y="24"><tspan class="l-en">Collapse prev.</tspan><tspan class="l-vi">Chống sụp đổ</tspan></text><text x="710" y="40" class="ax">1000 yr</text>
+          </g>
+          <g class="tx" text-anchor="end">
+            <text x="210" y="78">Hanbit</text><text x="210" y="124">Hanul</text><text x="210" y="170">Shin Wolsong</text><text x="210" y="216">Shin Kori</text>
+          </g>
+          <g>
+            <rect x="225" y="56" width="130" height="36" rx="6" class="sf"/><rect x="365" y="56" width="130" height="36" rx="6" class="sf"/><rect x="505" y="56" width="130" height="36" rx="6" class="or" opacity=".8"/><rect x="645" y="56" width="110" height="36" rx="6" class="or" opacity=".8"/>
+            <rect x="225" y="102" width="130" height="36" rx="6" class="sf"/><rect x="365" y="102" width="130" height="36" rx="6" class="sf"/><rect x="505" y="102" width="130" height="36" rx="6" class="or" opacity=".8"/><rect x="645" y="102" width="110" height="36" rx="6" class="or" opacity=".8"/>
+            <rect x="225" y="148" width="130" height="36" rx="6" class="sf"/><rect x="365" y="148" width="130" height="36" rx="6" class="or" opacity=".8"/><rect x="505" y="148" width="130" height="36" rx="6" class="or" opacity=".8"/><rect x="645" y="148" width="110" height="36" rx="6" class="or" opacity=".8"/>
+            <rect x="225" y="194" width="130" height="36" rx="6" class="sf"/><rect x="365" y="194" width="130" height="36" rx="6" class="or" opacity=".8"/><rect x="505" y="194" width="130" height="36" rx="6" class="or" opacity=".8"/><rect x="645" y="194" width="110" height="36" rx="6" class="or" opacity=".8"/>
+          </g>
+          <g class="tm" text-anchor="middle" style="font-weight:600">
+            <text x="290" y="79" style="fill:var(--accent)">✓</text><text x="430" y="79" style="fill:var(--accent)">✓</text><text x="570" y="79" fill="#fff">!</text><text x="700" y="79" fill="#fff">!</text>
+            <text x="290" y="125" style="fill:var(--accent)">✓</text><text x="430" y="125" style="fill:var(--accent)">✓</text><text x="570" y="125" fill="#fff">!</text><text x="700" y="125" fill="#fff">!</text>
+            <text x="290" y="171" style="fill:var(--accent)">✓</text><text x="430" y="171" fill="#fff">!</text><text x="570" y="171" fill="#fff">!</text><text x="700" y="171" fill="#fff">!</text>
+            <text x="290" y="217" style="fill:var(--accent)">✓</text><text x="430" y="217" fill="#fff">!</text><text x="570" y="217" fill="#fff">!</text><text x="700" y="217" fill="#fff">!</text>
+          </g>
+        </svg>
+        <figcaption><span class="l-en">Figure 2. Cabinet risk by plant site and hazard level. ✓ = expected CAV below CAV<sub>limit</sub> (0.27 g·s); ! = earthquakes at this level may exceed it and call for inspection. Summarised from Cao et al., <i>Nuclear Technology</i> (2020).</span><span class="l-vi">Hình 2. Rủi ro của tủ điện theo vị trí nhà máy và cấp nguy cơ. ✓ = CAV dự kiến nhỏ hơn CAV<sub>limit</sub> (0,27 g·s); ! = động đất ở cấp này có thể vượt ngưỡng và cần kiểm tra. Tổng hợp từ Cao và cs., <i>Nuclear Technology</i> (2020).</span></figcaption>
+      </figure>
+      <p class="l-en">At the operational level the cabinet is safe at every plant. At the immediate-occupancy level it remains safe at Hanbit and Hanul but not at the south-eastern sites, which lie closest to the most active fault systems. For life-safety and collapse-prevention events, every site may exceed the threshold. To make the method usable, we built <b>KS_MAP</b>, a small program that returns the site PGA and CAV demand from latitude and longitude, so the check takes minutes instead of days.</p>
+      <p class="l-vi">Ở cấp vận hành, tủ an toàn tại mọi nhà máy. Ở cấp sử dụng ngay, tủ vẫn an toàn tại Hanbit và Hanul nhưng không còn an toàn ở các nhà máy phía đông nam, gần những hệ đứt gãy hoạt động mạnh nhất. Với động đất cấp an toàn sinh mạng và chống sụp đổ, mọi vị trí đều có thể vượt ngưỡng. Để phương pháp dùng được trong thực tế, chúng tôi xây dựng <b>KS_MAP</b>, một chương trình nhỏ trả về PGA và CAV tại vị trí nhà máy từ vĩ độ, kinh độ, giúp việc kiểm tra chỉ mất vài phút thay vì vài ngày.</p>
+      <div class="callout"><span class="l-en"><b>High- versus low-frequency shaking.</b> Korean earthquakes tend to be richer in high frequencies than the spectra typically used to qualify plant equipment. In companion studies we showed that cabinet vulnerability depends strongly on this frequency content, and that tuned mass dampers can reduce it (Tran, Cao et al., <i>Applied Sciences</i>, 2020).</span><span class="l-vi"><b>Rung động tần số cao và tần số thấp.</b> Động đất ở Hàn Quốc thường giàu thành phần tần số cao hơn các phổ thường dùng để kiểm định thiết bị nhà máy. Trong các nghiên cứu đi kèm, chúng tôi chỉ ra rằng mức độ dễ tổn thương của tủ phụ thuộc mạnh vào thành phần tần số này, và có thể giảm bằng giảm chấn khối lượng TMD (Tran, Cao và cs., <i>Applied Sciences</i>, 2020).</span></div>
+
+      <h2><span class="l-en">Why it matters now</span><span class="l-vi">Ý nghĩa hôm nay</span></h2>
+      <p class="l-en">This project already contains the ingredients of a modern decision-support twin: calibrated physics, Bayesian updating and a geospatial hazard layer. What it lacks is speed at scale — one component, one plant, one intensity measure. Scaling the idea to portfolios of buildings and bridges, with learned surrogates and multiple intensity measures, is the heart of my proposed PhD work.</p>
+      <p class="l-vi">Dự án này đã có đủ các thành phần của một bản sao số hỗ trợ quyết định hiện đại: mô hình vật lý được hiệu chỉnh, cập nhật Bayes và một lớp dữ liệu nguy cơ theo không gian. Điều còn thiếu là khả năng mở rộng nhanh — hiện mới một cấu kiện, một nhà máy, một chỉ số cường độ. Mở rộng ý tưởng này cho cả danh mục công trình và cầu, với mô hình thay thế được huấn luyện và nhiều chỉ số cường độ, là trọng tâm hướng nghiên cứu PhD tôi đề xuất.</p>
+      <p><a class="btn primary" href="/research/phd-agenda/"><span class="l-en">See the PhD agenda →</span><span class="l-vi">Xem định hướng PhD →</span></a></p>
+
+      <div class="cs-next"><a href="/research/concrete-gravity-dam/"><span class="l-en">← Concrete gravity dam</span><span class="l-vi">← Đập bê tông trọng lực</span></a><a href="/research/high-rise-vibration-control/"><span class="l-en">Next: vibration control of tall buildings →</span><span class="l-vi">Tiếp: điều khiển dao động nhà cao tầng →</span></a></div>
+    </article>
+
+    <aside class="cs-side">
+      <h4><span class="l-en">My role</span><span class="l-vi">Vai trò của tôi</span></h4>
+      <p><span class="l-en">First author of the <i>Nuclear Technology</i> paper: CAV framework, seismicity-map analysis and the KS_MAP tool. Co-author of the fragility and damper studies.</span><span class="l-vi">Tác giả chính bài <i>Nuclear Technology</i>: khung phân tích CAV, phân tích bản đồ địa chấn và công cụ KS_MAP. Đồng tác giả các nghiên cứu về dễ tổn thương và giảm chấn.</span></p>
+      <h4><span class="l-en">Methods</span><span class="l-vi">Phương pháp</span></h4>
+      <ul><li><span class="l-en">FE modelling (SAP2000)</span><span class="l-vi">Mô hình FE (SAP2000)</span></li><li><span class="l-en">Modal and shaking-table validation</span><span class="l-vi">Kiểm chứng bằng thí nghiệm dao động, bàn rung</span></li><li><span class="l-en">RSM model updating</span><span class="l-vi">Cập nhật mô hình RSM</span></li><li><span class="l-en">Bayesian fragility (MCS)</span><span class="l-vi">Dễ tổn thương Bayes (MCS)</span></li><li><span class="l-en">Probabilistic seismicity maps</span><span class="l-vi">Bản đồ địa chấn xác suất</span></li></ul>
+      <h4><span class="l-en">Funding</span><span class="l-vi">Tài trợ</span></h4>
+      <p><span class="l-en">Korea Institute of Energy Technology Evaluation and Planning (KETEP) and the Ministry of Trade, Industry &amp; Energy (20171510101960).</span><span class="l-vi">Viện Đánh giá và Hoạch định Công nghệ Năng lượng Hàn Quốc (KETEP) và Bộ Thương mại, Công nghiệp và Năng lượng (20171510101960).</span></p>
+      <h4><span class="l-en">Publications</span><span class="l-vi">Công bố</span></h4>
+      <ul>
+        <li><b>Cao A.T.</b>, Tran T.T., Nguyen T.H.X., Kim D. (2020). <i>Nuclear Technology</i> 206(5), 743–757. <a href="https://doi.org/10.1080/00295450.2019.1696643" target="_blank" rel="noopener">DOI</a></li>
+        <li>Tran T.T., <b>Cao A.T.</b>, Nguyen T.H.X., Kim D. (2019). <i>Nuclear Engineering and Technology</i> 51(3), 894–903. <a href="https://www.sciencedirect.com/science/article/pii/S1738573318306879" target="_blank" rel="noopener">Link</a></li>
+        <li>Tran T.T., <b>Cao A.T.</b>, Kim D., Chang S. (2020). <i>Applied Sciences</i> 10(14), 4850. <a href="https://doi.org/10.3390/app10144850" target="_blank" rel="noopener">DOI</a></li>
+        <li><span class="l-en">Modal analysis with connection nonlinearity</span><span class="l-vi">Phân tích dao động có xét phi tuyến liên kết</span> — ICSCEA 2019.</li>
+      </ul>
+    </aside>
+  </div>
+</section>

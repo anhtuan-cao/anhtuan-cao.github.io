@@ -1,0 +1,134 @@
+---
+layout: page
+title: "Seismic risk of a concrete gravity dam"
+title_en: "A one-number safety check for a concrete gravity dam"
+title_vi: "Kiểm tra an toàn đập bê tông trọng lực bằng một con số"
+kicker_en: "Case study · Dams · 2017–2020"
+kicker_vi: "Nghiên cứu tiêu biểu · Đập · 2017–2020"
+lead_en: "After an earthquake, should a dam keep operating or be shut down for inspection? We turned a sensor-calibrated finite element model into a single threshold that answers this question from one ground-motion record."
+lead_vi: "Sau một trận động đất, đập nên tiếp tục vận hành hay dừng lại để kiểm tra? Chúng tôi chuyển mô hình phần tử hữu hạn đã hiệu chỉnh theo cảm biến thành một ngưỡng duy nhất, trả lời câu hỏi đó chỉ từ một bản ghi gia tốc nền."
+description: "Case study: earthquake risk assessment of the Bohyeonsan concrete gravity dam using response surface model updating, fragility analysis and a cumulative absolute velocity (CAV) threshold."
+---
+<section class="wrap section" style="padding-top:36px">
+  <p class="crumb"><a href="/research/#projects"><span class="l-en">← Research</span><span class="l-vi">← Nghiên cứu</span></a></p>
+  <div class="cs-kpis" style="margin-top:14px">
+    <div><b>57 m</b><span class="l-en">dam height, 250 m crest</span><span class="l-vi">chiều cao đập, đỉnh dài 250 m</span></div>
+    <div><b>0.31 g</b><span class="l-en">PGA at the HCLPF point</span><span class="l-vi">PGA tại điểm HCLPF</span></div>
+    <div><b>0.25 g·s</b><span class="l-en">CAV<sub>limit</sub> — the decision threshold</span><span class="l-vi">CAV<sub>limit</sub> — ngưỡng ra quyết định</span></div>
+    <div><b>0.063 g·s</b><span class="l-en">Pohang 2017 record at the dam: keep operating</span><span class="l-vi">Bản ghi động đất Pohang 2017: tiếp tục vận hành</span></div>
+  </div>
+</section>
+
+<section class="wrap section" style="padding-top:34px">
+  <div class="cs-grid">
+    <article class="cs-body">
+      <h2><span class="l-en">The problem</span><span class="l-vi">Bài toán</span></h2>
+      <p class="l-en">Korea operates many concrete gravity dams designed for a service life of more than fifty years, several of them in seismically active regions. The 2017 Pohang earthquake (M<sub>w</sub> 5.4) raised a practical question for operators: <b>how do you decide, within hours, whether a dam needs a costly inspection?</b> Detailed nonlinear analysis after every event is too slow, and peak ground acceleration alone says little about how much damaging energy a record carries.</p>
+      <p class="l-vi">Hàn Quốc vận hành nhiều đập bê tông trọng lực có tuổi thọ thiết kế trên 50 năm, trong đó không ít đập nằm ở vùng có hoạt động địa chấn. Trận động đất Pohang năm 2017 (M<sub>w</sub> 5,4) đặt ra một câu hỏi rất thực tế cho đơn vị vận hành: <b>làm sao quyết định trong vài giờ rằng đập có cần một đợt kiểm tra tốn kém hay không?</b> Phân tích phi tuyến chi tiết sau mỗi trận động đất là quá chậm, còn gia tốc nền cực đại (PGA) đơn thuần lại không phản ánh đủ năng lượng gây hư hại của bản ghi.</p>
+      <p class="l-en">Cumulative Absolute Velocity (CAV) had been used as a shutdown criterion for nuclear power plants, but no CAV criterion existed for dams. Our goal was to derive one for the Bohyeonsan Dam, and to make the derivation reproducible for other dams.</p>
+      <p class="l-vi">Vận tốc tuyệt đối tích lũy (CAV) vốn được dùng làm tiêu chí dừng lò cho nhà máy điện hạt nhân, nhưng chưa có tiêu chí CAV nào cho đập. Mục tiêu của chúng tôi là xây dựng tiêu chí đó cho đập Bohyeonsan và làm cho quy trình có thể áp dụng lại cho các đập khác.</p>
+
+      <h2><span class="l-en">Approach</span><span class="l-vi">Phương pháp</span></h2>
+      <figure class="svgfig">
+        <svg viewBox="0 0 760 210" role="img" aria-label="Workflow">
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--orange)"/></marker></defs>
+          <g>
+            <rect class="bx" x="8" y="40" width="160" height="120" rx="12"/>
+            <path d="M40 140 L52 70 L64 70 L104 140 Z" class="sf" stroke="var(--accent)" stroke-width="1.6"/>
+            <circle cx="58" cy="70" r="4" class="or"/><circle cx="84" cy="138" r="4" class="or"/>
+            <text class="tx" x="88" y="62" text-anchor="start"><tspan class="l-en">Sensors</tspan><tspan class="l-vi">Cảm biến</tspan></text>
+            <text class="tm" x="88" y="80">top + base</text>
+            <text class="tm" x="24" y="30"><tspan class="l-en">1 · Recorded response</tspan><tspan class="l-vi">1 · Phản ứng đo được</tspan></text>
+          </g>
+          <path d="M172 100 H202" stroke="var(--orange)" stroke-width="2" marker-end="url(#ar)"/>
+          <g>
+            <rect class="bx" x="206" y="40" width="160" height="120" rx="12"/>
+            <text class="tm" x="222" y="30"><tspan class="l-en">2 · Model updating</tspan><tspan class="l-vi">2 · Cập nhật mô hình</tspan></text>
+            <path d="M226 140 C250 60 280 60 300 100 C316 130 336 90 350 70" fill="none" class="acs" stroke-width="2"/>
+            <circle cx="283" cy="72" r="5" class="or"/>
+            <text class="tm" x="222" y="62">RSM · CCD</text><text class="tm" x="292" y="152">E, ρ</text>
+          </g>
+          <path d="M370 100 H400" stroke="var(--orange)" stroke-width="2" marker-end="url(#ar)"/>
+          <g>
+            <rect class="bx" x="404" y="40" width="160" height="120" rx="12"/>
+            <text class="tm" x="420" y="30"><tspan class="l-en">3 · Fragility</tspan><tspan class="l-vi">3 · Dễ tổn thương</tspan></text>
+            <path d="M420 146 H552 M420 146 V58" class="ln" stroke-width="1.2" fill="none"/>
+            <path d="M420 144 C470 142 480 70 550 62" fill="none" class="acs" stroke-width="2.2"/>
+            <path d="M420 145 C486 144 494 96 550 80" fill="none" class="ors" stroke-width="1.8" stroke-dasharray="5 4"/>
+            <circle cx="462" cy="140" r="4.5" class="or"/><text class="tm" x="470" y="130">HCLPF</text>
+          </g>
+          <path d="M568 100 H598" stroke="var(--orange)" stroke-width="2" marker-end="url(#ar)"/>
+          <g>
+            <rect x="602" y="40" width="150" height="120" rx="12" class="ac"/>
+            <text class="tm" x="618" y="30"><tspan class="l-en">4 · Decision</tspan><tspan class="l-vi">4 · Quyết định</tspan></text>
+            <text class="wt" x="677" y="88" text-anchor="middle">CAV ≤ CAV<tspan baseline-shift="sub" font-size="9">limit</tspan></text>
+            <text class="wt" x="677" y="112" text-anchor="middle" font-weight="400" opacity=".85"><tspan class="l-en">→ keep operating</tspan><tspan class="l-vi">→ tiếp tục vận hành</tspan></text>
+            <text class="wt" x="677" y="134" text-anchor="middle" font-weight="400" opacity=".85"><tspan class="l-en">else inspect</tspan><tspan class="l-vi">ngược lại: kiểm tra</tspan></text>
+          </g>
+        </svg>
+        <figcaption><span class="l-en">Figure 1. From recorded response to an operational decision. Schematic drawn for this page.</span><span class="l-vi">Hình 1. Từ phản ứng đo được đến quyết định vận hành. Sơ đồ vẽ lại cho trang này.</span></figcaption>
+      </figure>
+      <ol>
+        <li class="l-en"><b>A model you can trust.</b> A 2D finite element model of the dam–foundation section was built in ABAQUS. Two accelerometers (crest and base) recorded the Pohang earthquake; the base record drove the model and the crest record served as the target.</li>
+        <li class="l-vi"><b>Một mô hình đáng tin cậy.</b> Mặt cắt đập – nền được mô hình hóa 2D bằng ABAQUS. Hai gia tốc kế (đỉnh và chân đập) ghi lại động đất Pohang; bản ghi chân đập dùng làm tải đầu vào, bản ghi đỉnh đập làm mục tiêu so sánh.</li>
+        <li class="l-en"><b>Calibration by response surfaces.</b> Young's modulus and density were treated as uncertain. A Central Composite Design generated the simulation runs, and a second-order response surface matched the peak spectral acceleration and its frequency at the crest. The optimum was a stiffness ratio of 0.787 and a density of 2.32 t/m³.</li>
+        <li class="l-vi"><b>Hiệu chỉnh bằng mặt đáp ứng.</b> Mô đun đàn hồi và khối lượng riêng được xem là tham số bất định. Thiết kế hỗn hợp tâm (CCD) tạo tập mô phỏng, rồi mặt đáp ứng bậc hai được dùng để khớp gia tốc phổ cực đại và tần số tương ứng tại đỉnh đập. Giá trị tối ưu: tỷ số độ cứng 0,787 và khối lượng riêng 2,32 t/m³.</li>
+        <li class="l-en"><b>Capacity with known confidence.</b> Twelve Korean earthquake records were scaled incrementally to build fragility curves for tensile cracking and relative displacement. The HCLPF point (95% confidence of less than 5% failure probability) gave a critical PGA of 0.31 g.</li>
+        <li class="l-vi"><b>Khả năng chịu lực có độ tin cậy xác định.</b> 12 bản ghi động đất Hàn Quốc được tăng cấp để xây dựng đường cong dễ tổn thương theo nứt kéo và chuyển vị tương đối. Điểm HCLPF (độ tin cậy 95% rằng xác suất phá hoại dưới 5%) cho PGA tới hạn 0,31 g.</li>
+        <li class="l-en"><b>From PGA to CAV.</b> All records were rescaled to the HCLPF acceleration and their CAV computed. The smallest value, 0.25 g·s, was adopted conservatively as CAV<sub>limit</sub>.</li>
+        <li class="l-vi"><b>Từ PGA sang CAV.</b> Toàn bộ bản ghi được đưa về đúng gia tốc HCLPF rồi tính CAV. Giá trị nhỏ nhất, 0,25 g·s, được chọn thiên về an toàn làm CAV<sub>limit</sub>.</li>
+      </ol>
+
+      <h2><span class="l-en">Result: a decision in one comparison</span><span class="l-vi">Kết quả: quyết định chỉ bằng một phép so sánh</span></h2>
+      <figure class="svgfig">
+        <svg viewBox="0 0 760 250" role="img" aria-label="CAV comparison">
+          <g transform="translate(200,20)">
+            <path d="M0 0 V190" class="ln" stroke-width="1"/>
+            <g class="ax"><text x="0" y="210" text-anchor="middle">0</text><text x="136" y="210" text-anchor="middle">0.1</text><text x="272" y="210" text-anchor="middle">0.2</text><text x="408" y="210" text-anchor="middle">0.3</text><text x="520" y="210" text-anchor="end">CAV (g·s)</text></g>
+            <path d="M136 0 V190 M272 0 V190 M408 0 V190" class="ln" stroke-dasharray="3 4"/>
+            <rect x="0" y="14" width="83" height="26" rx="4" class="ac" opacity=".6"/><text class="tx" x="92" y="32">0.061</text>
+            <rect x="0" y="56" width="86" height="26" rx="4" class="ac" opacity=".85"/><text class="tx" x="95" y="74">0.063</text>
+            <rect x="163" y="98" width="245" height="26" rx="4" class="of" stroke="var(--orange)" stroke-dasharray="4 3"/><text class="tm" x="416" y="116">0.12 – 0.30</text>
+            <rect x="0" y="140" width="340" height="26" rx="4" class="or"/><text class="tx" x="348" y="158">0.25</text>
+            <path d="M340 0 V190" class="ors" stroke-width="2"/>
+          </g>
+          <g class="tm" text-anchor="end">
+            <text x="188" y="52"><tspan class="l-en">Pohang 2017, N–S</tspan><tspan class="l-vi">Pohang 2017, B–N</tspan></text>
+            <text x="188" y="94"><tspan class="l-en">Pohang 2017, E–W</tspan><tspan class="l-vi">Pohang 2017, Đ–T</tspan></text>
+            <text x="188" y="130"><tspan class="l-en">Potential at site</tspan><tspan class="l-vi">Tiềm năng tại vị trí</tspan></text>
+            <text x="188" y="144"><tspan class="l-en">(100–1000-yr events)</tspan><tspan class="l-vi">(chu kỳ 100–1000 năm)</tspan></text>
+            <text x="188" y="178" class="tx" style="fill:var(--orange)">CAV<tspan baseline-shift="sub" font-size="9">limit</tspan> <tspan class="l-en">of the dam</tspan><tspan class="l-vi">của đập</tspan></text>
+          </g>
+        </svg>
+        <figcaption><span class="l-en">Figure 2. CAV of the free-field records at the dam versus its capacity. The Pohang earthquake used about a quarter of the CAV capacity, so the dam could keep operating; rarer events may exceed it. Values from Cao et al. (2019) and the ICSCEA 2019 study.</span><span class="l-vi">Hình 2. CAV của bản ghi gia tốc nền tại đập so với khả năng của đập. Động đất Pohang chỉ dùng khoảng một phần tư khả năng CAV nên đập có thể tiếp tục vận hành; các trận hiếm hơn có thể vượt ngưỡng. Số liệu từ Cao và cs. (2019) và nghiên cứu ICSCEA 2019.</span></figcaption>
+      </figure>
+      <p class="l-en">The peak CAV of the Pohang records at the dam was 0.063 g·s, about 25% of CAV<sub>limit</sub>, so the dam could continue operating without shutdown. Using Korean seismic source models, we also mapped the CAV the site could see for 100- to 1000-year return periods (0.12–0.30 g·s). The upper end exceeds the threshold, which tells the operator exactly which scenarios would require inspection.</p>
+      <p class="l-vi">CAV lớn nhất của bản ghi Pohang tại đập là 0,063 g·s, chỉ khoảng 25% CAV<sub>limit</sub>, nên đập tiếp tục vận hành mà không cần dừng. Dựa trên các mô hình nguồn động đất của bán đảo Triều Tiên, chúng tôi cũng ước lượng dải CAV có thể xảy ra tại vị trí đập với chu kỳ lặp 100–1000 năm (0,12–0,30 g·s). Đầu trên của dải vượt ngưỡng, cho đơn vị vận hành biết chính xác những kịch bản nào cần kiểm tra.</p>
+      <div class="callout"><span class="l-en"><b>Ageing matters.</b> Follow-up work (KSMI 2019; Nahar, Cao &amp; Kim 2020) let concrete stiffness degrade with time through a chemo-mechanical damage model. CAV<sub>limit</sub> then becomes a curve that decreases over decades — the same record that is harmless today may call for inspection thirty years from now.</span><span class="l-vi"><b>Tuổi thọ công trình rất quan trọng.</b> Các nghiên cứu tiếp theo (KSMI 2019; Nahar, Cao &amp; Kim 2020) cho độ cứng bê tông suy giảm theo thời gian bằng mô hình hư hại hóa – cơ. Khi đó CAV<sub>limit</sub> trở thành một đường cong giảm dần theo thập kỷ — cùng một bản ghi hôm nay vô hại, ba mươi năm sau có thể đòi hỏi phải kiểm tra.</span></div>
+
+      <h2><span class="l-en">Why it matters now</span><span class="l-vi">Ý nghĩa hôm nay</span></h2>
+      <p class="l-en">In today's vocabulary, this workflow is a simple <b>structural digital twin</b>: a physics model kept honest by sensor data and reduced to an actionable decision rule. Its limitations define my PhD agenda — the response surface is re-fitted by hand, uncertainty in the calibrated parameters is not propagated to the threshold, and a single intensity measure ignores frequency content and duration. Machine-learning surrogates and Bayesian updating can remove all three limitations.</p>
+      <p class="l-vi">Theo cách gọi hiện nay, quy trình này là một <b>bản sao số kết cấu</b> đơn giản: mô hình vật lý được giữ sát thực tế nhờ dữ liệu cảm biến và rút gọn thành một quy tắc quyết định dùng được ngay. Chính những hạn chế của nó định hình hướng PhD của tôi — mặt đáp ứng phải dựng lại thủ công, độ bất định của tham số hiệu chỉnh chưa được truyền tới ngưỡng, và một chỉ số cường độ duy nhất bỏ qua thành phần tần số và thời gian kéo dài. Mô hình thay thế học máy và cập nhật Bayes có thể giải quyết cả ba.</p>
+      <p><a class="btn primary" href="/research/phd-agenda/"><span class="l-en">See the PhD agenda →</span><span class="l-vi">Xem định hướng PhD →</span></a></p>
+
+      <div class="cs-next"><a href="/research/#projects"><span class="l-en">← All case studies</span><span class="l-vi">← Tất cả nghiên cứu</span></a><a href="/research/nuclear-cabinet/"><span class="l-en">Next: cabinets in nuclear plants →</span><span class="l-vi">Tiếp: tủ điện nhà máy hạt nhân →</span></a></div>
+    </article>
+
+    <aside class="cs-side">
+      <h4><span class="l-en">My role</span><span class="l-vi">Vai trò của tôi</span></h4>
+      <p><span class="l-en">First author. Built and calibrated the FE model, ran the fragility and CAV analyses, wrote the paper.</span><span class="l-vi">Tác giả chính. Xây dựng và hiệu chỉnh mô hình FE, thực hiện phân tích dễ tổn thương và CAV, viết bài báo.</span></p>
+      <h4><span class="l-en">Methods</span><span class="l-vi">Phương pháp</span></h4>
+      <ul><li><span class="l-en">FE modelling (ABAQUS)</span><span class="l-vi">Mô hình FE (ABAQUS)</span></li><li><span class="l-en">RSM + CCD model updating</span><span class="l-vi">Cập nhật mô hình RSM + CCD</span></li><li><span class="l-en">Incremental fragility analysis</span><span class="l-vi">Phân tích dễ tổn thương tăng cấp</span></li><li>HCLPF, CAV</li><li><span class="l-en">Seismic source models</span><span class="l-vi">Mô hình nguồn động đất</span></li></ul>
+      <h4><span class="l-en">Funding</span><span class="l-vi">Tài trợ</span></h4>
+      <p><span class="l-en">Korean Ministry of the Interior and Safety, Extreme Disaster Response programme (2017-MOIS31-002).</span><span class="l-vi">Bộ Nội vụ và An toàn Hàn Quốc, chương trình Ứng phó thảm họa cực đoan (2017-MOIS31-002).</span></p>
+      <h4><span class="l-en">Publications</span><span class="l-vi">Công bố</span></h4>
+      <ul>
+        <li><b>Cao A.T.</b>, Nahar T.T., Kim D., Choi B. (2019). <i>Earthquakes and Structures</i> 17(5), 511–519. <a href="https://doi.org/10.12989/eas.2019.17.5.511" target="_blank" rel="noopener">DOI</a></li>
+        <li>Nahar T.T., <b>Cao A.T.</b>, Kim D. (2020). <i>Int. J. Concrete Structures and Materials</i> 14, 53. <a href="https://doi.org/10.1186/s40069-020-00430-z" target="_blank" rel="noopener">DOI</a></li>
+        <li><b>Cao A.T.</b> et al. (2019). ICSCEA, Ho Chi Minh City.</li>
+        <li><b>Cao A.T.</b> et al. (2019). ACVYS — <span class="l-en">Best Presentation Award</span><span class="l-vi">Giải Báo cáo xuất sắc</span>.</li>
+        <li><b>Cao A.T.</b> et al. (2019). KSMI Spring Conference.</li>
+      </ul>
+    </aside>
+  </div>
+</section>
