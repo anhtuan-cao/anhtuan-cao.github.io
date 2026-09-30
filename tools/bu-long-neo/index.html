@@ -1,0 +1,93 @@
+---
+layout: page
+title: "Bu lông neo trong bê tông — TCVN 5575:2012 và ACI 318"
+title_vi: "Bu lông neo"
+title_en: "Anchor bolts"
+kicker_vi: "Công cụ tính online · Kết cấu thép – bê tông"
+kicker_en: "Online calculator · Steel–concrete"
+lead_vi: "Nhóm bu lông neo móc đặt sẵn trong bê tông chịu lực nhổ và lực cắt: kiểm tra thép bu lông và lực bám dính theo TCVN, cùng các cơ chế phá hoại bê tông theo ACI 318 (hình nón khi kéo, tuột neo, phá mép khi cắt, bật cạy) và tương tác kéo – cắt."
+lead_en: "A group of cast-in hooked anchor bolts under uplift and shear: bolt steel and bond to TCVN, plus the ACI 318 concrete failure modes (tension breakout, pullout, edge breakout in shear, pryout) and tension–shear interaction."
+description: "Công cụ tính online bu lông neo: thép bu lông, bám dính theo TCVN 5575, phá hoại bê tông theo ACI 318 (nón kéo, tuột neo, mép cắt, cạy)."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/bu-long-neo.svg" alt="Nhóm bu lông neo và nón phá hoại bê tông"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Ngoài độ bền của thân bu lông, nhóm neo có thể bị phá hoại do bê tông: bứt nón khi kéo (diện tích chiếu A<sub>Nc</sub> bị cắt bởi mép và khoảng cách giữa các neo), tuột qua đoạn móc, vỡ mép khi chịu cắt hướng ra mép gần và cạy bật phía sau neo. Mọi khả năng chịu lực phải so với <b>tổng lực của cả nhóm</b> (hoặc lực một bu lông với cơ chế từng neo).</span><span class="l-en">Beyond bolt steel strength, an anchor group can fail through the concrete: tension breakout (projected area A<sub>Nc</sub> truncated by edges and spacing), pullout past the hook, edge breakout under shear towards the nearest edge, and pryout behind the anchors. Each capacity must be compared with the <b>total group force</b> (or the single-anchor force for per-anchor modes).</span></p>
+      <div class="formula">N<sub>b</sub> = 10λ√f'<sub>c</sub>·h<sub>ef</sub><sup>1,5</sup> · N<sub>cbg</sub> = (A<sub>Nc</sub>/A<sub>Nco</sub>)ψ<sub>ed,N</sub>ψ<sub>c,N</sub>N<sub>b</sub><br>N<sub>p</sub> = 0,9f'<sub>c</sub>e<sub>h</sub>d<sub>a</sub> · N/φN<sub>n</sub> + V/φV<sub>n</sub> ≤ 1,2</div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Bu lông &amp; nhóm neo</span><span class="l-en">Bolts &amp; group</span></legend>
+        <label class="fld w3"><span class="lb"><i>d</i><span class="l-vi">Đường kính · cấp bền</span><span class="l-en">Diameter · class</span></span><span class="in"><select id="d"><option>24</option><option>30</option><option>36</option><option selected>42</option><option>48</option></select><select id="cls"><option value="4.6">4.6</option><option value="5.6">5.6</option><option value="6.6" selected>6.6</option><option value="8.8">8.8</option></select></span></label>
+        <label class="fld"><span class="lb"><i>n<sub>x</sub> × n<sub>y</sub></i><span class="l-vi">Số bu lông mỗi phương</span><span class="l-en">Bolts each way</span></span><span class="in"><input id="nx" type="number" step="1" value="3"><input id="ny" type="number" step="1" value="2"></span></label>
+        <label class="fld"><span class="lb"><i>s<sub>x</sub>, s<sub>y</sub></i><span class="l-vi">Khoảng cách bu lông (mm)</span><span class="l-en">Bolt spacing (mm)</span></span><span class="in"><input id="s1" type="number" step="any" value="150"><input id="s2" type="number" step="any" value="500"></span></label>
+        <label class="fld w3"><span class="lb"><i>L, L<sub>0</sub>, L<sub>H</sub></i><span class="l-vi">Chiều dài neo; đoạn trên mặt bê tông; đoạn móc (mm)</span><span class="l-en">Embedded length; above surface; hook (mm)</span></span><span class="in"><input id="L" type="number" step="any" value="1350"><input id="L0" type="number" step="any" value="150"><input id="LH" type="number" step="any" value="150"></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Bê tông &amp; mép</span><span class="l-en">Concrete &amp; edges</span></legend>
+        <label class="fld"><span class="lb"><i>f'<sub>c</sub></i><span class="l-vi">Cấp bền bê tông</span><span class="l-en">Concrete class</span></span><span class="in"><select id="conc"><option value="19.9,1.55">B25</option><option value="23.83,1.75" selected>B30</option><option value="27.8,1.95">B35</option><option value="31.8,2.1">B40</option></select></span></label>
+        <label class="fld chk"><input id="cr" type="checkbox" checked><span><span class="l-vi">Bê tông có thể nứt (ψ<sub>c</sub> = 1,0)</span><span class="l-en">Cracked concrete (ψ<sub>c</sub> = 1.0)</span></span></label>
+        <label class="fld"><span class="lb"><i>c<sub>x1</sub>, c<sub>x2</sub></i><span class="l-vi">Mép theo x (c<sub>x1</sub>: phía lực cắt hướng tới) (mm)</span><span class="l-en">Edges along x (c<sub>x1</sub>: towards shear) (mm)</span></span><span class="in"><input id="cx1" type="number" step="any" value="1200"><input id="cx2" type="number" step="any" value="1500"></span></label>
+        <label class="fld"><span class="lb"><i>c<sub>y1</sub>, c<sub>y2</sub></i><span class="l-vi">Mép theo y (mm)</span><span class="l-en">Edges along y (mm)</span></span><span class="in"><input id="cy1" type="number" step="any" value="1200"><input id="cy2" type="number" step="any" value="1300"></span></label>
+        <label class="fld"><span class="lb"><i>h<sub>a</sub>, ψ<sub>c,V</sub></i><span class="l-vi">Chiều dày cấu kiện (mm); hệ số thép mép (1,0 / 1,2 / 1,4)</span><span class="l-en">Member thickness (mm); edge-steel factor (1.0 / 1.2 / 1.4)</span></span><span class="in"><input id="ha" type="number" step="any" value="1500"><input id="psicV" type="number" step="any" value="1"></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Lực tác dụng lên cả nhóm</span><span class="l-en">Forces on the whole group</span></legend>
+        <label class="fld"><span class="lb"><i>N, V</i><span class="l-vi">Lực nhổ; lực cắt (kN)</span><span class="l-en">Uplift; shear (kN)</span></span><span class="in"><input id="N" type="number" step="any" value="1275"><input id="V" type="number" step="any" value="97"></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép (bu lông)</span><span class="l-en">Steel structures (bolts)</span>.</li>
+    <li>ACI 318-19 — <span class="l-vi">Chương 17: Neo vào bê tông</span><span class="l-en">Chapter 17: Anchoring to concrete</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/steel-conn-core.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/assets/js/tools/anchor-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  var FUB={'4.6':400,'5.6':500,'6.6':600,'8.8':800};
+  function run(){
+    var d=+$('d').value, B=CONN.BOLT[d], C=CONN.CLS[$('cls').value], c=$('conc').value.split(',').map(parseFloat);
+    var o=ANC.anchors({nx:Math.max(1,T.val('nx')),ny:Math.max(1,T.val('ny')),s1:T.val('s1'),s2:T.val('s2'),cx1:T.val('cx1'),cx2:T.val('cx2'),cy1:T.val('cy1'),cy2:T.val('cy2'),ha:T.val('ha'),
+      d:d,Ab:B[0]*100,Abn:B[1]*100,fvb:C[0],ftb:C[1],fub:FUB[$('cls').value],L:T.val('L'),L0:T.val('L0'),LH:T.val('LH'),fc:c[0],Rbtn:c[1],cracked:$('cr').checked,psicV:T.val('psicV'),N:T.val('N'),V:T.val('V')});
+    var ok=true, html='', a=o.aci, t=o.tc, N=T.val('N'), V=T.val('V');
+    function ck(vi,en,r,note){ if(!(r<=1)) ok=false; html+=T.check(vi,en,r,note); }
+    html+='<h4 class="ck-group">'+T.bi('TCVN 5575:2012 (1 bu lông)','TCVN 5575:2012 (per bolt)')+'</h4>';
+    ck('Thép bu lông chịu kéo','Bolt tension',t.rT,T.fmt(o.N1,1)+' / '+T.fmt(t.Ntb,1)+' kN'); ck('Thép bu lông chịu cắt','Bolt shear',t.rV,T.fmt(o.V1,1)+' / '+T.fmt(t.Nvb,1)+' kN');
+    ck('Lực bám dính neo','Bond anchorage',t.rB,T.fmt(o.N1,1)+' / '+T.fmt(t.Nbond,1)+' kN');
+    html+='<h4 class="ck-group">'+T.bi('ACI 318 — chịu kéo (cả nhóm)','ACI 318 — tension (group)')+'</h4>';
+    ck('Thép bu lông φN<sub>sa</sub>','Steel φN<sub>sa</sub>',a.rNsa,T.fmt(N,0)+' / '+T.fmt(a.phiNsa,0)+' kN');
+    ck('Bứt nón bê tông φN<sub>cbg</sub>','Concrete breakout φN<sub>cbg</sub>',a.rNcb,T.fmt(N,0)+' / '+T.fmt(a.phiNcbg,0)+' kN');
+    ck('Tuột neo móc φN<sub>pn</sub>','Hook pullout φN<sub>pn</sub>',a.rNpn,T.fmt(N,0)+' / '+T.fmt(a.phiNpn,0)+' kN');
+    html+='<h4 class="ck-group">'+T.bi('ACI 318 — chịu cắt (cả nhóm)','ACI 318 — shear (group)')+'</h4>';
+    ck('Thép bu lông φV<sub>sa</sub>','Steel φV<sub>sa</sub>',a.rVsa,T.fmt(V,0)+' / '+T.fmt(a.phiVsa,0)+' kN');
+    ck('Vỡ mép bê tông φV<sub>cbg</sub>','Edge breakout φV<sub>cbg</sub>',a.rVcb,T.fmt(V,0)+' / '+T.fmt(a.phiVcbg,0)+' kN');
+    ck('Cạy bật φV<sub>cpg</sub>','Pryout φV<sub>cpg</sub>',a.rVcp,T.fmt(V,0)+' / '+T.fmt(a.phiVcpg,0)+' kN');
+    ck('Tương tác kéo – cắt','Tension–shear interaction',a.inter,'N/φN<sub>n</sub> = '+T.fmt(a.tN,3)+'; V/φV<sub>n</sub> = '+T.fmt(a.tV,3));
+    if(a.sideBlow) html+='<p class="small">'+T.bi('h<sub>ef</sub> &gt; 2,5c<sub>a,min</sub>: cần kiểm tra thêm phá hoại bên hông (side-face blowout).','h<sub>ef</sub> &gt; 2.5c<sub>a,min</sub>: side-face blowout should also be checked.')+'</p>';
+    $('res').innerHTML=T.verdict(ok,o.n+' × M'+d+' · h<sub>ef</sub> = '+T.fmt(a.hef,0)+' mm',o.n+' × M'+d+' · h<sub>ef</sub> = '+T.fmt(a.hef,0)+' mm')+
+      '<div class="kpis"><div><small>φN<sub>n</sub> (kN)</small><b>'+T.fmt(Math.min(a.phiNsa,a.phiNcbg,a.phiNpn),0)+'</b></div><div><small>φV<sub>n</sub> (kN)</small><b>'+T.fmt(Math.min(a.phiVsa,a.phiVcbg,a.phiVcpg),0)+'</b></div><div><small>'+T.bi('Tương tác','Interaction')+'</small><b>'+T.fmt(a.inter,2)+'</b></div></div>'+html;
+    var rows=[
+      T.row('h<sub>ef</sub>','= L − L<sub>0</sub>','= L − L<sub>0</sub>',a.hef,'mm',0),
+      T.row('A<sub>Nc</sub>, A<sub>Nco</sub>','Diện tích chiếu (mép giới hạn 1,5h<sub>ef</sub>); 9h<sub>ef</sub>²','Projected area (edges capped at 1.5h<sub>ef</sub>); 9h<sub>ef</sub>²',T.fmt(a.ANc/1e6,3)+'; '+T.fmt(a.ANco/1e6,3),'m²'),
+      T.row('ψ<sub>ed,N</sub>, N<sub>b</sub>','= 0,7 + 0,3c<sub>a,min</sub>/1,5h<sub>ef</sub>; 10√f\'<sub>c</sub>h<sub>ef</sub><sup>1,5</sup>','= 0.7 + 0.3c<sub>a,min</sub>/1.5h<sub>ef</sub>; 10√f\'<sub>c</sub>h<sub>ef</sub><sup>1.5</sup>',T.fmt(a.ped,3)+'; '+T.fmt(a.Nb,0)+' kN',''),
+      T.row('e<sub>h</sub>','Đoạn móc tính toán (3d – 4,5d)','Hook length used (3d – 4.5d)',a.eh,'mm',0),
+      T.row('A<sub>Vc</sub>, A<sub>Vco</sub>','Mặt phá hoại mép khi cắt; 4,5c<sub>a1</sub>²','Shear breakout area; 4.5c<sub>a1</sub>²',T.fmt(a.AVc/1e6,3)+'; '+T.fmt(a.AVco/1e6,3),'m²'),
+      T.row('ψ<sub>ed,V</sub>, ψ<sub>h,V</sub>, V<sub>b</sub>','','',T.fmt(a.pedV,3)+'; '+T.fmt(a.phV,3)+'; '+T.fmt(a.Vb,0)+' kN',''),
+      T.row('φ','Kéo thép 0,75; cắt thép 0,65; bê tông 0,70 (điều kiện B)','Steel tension 0.75; steel shear 0.65; concrete 0.70 (condition B)','','')];
+    $('detail').innerHTML=T.table(rows)+'<p class="small">'+T.bi('Theo ACI, cường độ thép dùng f<sub>uta</sub> (giới hạn bền) chứ không phải cường độ tính toán f<sub>tb</sub> của TCVN; khả năng chịu lực nhóm luôn so với tổng lực của nhóm.','ACI uses the ultimate f<sub>uta</sub>, not the TCVN design value f<sub>tb</sub>; group capacities are always compared with the total group force.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

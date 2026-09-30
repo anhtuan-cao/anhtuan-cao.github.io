@@ -1,0 +1,83 @@
+---
+layout: page
+title: "Kiểm tra nứt và võng dầm, sàn BTCT — TCVN 5574:2018"
+title_vi: "Nứt &amp; võng dầm sàn"
+title_en: "Cracking &amp; deflection"
+kicker_vi: "Công cụ tính online · Kết cấu bê tông"
+kicker_en: "Online calculator · Concrete structures"
+lead_vi: "Kiểm tra trạng thái giới hạn II của cấu kiện chịu uốn: mô men hình thành vết nứt, bề rộng vết nứt dài hạn và ngắn hạn, độ cong và độ võng cho cả cấu kiện có nứt và không nứt."
+lead_en: "Serviceability of flexural members: cracking moment, long- and short-term crack widths, curvature and deflection for both cracked and uncracked members."
+description: "Công cụ tính online kiểm tra bề rộng vết nứt và độ võng dầm, sàn bê tông cốt thép theo TCVN 5574:2018."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/nut-vong.svg" alt="Dầm BTCT có vết nứt và độ võng"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Tiết diện chưa nứt khi M ≤ M<sub>crc</sub> = 1,3R<sub>bt,ser</sub>·I<sub>red</sub>/y<sub>t</sub>. Khi đã nứt, ứng suất cốt thép σ<sub>s</sub> tính trên tiết diện quy đổi bỏ qua bê tông vùng kéo; bề rộng vết nứt a<sub>crc</sub> = φ<sub>1</sub>φ<sub>2</sub>φ<sub>3</sub>ψ<sub>s</sub>(σ<sub>s</sub>/E<sub>s</sub>)l<sub>s</sub>. Độ võng tính từ độ cong tổng (1/r) = (1/r)<sub>1</sub> − (1/r)<sub>2</sub> + (1/r)<sub>3</sub> với mô đun biến dạng quy đổi E<sub>b,red</sub> = R<sub>b,ser</sub>/ε<sub>b1,red</sub> (ngắn hạn 0,0015; dài hạn theo độ ẩm).</span><span class="l-en">The section is uncracked while M ≤ M<sub>crc</sub> = 1.3R<sub>bt,ser</sub>·I<sub>red</sub>/y<sub>t</sub>. Once cracked, σ<sub>s</sub> is found on the transformed section without tensile concrete; crack width a<sub>crc</sub> = φ<sub>1</sub>φ<sub>2</sub>φ<sub>3</sub>ψ<sub>s</sub>(σ<sub>s</sub>/E<sub>s</sub>)l<sub>s</sub>. Deflection comes from total curvature (1/r) = (1/r)<sub>1</sub> − (1/r)<sub>2</sub> + (1/r)<sub>3</sub> with the reduced modulus E<sub>b,red</sub> = R<sub>b,ser</sub>/ε<sub>b1,red</sub> (0.0015 short-term; long-term by humidity).</span></p>
+      <div class="formula">ψ<sub>s</sub> = 1 − 0,8M<sub>crc</sub>/M<br>l<sub>s</sub> = 0,5(A<sub>bt</sub>/A<sub>s</sub>)d<sub>s</sub> ∈ [10d<sub>s</sub>; 40d<sub>s</sub>], [100; 400] mm<br>f = s·L²·(1/r) ≤ f<sub>u</sub></div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Tiết diện &amp; cốt thép</span><span class="l-en">Section &amp; steel</span></legend>
+        <label class="fld"><span class="lb"><i>b × h</i><span class="l-vi">Tiết diện (mm)</span><span class="l-en">Section (mm)</span></span><span class="in"><input id="b" type="number" step="any" value="250"><input id="h" type="number" step="any" value="400"></span></label>
+        <label class="fld"><span class="lb"><i>a, a'</i><span class="l-vi">Trọng tâm thép kéo, thép nén tới mép (mm)</span><span class="l-en">Tension, compression steel centroid to face (mm)</span></span><span class="in"><input id="a" type="number" step="any" value="52"><input id="a2" type="number" step="any" value="42"></span></label>
+        <label class="fld"><span class="lb"><i>A<sub>s1</sub></i><span class="l-vi">Thép kéo lớp ngoài: n × Ø</span><span class="l-en">Tension, outer layer: n × Ø</span></span><span class="in"><input id="n1" type="number" step="1" value="3"><input id="d1" type="number" step="any" value="16"></span></label>
+        <label class="fld"><span class="lb"><i>A<sub>s2</sub></i><span class="l-vi">Thép kéo lớp trong: n × Ø</span><span class="l-en">Tension, inner layer: n × Ø</span></span><span class="in"><input id="n2" type="number" step="1" value="3"><input id="d2" type="number" step="any" value="16"></span></label>
+        <label class="fld"><span class="lb"><i>A'<sub>s</sub></i><span class="l-vi">Thép nén: n × Ø</span><span class="l-en">Compression: n × Ø</span></span><span class="in"><input id="n3" type="number" step="1" value="3"><input id="d3" type="number" step="any" value="12"></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>b,ser</sub></i><span class="l-vi">Cấp bền bê tông</span><span class="l-en">Concrete class</span></span><span class="in"><select id="conc"><option value="18.5,1.55,30000,1.8,2.5,3.6">B25</option><option value="22,1.75,32500,1.6,2.3,3.2">B30</option><option value="25.5,1.95,34500,1.5,2.1,3" selected>B35</option><option value="29,2.1,36000,1.4,1.9,2.8">B40</option></select></span></label>
+        <label class="fld"><span class="lb"><i>RH</i><span class="l-vi">Độ ẩm môi trường</span><span class="l-en">Ambient humidity</span></span><span class="in"><select id="rh"><option value="0">&gt; 75%</option><option value="1" selected>40–75%</option><option value="2">&lt; 40%</option></select></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Tải trọng tiêu chuẩn &amp; sơ đồ</span><span class="l-en">Service loads &amp; scheme</span></legend>
+        <label class="fld w3"><span class="lb"><i>M</i><span class="l-vi">M thường xuyên, M tạm thời (kN·m); phần dài hạn ψ</span><span class="l-en">Permanent, variable M (kN·m); quasi-permanent ψ</span></span><span class="in"><input id="Md" type="number" step="any" value="20"><input id="Ml" type="number" step="any" value="30"><input id="psi" type="number" step="any" value="0.3"></span></label>
+        <label class="fld"><span class="lb"><i>L</i><span class="l-vi">Nhịp tính toán</span><span class="l-en">Span</span></span><span class="in"><input id="L" type="number" step="any" value="6"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>s</i><span class="l-vi">Sơ đồ</span><span class="l-en">Scheme</span></span><span class="in"><select id="s"><option value="0.10416667" selected>Dầm đơn giản, tải phân bố · 5/48</option><option value="0.08333333">Dầm đơn giản, tải giữa nhịp · 1/12</option><option value="0.25">Console, tải phân bố · 1/4</option><option value="0.33333333">Console, tải đầu mút · 1/3</option></select></span></label>
+        <label class="fld chk"><input id="perm" type="checkbox" checked><span><span class="l-vi">Hạn chế thấm (vết nứt 0,2 / 0,3 mm)</span><span class="l-en">Limited permeability (0.2 / 0.3 mm cracks)</span></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5574:2018 — <span class="l-vi">Kết cấu bê tông và bê tông cốt thép (8.2.2 nứt, 8.2.3 biến dạng; Phụ lục M độ võng giới hạn)</span><span class="l-en">Concrete and reinforced concrete structures (8.2.2 cracking, 8.2.3 deformation; Annex M deflection limits)</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/crack-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  function A(n,d){ return (n||0)*Math.PI*(d||0)*(d||0)/4; }
+  function run(){
+    var c=$('conc').value.split(',').map(parseFloat), rh=+$('rh').value, eps=[0.0024,0.0028,0.0034][rh], phicr=c[3+rh], L=T.val('L');
+    var As=A(T.val('n1'),T.val('d1'))+A(T.val('n2'),T.val('d2')), ds=Math.max(T.val('d1')||0,T.val('d2')||0), fl=CRK.flim(L);
+    var o=CRK.crackDefl({b:T.val('b'),h:T.val('h'),a:T.val('a'),a2:T.val('a2'),As:As,As2:A(T.val('n3'),T.val('d3')),Md:T.val('Md'),Ml:T.val('Ml'),psi:T.val('psi'),Rbser:c[0],Rbtser:c[1],Eb:c[2],Es:200000,phicr:phicr,eps1L:eps,ds:ds,perm:$('perm').checked,L:L,s:+$('s').value,flim:fl});
+    var ok=true, html='';
+    function ck(vi,en,r,note){ if(!(r<=1)) ok=false; html+=T.check(vi,en,r,note); }
+    html+='<div class="ck '+(o.cracked?'ng':'ok')+'"><div class="ck-top"><span class="ck-name">'+T.bi('Hình thành vết nứt','Crack formation')+'</span><span class="ck-val">M = '+T.fmt(o.Mt,1)+(o.cracked?' &gt; ':' ≤ ')+'M<sub>crc</sub> = '+T.fmt(o.Mcrc,1)+'</span><span class="badge">'+(o.cracked?T.bi('Có nứt','Cracked'):T.bi('Không nứt','Uncracked'))+'</span></div></div>';
+    if(o.cracked){ ck('Bề rộng vết nứt dài hạn','Long-term crack width',o.aL/o.limL,T.fmt(o.aL,3)+' / '+o.limL+' mm'); ck('Bề rộng vết nứt ngắn hạn','Short-term crack width',o.aS/o.limS,T.fmt(o.aS,3)+' / '+o.limS+' mm'); }
+    ck('Độ võng','Deflection',o.f/o.flim,T.fmt(o.f,2)+' / '+T.fmt(o.flim,1)+' mm (L/'+T.fmt(L*1000/o.flim,0)+')');
+    $('res').innerHTML=T.verdict(ok,o.cracked?'Cấu kiện có nứt':'Cấu kiện không nứt',o.cracked?'Cracked member':'Uncracked member')+
+      '<div class="kpis"><div><small>M<sub>crc</sub> (kN·m)</small><b>'+T.fmt(o.Mcrc,1)+'</b></div><div><small>a<sub>crc</sub> (mm)</small><b>'+(o.cracked?T.fmt(o.aS,3):'—')+'</b></div><div><small>f (mm)</small><b>'+T.fmt(o.f,2)+'</b></div></div>'+html;
+    var rows=[
+      T.row('α, y<sub>t</sub>, I<sub>red</sub>','Tiết diện chưa nứt: E<sub>s</sub>/E<sub>b</sub>; trục trung hòa tới thớ kéo; mô men quán tính','Uncracked: E<sub>s</sub>/E<sub>b</sub>; neutral axis to tension face; second moment',T.fmt(o.al,3)+'; '+T.fmt(o.yt,1)+' mm; '+T.fmt(o.Ired0/1e8,3)+'·10⁸ mm⁴',''),
+      T.row('M<sub>crc</sub>','= 1,3R<sub>bt,ser</sub>I<sub>red</sub>/y<sub>t</sub>','= 1.3R<sub>bt,ser</sub>I<sub>red</sub>/y<sub>t</sub>',o.Mcrc,'kN·m',2),
+      T.row('M, M<sub>l</sub>','Toàn phần; dài hạn = M<sub>tx</sub> + ψM<sub>tt</sub>','Total; long-term = M<sub>perm</sub> + ψM<sub>var</sub>',T.fmt(o.Mt,1)+'; '+T.fmt(o.MlL,1),'kN·m')];
+    if(o.cracked){
+      rows.push(T.row('y<sub>c</sub>, l<sub>s</sub>','Vùng nén tiết diện nứt; khoảng cách vết nứt','Cracked compression depth; crack spacing',T.fmt(o.cs.yc,1)+'; '+T.fmt(o.ls,0),'mm'));
+      rows.push(T.row('σ<sub>s</sub>, ψ<sub>s</sub>','Dài hạn (M<sub>l</sub>); toàn phần (M)','Long-term (M<sub>l</sub>); total (M)',T.fmt(o.c1.s,1)+' MPa, '+T.fmt(o.c1.ps,3)+'; '+T.fmt(o.c2.s,1)+' MPa, '+T.fmt(o.c2.ps,3),''));
+      rows.push(T.row('a<sub>crc,1..3</sub>','φ<sub>1</sub> = 1,4 (dài hạn), 1,0 (ngắn hạn); φ<sub>2</sub> = 0,5 (thép gân)','φ<sub>1</sub> = 1.4 (long), 1.0 (short); φ<sub>2</sub> = 0.5 (ribbed)',T.fmt(o.c1.a,4)+'; '+T.fmt(o.c2.a,4)+'; '+T.fmt(o.c3.a,4),'mm'));
+      rows.push(T.row('D<sub>1</sub>, D<sub>2</sub>, D<sub>3</sub>','Độ cứng tiết diện nứt (E<sub>b,red</sub> ngắn hạn, ngắn hạn, dài hạn)','Cracked stiffness (short, short, long-term E<sub>b,red</sub>)',T.fmt(o.D1.D/1e12,2)+'; '+T.fmt(o.D2.D/1e12,2)+'; '+T.fmt(o.D3.D/1e12,2),'kN·m²'));
+    } else rows.push(T.row('D<sub>ngắn</sub>, D<sub>dài</sub>','E<sub>b1</sub> = 0,85E<sub>b</sub>; E<sub>b</sub>/(1 + φ<sub>b,cr</sub>), φ<sub>b,cr</sub> = '+phicr,'E<sub>b1</sub> = 0.85E<sub>b</sub>; E<sub>b</sub>/(1 + φ<sub>b,cr</sub>), φ<sub>b,cr</sub> = '+phicr,T.fmt(o.Ds/1e12,2)+'; '+T.fmt(o.Dl/1e12,2),'kN·m²'));
+    rows.push(T.row('1/r, f','Độ cong tổng; độ võng = s·L²·(1/r)','Total curvature; deflection = s·L²·(1/r)',T.fmt(o.r*1000,5)+' 1/m; '+T.fmt(o.f,2)+' mm',''));
+    $('detail').innerHTML=T.table(rows);
+  }
+  T.bind('f',run);
+})();
+</script>

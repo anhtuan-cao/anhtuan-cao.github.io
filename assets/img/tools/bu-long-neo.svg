@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ee5a24"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<rect x="60" y="120" width="440" height="260" fill="#9aa7c4" opacity=".55" stroke="#1d2a5b" stroke-width="2"/>
+<path d="M180 120L60 330M320 120L500 330" fill="none" stroke="#ee5a24" stroke-width="2" stroke-dasharray="7 4"/>
+<path d="M200 70V300H230" fill="none" stroke="#1d2a5b" stroke-width="7"/>
+<path d="M300 70V300H330" fill="none" stroke="#1d2a5b" stroke-width="7"/>
+<rect x="160" y="100" width="180" height="20" fill="#3b56a8"/><rect x="220" y="40" width="60" height="60" fill="none" stroke="#1d2a5b" stroke-width="3"/>
+<path d="M250 20V36" stroke="#ee5a24" stroke-width="4" marker-end="url(#ao)"/><text x="260" y="30" font-size="13" fill="#ee5a24" font-weight="700">N</text>
+<path d="M380 110H430" stroke="#ee5a24" stroke-width="4" marker-end="url(#ao)"/><text x="400" y="100" font-size="13" fill="#ee5a24" font-weight="700">V</text>
+<path d="M530 120V300" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="540" y="215" font-size="13" fill="#1d2a5b">h<tspan font-size="10" dy="3">ef</tspan></text>
+<path d="M300 400H500" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="400" y="395" font-size="12" text-anchor="middle" fill="#1d2a5b">c<tspan font-size="9" dy="3">a1</tspan></text>
+<text x="580" y="160" font-size="13" fill="#ee5a24" text-anchor="start" font-weight="600">Nón phá hoại 35°</text><text x="580" y="175" font-size="11" fill="#6b7596" text-anchor="start">35° breakout cone</text>
+<text x="580" y="240" font-size="13" fill="#1d2a5b" text-anchor="start" font-weight="600">Bu lông móc</text><text x="580" y="255" font-size="11" fill="#6b7596" text-anchor="start">Hooked anchor bolts</text>
+<text x="580" y="320" font-size="13" fill="#1d2a5b" text-anchor="start" font-weight="600">Bê tông móng</text><text x="580" y="335" font-size="11" fill="#6b7596" text-anchor="start">Concrete foundation</text>
+</svg>
