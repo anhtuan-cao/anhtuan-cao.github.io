@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<rect x="60" y="70" width="180" height="280" fill="#9aa7c4" opacity=".55" stroke="#1d2a5b" stroke-width="2"/>
+<rect x="78" y="88" width="144" height="244" fill="none" stroke="#1d2a5b" stroke-dasharray="5 3"/>
+<circle cx="84" cy="94" r="6" fill="#ee5a24"/>
+<circle cx="84" cy="326" r="6" fill="#ee5a24"/>
+<circle cx="117" cy="94" r="6" fill="#ee5a24"/>
+<circle cx="117" cy="326" r="6" fill="#ee5a24"/>
+<circle cx="150" cy="94" r="6" fill="#ee5a24"/>
+<circle cx="150" cy="326" r="6" fill="#ee5a24"/>
+<circle cx="183" cy="94" r="6" fill="#ee5a24"/>
+<circle cx="183" cy="326" r="6" fill="#ee5a24"/>
+<circle cx="216" cy="94" r="6" fill="#ee5a24"/>
+<circle cx="216" cy="326" r="6" fill="#ee5a24"/>
+<circle cx="84" cy="152" r="6" fill="#ee5a24"/>
+<circle cx="216" cy="152" r="6" fill="#ee5a24"/>
+<circle cx="84" cy="210" r="6" fill="#ee5a24"/>
+<circle cx="216" cy="210" r="6" fill="#ee5a24"/>
+<circle cx="84" cy="268" r="6" fill="#ee5a24"/>
+<circle cx="216" cy="268" r="6" fill="#ee5a24"/>
+<path d="M60 380H240" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="150" y="398" font-size="13" text-anchor="middle" fill="#1d2a5b">C<tspan font-size="10" dy="3">x</tspan></text>
+<path d="M30 70V350" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="22" y="214" font-size="13" text-anchor="end" fill="#1d2a5b">C<tspan font-size="10" dy="3">y</tspan></text>
+<circle cx="400" cy="210" r="120" fill="#9aa7c4" opacity=".55" stroke="#1d2a5b" stroke-width="2"/><circle cx="400" cy="210" r="102" fill="none" stroke="#1d2a5b" stroke-dasharray="5 3"/>
+<circle cx="400.0" cy="114.0" r="6" fill="#ee5a24"/>
+<circle cx="448.0" cy="126.9" r="6" fill="#ee5a24"/>
+<circle cx="483.1" cy="162.0" r="6" fill="#ee5a24"/>
+<circle cx="496.0" cy="210.0" r="6" fill="#ee5a24"/>
+<circle cx="483.1" cy="258.0" r="6" fill="#ee5a24"/>
+<circle cx="448.0" cy="293.1" r="6" fill="#ee5a24"/>
+<circle cx="400.0" cy="306.0" r="6" fill="#ee5a24"/>
+<circle cx="352.0" cy="293.1" r="6" fill="#ee5a24"/>
+<circle cx="316.9" cy="258.0" r="6" fill="#ee5a24"/>
+<circle cx="304.0" cy="210.0" r="6" fill="#ee5a24"/>
+<circle cx="316.9" cy="162.0" r="6" fill="#ee5a24"/>
+<circle cx="352.0" cy="126.9" r="6" fill="#ee5a24"/>
+<path d="M280 380H520" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="400" y="398" font-size="13" text-anchor="middle" fill="#1d2a5b">D</text>
+<path d="M580 360H740M580 360V60" stroke="#1d2a5b" stroke-width="1.5"/>
+<path d="M580 70C670 110 730 190 720 250C710 300 650 340 580 350" fill="none" stroke="#ee5a24" stroke-width="3"/>
+<circle cx="675" cy="220" r="6" fill="#1d2a5b"/><text x="685" y="216" font-size="12" fill="#1d2a5b">(M, N)</text>
+<text x="735" y="378" font-size="12" text-anchor="end" fill="#1d2a5b">M</text><text x="586" y="62" font-size="12" fill="#1d2a5b">N</text>
+<text x="660" y="400" font-size="12" text-anchor="middle" fill="#6b7596">Biểu đồ tương tác · N–M</text>
+</svg>

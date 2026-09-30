@@ -1,0 +1,82 @@
+---
+layout: page
+title: "Dầm thép hình, tổ hợp chịu uốn — TCVN 5575:2012"
+title_vi: "Dầm thép chịu uốn"
+title_en: "Steel beams in bending"
+kicker_vi: "Công cụ tính online · Kết cấu thép"
+kicker_en: "Online calculator · Steel structures"
+lead_vi: "Dầm thép hình cán hoặc tổ hợp hàn, dầm đơn giản hoặc console: bền uốn, bền cắt, ổn định tổng thể, ổn định cục bộ cánh và bụng, nén cục bộ dưới dầm phụ và ứng suất tương đương."
+lead_en: "Rolled or welded I-beams, simply supported or cantilevered: bending, shear, lateral–torsional buckling, flange and web local stability, local bearing under secondary beams and equivalent stress."
+description: "Công cụ tính online kiểm tra dầm thép hình, dầm tổ hợp chịu uốn theo TCVN 5575:2012."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/dam-thep.svg" alt="Tiết diện dầm thép I và sơ đồ dầm phụ"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Ngoài điều kiện bền, dầm chữ I chịu uốn có thể mất ổn định tổng thể (xoắn – uốn ngang) giữa các điểm giằng cánh nén. Hệ số φ<sub>b</sub> phụ thuộc α = 1,54(I<sub>t</sub>/I<sub>y</sub>)(l<sub>o</sub>/h)² và hệ số ψ theo sơ đồ (dầm có giằng, không giằng, console) theo Phụ lục E. Tại chỗ dầm phụ gối lên, bụng dầm chịu nén cục bộ và ứng suất tương đương.</span><span class="l-en">Besides strength, an I-beam may buckle laterally–torsionally between braces of the compression flange. φ<sub>b</sub> depends on α = 1.54(I<sub>t</sub>/I<sub>y</sub>)(l<sub>o</sub>/h)² and ψ for the scheme (braced, unbraced, cantilever) per Annex E. Where secondary beams bear, the web sees local compression and a combined equivalent stress.</span></p>
+      <div class="formula">M ≤ φ<sub>b</sub>W<sub>x</sub>fγ<sub>c</sub> · φ<sub>1</sub> = ψ(I<sub>y</sub>/I<sub>x</sub>)(h/l<sub>o</sub>)²E/f<br>√(σ² − σσ<sub>c</sub> + σ<sub>c</sub>² + 3τ²) ≤ 1,15fγ<sub>c</sub></div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Tiết diện</span><span class="l-en">Section</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Tiết diện mẫu (h×b×t<sub>w</sub>×t<sub>f</sub>)</span><span class="l-en">Preset (h×b×t<sub>w</sub>×t<sub>f</sub>)</span></span><span class="in"><select id="pre"><option value="">— tự nhập · custom —</option><option>200x100x5.5x8</option><option>300x150x6.5x9</option><option>400x200x8x13</option><option>500x200x10x16</option><option>300x300x10x15</option><option selected>400x400x13x21</option></select></span></label>
+        <label class="fld"><span class="lb"><i>h, b</i><span class="l-vi">Chiều cao, bề rộng cánh (mm)</span><span class="l-en">Depth, flange width (mm)</span></span><span class="in"><input id="h" type="number" step="any" value="400"><input id="bf" type="number" step="any" value="400"></span></label>
+        <label class="fld"><span class="lb"><i>t<sub>w</sub>, t<sub>f</sub></i><span class="l-vi">Bề dày bụng, cánh (mm)</span><span class="l-en">Web, flange thickness (mm)</span></span><span class="in"><input id="tw" type="number" step="any" value="13"><input id="tf" type="number" step="any" value="21"></span></label>
+        <label class="fld"><span class="lb"><i>f</i><span class="l-vi">Mác thép</span><span class="l-en">Steel grade</span></span><span class="in"><select id="grade"><option value="21">CCT34 · 210</option><option value="22.3" selected>SS400 · 223</option><option value="24.5">CCT42 · 245</option><option value="31.4">Q345 · 314</option></select></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Sơ đồ &amp; nội lực</span><span class="l-en">Scheme &amp; actions</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Sơ đồ ổn định</span><span class="l-en">Stability scheme</span></span><span class="in"><select id="type"><option value="braced" selected>Có giằng cánh nén tại l<sub>o</sub> · Braced at l<sub>o</sub></option><option value="simple">Dầm đơn giản không giằng · Unbraced</option><option value="cant">Console · Cantilever</option></select></span></label>
+        <label class="fld m-u"><span class="lb"><i>–</i><span class="l-vi">Dạng tải; cánh đặt tải</span><span class="l-en">Load type; loaded flange</span></span><span class="in"><select id="load"><option value="udl">Phân bố · UDL</option><option value="pt">Tập trung giữa nhịp · Midspan point</option></select><select id="fl"><option value="top">Cánh trên · Top</option><option value="bot">Cánh dưới · Bottom</option></select></span></label>
+        <label class="fld"><span class="lb"><i>l<sub>o</sub></i><span class="l-vi">Chiều dài tính toán ngoài mặt phẳng (bước giằng)</span><span class="l-en">Unbraced length</span></span><span class="in"><input id="lo" type="number" step="any" value="2"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>M, V</i><span class="l-vi">Mô men (kN·m); lực cắt (kN)</span><span class="l-en">Moment (kN·m); shear (kN)</span></span><span class="in"><input id="M" type="number" step="any" value="450"><input id="V" type="number" step="any" value="400"></span></label>
+        <label class="fld w3"><span class="lb"><i>F, b<sub>p</sub>, r</i><span class="l-vi">Lực tập trung (kN); bề rộng tựa, bán kính lượn (mm)</span><span class="l-en">Point load (kN); bearing width, root radius (mm)</span></span><span class="in"><input id="F" type="number" step="any" value="300"><input id="bs" type="number" step="any" value="350"><input id="r" type="number" step="any" value="0"></span></label>
+        <label class="fld"><span class="lb"><i>γ<sub>c</sub></i><span class="l-vi">Hệ số điều kiện làm việc</span><span class="l-en">Working factor</span></span><span class="in"><input id="gc" type="number" step="any" value="0.95"><em>–</em></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5575:2012 — <span class="l-vi">Kết cấu thép. Tiêu chuẩn thiết kế (7.2, 7.5, 7.6 và Phụ lục E)</span><span class="l-en">Steel structures. Design standard (7.2, 7.5, 7.6 and Annex E)</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/steelbeam-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  $('pre').addEventListener('change',function(){ if(!this.value) return; var a=this.value.split('x'); $('h').value=a[0]; $('bf').value=a[1]; $('tw').value=a[2]; $('tf').value=a[3]; });
+  function run(){
+    document.querySelectorAll('.m-u').forEach(function(e){e.style.display=$('type').value==='simple'?'':'none';});
+    var s=SBEAM.isec(T.val('h')/10,T.val('bf')/10,T.val('tw')/10,T.val('tf')/10), f=+$('grade').value, gc=T.val('gc');
+    var o=SBEAM.check({s:s,f:f,E:21000,gc:gc,M:T.val('M'),V:T.val('V'),F:T.val('F')||0,bsub:T.val('bs')/10,r:(T.val('r')||0)/10,lo:T.val('lo')*100,type:$('type').value,load:$('load').value,flange:$('type').value==='cant'?'top':$('fl').value});
+    var ok=true, html='';
+    function ck(vi,en,r,note){ if(!(r<=1)) ok=false; html+=T.check(vi,en,r,note); }
+    ck('Bền uốn','Bending strength',o.rM,T.fmt(T.val('M')*100/s.Wx*10,1)+' / '+T.fmt(f*10*gc,1)+' MPa');
+    ck('Bền cắt','Shear strength',o.rV,T.fmt(o.tau*10,1)+' / '+T.fmt(0.58*f*10*gc,1)+' MPa');
+    ck('Ổn định tổng thể','Lateral–torsional buckling',o.rL,'φ<sub>b</sub> = '+T.fmt(o.phib,3));
+    ck('Ổn định cục bộ cánh nén','Compression flange local stability',o.rF,'b<sub>0</sub>/t<sub>f</sub> = '+T.fmt(o.b0/s.tf,2)+' / '+T.fmt(o.lim,2));
+    ck('Ổn định cục bộ bụng (không sườn)','Web local stability (unstiffened)',o.rW,'h<sub>w</sub>/t<sub>w</sub> = '+T.fmt(o.lw,1)+' / '+T.fmt(o.limw,1));
+    if(T.val('F')>0) ck('Nén cục bộ bụng','Web local bearing',o.rC,T.fmt(o.sc*10,1)+' / '+T.fmt(f*10*gc,1)+' MPa');
+    ck('Ứng suất tương đương','Equivalent stress',o.rE,T.fmt(o.seq*10,1)+' / '+T.fmt(1.15*f*10*gc,1)+' MPa');
+    $('res').innerHTML=T.verdict(ok,'I '+T.val('h')+'×'+T.val('bf')+'×'+T.val('tw')+'×'+T.val('tf'),'I '+T.val('h')+'×'+T.val('bf')+'×'+T.val('tw')+'×'+T.val('tf'))+
+      '<div class="kpis"><div><small>W<sub>x</sub> (cm³)</small><b>'+T.fmt(s.Wx,0)+'</b></div><div><small>φ<sub>b</sub></small><b>'+T.fmt(o.phib,3)+'</b></div><div><small>σ<sub>td</sub> (MPa)</small><b>'+T.fmt(o.seq*10,1)+'</b></div></div>'+html;
+    var rows=[
+      T.row('A, J<sub>x</sub>, J<sub>y</sub>','Đặc trưng tiết diện (bỏ qua góc lượn)','Section properties (fillets ignored)',T.fmt(s.A,1)+' cm²; '+T.fmt(s.Jx,0)+'; '+T.fmt(s.Jy,0)+' cm⁴',''),
+      T.row('W<sub>x</sub>, S<sub>x</sub>, I<sub>t</sub>','','',T.fmt(s.Wx,1)+'; '+T.fmt(s.Sx,1)+' cm³; '+T.fmt(s.It,1)+' cm⁴',''),
+      T.row('α, ψ','= 1,54(I<sub>t</sub>/J<sub>y</sub>)(l<sub>o</sub>/h)²; ψ theo Phụ lục E','= 1.54(I<sub>t</sub>/J<sub>y</sub>)(l<sub>o</sub>/h)²; ψ per Annex E',T.fmt(o.a,3)+'; '+T.fmt(o.psi,3),''),
+      T.row('φ<sub>1</sub>, φ<sub>b</sub>','= ψ(J<sub>y</sub>/J<sub>x</sub>)(h/l<sub>o</sub>)²E/f; φ<sub>b</sub> = 0,68 + 0,21φ<sub>1</sub> ≤ 1 khi φ<sub>1</sub> &gt; 0,85','= ψ(J<sub>y</sub>/J<sub>x</sub>)(h/l<sub>o</sub>)²E/f; φ<sub>b</sub> = 0.68 + 0.21φ<sub>1</sub> ≤ 1 if φ<sub>1</sub> &gt; 0.85',T.fmt(o.phi1,3)+'; '+T.fmt(o.phib,3),''),
+      T.row('l<sub>z</sub>, σ<sub>c</sub>','= b<sub>p</sub> + 2(t<sub>f</sub> + r); F/(t<sub>w</sub>l<sub>z</sub>)','= b<sub>p</sub> + 2(t<sub>f</sub> + r); F/(t<sub>w</sub>l<sub>z</sub>)',T.fmt(o.lz,1)+' cm; '+T.fmt(o.sc*10,1)+' MPa',''),
+      T.row('σ, τ<sub>1</sub>','Tại mép bụng: M·h<sub>w</sub>/(2J<sub>x</sub>); V·S<sub>f</sub>/(J<sub>x</sub>t<sub>w</sub>)','At web edge: M·h<sub>w</sub>/(2J<sub>x</sub>); V·S<sub>f</sub>/(J<sub>x</sub>t<sub>w</sub>)',T.fmt(o.sx*10,1)+'; '+T.fmt(o.t1*10,1),'MPa')];
+    $('detail').innerHTML=T.table(rows);
+  }
+  T.bind('f',run);
+})();
+</script>

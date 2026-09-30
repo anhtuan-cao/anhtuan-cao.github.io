@@ -1,0 +1,93 @@
+---
+layout: page
+title: "Dầm, sàn BTCT — cốt thép chịu uốn và chịu cắt theo TCVN 5574:2018"
+title_vi: "Dầm, sàn bê tông cốt thép"
+title_en: "RC beams &amp; slabs"
+kicker_vi: "Công cụ tính online · Kết cấu bê tông"
+kicker_en: "Online calculator · Concrete structures"
+lead_vi: "Tính diện tích cốt thép yêu cầu (đặt đơn hoặc đặt kép), kiểm tra khả năng chịu uốn với thép bố trí hai lớp, và khả năng chịu cắt trên tiết diện nghiêng có tìm vị trí vết nứt bất lợi nhất."
+lead_en: "Required steel (singly or doubly reinforced), flexural capacity with two tension layers as detailed, and shear on inclined sections with a search for the governing crack projection."
+description: "Công cụ tính online cốt thép dầm, sàn bê tông cốt thép theo TCVN 5574:2018: thép chịu uốn đặt đơn/kép, kiểm tra khả năng chịu uốn và chịu cắt."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/dam-btct.svg" alt="Tiết diện dầm BTCT, khối ứng suất và tiết diện nghiêng"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Vùng nén chịu ứng suất R<sub>b</sub> trên chiều cao x; cốt thép chịu kéo đạt R<sub>s</sub> khi ξ = x/h<sub>0</sub> ≤ ξ<sub>R</sub>. Nếu α<sub>m</sub> vượt α<sub>R</sub>, cần đặt thép chịu nén. Khi x &lt; 2a' thì bỏ qua thép chịu nén và lấy mô men quanh trọng tâm thép nén. Chịu cắt gồm phần bê tông Q<sub>b</sub> = 1,5R<sub>bt</sub>bh<sub>0</sub>²/c (0,5–2,5R<sub>bt</sub>bh<sub>0</sub>) và cốt đai Q<sub>sw</sub> = 0,75q<sub>sw</sub>c<sub>0</sub>; c được dò trong khoảng h<sub>0</sub>–3h<sub>0</sub> để tìm giá trị nhỏ nhất.</span><span class="l-en">The compression zone carries R<sub>b</sub> over depth x; tension steel yields at R<sub>s</sub> while ξ = x/h<sub>0</sub> ≤ ξ<sub>R</sub>. If α<sub>m</sub> exceeds α<sub>R</sub>, compression steel is required. When x &lt; 2a' the compression steel is ignored and moments are taken about it. Shear combines concrete Q<sub>b</sub> = 1.5R<sub>bt</sub>bh<sub>0</sub>²/c (0.5–2.5R<sub>bt</sub>bh<sub>0</sub>) and links Q<sub>sw</sub> = 0.75q<sub>sw</sub>c<sub>0</sub>; c is searched over h<sub>0</sub>–3h<sub>0</sub> for the minimum.</span></p>
+      <div class="formula">α<sub>m</sub> = M/(R<sub>b</sub>bh<sub>0</sub>²) · ξ = 1 − √(1 − 2α<sub>m</sub>) · A<sub>s</sub> = ξR<sub>b</sub>bh<sub>0</sub>/R<sub>s</sub><br>M<sub>u</sub> = R<sub>b</sub>bx(h<sub>0</sub> − x/2) + R<sub>sc</sub>A'<sub>s</sub>(h<sub>0</sub> − a')</div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Cấu kiện &amp; vật liệu</span><span class="l-en">Member &amp; materials</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Loại</span><span class="l-en">Type</span></span><span class="in"><select id="mode"><option value="beam" selected>Dầm · Beam</option><option value="slab">Sàn (dải 1 m) · Slab (1 m strip)</option></select></span></label>
+        <label class="fld"><span class="lb"><i>b × h</i><span class="l-vi">Tiết diện (mm)</span><span class="l-en">Section (mm)</span></span><span class="in"><input id="b" type="number" step="any" value="400"><input id="h" type="number" step="any" value="1300"></span></label>
+        <label class="fld"><span class="lb"><i>c</i><span class="l-vi">Lớp bảo vệ tới mép thép dọc</span><span class="l-en">Cover to main bars</span></span><span class="in"><input id="c" type="number" step="any" value="80"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>b</sub></i><span class="l-vi">Cấp bền bê tông</span><span class="l-en">Concrete class</span></span><span class="in"><select id="conc"><option value="7.5,0.66" selected>B12,5</option><option value="8.5,0.75">B15</option><option value="11.5,0.9">B20</option><option value="14.5,1.05">B25</option><option value="17,1.15">B30</option><option value="19.5,1.3">B35</option><option value="22,1.4">B40</option></select></span></label>
+        <label class="fld"><span class="lb"><i>γ<sub>b1</sub></i><span class="l-vi">Hệ số điều kiện làm việc bê tông (tải dài hạn 0,9)</span><span class="l-en">Concrete working factor (long-term 0.9)</span></span><span class="in"><input id="g1" type="number" step="any" value="1"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>s</sub></i><span class="l-vi">Thép dọc</span><span class="l-en">Main steel</span></span><span class="in"><select id="st"><option value="260,260,210000">CB300-V</option><option value="350,350,200000">CB400-V</option><option value="400,400,190000" selected>RB500W · 400 MPa</option><option value="435,435,200000">CB500-V</option></select></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Nội lực</span><span class="l-en">Actions</span></legend>
+        <label class="fld"><span class="lb"><i>M, Q</i><span class="l-vi">Mô men (kN·m); lực cắt (kN)</span><span class="l-en">Moment (kN·m); shear (kN)</span></span><span class="in"><input id="M" type="number" step="any" value="500"><input id="Q" type="number" step="any" value="571"></span></label>
+      </fieldset>
+      <fieldset class="m-b"><legend><span class="l-vi">Cốt thép bố trí</span><span class="l-en">Reinforcement as detailed</span></legend>
+        <label class="fld"><span class="lb"><i>n × Ø</i><span class="l-vi">Thép chịu kéo lớp 1</span><span class="l-en">Tension, layer 1</span></span><span class="in"><input id="n1" type="number" step="1" value="2"><input id="d1" type="number" step="any" value="25"></span></label>
+        <label class="fld"><span class="lb"><i>n × Ø</i><span class="l-vi">Thép chịu kéo lớp 2</span><span class="l-en">Tension, layer 2</span></span><span class="in"><input id="n2" type="number" step="1" value="1"><input id="d2" type="number" step="any" value="25"></span></label>
+        <label class="fld"><span class="lb"><i>n × Ø</i><span class="l-vi">Thép chịu nén</span><span class="l-en">Compression steel</span></span><span class="in"><input id="n3" type="number" step="1" value="2"><input id="d3" type="number" step="any" value="25"></span></label>
+        <label class="fld w3"><span class="lb"><i>n, Ø, s</i><span class="l-vi">Cốt đai: số nhánh, đường kính, bước (mm)</span><span class="l-en">Links: legs, diameter, spacing (mm)</span></span><span class="in"><input id="nw" type="number" step="1" value="2"><input id="dw" type="number" step="any" value="10"><input id="sw" type="number" step="any" value="150"></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>sw</sub></i><span class="l-vi">Cường độ cốt đai</span><span class="l-en">Link strength</span></span><span class="in"><input id="Rsw" type="number" step="any" value="320"><em>MPa</em></span></label>
+      </fieldset>
+      <fieldset class="m-s"><legend><span class="l-vi">Thép sàn (mỗi mét)</span><span class="l-en">Slab steel (per metre)</span></legend>
+        <label class="fld"><span class="lb"><i>Ø @ s</i><span class="l-vi">Thép chịu kéo: đường kính; bước (mm)</span><span class="l-en">Tension bars: diameter; spacing (mm)</span></span><span class="in"><input id="ds" type="number" step="any" value="12"><input id="ss" type="number" step="any" value="150"></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5574:2018 — <span class="l-vi">Kết cấu bê tông và bê tông cốt thép (8.1.2.2, 8.1.3.3, 10.3.3)</span><span class="l-en">Concrete and reinforced concrete structures (8.1.2.2, 8.1.3.3, 10.3.3)</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/rcbeam-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  $('mode').addEventListener('change',function(){ if(this.value==='slab'){ $('b').value=1000; $('h').value=200; $('c').value=20; $('M').value=40; $('Q').value=60; $('conc').value='17,1.15'; $('st').value='350,350,200000'; } else { $('b').value=400; $('h').value=1300; $('c').value=80; $('M').value=500; $('Q').value=571; $('conc').value='7.5,0.66'; $('st').value='400,400,190000'; } });
+  function run(){
+    var sl=$('mode').value==='slab';
+    document.querySelectorAll('.m-b').forEach(function(e){e.style.display=sl?'none':'';});
+    document.querySelectorAll('.m-s').forEach(function(e){e.style.display=sl?'':'none';});
+    var c=$('conc').value.split(',').map(parseFloat), st=$('st').value.split(',').map(parseFloat), b=T.val('b');
+    var t1=sl?{n:b/T.val('ss'),d:T.val('ds')}:{n:T.val('n1'),d:T.val('d1')};
+    var o=RCB.beam({b:b,h:T.val('h'),c:T.val('c'),M:T.val('M'),Q:T.val('Q'),Rb:c[0],Rbt:c[1],g1:T.val('g1'),Rs:st[0],Rsc:st[1],Es:st[2],Rsw:T.val('Rsw'),
+      t1:t1,t2:sl?{n:0,d:0}:{n:T.val('n2')||0,d:T.val('d2')||0},cp:sl?{n:0,d:0}:{n:T.val('n3')||0,d:T.val('d3')||0},sw:sl?{n:0,d:0,s:1}:{n:T.val('nw'),d:T.val('dw'),s:T.val('sw')}});
+    var ok=true, html='';
+    function ck(vi,en,r,note){ if(!(r<=1)) ok=false; html+=T.check(vi,en,r,note); }
+    ck('Diện tích thép chịu kéo','Tension steel area',o.req.As/o.As,T.fmt(o.req.As,0)+' / '+T.fmt(o.As,0)+' mm²');
+    if(o.req.dbl) ck('Thép chịu nén yêu cầu','Required compression steel',o.req.Asc/Math.max(o.Asc,1e-9),T.fmt(o.req.Asc,0)+' / '+T.fmt(o.Asc,0)+' mm²');
+    ck('Khả năng chịu uốn','Flexural capacity',o.rM,T.fmt(T.val('M'),1)+' / '+T.fmt(o.Mu,1)+' kN·m');
+    ck('Hàm lượng tối thiểu 0,1%','Minimum ratio 0.1%',o.rMin,'μ = '+T.fmt(o.mu,3)+'%');
+    ck('Ứng suất nén chính (dải bê tông)','Concrete strut',o.rS,T.fmt(T.val('Q'),1)+' / '+T.fmt(o.Qmax,1)+' kN');
+    ck(sl?'Chịu cắt (không cốt đai)':'Chịu cắt tiết diện nghiêng','Shear on inclined section',o.rQ,T.fmt(T.val('Q'),1)+' / '+T.fmt(o.sh.Q,1)+' kN');
+    $('res').innerHTML=T.verdict(ok,(sl?'Sàn ':'Dầm ')+b+'×'+T.val('h'),(sl?'Slab ':'Beam ')+b+'×'+T.val('h'))+
+      '<div class="kpis"><div><small>A<sub>s,yc</sub> (mm²)</small><b>'+T.fmt(o.req.As,0)+'</b></div><div><small>M<sub>u</sub> (kN·m)</small><b>'+T.fmt(o.Mu,1)+'</b></div><div><small>[Q] (kN)</small><b>'+T.fmt(o.sh.Q,1)+'</b></div></div>'+html;
+    var rows=[
+      T.row('a, h<sub>0</sub>','Trọng tâm thép chịu kéo; chiều cao làm việc','Tension steel centroid; effective depth',T.fmt(o.a,1)+'; '+T.fmt(o.h0,1),'mm'),
+      T.row('ξ<sub>R</sub>, α<sub>R</sub>','= 0,8/(1 + ε<sub>s,el</sub>/0,0035); ξ<sub>R</sub>(1 − 0,5ξ<sub>R</sub>)','= 0.8/(1 + ε<sub>s,el</sub>/0.0035); ξ<sub>R</sub>(1 − 0.5ξ<sub>R</sub>)',T.fmt(o.xiR,4)+'; '+T.fmt(o.aR,4),''),
+      T.row('α<sub>m</sub>, ξ','= M/(γ<sub>b1</sub>R<sub>b</sub>bh<sub>0</sub>²)','= M/(γ<sub>b1</sub>R<sub>b</sub>bh<sub>0</sub>²)',T.fmt(o.req.am,4)+'; '+T.fmt(o.req.xi,4)+(o.req.dbl?' → '+T.bi('đặt kép','doubly reinforced'):''),''),
+      T.row('A<sub>s</sub>, A\'<sub>s</sub>','Thép bố trí chịu kéo, chịu nén','Provided tension, compression steel',T.fmt(o.As,0)+'; '+T.fmt(o.Asc,0),'mm²'),
+      T.row('x','Chiều cao vùng nén ('+o.mode+')','Compression depth ('+o.mode+')',o.x,'mm',1),
+      T.row('q<sub>sw</sub>','= R<sub>sw</sub>A<sub>sw</sub>/s'+(o.useSw?'':' (< 0,25R<sub>bt</sub>b → không kể)'),'= R<sub>sw</sub>A<sub>sw</sub>/s'+(o.useSw?'':' (< 0.25R<sub>bt</sub>b → ignored)'),o.qsw,'N/mm',1),
+      T.row('c, Q<sub>b</sub>, Q<sub>sw</sub>','Hình chiếu tiết diện nghiêng bất lợi; phần bê tông; cốt đai','Governing crack projection; concrete; links',T.fmt(o.sh.c,0)+' mm; '+T.fmt(o.sh.Qb,1)+'; '+T.fmt(o.sh.Qs,1)+' kN','')];
+    $('detail').innerHTML=T.table(rows);
+  }
+  T.bind('f',run);
+})();
+</script>

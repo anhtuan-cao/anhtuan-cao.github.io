@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<rect x="80" y="60" width="200" height="22" fill="#1d2a5b"/><rect x="170" y="82" width="20" height="236" fill="#1d2a5b"/><rect x="80" y="318" width="200" height="22" fill="#1d2a5b"/>
+<path d="M80 370H280" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="180" y="390" font-size="13" text-anchor="middle" fill="#1d2a5b">b</text>
+<path d="M50 60V340" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="42" y="204" font-size="13" text-anchor="end" fill="#1d2a5b">h</text>
+<rect x="360" y="190" width="370" height="26" fill="#1d2a5b"/>
+<rect x="406" y="160" width="28" height="30" fill="#3b56a8"/><path d="M420 110V156" stroke="#ee5a24" stroke-width="3" marker-end="url(#ar)"/><text x="428" y="130" font-size="13" fill="#ee5a24" font-weight="700">F</text>
+<rect x="531" y="160" width="28" height="30" fill="#3b56a8"/><path d="M545 110V156" stroke="#ee5a24" stroke-width="3" marker-end="url(#ar)"/><text x="553" y="130" font-size="13" fill="#ee5a24" font-weight="700">F</text>
+<rect x="656" y="160" width="28" height="30" fill="#3b56a8"/><path d="M670 110V156" stroke="#ee5a24" stroke-width="3" marker-end="url(#ar)"/><text x="678" y="130" font-size="13" fill="#ee5a24" font-weight="700">F</text>
+<path d="M360 216L350 236H370Z" fill="#1d2a5b"/><path d="M730 216L720 236H740Z" fill="#1d2a5b"/>
+<path d="M420 262H545" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="482" y="282" font-size="13" text-anchor="middle" fill="#1d2a5b">l<tspan font-size="10" dy="3">o</tspan></text>
+<text x="545" y="330" font-size="12" text-anchor="middle" fill="#6b7596">Dầm phụ giằng cánh nén · Secondary beams brace the compression flange</text>
+</svg>

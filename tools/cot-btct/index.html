@@ -1,0 +1,108 @@
+---
+layout: page
+title: "Cột BTCT chữ nhật và tròn chịu nén lệch tâm xiên — TCVN 5574:2018"
+title_vi: "Cột bê tông cốt thép"
+title_en: "RC columns"
+kicker_vi: "Công cụ tính online · Kết cấu bê tông"
+kicker_en: "Online calculator · Concrete structures"
+lead_vi: "Cột chữ nhật hoặc tròn chịu lực dọc và mô men hai phương: hệ số uốn dọc η theo độ cứng D, khả năng chịu lực theo mô hình thớ (lệch tâm xiên), biểu đồ tương tác N–M và khả năng chịu cắt."
+lead_en: "Rectangular or circular columns under axial force and biaxial moments: slenderness factor η from stiffness D, capacity by a fibre model (biaxial), an N–M interaction diagram and shear resistance."
+description: "Công cụ tính online cột bê tông cốt thép chữ nhật, tròn chịu nén lệch tâm xiên theo TCVN 5574:2018, có biểu đồ tương tác N–M."
+body_class: tool-page
+---
+<section class="wrap tool">
+  <div class="tool-intro">
+    <figure class="tool-fig"><img src="/assets/img/tools/cot-btct.svg" alt="Tiết diện cột chữ nhật, cột tròn và biểu đồ tương tác"></figure>
+    <div class="tool-principle">
+      <h3><span class="l-vi">Nguyên lý</span><span class="l-en">Principle</span></h3>
+      <p><span class="l-vi">Độ lệch tâm ban đầu e<sub>0</sub> = max(M/N, e<sub>a</sub>) được nhân hệ số uốn dọc η = 1/(1 − N/N<sub>cr</sub>), trong đó N<sub>cr</sub> = π²D/L<sub>0</sub>² và D = k<sub>b</sub>E<sub>b</sub>I + 0,7E<sub>s</sub>I<sub>s</sub> (I<sub>s</sub> tính theo vị trí thực của từng thanh thép). Khả năng chịu lực được xác định bằng mô hình thớ: vùng nén chịu ứng suất R<sub>b</sub> trên chiều cao 0,8x, cốt thép theo biến dạng phẳng với ε<sub>b2</sub> = 0,0035. Với mô men hai phương, trục trung hòa vuông góc hướng mô men tổng.</span><span class="l-en">The initial eccentricity e<sub>0</sub> = max(M/N, e<sub>a</sub>) is magnified by η = 1/(1 − N/N<sub>cr</sub>), with N<sub>cr</sub> = π²D/L<sub>0</sub>² and D = k<sub>b</sub>E<sub>b</sub>I + 0.7E<sub>s</sub>I<sub>s</sub> (I<sub>s</sub> from the actual bar positions). Capacity uses a fibre model: stress R<sub>b</sub> over 0.8x of the compression zone, bars from plane sections with ε<sub>b2</sub> = 0.0035. For biaxial bending, the neutral axis is taken normal to the resultant moment.</span></p>
+      <div class="formula">η = 1/(1 − N/N<sub>cr</sub>) · k<sub>b</sub> = 0,15/[φ<sub>L</sub>(0,3 + δ<sub>e</sub>)]<br>√(M<sub>x</sub>² + M<sub>y</sub>²) ≤ M<sub>u</sub>(N, θ)</div>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <form id="f" class="tool-form" onsubmit="return false">
+      <fieldset><legend><span class="l-vi">Tiết diện &amp; vật liệu</span><span class="l-en">Section &amp; materials</span></legend>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Loại tiết diện</span><span class="l-en">Section type</span></span><span class="in"><select id="sec"><option value="rect" selected>Chữ nhật · Rectangular</option><option value="circ">Tròn · Circular</option></select></span></label>
+        <label class="fld m-r"><span class="lb"><i>C<sub>x</sub>, C<sub>y</sub></i><span class="l-vi">Cạnh theo x, theo y (mm)</span><span class="l-en">Side along x, along y (mm)</span></span><span class="in"><input id="b" type="number" step="any" value="300"><input id="h" type="number" step="any" value="500"></span></label>
+        <label class="fld m-c"><span class="lb"><i>D</i><span class="l-vi">Đường kính cột</span><span class="l-en">Column diameter</span></span><span class="in"><input id="D" type="number" step="any" value="800"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>a</i><span class="l-vi">Mép bê tông tới tâm thép dọc</span><span class="l-en">Face to bar centre</span></span><span class="in"><input id="a" type="number" step="any" value="35"><em>mm</em></span></label>
+        <label class="fld m-r"><span class="lb"><i>n<sub>x</sub>, n<sub>y</sub></i><span class="l-vi">Số thanh trên cạnh C<sub>x</sub>, trên cạnh C<sub>y</sub> (kể cả góc)</span><span class="l-en">Bars along C<sub>x</sub>, along C<sub>y</sub> (incl. corners)</span></span><span class="in"><input id="nx" type="number" step="1" value="8"><input id="ny" type="number" step="1" value="8"></span></label>
+        <label class="fld m-c"><span class="lb"><i>n</i><span class="l-vi">Số thanh dọc</span><span class="l-en">Number of bars</span></span><span class="in"><input id="n" type="number" step="1" value="12"><em>–</em></span></label>
+        <label class="fld"><span class="lb"><i>Ø</i><span class="l-vi">Đường kính thép dọc</span><span class="l-en">Bar diameter</span></span><span class="in"><input id="d" type="number" step="any" value="20"><em>mm</em></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>b</sub></i><span class="l-vi">Cấp bền bê tông</span><span class="l-en">Concrete class</span></span><span class="in"><select id="conc"><option value="14.5,1.05,30000">B25</option><option value="17,1.15,32500">B30</option><option value="19.5,1.3,34500">B35</option><option value="22,1.4,36000" selected>B40</option><option value="25,1.5,37000">B45</option><option value="27.5,1.6,38000">B50</option></select></span></label>
+        <label class="fld"><span class="lb"><i>R<sub>s</sub></i><span class="l-vi">Thép dọc</span><span class="l-en">Longitudinal steel</span></span><span class="in"><select id="st"><option value="350,350">CB400-V · 350 MPa</option><option value="435,435" selected>CB500-V · 435 MPa</option></select></span></label>
+      </fieldset>
+      <fieldset><legend><span class="l-vi">Nội lực &amp; chiều dài</span><span class="l-en">Actions &amp; length</span></legend>
+        <label class="fld w3"><span class="lb"><i>N, M<sub>x</sub>, M<sub>y</sub></i><span class="l-vi">Lực dọc (kN); mô men M3, M2 (kN·m)</span><span class="l-en">Axial (kN); moments M3, M2 (kN·m)</span></span><span class="in"><input id="N" type="number" step="any" value="2575"><input id="Mx" type="number" step="any" value="728.3"><input id="My" type="number" step="any" value="261.3"></span></label>
+        <label class="fld w3"><span class="lb"><i>L, μ</i><span class="l-vi">Chiều cao cột (m); hệ số chiều dài; tỷ lệ tải dài hạn</span><span class="l-en">Height (m); length factor; long-term ratio</span></span><span class="in"><input id="L" type="number" step="any" value="5"><input id="mu" type="number" step="any" value="0.7"><input id="rL" type="number" step="any" value="0.7"></span></label>
+      </fieldset>
+      <fieldset class="m-r"><legend><span class="l-vi">Chịu cắt (cốt đai)</span><span class="l-en">Shear (links)</span></legend>
+        <label class="fld"><span class="lb"><i>V<sub>x</sub>, V<sub>y</sub></i><span class="l-vi">Lực cắt V2, V3 (kN)</span><span class="l-en">Shear V2, V3 (kN)</span></span><span class="in"><input id="Vx" type="number" step="any" value="197"><input id="Vy" type="number" step="any" value="532"></span></label>
+        <label class="fld w3"><span class="lb"><i>Ø<sub>w</sub>, s</i><span class="l-vi">Đai: đường kính, bước (mm); R<sub>sw</sub> (MPa)</span><span class="l-en">Links: diameter, spacing (mm); R<sub>sw</sub> (MPa)</span></span><span class="in"><input id="dw" type="number" step="any" value="10"><input id="sw" type="number" step="any" value="150"><input id="Rsw" type="number" step="any" value="170"></span></label>
+        <label class="fld"><span class="lb"><i>n<sub>w</sub></i><span class="l-vi">Số nhánh đai theo phương X, Y</span><span class="l-en">Link legs for X, Y</span></span><span class="in"><input id="nwx" type="number" step="1" value="2"><input id="nwy" type="number" step="1" value="4"></span></label>
+      </fieldset>
+      <button class="btn" data-reset><span class="l-vi">↺ Khôi phục ví dụ</span><span class="l-en">↺ Reset example</span></button>
+    </form>
+    <aside class="tool-res"><h3><span class="l-vi">Kết quả</span><span class="l-en">Results</span></h3><div id="res"></div></aside>
+  </div>
+
+  <div class="tool-chart"><h3><span class="l-vi">Biểu đồ tương tác N–M theo hướng mô men tổng</span><span class="l-en">N–M interaction diagram in the resultant moment direction</span></h3><div id="chart"></div>
+    <p class="legend"><span class="l-vi">Đường cong: khả năng chịu lực; chấm: nội lực tính toán (đã kể uốn dọc).</span><span class="l-en">Curve: capacity; dot: design actions (incl. slenderness).</span></p></div>
+
+  <details class="tool-detail" open><summary><span class="l-vi">Diễn giải tính toán</span><span class="l-en">Calculation steps</span></summary><div id="detail"></div></details>
+
+  <div class="tool-ref"><b><span class="l-vi">Tài liệu tham khảo</span><span class="l-en">References</span></b>
+    <ul><li>TCVN 5574:2018 — <span class="l-vi">Kết cấu bê tông và bê tông cốt thép. Tiêu chuẩn thiết kế (8.1.2, công thức 44–48, 92–96)</span><span class="l-en">Concrete and reinforced concrete structures (8.1.2, eq. 44–48, 92–96)</span>.</li></ul>
+  </div>
+  {% include tool-foot.html %}
+</section>
+<script src="/assets/js/tools/column-core.js?v={{ site.time | date: '%s' }}"></script>
+<script>
+(function(){
+  var T=TOOL, $=function(id){return document.getElementById(id);};
+  $('sec').addEventListener('change',function(){ if(this.value==='circ'){ $('a').value=39; $('d').value=18; $('conc').value='17,1.15,32500'; $('L').value=4; } else { $('a').value=35; $('d').value=20; $('conc').value='22,1.4,36000'; $('L').value=5; } });
+  function chart(pts,Md,N){
+    var W=760,H=400,l=64,r=20,t=18,b=44, mx=Math.max(Md,Math.max.apply(null,pts.map(function(p){return p[0];})))*1.1||1;
+    var nmin=Math.min(0,Math.min.apply(null,pts.map(function(p){return p[1];}))), nmax=Math.max(N,Math.max.apply(null,pts.map(function(p){return p[1];})))*1.05;
+    function X(v){return l+(W-l-r)*v/mx;} function Y(v){return t+(H-t-b)*(nmax-v)/(nmax-nmin);}
+    var s='<svg viewBox="0 0 '+W+' '+H+'" class="cap-chart" role="img">';
+    for(var i=0;i<=5;i++){ var v=mx*i/5; s+='<line x1="'+X(v)+'" y1="'+t+'" x2="'+X(v)+'" y2="'+(H-b)+'" class="grid"/><text x="'+X(v)+'" y="'+(H-b+18)+'" text-anchor="middle" class="ax">'+Math.round(v)+'</text>'; }
+    for(var j=0;j<=5;j++){ var n=nmin+(nmax-nmin)*j/5; s+='<line x1="'+l+'" y1="'+Y(n)+'" x2="'+(W-r)+'" y2="'+Y(n)+'" class="grid"/><text x="'+(l-8)+'" y="'+(Y(n)+4)+'" text-anchor="end" class="ax">'+Math.round(n)+'</text>'; }
+    s+='<text x="'+(W/2)+'" y="'+(H-6)+'" text-anchor="middle" class="ax">M (kN·m)</text><text x="14" y="'+(H/2)+'" transform="rotate(-90 14 '+(H/2)+')" text-anchor="middle" class="ax">N (kN)</text>';
+    s+='<polyline fill="none" stroke="#233c8c" stroke-width="2.6" points="'+pts.filter(function(p){return p[0]>=-1e-6;}).map(function(p){return X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1);}).join(' ')+'"/>';
+    s+='<circle cx="'+X(Md)+'" cy="'+Y(N)+'" r="6" fill="#ee5a24"/>';
+    return s+'</svg>';
+  }
+  function run(){
+    var rc=$('sec').value==='rect';
+    document.querySelectorAll('.m-r').forEach(function(e){e.style.display=rc?'':'none';});
+    document.querySelectorAll('.m-c').forEach(function(e){e.style.display=rc?'none':'';});
+    var c=$('conc').value.split(',').map(parseFloat), st=$('st').value.split(',').map(parseFloat);
+    var o=COL.column({sec:rc?'rect':'circ',b:T.val('b'),h:T.val('h'),D:T.val('D'),a:T.val('a'),nx:Math.max(2,T.val('nx')),ny:Math.max(2,T.val('ny')),n:Math.max(4,T.val('n')),d:T.val('d'),
+      Rb:c[0],Rbt:c[1],Eb:c[2],Rs:st[0],Rsc:st[1],Es:200000,N:T.val('N'),Mx:T.val('Mx'),My:T.val('My')||0,Vx:T.val('Vx'),Vy:T.val('Vy'),L:T.val('L'),mu:T.val('mu'),rL:T.val('rL'),dw:T.val('dw'),sw:T.val('sw'),nwx:T.val('nwx'),nwy:T.val('nwy'),Rsw:T.val('Rsw')});
+    var ok=true, html='';
+    function ck(vi,en,r,note){ if(!(r<=1)) ok=false; html+=T.check(vi,en,r,note); }
+    ck('Độ mảnh λ ≤ 100 (phương x)','Slenderness λ ≤ 100 (x)',o.ex.lam/100,'λ = '+T.fmt(o.ex.lam,1));
+    if(rc) ck('Độ mảnh λ ≤ 100 (phương y)','Slenderness λ ≤ 100 (y)',o.ey.lam/100,'λ = '+T.fmt(o.ey.lam,1));
+    ck('Lực dọc N ≤ N<sub>0</sub>','Axial N ≤ N<sub>0</sub>',o.rN,T.fmt(T.val('N'),0)+' / '+T.fmt(o.N0,0)+' kN');
+    ck(rc?'Nén lệch tâm xiên':'Nén lệch tâm','Biaxial eccentric compression',o.rM,T.fmt(o.Md,1)+' / '+T.fmt(o.Mcap,1)+' kN·m');
+    if(rc){ ck('Chịu cắt phương X','Shear, X',o.shx.r,T.fmt(Math.abs(T.val('Vx')),1)+' / '+T.fmt(o.shx.Q,1)+' kN'); ck('Chịu cắt phương Y','Shear, Y',o.shy.r,T.fmt(Math.abs(T.val('Vy')),1)+' / '+T.fmt(o.shy.Q,1)+' kN'); }
+    $('res').innerHTML=T.verdict(ok,(rc?'Cột ':'Cột tròn ')+(rc?T.val('b')+'×'+T.val('h'):'D'+T.val('D'))+' · μ = '+T.fmt(o.mu,2)+'%',(rc?'Column ':'Circular column ')+(rc?T.val('b')+'×'+T.val('h'):'D'+T.val('D'))+' · ρ = '+T.fmt(o.mu,2)+'%')+
+      '<div class="kpis"><div><small>η<sub>x</sub>'+(rc?', η<sub>y</sub>':'')+'</small><b>'+T.fmt(o.ex.eta,3)+(rc?', '+T.fmt(o.ey.eta,3):'')+'</b></div><div><small>M<sub>tt</sub> (kN·m)</small><b>'+T.fmt(o.Md,1)+'</b></div><div><small>M<sub>u</sub> (kN·m)</small><b>'+T.fmt(o.Mcap,1)+'</b></div></div>'+html;
+    $('chart').innerHTML=chart(o.curve,o.Md,T.val('N'));
+    function ax(e,name){ return [
+      T.row('e<sub>a</sub>, e<sub>0</sub>','Phương '+name+': độ lệch tâm ngẫu nhiên; ban đầu','Axis '+name+': accidental; initial eccentricity',T.fmt(name==='x'?o.eax:o.eay,1)+'; '+T.fmt(e.e0,1),'mm'),
+      T.row('λ, δ<sub>e</sub>, φ<sub>L</sub>','= L<sub>0</sub>/i; e<sub>0</sub>/h ∈ [0,15; 1,5]; 1 + M<sub>L1</sub>/M<sub>1</sub>','= L<sub>0</sub>/i; e<sub>0</sub>/h ∈ [0.15; 1.5]; 1 + M<sub>L1</sub>/M<sub>1</sub>',T.fmt(e.lam,1)+'; '+T.fmt(e.de,3)+'; '+T.fmt(e.phiL,2),''),
+      T.row('I<sub>s</sub>, D','Mô men quán tính cốt thép; độ cứng','Steel second moment; stiffness',T.fmt(e.Is/1e4,0)+' cm⁴; '+T.fmt(e.D/1e9,0)+' kN·m²',''),
+      T.row('N<sub>cr</sub>, η','= π²D/L<sub>0</sub>²; 1/(1 − N/N<sub>cr</sub>) (η = 1 khi λ ≤ 14)','= π²D/L<sub>0</sub>²; 1/(1 − N/N<sub>cr</sub>) (η = 1 for λ ≤ 14)',T.fmt(e.Ncr/1e3,0)+' kN; '+T.fmt(e.eta,4),'')]; }
+    var rows=ax(o.ex,'x'); if(rc) rows=rows.concat(ax(o.ey,'y'));
+    rows.push(T.row('M<sub>x</sub>, M<sub>y</sub>','Mô men tính toán N·e<sub>0</sub>·η','Design moments N·e<sub>0</sub>·η',T.fmt(o.Mdx,1)+'; '+T.fmt(o.Mdy,1),'kN·m'));
+    if(rc) rows.push(T.row('M<sub>ux</sub>, M<sub>uy</sub>','Khả năng chịu uốn từng phương tại N (tham khảo)','Uniaxial capacities at N (for reference)',T.fmt(o.Mux,1)+'; '+T.fmt(o.Muy,1),'kN·m'));
+    rows.push(T.row('A<sub>s</sub>, μ','Tổng diện tích thép dọc; hàm lượng','Total steel; ratio',T.fmt(o.As,0)+' mm²; '+T.fmt(o.mu,2)+'%',''));
+    if(rc){ rows.push(T.row('Q<sub>b</sub>, Q<sub>sw</sub> (X)','= 0,5R<sub>bt</sub>bh<sub>0</sub>; q<sub>sw</sub>h<sub>0</sub>','= 0.5R<sub>bt</sub>bh<sub>0</sub>; q<sub>sw</sub>h<sub>0</sub>',T.fmt(o.shx.Qb,1)+'; '+T.fmt(o.shx.Qs,1),'kN')); rows.push(T.row('Q<sub>b</sub>, Q<sub>sw</sub> (Y)','= 0,5R<sub>bt</sub>bh<sub>0</sub>; q<sub>sw</sub>h<sub>0</sub>','= 0.5R<sub>bt</sub>bh<sub>0</sub>; q<sub>sw</sub>h<sub>0</sub>',T.fmt(o.shy.Qb,1)+'; '+T.fmt(o.shy.Qs,1),'kN')); }
+    $('detail').innerHTML=T.table(rows)+'<p class="small">'+T.bi('M<sub>x</sub> (M3) gây nén theo cạnh C<sub>y</sub>; M<sub>y</sub> (M2) gây nén theo cạnh C<sub>x</sub>. Kết quả mô hình thớ thường thấp hơn phương pháp nội lực giới hạn một mặt khoảng 3–5% do trừ phần bê tông bị thép chiếm chỗ.','M<sub>x</sub> (M3) compresses along C<sub>y</sub>; M<sub>y</sub> (M2) along C<sub>x</sub>. The fibre model is typically 3–5% below the single-face limit-force method because displaced concrete is deducted.')+'</p>';
+  }
+  T.bind('f',run);
+})();
+</script>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Be Vietnam Pro,Segoe UI,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d2a5b"/></marker></defs>
+<rect width="760" height="420" fill="#fff"/>
+<rect x="60" y="40" width="200" height="330" fill="#9aa7c4" opacity=".55" stroke="#1d2a5b" stroke-width="2"/><rect x="74" y="54" width="172" height="302" fill="none" stroke="#1d2a5b" stroke-width="2" rx="6"/>
+<circle cx="90" cy="338" r="10" fill="#ee5a24"/>
+<circle cx="160" cy="338" r="10" fill="#ee5a24"/>
+<circle cx="230" cy="338" r="10" fill="#ee5a24"/>
+<circle cx="160" cy="304" r="10" fill="#ee5a24"/>
+<circle cx="90" cy="72" r="10" fill="#3b56a8"/>
+<circle cx="230" cy="72" r="10" fill="#3b56a8"/>
+<path d="M60 395H260" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="160" y="412" font-size="13" text-anchor="middle" fill="#1d2a5b">b</text>
+<path d="M36 40V370" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="28" y="210" font-size="13" text-anchor="end" fill="#1d2a5b">h</text>
+<path d="M330 40V370" stroke="#1d2a5b" stroke-width="1.5"/><rect x="330" y="40" width="60" height="70" fill="#ee5a24" opacity=".3" stroke="#ee5a24"/><text x="400" y="80" font-size="13" fill="#ee5a24" font-weight="700">R<tspan font-size="10" dy="3">b</tspan></text>
+<path d="M330 330H440" stroke="#1d2a5b" stroke-width="3"/><text x="448" y="334" font-size="13" fill="#1d2a5b">R<tspan font-size="10" dy="3">s</tspan>A<tspan font-size="10" dy="3">s</tspan></text>
+<path d="M322 40V110" stroke="#1d2a5b" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="316" y="80" font-size="13" text-anchor="end" fill="#1d2a5b">x</text>
+<rect x="500" y="120" width="230" height="160" fill="#9aa7c4" opacity=".45" stroke="#1d2a5b"/>
+<path d="M515 128V272" stroke="#3b56a8" stroke-width="2.5"/>
+<path d="M548 128V272" stroke="#3b56a8" stroke-width="2.5"/>
+<path d="M581 128V272" stroke="#3b56a8" stroke-width="2.5"/>
+<path d="M614 128V272" stroke="#3b56a8" stroke-width="2.5"/>
+<path d="M647 128V272" stroke="#3b56a8" stroke-width="2.5"/>
+<path d="M680 128V272" stroke="#3b56a8" stroke-width="2.5"/>
+<path d="M713 128V272" stroke="#3b56a8" stroke-width="2.5"/>
+<path d="M540 272Q610 220 670 128" fill="none" stroke="#ee5a24" stroke-width="3" stroke-dasharray="7 4"/>
+<text x="615" y="305" font-size="12" text-anchor="middle" fill="#1d2a5b">c · Q<tspan font-size="9" dy="3">b</tspan><tspan dy="-3"> + Q</tspan><tspan font-size="9" dy="3">sw</tspan></text>
+</svg>
