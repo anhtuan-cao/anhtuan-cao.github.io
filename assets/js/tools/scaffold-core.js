@@ -79,6 +79,20 @@
     }
     return o;
   }
-  var api = { isec: isec, parseI: parseI, loads: loads, outrigger: outrigger, psiCant: psiCant };
+
+  // Dầm góc: gối B (mép), gối A; tải P tại L1, P/2 tại L2 ngoài gối B; P tại L4 ngoài gối A
+  function psiPt(a) { return a <= 40 ? 1.75 + 0.09 * a : 3.3 + 0.053 * a - 4.5e-5 * a * a; }
+  function corner(p) {
+    var s = p.s, P = p.P;
+    var RB = P * (p.L1 + p.L2 / 2 + 1.5 * p.L3 - p.L4) / p.L3, RA = 2.5 * P - RB;
+    var MB = P * p.L1 + P / 2 * p.L2, MA = P * p.L4, M = Math.max(Math.abs(MB), Math.abs(MA));
+    var V = Math.max(1.5 * P, Math.abs(1.5 * P - RB), P);
+    var rM = M / (s.Wx * p.f * p.gc), rV = V * s.Sx / (s.Jx * s.tw * 0.58 * p.f * p.gc);
+    var alpha = 1.54 * s.It / s.Jy * Math.pow(p.Lg / s.h, 2), psi = psiPt(alpha);
+    var phi1 = psi * s.Jy / s.Jx * Math.pow(s.h / p.Lg, 2) * p.E / p.f, phib = phi1 <= 0.85 ? phi1 : Math.min(1, 0.68 + 0.21 * phi1);
+    var rL = M / (phib * s.Wx * p.f * p.gc), Nb = RB / p.nb, Ntb = p.ftb * p.Abn * p.gb;
+    return { RA: RA, RB: RB, MB: MB, MA: MA, M: M, V: V, rM: rM, rV: rV, alpha: alpha, psi: psi, phi1: phi1, phib: phib, rL: rL, Nb: Nb, Ntb: Ntb, rB: Nb / Ntb };
+  }
+  var api = { corner: corner, psiPt: psiPt, isec: isec, parseI: parseI, loads: loads, outrigger: outrigger, psiCant: psiCant };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.SCAF = api;
 })(this);

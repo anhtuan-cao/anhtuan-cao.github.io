@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "Sức chịu tải cọc khoan nhồi theo TCVN 10304:2014"
-title_vi: "Sức chịu tải cọc khoan nhồi"
-title_en: "Bored pile bearing capacity"
+title: "Sức chịu tải cọc khoan nhồi và kingpost theo TCVN 10304:2014"
+title_vi: "Sức chịu tải cọc khoan nhồi, kingpost"
+title_en: "Bored pile & kingpost capacity"
 kicker_vi: "Công cụ tính online · Móng cọc"
 kicker_en: "Online calculator · Pile foundations"
-lead_vi: "Sức chịu tải theo vật liệu và theo đất nền (công thức Nhật Bản, Meyerhof, chỉ tiêu cường độ — Phụ lục G, TCVN 10304:2014), kèm biểu đồ sức chịu tải theo chiều sâu để chọn cao độ mũi cọc."
-lead_en: "Structural capacity and geotechnical capacity (Japanese formula, Meyerhof, strength parameters — Annex G, TCVN 10304:2014), with a capacity-versus-depth chart to choose the pile toe level."
-description: "Công cụ tính online sức chịu tải cọc khoan nhồi theo TCVN 10304:2014 với biểu đồ theo chiều sâu."
+lead_vi: "Cọc khoan nhồi BTCT hoặc kingpost thép hình H: sức chịu tải theo vật liệu và theo đất nền (công thức Nhật Bản, Meyerhof, chỉ tiêu cường độ — Phụ lục G, TCVN 10304:2014), kèm biểu đồ sức chịu tải theo chiều sâu để chọn cao độ mũi cọc."
+lead_en: "Bored RC piles or H-section steel kingposts: structural capacity and geotechnical capacity (Japanese formula, Meyerhof, strength parameters — Annex G, TCVN 10304:2014), with a capacity-versus-depth chart to choose the pile toe level."
+description: "Công cụ tính online sức chịu tải cọc khoan nhồi và kingpost thép hình theo TCVN 10304:2014 với biểu đồ theo chiều sâu."
 body_class: tool-page
 ---
 <section class="wrap tool">
@@ -23,7 +23,8 @@ body_class: tool-page
   <div class="tool-grid wide-form">
     <form id="f" class="tool-form" onsubmit="return false">
       <fieldset><legend><span class="l-vi">Cọc &amp; cao độ</span><span class="l-en">Pile &amp; levels</span></legend>
-        <label class="fld"><span class="lb"><i>D</i><span class="l-vi">Đường kính cọc</span><span class="l-en">Pile diameter</span></span><span class="in"><input id="D" type="number" step="any" value="0.8"><em>m</em></span></label>
+        <label class="fld"><span class="lb"><i>–</i><span class="l-vi">Loại cọc</span><span class="l-en">Pile type</span></span><span class="in"><select id="kind"><option value="bored" selected>Khoan nhồi · Bored</option><option value="king">Kingpost H</option></select></span></label>
+        <label class="fld m-b"><span class="lb"><i>D</i><span class="l-vi">Đường kính cọc</span><span class="l-en">Pile diameter</span></span><span class="in"><input id="D" type="number" step="any" value="0.8"><em>m</em></span></label>
         <label class="fld"><span class="lb"><i>z<sub>h</sub></i><span class="l-vi">Độ sâu đầu cọc</span><span class="l-en">Pile head depth</span></span><span class="in"><input id="zH" type="number" step="any" value="12.45"><em>m</em></span></label>
         <label class="fld"><span class="lb"><i>z<sub>e</sub></i><span class="l-vi">Độ sâu đáy hố đào (ứng suất tính từ đây)</span><span class="l-en">Excavation base depth (stress starts here)</span></span><span class="in"><input id="zE" type="number" step="any" value="12.45"><em>m</em></span></label>
         <label class="fld"><span class="lb"><i>z<sub>t</sub></i><span class="l-vi">Độ sâu mũi cọc</span><span class="l-en">Pile toe depth</span></span><span class="in"><input id="zT" type="number" step="any" value="45"><em>m</em></span></label>
@@ -67,12 +68,21 @@ body_class: tool-page
 60 43</textarea>
         <p class="small"><span class="l-vi">Mỗi dòng một cặp “độ sâu N”, có thể dán trực tiếp hai cột từ Excel. N lớn hơn 50 được lấy bằng 50.</span><span class="l-en">One “depth N” pair per line — you can paste two columns straight from Excel. N above 50 is capped at 50.</span></p>
       </fieldset>
+      <fieldset class="m-k"><legend><span class="l-vi">Tiết diện kingpost</span><span class="l-en">Kingpost section</span></legend>
+        <label class="fld"><span class="lb"><i>h×b</i><span class="l-vi">Chiều cao × bề rộng cánh</span><span class="l-en">Depth × flange width</span></span><span class="in"><input id="kh" type="number" step="any" value="350"><em>×</em><input id="kb" type="number" step="any" value="350"></span></label>
+        <label class="fld"><span class="lb"><i>t<sub>w</sub>×t<sub>f</sub></i><span class="l-vi">Dày bụng × dày cánh (mm)</span><span class="l-en">Web × flange thickness (mm)</span></span><span class="in"><input id="ktw" type="number" step="any" value="12"><em>×</em><input id="ktf" type="number" step="any" value="19"></span></label>
+        <label class="fld"><span class="lb"><i>A<sub>b</sub></i><span class="l-vi">Diện tích mũi dùng tính q<sub>b</sub></span><span class="l-en">Tip area for q<sub>b</sub></span></span><span class="in"><select id="ktip"><option value="s" selected>Tiết diện thép · Steel area</option><option value="p">Bịt kín b×h · Plugged b×h</option></select></span></label>
+        <p class="small"><span class="l-vi">Chu vi tiếp xúc u = 4b + 2h − 2t<sub>w</sub>. Mặc định lấy diện tích mũi bằng tiết diện thép (không kể nút đất, thiên về an toàn).</span><span class="l-en">Contact perimeter u = 4b + 2h − 2t<sub>w</sub>. By default the tip area is the steel area (no soil plug, conservative).</span></p>
+      </fieldset>
       <fieldset><legend><span class="l-vi">Vật liệu cọc</span><span class="l-en">Pile material</span></legend>
-        <label class="fld"><span class="lb"><i>R<sub>b</sub></i><span class="l-vi">Cấp bê tông</span><span class="l-en">Concrete class</span></span><span class="in"><select id="cls"><option value="14.5|30000">B25</option><option value="17|32500" selected>B30</option><option value="19.5|34500">B35</option><option value="22|36000">B40</option></select></span></label>
-        <label class="fld"><span class="lb"><i>n</i><span class="l-vi">Số thanh thép dọc</span><span class="l-en">Number of main bars</span></span><span class="in"><input id="nb" type="number" step="1" value="8"><em>–</em></span></label>
-        <label class="fld"><span class="lb"><i>Φ</i><span class="l-vi">Đường kính thép dọc</span><span class="l-en">Bar diameter</span></span><span class="in"><input id="db" type="number" step="any" value="18"><em>mm</em></span></label>
-        <label class="fld"><span class="lb"><i>R<sub>sc</sub></i><span class="l-vi">Cường độ chịu nén thép</span><span class="l-en">Steel compressive strength</span></span><span class="in"><select id="rsc"><option value="260">CB300-V</option><option value="350">CB400-V</option><option value="435" selected>CB500-V</option></select><em>MPa</em></span></label>
-        <label class="fld"><span class="lb"><i>γ<sub>cb</sub>·γ′<sub>cb</sub></i><span class="l-vi">Hệ số làm việc × thi công</span><span class="l-en">Working × method factors</span></span><span class="in"><input id="g1" type="number" step="any" value="0.85"><em>×</em><input id="g2" type="number" step="any" value="0.7"></span></label>
+        <label class="fld m-b"><span class="lb"><i>R<sub>b</sub></i><span class="l-vi">Cấp bê tông</span><span class="l-en">Concrete class</span></span><span class="in"><select id="cls"><option value="14.5|30000">B25</option><option value="17|32500" selected>B30</option><option value="19.5|34500">B35</option><option value="22|36000">B40</option></select></span></label>
+        <label class="fld m-b"><span class="lb"><i>n</i><span class="l-vi">Số thanh thép dọc</span><span class="l-en">Number of main bars</span></span><span class="in"><input id="nb" type="number" step="1" value="8"><em>–</em></span></label>
+        <label class="fld m-b"><span class="lb"><i>Φ</i><span class="l-vi">Đường kính thép dọc</span><span class="l-en">Bar diameter</span></span><span class="in"><input id="db" type="number" step="any" value="18"><em>mm</em></span></label>
+        <label class="fld m-b"><span class="lb"><i>R<sub>sc</sub></i><span class="l-vi">Cường độ chịu nén thép</span><span class="l-en">Steel compressive strength</span></span><span class="in"><select id="rsc"><option value="260">CB300-V</option><option value="350">CB400-V</option><option value="435" selected>CB500-V</option></select><em>MPa</em></span></label>
+        <label class="fld m-b"><span class="lb"><i>γ<sub>cb</sub>·γ′<sub>cb</sub></i><span class="l-vi">Hệ số làm việc × thi công</span><span class="l-en">Working × method factors</span></span><span class="in"><input id="g1" type="number" step="any" value="0.85"><em>×</em><input id="g2" type="number" step="any" value="0.7"></span></label>
+        <label class="fld m-k"><span class="lb"><i>f</i><span class="l-vi">Cường độ tính toán thép (SS400, t ≤ 20: 221,7)</span><span class="l-en">Steel design strength (SS400, t ≤ 20: 221.7)</span></span><span class="in"><input id="kf" type="number" step="any" value="221.7"><em>MPa</em></span></label>
+        <label class="fld m-k"><span class="lb"><i>E</i><span class="l-vi">Mô đun đàn hồi thép</span><span class="l-en">Steel elastic modulus</span></span><span class="in"><input id="kE" type="number" step="any" value="200000"><em>MPa</em></span></label>
+        <label class="fld m-k"><span class="lb"><i>γ<sub>cb</sub>·γ′<sub>cb</sub></i><span class="l-vi">Hệ số làm việc × thi công</span><span class="l-en">Working × method factors</span></span><span class="in"><input id="kg1" type="number" step="any" value="0.9"><em>×</em><input id="kg2" type="number" step="any" value="1"></span></label>
         <label class="fld"><span class="lb"><i>k</i><span class="l-vi">Hệ số tỷ lệ của đất quanh cọc (Bảng A.1)</span><span class="l-en">Soil proportionality coefficient (Table A.1)</span></span><span class="in"><input id="kk" type="number" step="any" value="500"><em>kN/m⁴</em></span></label>
         <label class="fld"><span class="lb"><i>l<sub>0</sub></i><span class="l-vi">Đoạn cọc tự do phía trên</span><span class="l-en">Free length above ground</span></span><span class="in"><input id="l0" type="number" step="any" value="10"><em>m</em></span></label>
       </fieldset>
@@ -137,14 +147,23 @@ body_class: tool-page
     s+='</svg><div class="legend"><span><i style="background:#233c8c"></i>'+T.bi('Nhật Bản','Japanese')+'</span><span><i style="background:#ee5a24"></i>Meyerhof</span><span><i style="background:#1f9d55"></i>'+T.bi('Chỉ tiêu cường độ','Strength parameters')+'</span></div>';
     return s;
   }
+  var kindSel=document.getElementById('kind');
+  kindSel.addEventListener('change',function(){ var k=kindSel.value==='king';
+    document.getElementById('zH').value=k?0:12.45; document.getElementById('zT').value=k?30:45; document.getElementById('l0').value=k?0:10; });
   function run(){
+    var isK=kindSel.value==='king';
+    document.querySelectorAll('.m-b').forEach(function(e){e.style.display=isK?'none':'';});
+    document.querySelectorAll('.m-k').forEach(function(e){e.style.display=isK?'':'none';});
     var D=T.val('D'),zH=T.val('zH'),zE=T.val('zE'),zT=T.val('zT'),zW=T.val('zW');
     var L=layers(), S=spt();
     if(!L.length||S.length<2){ document.getElementById('res').innerHTML='<p class="warn">'+T.bi('Cần ít nhất 1 lớp đất và 2 điểm SPT.','At least one soil layer and two SPT points are required.')+'</p>'; return; }
-    var o=PILE.profile({D:D,zHead:zH,zExc:zE,gwl:zW,layers:L,spt:S,zTip:zT});
+    var ks=null, plug=document.getElementById('ktip').value==='p';
+    if(isK){ ks=PILE.hsec(T.val('kh'),T.val('kb'),T.val('ktw'),T.val('ktf')); D=T.val('kb')/1000; }
+    var o=PILE.profile(isK?{D:D,zHead:zH,zExc:zE,gwl:zW,layers:L,spt:S,zTip:zT,kind:'driven',A:plug?ks.Ap:ks.A,u:ks.u}:{D:D,zHead:zH,zExc:zE,gwl:zW,layers:L,spt:S,zTip:zT});
     var at=o.tip;
     var cls=document.getElementById('cls').value.split('|');
-    var m=PILE.material({D:D,Rb:+cls[0],Eb:+cls[1],nb:T.val('nb'),db:T.val('db'),Rsc:+document.getElementById('rsc').value,gcb:T.val('g1'),gcb2:T.val('g2'),k:T.val('kk'),gc:3,l0:T.val('l0')});
+    var m=isK?PILE.steel({sec:ks,b:D,f:T.val('kf'),E:T.val('kE'),gcb:T.val('kg1'),gcb2:T.val('kg2'),k:T.val('kk'),gc:3,l0:T.val('l0')})
+      :PILE.material({D:D,Rb:+cls[0],Eb:+cls[1],nb:T.val('nb'),db:T.val('db'),Rsc:+document.getElementById('rsc').value,gcb:T.val('g1'),gcb2:T.val('g2'),k:T.val('kk'),gc:3,l0:T.val('l0')});
     var gov=document.getElementById('gov').value, gk=T.val('gk'),g0=T.val('g0'),gn=T.val('gn');
     var warn='';
     if(!at||zT<=Math.max(zH,zE)){ document.getElementById('res').innerHTML='<p class="warn">'+T.bi('Mũi cọc nằm ngoài phạm vi số liệu SPT / lớp đất.','Toe depth is outside the SPT / soil data range.')+'</p>'; return; }
@@ -154,7 +173,7 @@ body_class: tool-page
     document.getElementById('res').innerHTML=
       '<div class="bigres"><small>'+T.bi('Sức chịu tải thiết kế R<sub>tk</sub>','Design capacity R<sub>tk</sub>')+'</small><b>'+T.fmt(Rtk,0)+' kN</b><span>'+(m.R<=Rs?T.bi('Khống chế bởi vật liệu cọc','Governed by pile material'):T.bi('Khống chế bởi đất nền','Governed by ground'))+' · ≈ '+T.fmt(Rtk/9.81,0)+' T</span></div>'+
       '<table class="calc-tbl res-tbl"><tbody>'+
-      T.row('R<sub>vl</sub>','Theo vật liệu','Structural',m.R,'kN',0)+
+      T.row('R<sub>vl</sub>','Theo vật liệu','Structural',m.R,'kN',0)+(isK?T.row('R<sub>m,k</sub>','= f·A<sub>b</sub> (không uốn dọc)','= f·A<sub>b</sub> (no buckling)',m.Rk,'kN',0):'')+
       T.row('R<sub>c,u</sub>','Nhật Bản','Japanese',at.J.R,'kN',0)+
       T.row('R<sub>c,u</sub>','Meyerhof','Meyerhof',at.M.R,'kN',0)+
       T.row('R<sub>c,u</sub>','Chỉ tiêu cường độ','Strength parameters',at.S.R,'kN',0)+
@@ -163,21 +182,35 @@ body_class: tool-page
       '</tbody></table><p class="small">'+T.bi('R<sub>c,k</sub> lấy theo: ','R<sub>c,k</sub> taken from: ')+gName+'</p>'+warn;
     document.getElementById('chart').innerHTML=chart(o.rows,zT,Rtk);
     var li=L[at.layer];
-    document.getElementById('detail').innerHTML=
-      '<h4>'+T.bi('1. Sức chịu tải theo vật liệu (7.1.15)','1. Structural capacity (7.1.15)')+'</h4>'+T.table([
+    var mat=isK? '<h4>'+T.bi('1. Sức chịu tải theo vật liệu thép (TCVN 10304:2014 Phụ lục A; TCVN 5575:2012)','1. Steel structural capacity (TCVN 10304:2014 Annex A; TCVN 5575:2012)')+'</h4>'+T.table([
+        T.row('A<sub>b</sub>, I<sub>x</sub>','Diện tích, mô men quán tính trục khỏe','Area, strong-axis inertia',T.fmt(ks.A*1e4,2)+' cm²; '+T.fmt(ks.Ix*1e8,0)+' cm⁴',''),
+        T.row('u, A<sub>mũi</sub>','Chu vi tiếp xúc; diện tích mũi dùng tính','Contact perimeter; tip area used',T.fmt(ks.u,3)+' m; '+T.fmt(plug?ks.Ap:ks.A,4)+' m²',''),
+        T.row('b<sub>p</sub>','= 1,5b + 0,5 (b &lt; 0,8 m)','= 1.5b + 0.5 (b &lt; 0.8 m)',m.bp,'m',3),
+        T.row('α<sub>ε</sub>','= ⁵√(k·b<sub>p</sub>/(γ<sub>c</sub>EI<sub>x</sub>)), γ<sub>c</sub> = 3','= ⁵√(k·b<sub>p</sub>/(γ<sub>c</sub>EI<sub>x</sub>)), γ<sub>c</sub> = 3',m.ae,'1/m',4),
+        T.row('l<sub>1</sub>','= l<sub>0</sub> + 2/α<sub>ε</sub>','= l<sub>0</sub> + 2/α<sub>ε</sub>',m.l1,'m',3),
+        T.row('λ, λ̄','= l<sub>1</sub>/r<sub>min</sub>; λ̄ = λ√(f/E)','= l<sub>1</sub>/r<sub>min</sub>; λ̄ = λ√(f/E)',T.fmt(m.lam,2)+'; '+T.fmt(m.lb,3),''),
+        T.row('φ','Hệ số uốn dọc (TCVN 5575:2012)','Buckling factor (TCVN 5575:2012)',m.phi,'',4),
+        T.row('R<sub>vl</sub>','= φ·γ<sub>cb</sub>γ′<sub>cb</sub>·f·A<sub>b</sub>','= φ·γ<sub>cb</sub>γ′<sub>cb</sub>·f·A<sub>b</sub>',m.R,'kN',1)])
+      : '<h4>'+T.bi('1. Sức chịu tải theo vật liệu (7.1.15)','1. Structural capacity (7.1.15)')+'</h4>'+T.table([
         T.row('A<sub>b</sub>, A<sub>s</sub>','Diện tích bê tông, cốt thép','Concrete and steel area',T.fmt(m.A,4)+' m²; '+T.fmt(m.As*1e6,0)+' mm²',''),
         T.row('b<sub>p</sub>','Chiều rộng quy ước (d ≥ 0,8 m: d + 1; d &lt; 0,8 m: 1,5d + 0,5)','Conventional width (d ≥ 0.8 m: d + 1; d &lt; 0.8 m: 1.5d + 0.5)',m.bp,'m',2),
         T.row('α<sub>ε</sub>','= ⁵√(k·b<sub>p</sub>/(γ<sub>c</sub>EI)), γ<sub>c</sub> = 3','= ⁵√(k·b<sub>p</sub>/(γ<sub>c</sub>EI)), γ<sub>c</sub> = 3',m.ae,'1/m',4),
         T.row('l<sub>1</sub>','= l<sub>0</sub> + 2/α<sub>ε</sub>','= l<sub>0</sub> + 2/α<sub>ε</sub>',m.l1,'m',2),
         T.row('λ','= l<sub>1</sub>/r','= l<sub>1</sub>/r',m.lam,'',2),
         T.row('φ','λ ≤ 28: 1; λ &gt; 28: 1,028 − 0,0000288λ² − 0,0016λ','λ ≤ 28: 1; λ &gt; 28: 1.028 − 0.0000288λ² − 0.0016λ',m.phi,'',4),
-        T.row('R<sub>vl</sub>','= φ(γ<sub>cb</sub>γ′<sub>cb</sub>R<sub>b</sub>A<sub>b</sub> + R<sub>sc</sub>A<sub>s</sub>)','= φ(γ<sub>cb</sub>γ′<sub>cb</sub>R<sub>b</sub>A<sub>b</sub> + R<sub>sc</sub>A<sub>s</sub>)',m.R,'kN',1)])+
+        T.row('R<sub>vl</sub>','= φ(γ<sub>cb</sub>γ′<sub>cb</sub>R<sub>b</sub>A<sub>b</sub> + R<sub>sc</sub>A<sub>s</sub>)','= φ(γ<sub>cb</sub>γ′<sub>cb</sub>R<sub>b</sub>A<sub>b</sub> + R<sub>sc</sub>A<sub>s</sub>)',m.R,'kN',1)]);
+    var qbJ=li.type==='R'?(isK?'q<sub>b</sub> = 300N<sub>p</sub>':'q<sub>b</sub> = 150N<sub>p</sub>'):(isK?'q<sub>b</sub> = 9c<sub>u</sub>':'q<sub>b</sub> = 6c<sub>u</sub>');
+    var qbM=li.type==='R'?(isK?'q<sub>b</sub> = min(40z/b; 400)·N<sub>p</sub>':'q<sub>b</sub> = 120N<sub>p</sub>'):(isK?'q<sub>b</sub> = 9c<sub>u</sub>':'q<sub>b</sub> = 6c<sub>u</sub>');
+    var qbS=li.type==='R'?'q<sub>b</sub> = σ′<sub>v,p</sub>N′<sub>q</sub>':(isK?'q<sub>b</sub> = 9c<sub>u</sub>':'q<sub>b</sub> = 6c<sub>u</sub>');
+    var fsM=isK?'f<sub>s</sub> = 2N':'f<sub>s</sub> = 1·N';
+    document.getElementById('detail').innerHTML=mat+
       '<h4>'+T.bi('2. Sức chịu tải theo đất nền tại mũi z = ','2. Geotechnical capacity at toe z = ')+T.fmt(at.z,2)+' m ('+(li.type==='R'?T.bi('đất rời','granular'):T.bi('đất dính','cohesive'))+')</h4>'+T.table([
         T.row('N<sub>p</sub>','SPT trung bình từ 4D trên đến 1D dưới mũi','Mean SPT from 4D above to 1D below the toe',at.Np,'',1),
         T.row('σ′<sub>v</sub>','Ứng suất hữu hiệu tại mũi (tính từ đáy đào)','Effective stress at toe (from excavation base)',at.sv,'kPa',1),
-        T.row('Nhật','q<sub>b</sub>A<sub>b</sub> + ma sát · '+(li.type==='R'?'q<sub>b</sub> = 150N<sub>p</sub>':'q<sub>b</sub> = 6c<sub>u</sub>')+'; f<sub>s</sub> = 10N/3; f<sub>c</sub> = α<sub>p</sub>f<sub>L</sub>c<sub>u</sub>','Base + shaft · '+(li.type==='R'?'q<sub>b</sub> = 150N<sub>p</sub>':'q<sub>b</sub> = 6c<sub>u</sub>')+'; f<sub>s</sub> = 10N/3; f<sub>c</sub> = α<sub>p</sub>f<sub>L</sub>c<sub>u</sub>',T.fmt(at.J.q,0)+' + '+T.fmt(at.J.f,0)+' = '+T.fmt(at.J.R,0),'kN'),
-        T.row('Meyerhof',(li.type==='R'?'q<sub>b</sub> = 120N<sub>p</sub>':'q<sub>b</sub> = 6c<sub>u</sub>')+'; f<sub>s</sub> = 1·N; f<sub>c</sub> = α<sub>p</sub>c<sub>u</sub>',(li.type==='R'?'q<sub>b</sub> = 120N<sub>p</sub>':'q<sub>b</sub> = 6c<sub>u</sub>')+'; f<sub>s</sub> = 1·N; f<sub>c</sub> = α<sub>p</sub>c<sub>u</sub>',T.fmt(at.M.q,0)+' + '+T.fmt(at.M.f,0)+' = '+T.fmt(at.M.R,0),'kN'),
-        T.row(T.bi('Cường độ','Strength'),(li.type==='R'?'q<sub>b</sub> = σ′<sub>v,p</sub>N′<sub>q</sub>':'q<sub>b</sub> = 6c<sub>u</sub>')+'; f<sub>s</sub> = k·σ′<sub>v</sub> (≤ z<sub>L</sub>); f<sub>c</sub> = α·c<sub>u</sub>',(li.type==='R'?'q<sub>b</sub> = σ′<sub>v,p</sub>N′<sub>q</sub>':'q<sub>b</sub> = 6c<sub>u</sub>')+'; f<sub>s</sub> = k·σ′<sub>v</sub> (≤ z<sub>L</sub>); f<sub>c</sub> = α·c<sub>u</sub>',T.fmt(at.S.q,0)+' + '+T.fmt(at.S.f,0)+' = '+T.fmt(at.S.R,0),'kN')])+
+        T.row('Nhật','q<sub>b</sub>A<sub>b</sub> + ma sát · '+qbJ+'; f<sub>s</sub> = 10N/3; f<sub>c</sub> = α<sub>p</sub>f<sub>L</sub>c<sub>u</sub>','Base + shaft · '+qbJ+'; f<sub>s</sub> = 10N/3; f<sub>c</sub> = α<sub>p</sub>f<sub>L</sub>c<sub>u</sub>',T.fmt(at.J.q,0)+' + '+T.fmt(at.J.f,0)+' = '+T.fmt(at.J.R,0),'kN'),
+        T.row('Meyerhof',qbM+'; '+fsM+'; f<sub>c</sub> = α<sub>p</sub>'+(isK?'f<sub>L</sub>':'')+'c<sub>u</sub>',qbM+'; '+fsM+'; f<sub>c</sub> = α<sub>p</sub>'+(isK?'f<sub>L</sub>':'')+'c<sub>u</sub>',T.fmt(at.M.q,0)+' + '+T.fmt(at.M.f,0)+' = '+T.fmt(at.M.R,0),'kN'),
+        T.row(T.bi('Cường độ','Strength'),qbS+'; f<sub>s</sub> = k·σ′<sub>v</sub> (≤ z<sub>L</sub>); f<sub>c</sub> = α·c<sub>u</sub>',qbS+'; f<sub>s</sub> = k·σ′<sub>v</sub> (≤ z<sub>L</sub>); f<sub>c</sub> = α·c<sub>u</sub>',T.fmt(at.S.q,0)+' + '+T.fmt(at.S.f,0)+' = '+T.fmt(at.S.R,0),'kN')])+
+      (isK?'<p class="small">'+T.bi('Kingpost thép hình được tính với hệ số của cọc đóng/ép (Phụ lục G): f<sub>L</sub> = 1 khi z/b ≤ 50, 0,7 khi z/b ≥ 120; đất rời: k = 0,8 / 1,0 / 1,5 và N′<sub>q</sub> = 60 / 100 / 180 cho trạng thái rời / chặt vừa / chặt; các giá trị khác như cọc khoan nhồi dưới đây. Kích thước D trong các công thức lấy bằng bề rộng cánh b.','Steel kingposts use driven-pile coefficients (Annex G): f<sub>L</sub> = 1 for z/b ≤ 50, 0.7 for z/b ≥ 120; granular soils: k = 0.8 / 1.0 / 1.5 and N′<sub>q</sub> = 60 / 100 / 180 for loose / medium / dense; other values as for bored piles below. D in the formulas is taken as the flange width b.')+'</p>':'')+
       '<p class="small">'+T.bi('Hệ số cho cọc khoan nhồi: α<sub>p</sub> theo c<sub>u</sub>/σ′<sub>v</sub> (1,0 khi ≤ 0,35; 0,5 khi ≥ 0,8), f<sub>L</sub> = 1; đất rời: k = 0,3 / 0,5 / 0,8 và N′<sub>q</sub> = 25 / 60 / 100 cho trạng thái rời / chặt vừa / chặt, độ sâu tới hạn z<sub>L</sub> = 6D / 8D / 15D tính từ nóc lớp cát; đất dính (phương pháp cường độ): α = 1 khi c<sub>u</sub> ≤ 40 kPa, 0,32 khi c<sub>u</sub> ≥ 200 kPa. Ma sát chỉ tính từ max(đầu cọc; đáy hố đào) đến mũi cọc.','Bored-pile coefficients: α<sub>p</sub> from c<sub>u</sub>/σ′<sub>v</sub> (1.0 when ≤ 0.35; 0.5 when ≥ 0.8), f<sub>L</sub> = 1; granular soils: k = 0.3 / 0.5 / 0.8 and N′<sub>q</sub> = 25 / 60 / 100 for loose / medium / dense, critical depth z<sub>L</sub> = 6D / 8D / 15D below the top of the sand; cohesive soils (strength method): α = 1 for c<sub>u</sub> ≤ 40 kPa, 0.32 for c<sub>u</sub> ≥ 200 kPa. Shaft friction is counted from max(pile head; excavation base) to the toe.')+'</p>';
   }
   T.bind('f',run);
