@@ -627,3 +627,12 @@ body.home .foot{margin-top:0}
   .svgfig svg{min-width:620px}
   .svgfig figcaption{position:sticky;left:0;max-width:calc(100vw - 58px)}
 }
+
+/* ---------- Ảnh bài Café ---------- */
+.pcard-img{display:block;width:calc(100% + 40px);max-width:none;margin:-20px -20px 14px;aspect-ratio:16/9;object-fit:cover;border-radius:11px 11px 0 0}
+.gallery.tall img{aspect-ratio:3/4}
+.gallery.square img{aspect-ratio:1/1}
+.gallery figure{margin:0}
+.season{font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin:30px 0 4px}
+.post-body .fig.wide img{border-radius:10px}
+@media (max-width:560px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery.two{grid-template-columns:1fr}}

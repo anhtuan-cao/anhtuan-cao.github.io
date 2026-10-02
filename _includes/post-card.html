@@ -1,5 +1,6 @@
 {% assign p = include.post %}{% assign c = p.categories | first %}
 <a class="pcard" href="{{ p.url }}">
+  {% if p.cover and p.topic != "culture" %}<img class="pcard-img" src="{{ p.cover }}" alt="" loading="lazy">{% endif %}
   <span class="pcard-cat cat-{{ c }}">{% include cat-label.html cat=c %}</span>
   <h3><span class="l-vi">{{ p.title }}</span><span class="l-en">{{ p.title_en | default: p.title }}</span></h3>
   {% if p.description %}<p><span class="l-vi">{{ p.description }}</span><span class="l-en">{{ p.description_en | default: p.description }}</span></p>{% endif %}

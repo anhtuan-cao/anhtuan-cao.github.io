@@ -9,8 +9,7 @@ lead_en: "Culture stories, events, books, life in Korea and Vietnam, and notes f
 lead_vi: "Câu chuyện văn hóa, sự kiện, sách hay, cuộc sống ở Hàn Quốc và Việt Nam, và ghi chép trên hành trình đến với bậc Tiến sĩ."
 subnav:
   - { id: culture, en: "Culture stories", vi: "Câu chuyện văn hóa" }
-  - { id: events, en: "Events", vi: "Sự kiện" }
-  - { id: reading, en: "Reading notes", vi: "Góc đọc" }
+  - { id: korea, en: "Life in Korea", vi: "Những năm ở Hàn Quốc" }
   - { id: journey, en: "PhD journey", vi: "Hành trình PhD" }
 ---
 {% assign all = site.categories.cafe %}
@@ -27,21 +26,28 @@ subnav:
   <div class="story-grid">{% for p in ser %}{% include story-card.html post=p %}{% endfor %}</div>
 </section>
 
+<section id="korea" class="wrap topic">
+  <h3 class="t"><span class="l-en">Life in Korea</span><span class="l-vi">Những năm ở Hàn Quốc</span></h3>
+  <p><span class="l-en">Photos and memories from my Master's years in Kunsan, 2017–2019.</span><span class="l-vi">Ảnh và kỷ niệm những năm học thạc sĩ ở Kunsan, 2017–2019.</span></p>
+  {% assign items = all | where: "topic", "korea" %}
+  <div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
+</section>
+
+{% assign items = all | where: "topic", "events" %}{% assign _n = items | size %}{% if _n > 0 %}
 <section id="events" class="wrap topic">
   <h3 class="t"><span class="l-en">Events</span><span class="l-vi">Sự kiện</span></h3>
   <p><span class="l-en">Conferences, seminars, site visits and gatherings.</span><span class="l-vi">Hội nghị, hội thảo, tham quan công trình và gặp gỡ.</span></p>
-  {% assign items = all | where: "topic", "events" %}
-  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
-  {% else %}{% include coming-soon.html text_vi="Ảnh và ghi chép từ các sự kiện." text_en="Photos and notes from events." %}{% endif %}
+  <div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
 </section>
+{% endif %}
 
+{% assign items = all | where: "topic", "reading" %}{% assign _n = items | size %}{% if _n > 0 %}
 <section id="reading" class="wrap topic">
   <h3 class="t"><span class="l-en">Reading notes</span><span class="l-vi">Góc đọc</span></h3>
   <p><span class="l-en">Books and papers worth your time.</span><span class="l-vi">Sách và bài báo đáng đọc.</span></p>
-  {% assign items = all | where: "topic", "reading" %}
-  {% assign _n = items | size %}{% if _n > 0 %}<div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
-  {% else %}{% include coming-soon.html text_vi="Ghi chép đọc sách sắp ra mắt." text_en="Reading notes coming soon." %}{% endif %}
+  <div class="pgrid">{% for p in items %}{% include post-card.html post=p %}{% endfor %}</div>
 </section>
+{% endif %}
 
 <section id="journey" class="wrap topic">
   <h3 class="t"><span class="l-en">PhD journey</span><span class="l-vi">Hành trình PhD</span></h3>
